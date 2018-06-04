@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击复制</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			input{outline: none;}
+			::selection{background: transparent;}
+		    ::-moz-selection{background: transparent; }
+		</style> 
+		<input class="string" type="text" name="" id="" value="" />
+		<input class="copybtn" type="button" name="" id="" value="点击复制" />
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var strCon = document.getElementsByClassName("string")[0];
+				var copyBtn = document.getElementsByClassName("copybtn")[0];
+				strCon.value = "https://www.baidu.com/";
+				copyBtn.addEventListener("click",function(){
+					strCon.select();  				 //选中状态；
+					document.execCommand("copy"); 	 //复制；
+//					document.execCommand("delete");  //删除；
+					alert("内容已复制！");
+				})
+			}
+		</script>
+	</body>
+</html>

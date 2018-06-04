@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>gotop</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #f1f1f1;
+			}
+			.gotop{
+				position: fixed;
+				right: 30%;
+				bottom: 10px;
+				width: 36px;
+				height: 65px;
+				background: url(img/GoTop.png) no-repeat;
+				cursor: pointer;
+				display: none;
+				z-index: 10;
+			}
+			.gotop:hover{
+				background: url(img/GoTop.png) no-repeat 0px -65px;
+			}
+			.background{
+				position: fixed;
+				top: 30%;
+				right: 0;
+				width: 700px;
+				height: 400px;
+				background: url(img/yun.png);
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 10px; height: 5000px; background:  papayawhip;"></div>
+		<span class="gotop"></span>	
+		<span class="background"></span>
+			
+		
+		
+		<script type="text/javascript">
+			var gotop = document.getElementsByClassName("gotop")[0];
+			var background = document.getElementsByClassName("background")[0];
+			var timer = null;
+			gotop.onclick = function(){
+				clearInterval(timer);
+				background.style.display = "block";
+				var h = window.pageYOffset;
+				var docH = window.innerHeight; 
+				var s = h;
+				
+				timer = setInterval(function(){
+					h-=70;
+					var y = docH * (h/s);
+					gotop.style.bottom = docH-y+"px";
+					
+					if(h<=0){
+						clearInterval(timer);
+						gotop.style.bottom = "10px";
+						gotop.style.display = "none";
+						background.style.display = "none";
+					}
+					window.scrollTo(0,h);
+				},10)
+			}
+			window.onscroll = function(){
+				var h = window.pageYOffset;
+				if(h>=30){
+					gotop.style.display = "block";
+					
+				}else{
+					gotop.style.display = "none";
+				}
+			}
+			
+		</script>
+	</body>
+</html>

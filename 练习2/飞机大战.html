@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打飞机</title>
+    <style>
+        #bg {
+            position: relative;
+            width: 530px;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            background: url("game_images/bg.png") no-repeat 0 -9399px;
+        }
+
+        #myPlane {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background:url('game_images/my_air.gif') no-repeat;
+            top: 530px;
+            left: 235px;
+            overflow: visible;
+        }
+        .enemyPlane{
+            position: absolute;
+            width: 47px;
+            height: 72px;
+            background:url("game_images/d_j_1.gif") no-repeat;
+            top: 3px;
+            left: 240px;
+            overflow: visible;
+        }
+        .bullets{
+            position: absolute;
+            width: 9px;
+            height: 37px;
+            background:url("game_images/my_ari_1.gif") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div id="bg">
+    <div id="myPlane"></div>
+    <!--<div class="enemyPlane"></div>-->
+
+</div>
+<button onclick="bgStopMove()">停止</button>
+<!--<button onclick="bgStartMove()">启动</button>-->
+
+</body>
+<script type="text/javascript" src="EnemyPlane.js"></script>
+<script type="text/javascript" src="bullets.js"></script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script>
+    bgStartMove();
+    //敌机控制
+    var enemy_controller;
+    //背景图的相关设置：
+    var bg_coordinate = -100;
+    var bg_move_controller;
+    //用户飞机的相关设置
+    var move_speed = 11;
+    var myPlane_style_left = initialDOMPosition("myPlane","left");
+    var myPlane_style_top = initialDOMPosition("myPlane","top");
+
+    function bgMove() {
+        if (bg_coordinate > -1) {
+            bg_coordinate = -9399;
+        }
+        bg_coordinate += 1;
+        document.getElementById("bg").setAttribute("style", "background: red url('game_images/bg.png') no-repeat 0 " + bg_coordinate + "px;")
+    }
+    function bgStartMove() {
+        bg_move_controller = setInterval(bgMove, 30);
+    }
+    function bgStopMove() {
+        clearInterval(bg_move_controller);
+    }
+    function initialDOMPosition(DOMId,leftOrTop) {
+        var myDiv = document.getElementById(DOMId);
+        //获取指定DOM的style:
+        var myPlaneStyle = document.defaultView.getComputedStyle(myDiv, null);
+        var Position;
+        if (leftOrTop == "left") {
+            Position = myPlaneStyle.left;
+        }
+        else if (leftOrTop == "top") {
+            Position = myPlaneStyle.top;
+        }
+        Position = Position.substring(0, Position.length - 2);
+        Position = parseInt(Position);//将字符串转化为整型；
+        return Position;
+    }
+    function shoot(){
+        var planeLeft = initialDOMPosition("myPlane","left");
+        var planeTop = initialDOMPosition("myPlane","top");
+        var myBullet = new bullets(planeLeft,planeTop);
+    }
+
+    document.onkeydown = function () {
+        var key = event.keyCode;
+        switch (key) {
+            case 32://发子弹
+                shoot();
+                break;
+            case 38://上
+                myPlaneMoveTop();
+                break;
+            case 40://下
+                myPlaneMoveDown();
+                break;
+            case 37://左
+                myPlaneMoveLeft();
+                break;
+            case 39://右
+                myPlayMoveRight();
+                break;
+        }
+        //方向键：上：38；下：40；左：37；右：39；
+        //空格：32
+
+    };
+    function myPlaneMoveDown(){
+        if(myPlane_style_top < 540){
+            myPlane_style_top += move_speed;
+            document.getElementById("myPlane").setAttribute("style","top:"+myPlane_style_top+"px;left:"+myPlane_style_left+"px;");
+        }
+    }
+    function myPlaneMoveTop(){
+        if(myPlane_style_top > 3){
+            myPlane_style_top -= move_speed;
+            document.getElementById("myPlane").setAttribute("style","top:"+myPlane_style_top+"px;left:"+myPlane_style_left+"px;");
+        }
+    }
+    function myPlaneMoveLeft() {
+        //向左移动不能超过bg的边界；
+        if (myPlane_style_left > 1) {
+            myPlane_style_left -= move_speed;
+            document.getElementById("myPlane").setAttribute("style", "left:" + myPlane_style_left + "px;top:"+myPlane_style_top+"px;");
+        }
+    }
+    function myPlayMoveRight() {
+        //向左移动不能超过bg的边界；
+        //相对于图片左边的坐标，所以坐标是：530 - 60；
+        if (myPlane_style_left < 470) {
+            myPlane_style_left += move_speed;
+            document.getElementById("myPlane").setAttribute("style", "left:" + myPlane_style_left + "px;top:"+myPlane_style_top+"px;");
+        }
+    }
+
+    //敌机的自动调用
+    enemy_controller = setInterval(springEnemy,3000);
+    function springEnemy(){
+        var count = parseInt((Math.random() * 10)/2);
+        for (var i=0;i<count;i++){
+            var enemy = new EnemyPlane();
+        }
+    }
+</script>
+</html>
+
+index控制HTML：
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><style type="text/css">
+    #bg{
+        background-color: blueviolet;width: 500px; height: 500px;border: red 1px solid;
+
+    }
+    #m{border:rebeccapurple 1px solid;background-color: red;width: 50px; height: 50px;}
+</style>
+<div id="bg">
+    <div id="m"></div>
+</div>
+<div id="send"></div>
+<input type="button" value="开始"  onclick="startinterval()">
+<input type="button" value="结束"  onclick="closeinterval()">
+
+<script type="text/javascript">
+//    document.onkeydown =function (){
+//        var ke=event.keyCode;
+//        alert(ke);
+//    }
+var  i=0;
+var top_1=0;
+var endsetinterval;
+    function getid()
+{
+//    i+=1document.getElementById("send"
+top_1+=5;
+
+
+        document.getElementById("m").setAttribute("style","margin-top:"+top_1+"px;");
+    }
+//    setTimeout(getid,1000);
+
+function  startinterval(){
+
+    endsetinterval=setInterval(getid,1000);
+
+};
+    function  closeinterval(){
+        clearInterval(endsetinterval);
+    }
+</script>
+</body>
+</html>

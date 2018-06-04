@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var URL1 = window.location.protocol; //协议；比如http：
+			var URL2 = window.location.href;
+			URL2 = URL2.split(URL1+"//")[1];
+			URL2 = URL2.split("/")[0];
+			var userURL = URL1+"//"+URL2;
+			console.log(userURL)
+		</script>
+	</body>
+</html>

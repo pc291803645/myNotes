@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加减乘除</title>
+		<style type="text/css">
+			.endingBox{margin-top: 30px;}
+			.ending{font-size: 50px;font-weight: bold;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var number1 = document.getElementsByClassName("number")[0]; //第一个数字框；
+				var number2 = document.getElementsByClassName("number")[1]; //第二个数字框；
+				var btn1 = document.getElementsByClassName("btn")[0];       //加，按钮；
+				var btn2 = document.getElementsByClassName("btn")[1];       //减，按钮；
+				var btn3 = document.getElementsByClassName("btn")[2];       //乘，按钮；
+				var btn4 = document.getElementsByClassName("btn")[3];       //除，按钮；
+				var btn5 = document.getElementsByClassName("btn")[4];       //余，按钮；
+				var ending = document.getElementsByClassName("ending")[0];  //结果框；
+				btn1.onclick = function(){
+					var num = Number(number1.value) + Number(number2.value);
+					ending.innerHTML = num;
+				}
+				btn2.onclick = function(){
+					var num = Number(number1.value) - Number(number2.value);
+					ending.innerHTML = num;
+				}
+				btn3.onclick = function(){
+					var num = Number(number1.value) * Number(number2.value);
+					ending.innerHTML = num;
+				}
+				btn4.onclick = function(){
+					var num = Number(number1.value) / Number(number2.value);
+					ending.innerHTML = num;
+				}
+				btn5.onclick = function(){
+					var num = Number(number1.value) % Number(number2.value);
+					ending.innerHTML = num;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<p>第一个数字：<input class="number" type="text" /></p>
+		<p>第二个数字：<input class="number" type="text" /></p>
+		<input class="btn" type="button" value="加" />
+		<input class="btn" type="button" value="减" />
+		<input class="btn" type="button" value="乘" />
+		<input class="btn" type="button" value="除" />
+		<input class="btn" type="button" value="余" />
+		<p class="endingBox">
+			结果：<span class="ending"></span>
+		</p>
+	</body>
+</html>

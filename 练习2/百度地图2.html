@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,user-scalable=no" />
+		<title>mymap</title>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=YIpjdze7zI39hke0GwE8bpDjU6hQLKmp" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html {
+				height: 100%
+			}
+			
+			body {
+				height: 100%;
+				margin: 0px;
+				padding: 0px
+			}
+			
+			#container {
+				width: 800px;
+				height: 600px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container"></div>
+
+		<script type="text/javascript">
+			var map = new BMap.Map("container");    
+//			var point = new BMap.Point(113.23, 23.16);    
+//			map.centerAndZoom(point, 17); 
+			
+			var myGeo = new BMap.Geocoder();      // 创建地理编码实例；根据坐标得到地址描述
+			myGeo.getPoint("信义路24号七喜创意园", function(point) {
+				if(point) {
+					map.centerAndZoom(point, 18);
+					map.addOverlay(new BMap.Marker(point));  //创建标注，并加入地图中；
+					map.enableScrollWheelZoom(true);         //启用滚轮放大缩小，默认禁用；
+				} else {
+					alert("您选择地址没有解析到结果!");
+				}
+			},"广州");
+		</script>
+	</body>
+
+</html>
