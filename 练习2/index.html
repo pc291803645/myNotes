@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="确定" />
+		<script type="text/javascript">
+			
+			var btn = document.getElementsByTagName("input")[0];
+			var onoff = true;
+			
+			btn.onclick = function(){
+				if(onoff){
+					onoff = false;
+					alert("sss");
+					setTimeout(function(){ onoff = true; },1000);
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

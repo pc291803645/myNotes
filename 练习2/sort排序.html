@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sort排序</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5,6];
+			document.onclick = function(){
+				arr = arr.sort(function(a,b){ return 0.5-Math.random() });
+				console.log(arr);
+			}
+			
+			
+			
+			function clearRepeat(arr){  //数组去重；
+				var newArr = [];
+				var newObj = {};
+				for(var i=0;i<arr.length;i++){
+					if(!newObj[arr[i]+typeof(arr[i])]){
+						newArr.push(arr[i]);
+						newObj[arr[i]+typeof(arr[i])] = 1;
+					}
+				}
+				return newArr;
+			}
+			
+			var arr2 = [1,1,1,2,3,3,4,6,1,"1","5"];
+			console.log(clearRepeat(arr2));
+			var arr3 = [];
+			var obj = {};
+			console.log(Boolean(null));
+			console.log(Boolean(obj.img));
+			console.log(arr3.img);
+		</script>
+	</body>
+</html>

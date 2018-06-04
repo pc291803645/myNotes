@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input class="upload_img" type="file" accept="image/*" value="上传图片" />
+		<br />
+		<br />
+		<br />
+		
+		<form action="form2.html" method="get">
+			<select class="select_box" name="type" onchange="this.form.submit();">
+				<option value="0">销量</option>
+				<option value="1">人气</option>
+				<option value="2">价格</option>
+			</select>
+			<input type="submit" value="提交"/>
+		</form>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var upload_img = document.getElementsByClassName("upload_img")[0];
+				var select_box = document.getElementsByClassName("select_box")[0];
+				var options = select_box.getElementsByTagName("option");
+				
+				upload_img.onchange = function(){
+					var files = this.files[0];
+					alert("您将上传图片："+files.name);
+				}
+				
+				var type = getSearch("type");
+				type = type?type:"0";
+				if(type==0){
+					options[0].selected = "selected";
+				}else if(type==1){
+					options[1].selected = "selected";
+				}else if(type==2){
+					options[2].selected = "selected";
+				}
+				
+				
+				function getSearch(name){
+					var searchArray = new Array;
+					var searchTypeObject = new Object;
+					var search_exp = window.location.search.substr(1);
+					if(search_exp.indexOf("&")!=-1){
+						searchArray = search_exp.split("&");
+					}else{
+						searchArray.push(search_exp);
+					}
+					for(var i=0;i<searchArray.length;i++){
+						var arr = searchArray[i].split("=");
+						searchTypeObject[arr[0]] = arr[1];
+					}
+					if(name){
+						return searchTypeObject[name];
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

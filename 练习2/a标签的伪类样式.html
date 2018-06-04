@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>a标签的伪劣样式</title>
+		
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			a{
+				text-decoration: none;
+				color: #444;
+			}
+			.nav{
+				display: inline-block;
+			}
+			.nav li{
+				list-style: none;
+				display: inline-block;
+				padding: 8px 20px;
+			}
+			.nav li a{
+				display: inline-block;
+			}
+			/*.nav li a:link{
+				color: darkmagenta;
+			}
+			.nav li a:visited{
+				color: brown;
+			}*/
+			.nav li a:active{
+				color: #fe5a8c;
+				transform: scale(1.5);
+			}
+			/*.nav li a:hover{
+				color: #fe5a8c;
+			}*/
+		</style>
+	</head>
+	<body>
+		<!--
+			:link       有链接属性时
+		    :visited    链接地址已被访问过
+		    :active     被用户激活(在鼠标点击与释放之间发生的事件)
+		    :hover      其鼠标悬停
+		-->
+		<ul class="nav">
+			<li><a href="javascripts:;" >百度</a></li>
+			<li><a href="javascripts:;" >翻译</a></li>
+			<li><a href="javascripts:;" >关于</a></li>
+			<li><a href="javascripts:;" >联系</a></li>
+		</ul>
+	</body>
+</html>

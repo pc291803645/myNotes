@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>base64</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="js/jquery.base64.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = $.base64.encode("123456"); //编码；
+			var str2 = $.base64.decode(str);      //解码；
+			console.log(str,str2);
+		</script>
+	</body>
+</html>
