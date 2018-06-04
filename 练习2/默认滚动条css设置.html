@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器默认滚动条</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			/*滚动框样式*/
+			::-webkit-scrollbar-track-piece {  
+				background: gainsboro;
+				border-radius: 2px;
+			}
+			
+			/*滚动框宽度*/
+			::-webkit-scrollbar {
+				width: 4px;
+				cursor: pointer;
+			}
+			/*滚动条样式*/
+			::-webkit-scrollbar-thumb {
+				min-height: 50px;
+				background: #999999;
+				border-radius: 2px;
+			}
+			/*滚动条鼠标移入样式*/
+			::-webkit-scrollbar-thumb:hover {
+				background-color: #666;
+			}
+			
+			.wrap {
+				margin: 0 auto;
+				width: 250px;
+				height: 300px;
+				border: 1px solid #666666;
+				overflow: auto;
+				overflow-y: hidden;
+			}
+			.wrap:hover{
+				overflow-y: auto;
+			}
+			.list li {
+				height: 30px;
+			}
+			
+			.list li:nth-child(odd) {
+				background: peachpuff;
+			}
+			
+			.list li:nth-child(even) {
+				background: palegreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul class="list">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+
+</html>

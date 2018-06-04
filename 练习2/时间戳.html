@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="data" data-day="7"></div>
+			
+		
+		
+		
+		<script type="text/javascript">
+			var set = new Date();  //现在时间
+			console.log(set);
+			var last = set.getTime() + 86400000;   //下一天时间；
+			console.log(new Date(last))
+			
+			
+			
+			var day = $(".data").data("day");
+			console.log(day)
+		</script>
+	</body>
+</html>

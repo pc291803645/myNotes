@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>时间对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function time(){
+				var NowTime = new Date(); 
+				var FormatTime = NowTime.toLocaleString();
+				document.body.innerHTML = FormatTime;
+			}
+			setInterval('time()',0);
+			
+			
+		</script>
+	</body>
+</html>

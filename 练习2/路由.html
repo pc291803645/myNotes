@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<ul>
+			<li>
+				<a onclick="location.href='#/'">首页</a>
+			</li>
+			<li>
+				<a href="#/product">产品</a>
+			</li>
+			<li>
+				<a onclick="location.href='#/server'">服务</a>
+			</li>
+		</ul>
+		<div id="result"></div>
+
+		<script type="text/javascript">
+			console.log(Date.now());
+			/**
+			 * 以 hash 形式（也可以使用 History API 来处理）为例，当 url 的 hash 发生变化时，触发 hashchange 注册的回调，回调中去进行不同的操作，进行不同的内容的展示。
+			 */
+			function Router() {
+				this.routers = {};
+				this.curUrl = '';
+
+				this.route = function(path, callback) {
+					this.routers[path] = callback || function() {};
+				};
+
+				this.refresh = function() {
+					console.log(location.hash);
+					this.curUrl = location.hash.slice(1) || '/';
+					this.routers[this.curUrl]();
+				}
+				this.init = function() {
+					window.addEventListener('load', this.refresh.bind(this), false);
+					window.addEventListener('hashchange', this.refresh.bind(this), false);
+				}
+			}
+
+			var R = new Router();
+			R.init();
+			var res = document.getElementById('result');
+
+			R.route('/', function() {
+				res.style.background = 'blue';
+				res.innerHTML = '这是首页';
+			});
+			R.route('/product', function() {
+				res.style.background = 'orange';
+				res.innerHTML = '这是产品页';
+			});
+			R.route('/server', function() {
+				res.style.background = 'black';
+				res.innerHTML = '这是服务页';
+			});
+		</script>
+	</body>
+
+</html>

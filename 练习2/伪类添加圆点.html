@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.content{
+				margin-left: 30px;
+			}
+			p{
+				width: 100px;
+				height: 25px;
+				margin-top: 5px;
+				line-height: 25px;
+			}
+			.listStyle{
+				position: relative;
+			}
+			.listStyle:before{
+				content: "●";
+				position: absolute;
+				top: 0px;
+				left: -15px;
+				color: #333333;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p class="listStyle">11111</p>
+			<p>11111</p>
+			<p class="listStyle">11111</p>
+			<p>11111</p>
+			<p>11111</p>
+		</div>
+	</body>
+</html>

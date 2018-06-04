@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="">
+			<option value="0">全部</option>
+			<option value="1">风景</option>
+			<option value="2">美女</option>
+			<option value="3">炫酷</option>
+		</select>
+		
+		<script type="text/javascript">
+			var selects = document.getElementsByTagName("select")[0];
+			selects.onchange = function(){
+				alert(this.value);
+			}
+			console.log(config())
+		</script>
+	</body>
+</html>
