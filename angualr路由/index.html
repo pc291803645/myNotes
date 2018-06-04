@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS</title>
+	</head>
+
+	<body ng-app='routingDemoApp'>
+
+		<h2>AngularJS</h2>
+		<ul>
+			<li>
+				<a href="#/">首页</a>
+			</li>
+			<li>
+				<a href="#/computers">电脑</a>
+			</li>
+			<li>
+				<a href="#/printers">打印机</a>
+			</li>
+			<li>
+				<a href="#/blabla">其他</a>
+			</li>
+		</ul>
+
+		<div ng-view></div>
+		
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+		<script>
+//			$routeProvider.when(url,{
+//			    template:string, //在ng-view中插入简单的html内容
+//			    templateUrl:string, //在ng-view中插入html模版文件
+//			    controller:string,function / array, //在当前模版上执行的controller函数
+//			    controllerAs:string, //为controller指定别名
+//			    redirectTo:string,function, //重定向的地址
+//			    resolve:object<key,function> //指定当前controller所依赖的其他模块
+//			});
+			
+			
+			
+			
+			angular.module('routingDemoApp', [
+				'ngRoute',
+				'Controller'
+			])
+				.config(['$routeProvider', function($routeProvider) {
+					$routeProvider
+						.when('/', {
+							templateUrl: 'model/1.html'
+						})
+						.when('/computers', {
+							templateUrl: 'model/2.html'
+						})
+						.when('/printers', {
+							template: '这是打印机页面'
+						})
+						.otherwise({
+							redirectTo: '/'
+						});
+				}]);
+				
+			var mycontroller = angular.module("Controller",[]);
+			mycontroller.controller("mycontroller",["$scope","$q",function($scope,$q){
+				//这里就可以 操作 jQuery  原生 代码了；
+				alert(" 这是第一页的");
+			}])
+			
+			
+		</script>
+
+	</body>
+
+</html>
