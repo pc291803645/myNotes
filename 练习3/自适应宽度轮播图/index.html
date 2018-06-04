@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul,li{
+				list-style: none;
+			}
+			html,body,#wrap,#box{
+				width: 100%;
+			}
+			#box{
+				overflow: hidden;
+				position: relative;
+			}
+			.uls{
+				position: absolute;
+				left:0;
+				display: flex;
+			}
+			.uls li{
+				flex: 1;
+			}
+			img{
+				width: 100%;
+				height: auto;
+			}
+			#box span{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				font-size: 35px;
+				background: rgba(0,0,0,.3);
+				color: white;
+				cursor: pointer;
+			}
+			#box span:hover{
+				background: rgba(0,0,0,.9);
+			}
+			#box .left{
+				margin: auto auto auto 0;  /*垂直居中*/
+			}
+			#box .right{
+				margin: auto 0 auto auto;  /*垂直居中*/
+			}
+			.link{
+				position: absolute;
+				bottom: 10px;
+				width: 100%;
+				font-size: 0;
+				text-align: center;
+			}
+			.link a{
+				margin: 0 4px;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: rgba(255,255,255,.8);
+				cursor: pointer;
+			}
+			.link a.active{
+				background: #f60;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="box">
+				<ul class="uls">
+					<li>
+						<img src="img/banner_03.png"/>
+					</li>
+					<li>
+						<img src="img/banner_04.png"/>
+					</li>
+				</ul>
+				<span class="left">&lt;</span>
+				<span class="right">&gt;</span>
+				<nav class="link"></nav>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			var num = 0;				//自定义变量；控制轮播距离；
+			var rightBtn = $(".right"); //右箭头；
+			var leftBtn = $(".left");	//左箭头；
+			var moveObj = $(".uls");	//动画对象；
+			var linkBox = $(".link");	//下面的圆点；
+			var fuzhuObj = moveObj.find("li:first").clone(true); //克隆第一个放到最后，辅助作用；
+			moveObj.append(fuzhuObj);	
+			var list = $(".uls li");	//对象数组；
+			var iW = $(window).width(); //全屏的宽度就是每次轮播的距离；
+			moveObj.css("width",list.length*iW + "px");
+			$("#box").css("height",moveObj.height());
+			
+			
+			$(window).on("resize",function(){
+				iW = $(window).width();					    //屏幕变化，重新确定新的轮播距离；
+				moveObj.css("width",list.length*iW + "px");	//屏幕变化，重新确定新的宽度；
+				$("#box").css("height",moveObj.height());   //屏幕变化，重新确定新的高度；
+//				moveObj.stop().animate({left: -iW*num+'px'})//屏幕变化，重新确定排版；
+				moveObj.css("left",-iW*num+'px');  //或者可以这样写，看需不需要过渡效果；
+				
+			})
+			for(var i=0;i<list.length-1;i++){
+				var a = $("<a></a>");
+				if(i==0){a.addClass("active")}
+				a.click(function(){
+					if($(this).index()>num){
+						moveObj.css("left",-iW*($(this).index()-1)+'px')
+					}
+					if($(this).index()<num){
+						moveObj.css("left",-iW*($(this).index()+1)+'px')
+					}
+					num = $(this).index();
+					moveObj.stop().animate({left: -iW*num+'px'})
+					clearType();
+				})
+				linkBox.append(a);
+			}
+			rightBtn.on("click",function(){  //右箭头；
+				num++;
+				if(num>=list.length){        //判断，循环轮回；
+					moveObj.css("left","0px");
+					num = 1;
+				}
+				moveObj.stop().animate({left: -iW*num+'px'})
+				clearType();
+			})
+			
+			leftBtn.on("click",function(){  //左箭头；
+				num--;
+				if(num<0){        			//判断，循环轮回；
+					moveObj.css("left",-(list.length-1)*iW+'px');
+					num = list.length-2;
+				}
+				moveObj.stop().animate({left: -iW*num+'px'})
+				clearType();
+			})
+			
+			function clearType(){
+				var e = num;
+				e = e>=list.length-1?0:num;
+				$(".link a").removeClass("active");
+				$(".link a").eq(e).addClass("active");
+			}
+		})
+	</script>
+</html>
