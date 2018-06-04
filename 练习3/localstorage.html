@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>localstorage</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{
+				margin: 30px auto;
+				width: 300px;
+			}
+			.conten-list{
+				padding-left: 17px;
+			}
+			.conten-list>li{
+				margin-top: 8px;
+				color: #333333;
+			}
+			.conten-list>li>span{
+				float: right;
+				color: #A6A6A6;
+			} 
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input class="strSearch" type="text" name="" id="" value="" oninput="entry()"/>
+			<input class="btnSearch" type="button" name="" id="" value="搜索" onclick="search()"/>
+			<input class="seeSearch" type="button" name="" id="" value="查看搜索记录" onclick="getCookie()"/>
+			<ol class="conten-list">
+				<!--<li>12345 <span>2018-02-04 02:20:10</span></li>-->
+			</ol>
+		</div>
+		
+		<script type="text/javascript">
+			var strSearch = document.getElementsByClassName("strSearch")[0];
+			var btnSearch = document.getElementsByClassName("btnSearch")[0];
+			var seeSearch = document.getElementsByClassName("seeSearch")[0];
+			var contenList = document.getElementsByClassName("conten-list")[0];
+			
+			
+			function entry(){
+				contenList.innerHTML = "";
+			}
+			
+			function search(){
+				var str = strSearch.value;
+				if(str.length>0){
+					setCookie(str);
+				}else{
+					alert("内容为空！");
+				}
+			}
+			function setCookie(val){
+				var time = new Date().getTime();
+				window.localStorage.setItem(time,val);  //设置；
+				strSearch.value = "";
+			}
+			
+			function getCookie(){
+				var data = window.localStorage;     //获取；
+				var arr = new Array;
+				for(var i in data){
+					if(/^\d*$/.test(i)){
+						arr.push({
+							"text":data[i],
+							"time": new Date(Number(i)).toLocaleString()
+						})
+					}
+				}
+				Document(arr)
+			}
+			function Document(arr){
+				contenList.innerHTML = "";
+				if(arr.length>0){
+					for (var i=0;i<arr.length;i++) {
+						var li = document.createElement("li");
+						li.innerHTML = arr[i].text +"<span>"+arr[i].time+"</span>";
+						contenList.appendChild(li);
+					}
+				}else{
+					alert("暂无记录");
+				}
+			}
+		</script>
+	</body>
+</html>

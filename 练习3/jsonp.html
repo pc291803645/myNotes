@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度搜索JSONP</title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			ul,li{list-style: none;}
+			a{text-decoration: none;}
+			.searchBox{
+				position: relative;
+				margin: 20px auto;
+				width: 300px;
+				height: 35px;
+				border: 1px solid #999;
+				box-sizing: border-box;
+			}
+			.searchStr{
+				width: 100%;
+				height: 100%;
+				border: none;
+				outline: none;
+				text-indent: 15px;
+				font-size: 14px;
+				color: #333;
+			}
+			.searchContent{
+				position: absolute;
+				top: 35px;
+				left: -1px;
+				width: 100%;
+				border: 1px solid #999;
+				font-size: 0;
+				background: white;
+				display: none;
+			}
+			.searchContent li a{
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				padding: 5px 0;
+				text-indent: 15px;
+				font-size: 14px;
+				color: #333;
+			}
+			.searchContent li a:hover{
+				background: #ADADAD;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="searchBox">
+			<input class="searchStr" type="text" placeholder="输入搜索内容..." />
+			<ul class="searchContent">
+				<!--<li><a href="javascripts:;" target="_blank">1313212</a></li>-->
+			</ul>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//百度搜索栏获取的地址；
+			//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E6%88%91%E4%BB%AC&json=1&p=3&sid=1438_19036_21080_20718&req=2&bs=jsonp%20%E7%99%BE%E5%BA%A6%E7%BD%91&pbs=%E6%88%91%E4%BB%AC%E7%9A%84%E5%B0%91%E5%B9%B4%E6%97%B6%E4%BB%A3&csor=2&pwd=women&cb=jQuery1102027479746613351597_1516333257611&_=1516333257620
+			
+			//步骤如下：
+			//1.动态生成script标签，设置src，通过地址加载数据 （link a img script ifarme 等  都是通过src获取 数据）
+			//2.通过参数，把回调函数的函数名称传到后台，让后台把函数返回 回来；
+			//3.定义一个全局函数，函数名称就是传到后台的函数的名字，全局函数里面的形参就是后台给我们的数据， 操作形参就相当于操作后台返回来的数据；
+		 
+			var searchinput = document.getElementsByClassName("searchStr")[0];
+			var ulmenu = document.getElementsByClassName("searchContent")[0];
+			var script = document.getElementsByTagName("script");
+			
+			
+			searchinput.oninput = function(){
+				var cons = this.value;
+				var scriptCreate = document.createElement("script");
+				scriptCreate.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+cons+'&cb=searchData';
+				document.head.appendChild(scriptCreate);
+				document.head.removeChild(script[0]);
+			}
+			function searchData(data){
+				var list = data.s;
+				if(list.length>0){
+					ulmenu.style.display = "block";
+					domOpera(list);
+				}else{
+					ulmenu.style.display = "none";
+				}
+			}
+			function domOpera(list){
+				ulmenu.innerHTML = "";
+				for(var i=0;i<list.length;i++){
+					var li = document.createElement("li");
+					li.innerHTML = '<li><a target="_blank" href="https://www.baidu.com/s?wd='+list[i]+'">'+list[i]+'</a></li>';
+					li.onclick = function(){
+						var texts = this.children[0].children[0].innerHTML;
+						searchinput.value = texts;
+						ulmenu.style.display = "none";
+					}
+					ulmenu.appendChild(li);
+				}
+			}
+//			searchinput.onblur = function(){  //失去光标事件；
+//				var content = this.value;
+//				var urls = 'https://www.baidu.com/s?wd=' + content;
+//				window.open(urls,"_blank");
+//			}
+			
+			document.onclick = function(e){
+				var ev = e||window.event;
+				var tarName = ev.target.nodeName.toLowerCase();  //节点类型名字的大写变成小写；
+				if(tarName!="input" && tarName!="ul" && tarName!="li" && tarName!="a"){
+					ulmenu.style.display = "none";
+				}
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1、中括号法可以用变量作为属性名,而点方法不可以;
+			//2、中括号法可以用数字作为属性名,而点语法不可以;
+			//3、中括号法可以使用js的关键字和保留字作为属性名,而点语法不可以(尽量避免在变量或者属性中使用关键字或保留字);
+			var obj = {
+				name: "小黑",
+				age: 20,
+				40: "其他"
+			}
+			var myname = 'name';
+			console.log(obj[40]);
+			console.log(obj.myname);   //undefined;
+			console.log(obj[myname]);
+		</script>
+	</body>
+</html>

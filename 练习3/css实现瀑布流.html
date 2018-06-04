@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css实现瀑布流</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#main{
+				/*多栏布局*/
+				-webkit-column-width: 202px;
+				-moz-column-width: 202px;
+				column-width: 202px; /*列宽*/
+				
+				/*column-count: 2;   /*两列*/
+				/*column-rule: 2px solid red;*/ 
+			}
+			.box{
+				padding: 15px 7px 0 7px;
+				float: left;
+			}
+			.pic{
+				border: 1px solid #dddddd;
+			}
+			.pic img{
+				width: 165px;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="box">
+				<div class="pic">
+					<img src="自适应宽度轮播图/img/banner_03.png"/>
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="img/feiji.jpg"/>
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="img/feiji.jpg"/>
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="img/feiji.jpg"/>
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="img/feiji.jpg"/>
+				</div>
+			</div>
+			<div class="box">
+				<div class="pic">
+					<img src="img/feiji.jpg"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

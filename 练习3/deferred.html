@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>deferred</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				//为了 保证1个  ajax 获取到数据之后再处理数据；可以使用then();延迟；
+				var getData = function() {
+					var deferred = $.Deferred();
+					$.ajax({
+						type: "post",
+						url: "www.********",
+						success: function(data) {
+							deferred.resolve(data);
+						},
+						error: function() {}
+					});
+					return deferred.promise();
+				}
+				getData().then(function(data) { //这里的data数据就是上面ajax返回来的数据；
+					console.log(data);
+				})
+
+
+
+				//为了 保证2个  ajax 都获取到数据之后再处理数据；可以使用$.when();延迟；
+				var oneData = $.Deferred();
+				var twoData = $.Deferred();
+
+				$.ajax({
+					type: "post",
+					url: "www.********",
+					success: function(data) {
+						oneData.resolve(data);
+					},
+					error: function() {}
+				});
+
+				$.ajax({
+					type: "post",
+					url: "www.********",
+					success: function(data) {
+						twoData.resolve(data);
+					},
+					error: function() {}
+				});
+
+				$.when(oneData, twoData).done(function(data1, data2) { //分别是 两个ajax返回来的数据
+					console.log(data1, data2);
+				})
+
+			})
+		</script>
+	</body>
+
+</html>

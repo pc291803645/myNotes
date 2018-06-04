@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				//克隆对象
+				//参数1：true/false； true深度克隆；
+				//参数2：obj2（赋值的目标）
+				//参数3：obj（克隆的目标）
+
+				var obj = {
+					name: "小黑"
+				};
+				var obj2 = {};
+				$.extend(true, obj2, obj);
+				console.log(obj2);
+
+				//插件；
+				$.extend({
+					nowtime: function(type) { // Y 输出 年月份；T 输出时分秒；
+						if(type == "Y") {
+							var num = 0;
+							var infoTime = new Date().toLocaleDateString().replace(/[-]/g, function(e, index) {
+								num++;
+								if(num == 1) {
+									return "年"
+								}
+								if(num == 2) {
+									return "月"
+								}
+							})
+							return infoTime + "日";
+						}
+						if(type == "T") {
+							return new Date().toLocaleTimeString();
+						}
+					}
+				})
+				console.log("现在时间是：" + $.nowtime("Y") + $.nowtime("T"));
+				
+				//组件；
+
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>changeUrlPar改变地址栏参数</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<input class="btn" type="button" name="" id="" value="点击改变" />
+		<script type="text/javascript">
+			var btn = document.getElementsByClassName("btn")[0];
+			var nowURL = document.URL; //现在的地址栏；
+
+			btn.onclick = function() {
+				var newURL = changeURLPar(nowURL, 'time', new Date().getTime());
+				window.location.href = newURL
+			}
+
+			//			function changeURLPar(destiny, par, par_value) {
+			//				var pattern = par + '=([^&]*)';
+			//				var replaceText = par + '=' + par_value;
+			//
+			//				if(destiny.match(pattern)) {
+			//					var tmp = '/\\' + par + '=[^&]*/';
+			//					tmp = destiny.replace(eval(tmp), replaceText);
+			//					return(tmp);
+			//				} else {
+			//					if(destiny.match('[\?]')) {
+			//						return destiny + '&' + replaceText;
+			//					} else {
+			//						return destiny + '?' + replaceText;
+			//					}
+			//				}
+			//
+			//				return destiny + '\n' + par + '\n' + par_value;
+			//			}
+
+			function changeURLPar(url, ref, value) {
+				var str = "";
+				if(url.indexOf('?') != -1)
+					str = url.substr(url.indexOf('?') + 1);
+				else
+					return url + "?" + ref + "=" + value;
+				var returnurl = "";
+				var setparam = "";
+				var arr;
+				var modify = "0";
+
+				if(str.indexOf('&') != -1) {
+					arr = str.split('&');
+
+					for(i in arr) {
+						if(arr[i].split('=')[0] == ref) {
+							setparam = value;
+							modify = "1";
+						} else {
+							setparam = arr[i].split('=')[1];
+						}
+						returnurl = returnurl + arr[i].split('=')[0] + "=" + setparam + "&";
+					}
+
+					returnurl = returnurl.substr(0, returnurl.length - 1);
+
+					if(modify == "0")
+						if(returnurl == str)
+							returnurl = returnurl + "&" + ref + "=" + value;
+				} else {
+					if(str.indexOf('=') != -1) {
+						arr = str.split('=');
+
+						if(arr[0] == ref) {
+							setparam = value;
+							modify = "1";
+						} else {
+							setparam = arr[1];
+						}
+						returnurl = arr[0] + "=" + setparam;
+						if(modify == "0")
+							if(returnurl == str)
+								returnurl = returnurl + "&" + ref + "=" + value;
+					} else
+						returnurl = ref + "=" + value;
+				}
+				return url.substr(0, url.indexOf('?')) + "?" + returnurl;
+			}
+		</script>
+	</body>
+
+</html>
