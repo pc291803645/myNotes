@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>视频直播</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/video-js.css" />
+		<script src="js/video.min.js" type="text/javascript"></script>
+		<script src="js/videojs-ie8.min.js" type="text/javascript"></script>
+		<script>
+			videojs.options.flash.swf = "https://cdn.bootcss.com/video.js/5.20.5/video-js.swf";
+		</script>
+
+		<style type="text/css">
+			.vjs-paused .vjs-big-play-button,
+			.vjs-paused .vjs-has-started .vjs-big-play-button {
+				display: block;
+			}
+			
+			.video-js .vjs-big-play-button {
+				font-size: 2.5em;
+				line-height: 2.3em;
+				height: 2.5em;
+				width: 2.5em;
+				-webkit-border-radius: 2.5em;
+				-moz-border-radius: 2.5em;
+				border-radius: 2.5em;
+				background-color: #73859f;
+				background-color: rgba(115, 133, 159, .5);
+				border-width: 0.15em;
+				margin-top: -1.25em;
+				margin-left: -1.75em;
+			}
+			/* 中间的播放箭头 */
+			
+			.vjs-big-play-button .vjs-icon-placeholder {
+				font-size: 1.63em;
+			}
+			/* 加载圆圈 */
+			
+			.vjs-loading-spinner {
+				font-size: 2.5em;
+				width: 2em;
+				height: 2em;
+				border-radius: 1em;
+				margin-top: -1em;
+				margin-left: -1.5em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>美酷直播</h1>
+		<!--静态显示-->
+		<!--<video id="my-video" class="video-js" controls preload="auto" width="640" height="400" poster="http://t2imgcdn.meicool.com/uploads/compress_5ac483685d0df.png" data-setup="{}">-->
+		<!--<source src="rtmp://pull-rtmp.meicool.com/live/a7629dfe1924abfbcedc85bd795c6878?wsSecret=e2eac27eeebe509670e99662a55fbbd1&wsABSTime=1524813666" type="rtmp/flv">-->
+		<!-- 如果上面的rtmp流无法播放，就播放hls流 -->
+		<!-- <source src="http://10.10.5.119/live/livestream.m3u8" type='application/x-mpegURL'> -->
+		<!--<source src="rtmp://live.hkstv.hk.lxdns.com/live/hks" type="rtmp/flv">-->
+
+		<!--<p class="vjs-no-js">播放视频需要启用 JavaScript，推荐使用支持HTML5的浏览器访问。 To view this video please enable JavaScript, and consider upgrading to a web browser that
+				<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			</p>-->
+		<!--</video>-->
+
+		<!--动态显示-->
+
+		<video id="container" class="video-js vjs-big-play-centered" width="700" height="450" poster="" preload="auto" data-setup="{}">
+
+		</video>
+
+		<script type="text/javascript">
+			//初始化视频
+
+			var player = videojs('container', {
+				//			  //像data-setup那样设置的参数
+			}, function onPlayerReady() {
+				//			  //视频播放器初始化完毕，就会调用这个回调函数
+				this.src({
+					src: "rtmp://live.hkstv.hk.lxdns.com/live/hks",
+					type: 'rtmp/flv'
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>
