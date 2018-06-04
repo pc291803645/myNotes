@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圆</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300" height="300" style="border: 1px solid #333;">圆</canvas>
+		
+		
+		
+		
+		<script type="text/javascript">
+			var c= document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.beginPath(); 				//beginPath();	起始一条路径，或重置当前路径。
+			ctx.arc(150,150,100,0,2*Math.PI);
+			ctx.stroke();
+			/*
+			 context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+			 x:圆的中心的 x 坐标。
+			 y:	圆的中心的 y 坐标。
+			 r:圆的半径。
+			 sAngle:起始角，以弧度计（弧的圆形的三点钟位置是 0 度）。
+			 eAngle:结束角，以弧度计。
+			 counterclockwise:可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+			*/
+		</script>
+	</body>
+</html>

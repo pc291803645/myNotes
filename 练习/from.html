@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" name="name" id="name" value="" placeholder="输入文字内容" />
+			<input type="submit" value="提交"/>
+		</form>
+		
+		
+		<script type="text/javascript">
+			var form = document.getElementsByTagName("form")[0];
+			var name = document.getElementById("name");
+			form.onsubmit = function(){
+				alert("hello"+name.value);
+			}
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

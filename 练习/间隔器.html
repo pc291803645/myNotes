@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//			var i = 0;
+//
+//			function a() {
+//				document.body.innerHTML = i
+//				i++
+//				setTimeout('a()', 1000 + i * 1000);
+//			}
+//			a();
+
+
+			var s = 1000;
+			function b(){
+				s = Math.ceil(Math.random()*9000+1000);   //[1000,3000);
+				console.log(s);
+				setTimeout(b,s); //setTimeout('b()',s);
+			}
+			b();
+		</script>
+	</body>
+
+</html>

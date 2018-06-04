@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D轮播图</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				user-select: none;
+			}
+			.box_wrap{
+				position: relative;
+				margin: 100px auto;
+				width: 800px;
+				height: 400px;
+			}
+			.part{
+				position: absolute;
+				cursor: pointer;
+			}
+			.part img{
+				width: 100%;
+				height: 100%;
+			}
+			.part_1{
+				top: 0px;
+				left: 0px;
+				width: 800px;
+				height: 400px;
+				background: palegoldenrod;
+				opacity: 1;
+				z-index: 4;
+			}
+			.part_2{
+				top: 50px;
+				left: 450px;
+				width: 500px;
+				height: 300px;
+				background: palegreen;
+				opacity: 0.8;
+				z-index: 3;
+			}
+			.part_3{
+				top: 100px;
+				left: 650px;
+				width: 400px;
+				height: 200px;
+				background: paleturquoise;
+				opacity: 0.2;
+				z-index: 2;
+			}
+			.part_4{
+				top: 150px;
+				left: 300px;
+				width: 200px;
+				height: 100px;
+				background: palevioletred;
+				opacity: 0;
+				z-index: 1;
+			}
+			.part_5{
+				top: 100px;
+				left: -250px;
+				width: 400px;
+				height: 200px;
+				background: greenyellow;
+				opacity: 0.2;
+				z-index: 2;
+			}
+			.part_6{
+				top: 50px;
+				left: -150px;
+				width: 500px;
+				height: 300px;
+				background: grey;
+				opacity: 0.8;
+				z-index: 3;
+			}
+			.switch{
+				position: absolute;
+				top: 160px;
+				width: 80px;
+				height: 80px;
+				text-align: center;
+				line-height: 70px;
+				font-size: 80px;
+				color: #EBEBEB;
+				transition: 0.5s;
+				cursor: pointer;
+				z-index: 5;
+			}
+			.switch_left{
+				left: 30px;
+			}
+			.switch_right{
+				right: 30px;
+			}
+			.switch:hover{
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="box_wrap">
+			<div class="part part_1"><img src="img/img1.jpg"/></div>
+			<div class="part part_2"><img src="img/img2.jpg"/></div>	
+			<div class="part part_3"><img src="img/img3.jpg"/></div>	
+			<div class="part part_4"><img src="img/img4.jpg"/></div>
+			<div class="part part_5"><img src="img/img5.jpg"/></div>	
+			<div class="part part_6"><img src="img/img1.jpg"/></div>
+			<span class="switch switch_left">&lt;</span>
+			<span class="switch switch_right">&gt;</span>
+		</section>
+		
+		<script type="text/javascript">
+			var btn = $(".switch");
+			var moveObj = $(".part");
+			var arr = [];
+			var timer = null;
+			var parent = btn.eq(0).offsetParent();
+			
+			moveObj.each(function(i,ele){
+				arr[i] = {
+					"top":$(ele).position().top,
+					"left":$(ele).position().left,
+					"width":$(ele).width(),
+					"height":$(ele).height(),
+					"opacity":$(ele).css("opacity"),
+					"zIndex":$(ele).css("z-index")
+				}
+			})
+			btn.eq(1).on("click",function(){
+				arr.unshift(arr.pop());
+				move();
+			})
+			btn.eq(0).on("click",function(){
+				arr.push(arr.shift());
+				move();
+			})
+//			timer = setInterval(function(){
+//				arr.unshift(arr.pop());
+//				move();
+//			},1500)
+//			parent.on("mouseenter",function(){
+//				clearInterval(timer);
+//			})
+//			parent.on("mouseleave",function(){
+//				timer = setInterval(function(){
+//					arr.unshift(arr.pop());
+//					move();
+//				},1500)
+//			})
+			function move(){
+				moveObj.each(function(i,ele){
+					$(ele).stop().animate({
+						top:arr[i].top,
+						left:arr[i].left,
+						width:arr[i].width,
+						height:arr[i].height,
+						opacity:arr[i].opacity
+					},800)
+					$(ele).css("z-index",arr[i].zIndex);
+				})
+			}
+		</script>
+	</body>
+</html>

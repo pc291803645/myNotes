@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>分页</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				user-select: none;
+			}
+			.pageBox{
+				position: absolute;
+				top: 200px;
+				left:38%;
+				display: inline-block;
+				font-size: 0;
+				margin:  0 auto;
+			}
+			.goPage{
+				display: inline-block;
+				width: 60px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border: 1px solid #eee;
+				color: #666666;
+				font-size: 15px;
+				cursor: pointer;
+				box-sizing: border-box;
+				font-weight: bold;
+				border-radius: 5px;
+				vertical-align: top;
+			}
+			.goPage:nth-child(1){
+				margin-right: 5px;
+			}
+			.goPage:nth-child(3){
+				margin-left: 5px;
+			}
+			.pageUl{
+				display: inline-block;
+				font-size: 0;
+				vertical-align: top;
+			}
+			.pageUl li{
+				display: inline-block;
+				list-style: none;
+				font-size: 15px;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #eee;
+				box-sizing: border-box;
+				line-height: 40px;
+				text-align: center;
+				color: #666666;
+				cursor: pointer;
+				margin: 0 5px;
+				font-weight: bold;
+				border-radius: 5px;
+			}
+			/*.pageUl li:hover{
+				background: pink;
+				color: whitesmoke;
+				border: none;
+			}*/
+			.pageUl .active{
+				background: pink;
+				color: whitesmoke;
+				border: none;
+			}
+			.content{
+				font-size: 60px;
+				text-align: center;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		 <h1 class="content"></h1>
+		 <div class="pageBox">
+		 	<span class="goPage">上一页</span>
+		 	<ul class="pageUl"></ul>
+		 	<span class="goPage">下一页</span>
+		 </div>
+		 
+		 
+		 <script type="text/javascript">
+		 	$(function(){
+		 		var con = $(".content");
+		 		var goPage = $(".goPage")
+		 		var pgBlock = $(".pageUl");
+		 		var num= 1;  //控制上下页；
+		 		var p = 0;  //控制页数；
+		 		var pages =0; //控制渲染页数；
+//		 		var hash = window.location.hash; 
+//				if(hash){							//一开始就让hash值为1；
+//					window.location.hash = 'page=1';
+//				}else{
+//					window.location.hash = 'page=1';
+//				}
+
+//		 		pageFn();
+//		 		function pageFn(){
+//		 			pgBlock.html("");  //每次创建li 先清空；
+//		 			pages = 23;        //假设23页； 是从后台获取的页数；
+//		 			console.log(23)
+//		 			if(pages>=5){
+//		 				if(p<3){
+//		 					p=3
+//		 				}else if(p>pages-2){
+//		 					p=pages-2;
+//		 				}
+//		 				for(var i =(p-2);i<=(p+2);i++){
+//		 					var li = $('<li>'+i+'</li>'); //创建元素；
+//		 					li.click(function(){ 
+//		 						window.location.hash = "page="+$(this).html(); 
+//		 						num=parseInt($(this).html());
+//		 					});
+//		 					pgBlock.append(li);
+//		 				}
+//		 			}else{
+//		 				for(var i =0;i<pages;i++){
+//		 					var li = $('<li>'+(i+1)+'</li>'); //创建元素；
+//		 					li.click(function(){ 
+//		 						window.location.hash = "page="+$(this).html(); 
+//		 						num=parseInt($(this).html());
+//		 					});
+//		 					pgBlock.append(li);
+//		 				}
+//		 			}
+//		 		}
+//		 		goPage.eq(1).on("click",function(){
+//		 			num++;
+//		 			if(num>=pages){
+//		 				num=pages;
+//		 			}
+//		 			window.location.hash = "page="+num;
+//		 		})
+//		 		goPage.eq(0).on("click",function(){
+//		 			num--;
+//		 			if(num<=0){
+//		 				num=1;
+//		 			}
+//		 			window.location.hash = "page="+num;
+//		 		})
+//		 		window.onhashchange = function(){  //hash值改变，触发事件；
+//			 		newPage = window.location.hash.split("=")[1];
+//			 		newPage = parseInt(newPage);
+//			 		p = newPage;
+//			 		pageFn();
+//			 		pgBlock.find("li").each(function(i,ele){
+//			 			if(newPage == $(ele).html()){
+//			 				$(ele).addClass("active").siblings("li").removeClass("active");
+//			 			}
+//			 		})
+//			 	}
+				
+		 		setPage(goPage.eq(0),goPage.eq(1),pgBlock,7,30,"active",fn);
+		 		
+		 		function setPage(lastPage,nextPage,box,maxPage,pageNum,Type,Function){ //上一页，下一页，页码父级，多少页一排，一共多少页，页码样式,函数
+		 			var num = 1; //自定义变量，控制上下页，
+		 			var p = 0;   //自定义变量，控制循环页数；
+		 			var hash = window.location.hash; 
+					if(hash){							//一开始就让hash值为1；
+						window.location.hash = 'page=1';
+					}else{
+						window.location.hash = 'page=1';
+					}
+		 			pageFn();	//一开始渲染一遍；
+		 			function pageFn(){
+		 				box.html("");  //每次创建li 先清空；
+		 				if(pageNum>=maxPage){
+		 					var i = Math.ceil(maxPage/2);
+		 					var z = Math.floor(maxPage/2);
+		 					if(p<i){
+		 						p = i;
+		 					}else if(p>(pageNum-z)){
+		 						p = pageNum-z;
+		 					}
+		 					for(var i=(p-z);i<=(p+z);i++){
+		 						var li = $('<li>'+i+'</li>'); //创建元素；
+			 					li.click(function(){ 
+			 						window.location.hash = "page="+$(this).html(); 
+			 						num=parseInt($(this).html());
+			 					});
+			 					box.append(li);
+			 				}
+		 				}else{
+		 					for(var i=0;i<pageNum;i++){
+		 						var li = $('<li>'+(i+1)+'</li>'); //创建元素；
+			 					li.click(function(){ 
+			 						window.location.hash = "page="+$(this).html(); 
+			 						num=parseInt($(this).html());
+			 					});
+			 					box.append(li);
+		 					}
+		 				}
+		 			}
+		 			if(lastPage){		//上一页
+		 				$(lastPage).on("click",function(){
+		 					num--;
+		 					if(num<=0){
+		 						num=1;
+		 					}
+		 					window.location.hash = "page="+num;
+		 				})
+		 			}
+		 			if(nextPage){		//下一页
+		 				$(nextPage).on("click",function(){
+		 					num++;
+		 					if(num>=pageNum){
+		 						num=pageNum;
+		 					}
+		 					window.location.hash = "page="+num;
+		 				})
+		 			}
+		 			window.onhashchange = function(){ //hash 值改变，触发事件；
+		 				newPage = window.location.hash.split("=")[1];
+				 		newPage = parseInt(newPage);
+				 		p = newPage;
+				 		pageFn();
+				 		if(Function){ Function(newPage); }
+				 		box.find("li").each(function(i,ele){
+				 			if(newPage == $(ele).html()){
+				 				$(ele).addClass(Type).siblings("li").removeClass(Type);
+				 			}
+				 		})
+		 			}
+		 		}
+		 		
+		 		function fn(res){
+		 			console.log(res)
+		 			con.html("这是第"+res+"页的内容");
+//		 			console.log(res);
+		 		}
+		 	})
+		 	
+		 </script>
+	</body>
+</html>

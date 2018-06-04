@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jq数据</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<img src=""/>
+		<script type="text/javascript">
+			var img = $("img");
+//			$.ajax({
+//				url: "http://payapi.meicool.com/index.php/Meiku/CenterApi/indexData",
+//				type: "get",
+//				success: function(data) {
+//					imgFn(data)
+//				}
+//			})
+//			function imgFn(data){
+//				var imgArr = data.data.adArr[0];
+//				img.get(0).src = imgArr[0].img;
+//			}
+			var wait = function(){
+				var deferred = $.Deferred();
+				$.ajax({
+					url: "http://payapi.meicool.com/index.php/Meiku/CenterApi/indexData",
+					type: "post",
+					success: function(data) {
+						deferred.resolve(data);
+					}
+				})
+				return deferred.promise();
+			}
+			
+			wait().then(function(data){
+				console.log(data)
+				
+			})
+		</script>
+	</body>
+
+</html>

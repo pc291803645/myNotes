@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			
+			function index(pcHttp, phoneHttp) {
+				if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+					window.location.href = phoneHttp;
+				} else {
+					window.location.href = pcHttp;
+				}
+			}
+		</script>
+	</body>
+
+</html>

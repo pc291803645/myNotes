@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				width: 1000px;
+				height: 500px;
+				margin: 0 auto;
+				background: red;
+				font-size: 30px;
+			}
+			
+			@media only screen and (min-width: 1500px) {
+				.wrap{
+					transform: scale(1);
+				}
+			}
+			@media only screen and (max-width: 1500px) {
+				.wrap{
+					transform: scale(0.5);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="box">464654</div>
+		</div>
+	</body>
+
+</html>

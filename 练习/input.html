@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>input</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.numbox{
+				display: block;
+				margin: 100px auto;
+				width: 300px;
+				height: 40px;
+				border: 1px solid #999;
+				outline-style: none;
+				text-indent: 15px;
+				font-size: 20px;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		<input class="numbox" type="number" name="" id="" value=""/>
+		
+		
+		<script type="text/javascript">
+			var numbox = document.getElementsByClassName("numbox")[0];
+			
+			
+			numbox.oninput = function(){
+				if(this.value <= 0){
+					this.value = "";
+					this.placeholder = "请输入..."
+				}
+				if(this.value != parseInt(this.value)){
+					this.value = parseInt(this.value);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

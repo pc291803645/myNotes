@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function str(html) {
+				var index = html.indexOf("=");
+				var wz = html.substr(index+1);
+				return wz;
+			}
+			var s = str("zz=34")
+			console.log(s)
+			console.log(new Date().getTime())
+		</script>
+	</body>
+
+</html>

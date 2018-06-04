@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.info{
+				position: relative;
+				top: 200px;
+				left: 400px;
+				width: 200px;
+				min-height: 80px;
+				line-height: 30px;
+				box-sizing: border-box;
+				padding-left: 8px;
+				border-radius: 8px;
+				color: white;
+				background: #fa98dd;
+			}
+			.info::before{
+				content: "";
+				position: absolute;
+				top: 20px;
+				left: -20px;
+				display: block;
+				border-width: 10px;
+				border-style: solid;
+				border-color: transparent #FA98DD transparent transparent; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="info">
+			hello，琪琪！
+		</div>
+		
+	</body>
+</html>

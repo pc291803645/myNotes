@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			svg{
+				width: 100px;
+				height: 100px;
+			}
+			@keyframes move{
+				from{stroke-dasharray: 0, 173;}  /*173 指的是 长度*/
+				to{stroke-dasharray: 173, 173;}
+			}
+			.svg1{
+				stroke-width: 5;
+				stroke: palevioletred;
+				fill-rule: evenodd;
+				clip-rule: evenodd;
+				fill: none;
+				stroke-miterlimit: 10;
+				animation: move 5s linear infinite alternate;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<svg>
+				<path class="svg1"  d="M21.488,16.841c0,0-25.61,70.832,17.5,53.63S62.89,28.983,54.354,28.983C45.816,28.983,21.488,16.841,21.488,16.841z"/>
+			</svg>
+		</div>
+		<script type="text/javascript">
+			var svg = document.getElementsByClassName("svg1")[0];
+			var length = svg.getTotalLength(); /*大约 等于 173*/
+			console.log(length)
+		</script>
+	</body>
+</html>

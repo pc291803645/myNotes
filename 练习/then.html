@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+//			var fn = function(){
+//				var deferred = $.Deferred();
+//				deferred.resolve();
+//				alert("第一");
+//				return deferred.promise();
+//			}
+//			fn().then(function(){
+//				alert("第二");
+//			})
+			var i = 0;
+			var fn = function(){
+				i++;
+				var s = Math.ceil(Math.random()*9000+1000);
+				console.log(i);
+				setTimeout('fn()',s);
+			}
+			fn();
+		</script>
+	</body>
+</html>

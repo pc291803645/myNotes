@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>js生成元素</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.ulBox{
+				margin: 50px auto;
+				width: 500px;
+				
+			}
+			.ulBox li{
+				position: relative;
+				list-style: none;
+				width: 100%;
+				height: 40px;
+				background: pink;
+				margin-top: 10px;
+				cursor: pointer;
+			}
+			.ulBox li:nth-child(1){
+				margin-top: 0;
+			}
+			.block{
+				position: absolute;
+				top: 0px;
+				right: -140px;
+				width: 120px;
+				height: 40px;
+				line-height: 40px;
+				box-sizing: border-box;
+				background: palevioletred;
+				border-radius: 5px;
+				border: none;
+		
+			}
+			.block:before{
+				content: "";
+				display: inline-block;
+				position: relative;
+				top: 5px;
+				left: -18px;
+				border-width: 10px;
+				border-style: solid;
+				border-color: transparent palevioletred transparent transparent; 
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="ulBox"></ul>
+		
+		
+		<script type="text/javascript">
+			var ul = document.getElementsByClassName("ulBox")[0];
+			var timer = null;
+			for(var i=0;i<10;i++){
+				var html = document.createElement("li");
+				(function(b){
+					var block = document.createElement("div");
+					block.className = "block";
+					block.innerHTML = "这是第"+(i+1)+"个li";
+					b.onmouseenter = function(){
+						timer=setTimeout(function(){
+							b.appendChild(block);
+						},200)
+					}
+					b.onmouseout = function(){
+						clearTimeout(timer);
+						setTimeout(function(){
+							b.removeChild(block);
+						},200)
+					}
+				})(html);
+				ul.appendChild(html);
+			}
+		</script>
+		
+		
+	</body>
+
+</html>
