@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+
+		<div id='flashdom'>
+			<object id='swf' classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0'>
+				<param value='transparent' name='wmode' />
+				<param value='false' name='loop' />
+				<embed name='swf' style='width: 100%;height: 600px;' wmode='transparent' loop='false' src='http://t1img.oss-cn-shenzhen.aliyuncs.com/Uploads/guard/guard_flash_12.swf'></embed>
+			</object>
+		</div>
+
+		<script type="text/javascript">
+			var flash = document.getElementById("swf");
+			var timer = setInterval(function() {
+				if(!document.swf.IsPlaying()) {
+					clearInterval(timer);
+					$("#flashdom").remove();
+				}
+			}, 200);
+			
+			
+			
+			
+			
+			
+			/*
+			 *  Play() ---------------------------------------- 播放动画 
+				StopPlay()------------------------------------停止动画 
+				IsPlaying()----------------------------------- 动画是否正在播放
+				GotoFrame(frame_number)---------------- 跳转到某帧 
+				TotalFrames()------------------------------- 获取动画总帧数 
+				CurrentFrame()------------------------------回传当前动画所在帧数-1 
+				Rewind()-------------------------------------使动画返回第一帧 
+				SetZoomRect(left,top,right,buttom)-------放大指定区域 
+				Zoom(percent)------------------------------改变动画大小 
+				Pan(x_position,y_position,unit)------------使动画在x,y方向上平移 
+				PercentLoaded()----------------------------返回动画被载入的百分比 
+				LoadMovie(level_number,path)----------- 加载动画 
+				TGotoFrame(movie_clip,frame_number)- movie_clip跳转到指定帧数 
+				TGotoLabel(movie_clip,label_name)------ movie_clip跳转到指定标签 
+				TCurrentFrame(movie_clip)--------------- 回传movie_clip当前帧-1 
+				TCurrentLabel(movie_clip)-----------------回传movie_clip当前标签 
+				TPlay(movie_clip)---------------------------播放movie_clip 
+				TStopPlay(movie_clip)----------------------停止movie_clip的播放 
+				GetVariable(variable_name)-----------------获取变量 
+				SetVariable(variable_name,value)-----------变量赋值 
+				TCallFrame(movie_clip,frame_number)---call指定帧上的action 
+				TCallLabel(movie_clip,label)----------------call指定标签上的action 
+				TGetProperty(movie_clip,property)--------获取movie_clip的指定属性 
+				TSetProperty(movie_clip,property,number)-设置movie_clip的指定属性
+				
+			
+			* * */
+		</script>
+		
+	</body>
+
+</html>
