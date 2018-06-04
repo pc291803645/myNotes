@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>vueJS的学习</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<script src="js/vue.min.js" type="text/javascript"></script>
+		
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.class1{width: 200px;height: 40px; background: #666;}
+			.active{width: 200px;height: 40px; background: green;}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var app = new Vue({
+					el: "#app",    
+					data: {				//数据
+						message: "这是我的第一个vue应用",
+						textstring: "请输入内容",
+						booleans: false,
+						href: "https://www.baidu.com/",
+						message2: "abcdefg",
+						datalist: [{"name":"小红"},{"name":"小军"},{"name":"小黑"}],
+						dataobj: {
+							"name": "小红",
+							"age" : "20岁",
+							"like" : "唱歌",
+						},
+						textstring2: "请输入内容2",
+					},
+					filters: {         //自定义过滤器；有内建过滤器比如：uppercase 字母小写变大写；
+						reverse: function(value){
+							if(!value){return ''}
+							return value.split('').reverse().join('');
+						},
+					},
+					methods: {         //方法
+						fn: function(data){alert(data);},
+					},
+					computed:{ 			// 计算属性的 getter
+						reversedMessage: function(){   // this` 指向 app 实例
+							return this.textstring2.split('').reverse().join(''); //app.reversedMessage 依赖于 app.textstring2，在app.textstring2 发生改变时，app.reversedMessage 也会更新。
+						},
+					},
+				})
+				
+				// 注册一个全局自定义指令 v-focus
+				Vue.directive('focus', {
+				  // 当绑定元素插入到 DOM 中。
+				  inserted: function (el) {
+				    // 聚焦元素
+				    el.focus();
+				  }
+				})
+			}	
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{message}}</p>
+			<input type="text" v-model="textstring"/>
+			<p>内容翻转：<span>{{textstring | reverse}}</span></p>
+			<label for="check">
+				<input id="check" type="checkbox" v-model="booleans"/>勾选变换下面的样式
+			</label>
+			<div class="class1" v-bind:class="{'active' : booleans}"></div>
+			<a v-bind:href="href" target="_blank">百度网</a>	<br />
+			<a v-on:click="fn('弹框')" href="javascripts:;">点击弹框</a>
+			<p>{{message2.split('').reverse().join('')}}</p>
+			
+			<span v-if="Math.random() > 0.5">yes</span>
+			<span v-else>no</span>
+			
+			<ul>
+				<li v-for="item in datalist">{{item.name}}</li>
+			</ul>
+			
+			<ul>
+				<li v-for="(item,index) in datalist">{{index+1+item.name}}</li>
+			</ul>
+			
+			<ul>
+				<template v-for="item in datalist">
+					<li>{{item.name}}</li>
+					<li>--------</li>
+				</template>
+			</ul>
+			
+			<ul> <!--v-for 迭代对象 ;可以通过一个对象的属性来迭代数据-->
+				<li v-for="value in dataobj">{{value}}</li>
+			</ul>
+			
+			<ul> <!--v-for 迭代对象 ;可以通过一个对象的属性来迭代数据-->
+				<li v-for="(value,key) in dataobj">{{key}}:{{value}}</li>
+			</ul>
+			
+			<ul> <!--v-for 迭代对象 ;可以通过一个对象的属性来迭代数据-->
+				<li v-for="(value,key,index) in dataobj">{{index+1}}.{{key}}:{{value}}</li>
+			</ul>
+			
+			
+			<input type="text" v-model="textstring2" />
+			<p>{{reversedMessage}}</p>
+			
+			<p>全局自定义指令：页面加载的时候获得光标</p>
+			<input v-focus/>
+		</div>
+	</body>
+</html>
