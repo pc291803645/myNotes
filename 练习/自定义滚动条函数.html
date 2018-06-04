@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			}
+			.wrap{
+				position: relative;
+				float: left;
+				width: 200px;
+				height: 500px;
+				border: 1px solid #999;;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.box{
+				position: relative;
+				float: right;
+				width: 10px;
+				height: 500px;
+				border: 1px solid peachpuff;
+				box-sizing: border-box;
+				border-radius: 5px;
+			}
+			.slip{
+				position: absolute;
+				width: 8px;
+				height: 40px;
+				background: paleturquoise;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			.content{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				background: papayawhip;
+			}
+			.content li{
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				color: #333;
+				font-size: 17px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 220px; margin: 10px auto;">
+			<div class="wrap">
+				<ul class="content">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+				</ul>
+			</div>
+			<div class="box"><span class="slip"></span></div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var slip = document.getElementsByClassName("slip")[0];
+			var con =  document.getElementsByClassName("content")[0];
+			
+			roll(con,slip);
+			
+			
+			function roll(maxObj,minObj){           //maxObj：滚动的大元素；minObj：自定义的滚动条元素；
+				var maxPre = maxObj.offsetParent;	//大元素的定位父级；		
+				var minPre = minObj.offsetParent;	//小元素的定位父级；
+				
+				minObj.onmousedown = function(ev){
+					ev = ev||window.event;			//event对象兼容 ie、火狐浏览器；
+					var y = ev.pageY - minObj.offsetTop;
+					document.onmousemove = function(ev2){
+						ev2 = ev2||window.event;    //event对象兼容 ie、火狐浏览器；
+						var newY = ev2.pageY - y;
+						var s =( minObj.offsetTop)/(minPre.offsetHeight-minObj.offsetHeight);
+						var h = maxObj.clientHeight - maxPre.clientHeight;
+						if(newY<=0){
+							newY = 0;
+						}
+						if(newY>=minPre.offsetHeight-minObj.offsetHeight){
+							newY = minPre.offsetHeight-minObj.offsetHeight;
+						}
+						minObj.style.top = newY + "px";
+						maxObj.style.top = -s*h + "px";
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document,onmouseup = null;
+					}
+					return false;	//为了消除一些未知的bug；例如：有时候鼠标移动太快，滚动条不受控制，或者鼠标抬起时，还可以滑动滚动条；
+				}
+				addWheel(maxObj,Up,Down); //至执行滚轮函数；
+				function Up(){
+					var nTop = minObj.offsetTop;
+					var s =( minObj.offsetTop)/(minPre.offsetHeight-minObj.offsetHeight);
+					var h = maxObj.clientHeight - maxPre.clientHeight;
+					nTop-=10;
+					if(nTop<=0){
+						nTop=0;
+					}
+					minObj.style.top = nTop + "px";
+					maxObj.style.top = -s*h + "px";
+				}
+				function Down(){
+					var nTop = minObj.offsetTop;
+					var s =( minObj.offsetTop)/(minPre.offsetHeight-minObj.offsetHeight);
+					var h = maxObj.clientHeight - maxPre.clientHeight;
+					nTop+=10;
+					if(nTop>=minPre.offsetHeight-minObj.offsetHeight){
+						nTop=minPre.offsetHeight-minObj.offsetHeight;
+					}
+					minObj.style.top = nTop + "px";
+					maxObj.style.top = -s*h + "px";
+				}
+				function addWheel(obj,fnUp,fnDown){ //兼容滚轮函数；
+					var liu = window.navigator.userAgent.toLowerCase();
+					if(liu.indexOf('firefox') == -1){
+						obj.onmousewheel = fn;
+					}else{ //走ff
+						obj.addEventListener('DOMMouseScroll',fn);
+					}
+					function fn(ev){
+						var ev = ev||window.event;
+						var down = true;
+						if(ev.wheelDelta){
+							down = ev.wheelDelta>0?true:false;
+						}else{
+							down = ev.detail<0?true:false;
+						}
+						if(down){
+							if(typeof fnUp == 'function'){
+								fnUp();
+							}
+						}else{
+							if(typeof fnDown == 'function'){
+								fnDown();
+							}
+						}
+						ev.preventDefault();
+					}
+				}
+			}
+		</script>
+		
+	</body>
+</html>

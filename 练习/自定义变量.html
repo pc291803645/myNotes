@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		 <input class="btn" type="button" name="" id="" value="按钮一" />
+		 <input class="btn" type="button" name="" id="" value="按钮二" />
+		 <input class="btn" type="button" name="" id="" value="按钮三" />
+		 
+		  <script type="text/javascript">
+		  	var btns = document.getElementsByClassName("btn");
+		  	console.log(btns)
+		  	for(var i=0;i<btns.length;i++){
+		  		btns[i].index = i;
+		  		btns[i].onclick = function(){
+		  			console.log(this.index);
+		  		}
+		  	}
+		  </script>
+	</body>
+</html>
