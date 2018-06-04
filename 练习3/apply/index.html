@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>申请认证</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/together.css?v=MCBBH" />
+		<link rel="stylesheet" type="text/css" href="css/apply.css?v=MCBBH" />
+		<script src="config.js?v=MCBBH" type="text/javascript"></script>
+		<script src="jquery-1.12.4.js?v=MCBBH" type="text/javascript"></script>
+		<script src="index.js?v=MCBBH" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			window.onload = window.onresize = function() { /*自适应屏幕函数  1rem=20px*/
+				var html = document.getElementsByTagName('html')[0];
+				html.style.fontSize = window.innerWidth / 16 + 'px';
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="apply-content">
+
+			<form target="nosubmit">
+				<div class="category">
+					<div class="goty-title">
+						<p>基本信息</p>
+					</div>
+					<ul class="info-list">
+						<li>
+							<span class="info-cl">真实姓名</span>
+							<input class="info-in username" type="text" name="" id="" value="" placeholder="请填写真实姓名" />
+						</li>
+						<li>
+							<span class="info-cl"></span>
+							<label>
+								<input class="info-in-radio" type="radio" name="sex" id="" value="0" />男
+							</label>
+							<label>
+								<input class="info-in-radio info-in-sex" type="radio" name="sex" id="" value="1" />女
+							</label>
+						</li>
+						<li>
+							<span class="info-cl">身份证号</span>
+							<input class="info-in idcard" type="text" name="" id="" value="" maxlength="18" placeholder="请填写身份证号" />
+							<span style="display: none;" class="err">格式错误</span>
+						</li>
+						<li>
+							<span class="info-cl">家族邀请码</span>
+							<input class="info-in keys" type="text" name="" id="" value="" placeholder="请填写家族邀请码" />
+						</li>
+						<li>
+							<span class="info-cl">手机号码</span>
+							<input class="info-in phone" type="text" name="" id="" value="" maxlength="11" placeholder="请填写手机号码" />
+							<input class="code" type="button" name="" id="" value="验证" />
+						</li>
+						<li>
+							<span class="info-cl">获取验证码</span>
+							<input class="info-in phoneCode" type="text" name="" id="" value="" placeholder="请填写验证码" />
+							
+						</li>
+						<!--<li>
+							<span class="info-cl">地区</span>
+							<select class="info-reg" name="">
+								<option value="0">广东</option>
+							</select>
+							<select class="info-reg" name="">
+								<option value="0">广州市</option>
+							</select>
+							<select class="info-reg" name="">
+								<option value="0">天河区</option>
+							</select>
+						</li>-->
+					</ul>
+				</div>
+
+				<div class="category">
+					<div class="goty-title">
+						<p>上传封面</p>
+					</div>
+					<div class="info-block-cover">
+						<div class="">
+							<span class="info-cl">主播封面</span>
+							<div class="info-upload">
+								<input class="imgup upCover" type="file" name="upload_file" id="" value="" />
+								<img class="img-cover" src="../peerage/img/3_icon_n@2x.png"/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="category">
+					<div class="goty-title">
+						<p>财务信息</p>
+					</div>
+					<ul class="info-list">
+						<li>
+							<span class="info-cl">银行卡号</span>
+							<input class="info-in bank_card_no" type="text" name="" id="" value="" placeholder="请填写银行卡号" />
+						</li>
+						<li>
+							<span class="info-cl">开户行</span>
+							<input class="info-in bank_name" type="text" name="" id="" value="" placeholder="请填写开户行" />
+						</li>
+						<li>
+							<span class="info-cl">开户支行</span>
+							<input class="info-in bank_account" type="text" name="" id="" value="" placeholder="请填写开户支行" />
+						</li>
+					</ul>
+				</div>
+
+				<div class="category">
+					<div class="goty-title">
+						<p>上传照片</p>
+					</div>
+					<div class="info-block-iden">
+						<div class="info-iden-b">
+							<span class="info-cl">身份证正面照</span>
+							<div class="info-upload">
+								<input class="imgup upidcardF" type="file" name="upload_file" id="" value="" />
+								<img class="img-idcardF" src="../peerage/img/3_icon_n@2x.png"/>
+							</div>
+						</div>
+						<div class="info-iden-b">
+							<span class="info-cl">身份证背面照</span>
+							<div class="info-upload">
+								<input class="imgup upidcardB" type="file" name="upload_file" id="" value="" />
+								<img class="img-idcardB" src="../peerage/img/3_icon_n@2x.png"/>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="submit-bok">
+					<input class="submit-btn" type="submit" value="提交" />
+				</div>
+			</form>
+			<iframe name="nosubmit" style="display: none;"></iframe>
+		</div>
+	</body>
+
+</html>
