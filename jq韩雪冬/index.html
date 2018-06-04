@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>轮播图</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/JS.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.box{
+				width: 600px;
+				height: 350px;
+				margin: 20px auto;
+				position: relative;
+				
+			}
+			.box>div{
+				position: absolute;
+				box-shadow: 0px 5px 18px black;
+			}
+			div>img{
+				width: 100%;
+				height: 100%;
+			}
+			.b1{
+				width: 600px;
+				height: 350px;
+				background: green;
+				z-index: 8;
+				left: 0px;
+				top: 0px;
+				opacity: 1;
+			}
+			.b2{
+				width: 400px;
+				height: 280px;
+				background: cornflowerblue;
+				left: 440px;
+				top: 35px;
+				opacity: .2;
+				z-index: 5;
+			}
+			.b3{
+				width: 500px;
+				height: 300px;
+				background: gold;
+				left: -150px;
+				top: 25px;
+				opacity: .8;
+				z-index: 7;
+				
+			}
+			.b4{
+				width: 200px;
+				height: 200px;
+				background: red;
+				left: 550px;
+				top: 75px;
+				opacity:0;
+				z-index: 1;
+			}
+			.b5{
+				width: 200px;
+				height: 200px;
+				background: red;
+				left: -150px;
+				top: 75px;
+				opacity:0;
+				z-index: 1;
+			}
+			.b6{
+				width: 400px;
+				height: 280px;
+				background: cornflowerblue;
+				left: -240px;
+				top: 35px;
+				opacity: .2;
+				z-index: 5;
+			}
+			.b7{
+				width: 500px;
+				height: 300px;
+				background: teal;
+				left: 250px;
+				top: 25px;
+				opacity: .8;
+				z-index: 7;
+			}
+			.box>span{
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+				background:rgba(255,255,255,.5);
+				cursor: pointer;
+				z-index: 100;
+				top: 43%;
+				text-align: center;
+				color: #f60;
+				font-size: 50px;
+				font-weight: bold;
+			}
+			.box>span:hover{
+				background: rgba(0,0,0,.5);
+				color: wheat;
+			}
+			.left{
+				left: -100px;
+			}
+			.right{
+				right: -100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="b1">
+				<img src="img/573c3c0618a81.jpg"/>
+			</div>
+			<div class="b7">
+				<img src="img/img.png"/>
+			</div>
+			<div class="b2">
+				<img src="img/573c3c0618a81.jpg"/>
+			</div>
+			<div class="b4">
+				<img src="img/img.png"/>
+			</div>
+			<div class="b5">
+				<img src="img/573c3c0618a81.jpg"/>
+			</div>
+			<div class="b6">
+				<img src="img/img.png"/>
+			</div>
+			<div class="b3">
+				<img src="img/img.png"/>
+			</div>
+			<span class="left">&lt</span>
+			<span class="right">&gt</span>
+		</div>
+	</body>
+</html>
