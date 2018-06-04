@@ -1,0 +1,439 @@
+<!-----2016年10月13日------>
+padding
+
+可视区：内容+height+padding+margin
+
+只能在元素内部使用
+
+
+margin：外边距
+
+可视区：内容+height+padding
+
+用于元素与元素之间
+
+问题1：margin，元素的上下使用时会重合，只在同级之间出现。（只在块级元素）
+问题2：传递，会把它的margin值传递给父级。(块元素，设置margin上下值时)
+
+
+
+盒模型：border+padding+margin+conter
+
+
+<!-----2016年10月17日------>
+cursor(鼠标的光标)
+:pointer(手型)
+:move（十字型）
+cursor:url(img/11.cur),move;(自定义图标，cur格式图片浏览器才全部兼容,指定光标必须在后面加一个备用值)
+
+<p>标签不能包裹块级元素
+<a>标签不能包裹a,还不能包裹块级元素。
+
+
+
+
+选择器：
+	1.id选择器
+	2.类选择器（class）
+	3.类型选择器
+	4.分组选择器
+	5.组合选择器
+	6.复合用法
+	7.后代选择器
+	8.子选择器
+
+
+优先级：
+	1.行内
+	id>class
+	class>类型选择器
+	优先权叠加
+
+
+<!-----2016年10月18日------>
+
+float:left、right、none
+
+浮动：按照我们制定方向移动，当它碰到它的父级的边界或者碰到上一个浮动就停止。
+
+1.可以在一行显示。
+2.可以设置任何属性。
+3.设置浮动以后，margin值在上下是不重合的。
+4.脱离了文档流。
+
+问题：
+
+当没有给父级设置高度时，浮动元素不会撑父级的高度的， m       
+
+	解决方法：1.父级自己加一个高度。
+
+		  2.给父级加浮动，这时父级的高度等于撑开内容的高度。
+
+	当给父级元素加了浮动以后会出现脱离文档流的现象：
+
+	解决方法：1.加换行符br（自带清除浮动）
+
+		  2.清除浮动，加一个废标签（div），然后清除浮动。（clear：both 或left 或 right 或 none）
+
+		  
+	（伪类）after：在元素最后面添加内容，内容写在content后面，样式可以设置。（在父级加伪类 不加浮动）
+		#border：after{
+			 	content：“你好”
+				color：red；
+				clear：both；
+				display：block；
+				}
+
+
+
+浮动是不能把父级撑起来的（需要自己设定高度或者给父级也加浮动）
+
+
+定位：
+
+position：relative 相对定位
+
+
+1.left  right top bottom
+2.加上相对定位没有加left  right top bottom，没有作用，没有影响。
+3.相对定位把元素的层级提高
+4.没有脱离文档流
+5.相对点的位置从本身位置的左上角开始
+
+position：absolute 绝对定位
+
+
+1.left  right top bottom
+2.脱离文档流
+3.提升元素的层级
+4.在没有别的条件下，原点位置在可视区的左上角（document）（在没有定位父级的情况下）
+
+z-index；用来设置层级关系，必须和定位一起才能使用
+	 默认层级为0
+	同一层级比较
+
+
+
+<!-----2016年10月19日------>
+
+
+transition:运动的时间控制
+
+和定位一起使用，而且有相对应的top，bottom，left，right才能有效果。
+
+引入字体
+
+@font-face {
+			font-family:;（自定义个名字）
+			src: url();	（字体路径）
+		}
+
+
+
+
+
+<!-----2016年10月20日------>
+
+
+
+
+空白排版处理：
+
+white-space：normal；（把空白区域压缩，遇到边界换行。默认值）
+	     nowrap；（强制不换行）
+	     pre；    不把空区域压缩,换行。
+	     pre-wrap；不换行。
+
+
+
+
+内容溢出：
+
+1，水平溢出处理：
+
+overflow-x：auto；（自适应，当内容溢出时出现滚动框，溢出部分被截剪，但没有溢出部分时没有效果）
+	    scroll；（出现滚动条，无论内容是否溢出都出现滚动条）
+            hidden；（截减溢出部分）
+	    none；（默认值）
+2，垂直溢出处理：
+overflow-y：auto；
+	    srcoll；
+	    hidden；
+	   none；（默认值）
+3，复合写法
+overflow：
+
+
+
+
+文本溢出处理：
+
+text-overflow：clip;直接剪，超出多少剪多少。
+	       ellipsis;溢出部分省略。。。（被剪掉的部分用省略号表示）
+
+
+
+
+
+resize：伸缩元素的的宽高（必须和overflow搭配，且值不能等于none，才能起效果）
+	：none；不拉伸
+	：vertical；垂直方向拉伸
+	：horizontal；水平方向拉伸
+	：both；水平，垂直都能拉伸
+例如：#div{
+	overflow:hidden;
+	resize:both;
+}
+
+
+
+display:
+	:block;把标签变成块状元素（内联元素的特点不会独占一行，不能设置宽高）
+	：inline；把标签变成内联元素
+	：inline-block；内联块，可以设置宽高，但不会占一行。
+	：none；隐藏元素，不占位置。
+	
+visibility：隐藏元素
+	：visible；显示元素的
+	：hidden；	隐藏、占位
+	：collapse；	隐藏、占位(用于表格的隐藏)
+
+
+表格
+
+table
+
+tr 横行
+
+td单元格（th）
+
+cellspacing：单元格间距  
+
+cellpadding：单元格内边距
+
+th 单元格，字体加粗，字体居中，（用于表格的标题）
+
+<thead>表格的头部
+<tfoot>表格的尾部
+<tbody>表格的主体
+
+rowspan:合并行
+colspan:合并列
+
+
+给某个单元格设置宽度，整列的宽度一起变化。
+给某个单元格设置高度，整行的高度一起变化。
+
+border-spacing：设置单元格间距
+border-collapse：合并边框
+
+		separate；不合并单元格
+		collapse；合并单元格边框
+
+thead ，tbody，tfoot，tr 不能设置padding 、margin
+td，th， 不能设置margin，但是padding可以设置
+		
+
+
+
+<select>
+	<option value="1">我是下拉项目1</option>
+</select>
+
+
+
+
+<!-----2016年10月21日------>
+
+
+表单
+
+from
+
+
+<from action="路径地址" target=“-blank">
+
+<input type=""  value=""   name=""/>用户名
+ 
+
+
+
+
+
+</from>
+
+
+action:页面跳转，提交数据到区域。
+
+
+target：页面跳转提交是在本页面还是新页面。（跳转窗口的情况）
+
+input：
+	name：提交数据的名称
+	
+	value：输入框显示的内容
+
+	type：text，文本输入框
+	      password，密码框
+	      radio，单选框
+	      checkbox，复选框
+	      submit，提交按钮，提交数据的。(提交value 里面的值)
+              reset，重置
+
+        <label for="id"> <input   id=""      >    </label>辅助input   作用：点击文字也能选中框 ( id是input 的id值)
+
+	
+textarea 文本域
+
+
+
+
+select：下拉列表
+
+     option:显示的内容
+
+
+<!-----2016年10月24日------>
+
+input:
+
+当type=text时：
+
+	size:输入框的长度
+
+	maxlength：输入框输入的最大长度
+
+	disabled：禁止输入框
+
+	autofocus：自动获取焦点（不需要鼠标点击到  也能直接输入内容）
+
+当type=checkbox时：
+
+	checked：勾选
+
+type=button 一般按钮
+
+type=file  上传文件
+
+type=number  数字框
+
+
+
+select：
+	selected 默认选项
+
+
+
+
+<!-----2016年10月25日------>
+
+opacity:透明度（取值0~1）
+
+
+filter：Alpha（opacity=0~100） 例如IE浏览器兼容问题,一般两个都要写完。
+
+
+制作网页logo图标：<link rel="icon" href="图标路径"/>  (图标格式是ico或icon格式)
+
+
+
+border-radius：圆角（半径）
+
+border-top-left-radius:左上角
+
+border-top-right-radius:右上角
+
+border-bottom-left-radius:左下角
+
+border-bottom-right-radius:右下角
+
+复合写法：border-radius：10px 20px 30px 40px ;
+
+border-radius:X轴/Y轴；
+
+例如：border-radius:10px 20px 30px 40px / 30px 30px 30px 30px;
+
+
+<!-----2016年10月26日------>
+
+
+rgba：（250,250,250， .5） 例如：  background：rgba（        ）
+
+
+rgb+Alpha(颜色+滤镜)
+
+
+
+box-shadow:盒子阴影
+
+	x偏影（px）（-px）
+	
+	y便影（px）（-px）
+
+	blur：模糊度（px）
+	
+	辐射范围(可选)（px）
+
+	颜色（#）
+
+	inset（可选，选了的话会变成内阴影，默认是外阴影）
+
+	加“，”可叠加。
+
+
+
+<!-----2016年10月27日------>
+
+
+
+text-shadow：字体阴影
+
+	x轴方向偏移
+
+	y轴方向偏移
+
+	blur：模糊度
+
+	阴影颜色
+
+	加“，”可叠加。
+
+
+浏览器前缀：
+
+	Chrom,safari :-webkit-
+
+	IE	     :-ms-
+
+	Firefox	     :-moz-
+
+	Opera	     :-o-
+
+
+
+渐变：（要加浏览器前缀）
+
+	1.线性渐变：linear-gradient:(#颜色，#颜色 )
+	
+		默认方向是从上往下。
+	
+		方向：left、right、top、bottom
+
+		角度：0deg 从左往右  逆时针旋转，
+
+		在#颜色后面加px值，决定开始渐变的距离。
+
+		重复渐变：repeating-linear-gradient：
+
+
+	例如：background：-webkit-linear-gradient（0deg， red 10px, black 20px）；
+
+
+	2.径向渐变：radial-gradient
+
+		cricle(圆心)
+		
+		cricle at top,left,right,bottom
+
+	
+		
