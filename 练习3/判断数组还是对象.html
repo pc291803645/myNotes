@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = new Array;
+			var b = new Object;
+			
+			console.log(typeof a);  //object
+			console.log(typeof b);  //object
+			
+			console.log(Array.isArray(a));  //true;
+			console.log(Array.isArray(b));  //false;
+			
+			console.log(a instanceof Array);  //true;
+			console.log(a instanceof Object); //true;
+			console.log(b instanceof Object); //true;
+			console.log(b instanceof Array);  //false;
+			
+			console.log(Array.prototype.isPrototypeOf(a));  //true;
+			console.log(Array.prototype.isPrototypeOf(b));	//false;
+			
+			
+		</script> 
+	</body>
+</html>

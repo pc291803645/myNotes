@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 100px; height: 2000px; background: red; color: greenyellow; font-size: 30px;">123</div>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>	
+		<script type="text/javascript">
+			$(document).on("touchmove",function(e){
+				e.preventDefault();
+				console.log(e);
+			})
+		</script>
+	</body>
+</html>

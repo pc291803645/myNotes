@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>颜色</title>
+		<style type="text/css">
+			.box{
+				margin-top: 20px;
+				width: 200px;
+				height: 200px;
+				border: 2px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<input class="setbtn" type="text" name="" id="" value="" maxlength="6" placeholder="请输入颜色数值十六进制模式"/>
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var colorinput = document.getElementsByClassName("setbtn")[0];
+				var box = document.getElementsByClassName("box")[0];
+				colorinput.oninput = function(){
+					var colorStr = this.value.length>=3?this.value:"ffffff";
+					box.style.background = "#"+colorStr;
+				}
+			}
+		</script>
+	</body>
+</html>

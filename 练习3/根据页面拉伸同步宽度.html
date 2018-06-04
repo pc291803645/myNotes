@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				position: relative;
+				width: 100%;
+				height: 400px;
+				background: #adadad;
+			}
+			.ul{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 400%;
+				height: 100%;
+				border: 1px solid red;
+				box-sizing: border-box;
+				font-size: 0;
+				display: flex;
+			}
+			.ul li{
+				flex: 1;
+				height: 100%;
+			}
+			.ul li:nth-child(odd){
+				background: black;
+			}
+			.ul li:nth-child(even){
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="ul">
+				<li><h1>11</h1></li>
+				<li><h1>111</h1></li>
+				<li><h1>1111</h1></li>
+				<li><h1>11111</h1></li>
+			</ul>
+		</div>
+	</body>
+</html>

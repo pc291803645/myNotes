@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#box{
+				width:310px;
+				height:460px;
+				border:1px solid #272c3d;
+				margin: 100px auto;
+				background: #272c3d;
+				padding: 20px;;
+				
+			}
+			.item1{
+				height:50px;
+				color:#fff;
+				font-size:30px;
+				line-height: 50px;
+			}
+			.item2{
+				height:30px;
+				color:#598fff;
+				font-size:14px;
+				line-height: 30px;
+			}
+			.item3 {
+				height:30px;
+				color:#fff;
+				font-size:14px;
+				line-height: 30px;
+			}
+			.item3 p{
+				float:left;
+				
+			}
+			.item3 span{
+				float:right;
+				width:30px;
+				height:30px;
+			}
+			#header{
+				height:50px;
+				
+			}
+			#header li{
+				width:40px;
+				height:50px;
+				line-height: 50px;
+				text-align: center;
+				color:#fff;
+				float:left;
+			}
+			#content li{
+				width:40px;
+				height:50px;
+				line-height: 50px;
+				color:#fff;
+				text-align: center;
+				float:left;
+			}
+			#content .over{
+				color: #777;
+			}
+			#content .active{
+				border: 1px solid #fff;
+				width:38px;
+				height:47px;
+				background: #f60;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="">
+				<p class="item1">  时分秒</p>
+				<p class="item2">
+					年月日
+				</p>
+				<div id="" class="item3">
+					<p>
+						年月日
+					</p>
+					<div id="">
+						<span id="">下</span>
+						<span id="">上</span>
+					</div>
+				</div>
+				
+			</div>
+			<div id="header">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+				</ul>
+			</div>
+			<div id="content">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var item1  =$('.item1');
+			var item2  =$('.item2');
+			var p1 = $('.item3 p');
+			var arr = ['日','一','二','三','四','五','六']
+			var dateDay = $('#header ul');
+			var dateDate = $('#content ul');
+			
+			function time(){
+				var oDate = new Date();
+				var iH = oDate.getHours();
+				var iM = oDate.getMinutes();
+				var iS = oDate.getSeconds();
+				
+				var iY = oDate.getFullYear();
+				var iMon = oDate.getMonth()+1;
+				var iD = oDate.getDate();
+				var day = oDate.getDay();
+				
+				item1.html(tDo(iH)+':'+tDo(iM)+':'+tDo(iS));
+				p1.html(tDo(iY)+'年'+tDo(iMon)+'月');
+				item2.html(tDo(iY)+'年'+tDo(iMon)+'月'+tDo(iD)+'日, 星期'+arr[day]);
+			}
+			var timer = null;
+			time();
+			timer = setInterval(time,1000);
+			
+			creatDay();   //生成星期
+			creatDate();  //生成号数
+			
+			function creatDay(){ //生成星期的函数
+				dateDay.html('');
+				$.each(arr,function(i,ele){
+					var li = $('<li>'+ele+'</li>');			
+					dateDay.append(li);
+				})	
+			}
+			
+			
+			function creatDate(){  //生成号数的函数
+				dateDate.html('');		
+				/*
+				 生成空白li
+				*/
+				var oDate  =new Date();  
+				oDate.setMonth(oDate.getMonth()+1);  //设置为本月月份；  月数 +1 才是中国的月份；
+				oDate.setDate(1);					 //设置号数为 1号；
+				var d = oDate.getDay();				 //获取本月1号是星期几；
+				
+				/*
+				 获取上个月的天数
+				 */
+				var oDate  =new Date();
+				oDate.setMonth(oDate.getMonth());
+				oDate.setDate(0);       //号数设置为0;
+				var m  =oDate.getDate();//再获取 号数，返回月一共多少天；
+				var star = m - d;
+				console.log(m)
+				
+				for(var i=star;i<m;i++){
+					var li = $('<li>'+(++star)+'</li>');
+					li.addClass('over')
+					dateDate.append(li);
+				}
+				
+				
+				//生成当月的天数
+				var oDate  =new Date();
+				var nowDate = oDate.getDate();
+				oDate.setMonth(oDate.getMonth()+1);
+				oDate.setDate(0);
+				var len  =oDate.getDate();
+				for(var i=0;i<len;i++){
+					var li = $('<li>'+(i+1)+'</li>');
+					if(i == nowDate-1){
+						li.addClass('active');
+					}
+					dateDate.append(li);
+				}
+				
+				
+				var allLi = 42;
+				
+				
+				
+			}
+			
+			
+			function tDo(n){
+				return n=n>9?''+n:'0'+n;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加载中</title>
+	</head>
+	<body>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<img src="http://hiphotos.baidu.com/lovebyakuya/pic/item/01cf20088f9506f063d98653.jpg"/>
+		<script type="text/javascript">
+			/*document.readyState状态：
+			 * 
+			    uninitialized - 还未开始载入
+				loading - 载入中
+				interactive - 已加载，文档与用户可以开始交互
+				complete - 载入完成
+			*/
+			
+			//判断浏览器
+			var Browser = new Object();
+			Browser.userAgent = window.navigator.userAgent.toLowerCase();
+			Browser.ie = /msie/.test(Browser.userAgent);
+			Browser.Moz = /gecko/.test(Browser.userAgent);         
+			
+			document.onreadystatechange = function(){
+				console.log(document.readyState);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>OOP</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//构造函数的继承；
+			function Animal(){
+				this.species = "动物";
+			}
+			function Cat(name,color){
+				this.name = name;
+				this.color = color;
+			}
+			
+			//方法一，构造函数绑定；
+//			function Cat(name,color){
+//				Animal.apply(this,arguments);
+//				this.name = name;
+//				this.color = color;
+//			}
+//			var cat1 = new Cat("大毛","黑色");
+//			console.log(cat1.species); //"动物"；
+			
+			
+			//方法二，prototype属性；
+			Cat.prototype = new Animal();
+			Cat.prototype.constructor = Cat;
+			var cat1 = new Cat("二毛","白色");
+			console.log(cat1);
+			console.log(cat1.species); //"动物"
+			
+			
+			//方法三，直接继承；
+//			Animal.prototype.species = "动物";
+//			Cat.prototype = Animal.prototype;
+//			Cat.prototype.constructor = Cat;
+//			var cat1 = new Cat("三毛","黄色");
+//			console.log(cat1.species); //"动物"
+//			console.log(cat1); //"动物"
+		</script>
+	</body>
+</html>
