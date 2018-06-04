@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@keyframes moves{
+				from{transform: rotate(0deg);}
+				to{transform: rotate(360deg);}
+			}
+			.box{
+				width: 10px;
+				height: 200px;
+				margin-left: 400px;
+				background: red;
+				animation: moves 2s linear infinite;
+			}
+			
+			input{
+				margin-top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<input type="button" name="" id="" value="开始" />
+		<script type="text/javascript">
+			var div = document.getElementsByClassName("box")[0];
+			var btn = document.getElementsByTagName("input")[0];
+			var onoff = true;
+			div.style.animationPlayState = "paused";
+			
+			btn.addEventListener("click",function(){
+				if(onoff){
+					div.style.animationPlayState = "running";
+					var i = Math.ceil(Math.random()*2000+1000); //随机数：1000~3000;
+					setTimeout(function(){
+						div.style.animationPlayState = "paused";
+						onoff = true;
+					},i)
+				}
+				onoff = false;
+			})
+			
+		</script>
+	</body>
+</html>

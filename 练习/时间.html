@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			@keyframes rotate{
+				0%{transform: rotate(0deg);}
+				100%{transform: rotate(360deg);}
+			}
+			.box{
+				width: 1100px;
+				height: 200px;
+				margin: 30px auto;
+				font-size: 0;
+			}
+			.box li{
+				transition: 1s;
+				-webkit-transition: 1s;
+				display: inline-block;
+				list-style: none;
+				width: 200px;
+				height: 200px;
+				margin-left: 20px;
+				line-height: 200px;
+				font-size: 100px;
+				text-align: center;
+				vertical-align: bottom;
+				color: whitesmoke;
+				background: pink;
+				cursor: pointer;
+			}
+			.box li:nth-child(1){
+				margin-left: 0;
+			}
+			.box li:nth-child(5),.box li:nth-child(6){
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				font-size: 70px;
+			}
+			.box li:hover{
+				box-shadow: -3px -3px 10px 1px #999,3px 3px 10px 1px #999;
+				-webkit-box-shadow: -3px -3px 10px 1px #999,3px 3px 10px 1px #999;
+			}
+			.crux{
+				position: relative;
+				margin: 150px auto 0 auto;
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background: plum;
+			}
+			
+			.move{
+				position: absolute;
+				top: -60px;
+				left: -60px;
+				width: 200px;
+				height: 200px;
+				animation: rotate 3s infinite linear;
+			}
+			.move:before{
+				content: "";
+				display: block;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background: plum;
+			}
+			
+			.con{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 80px;
+				height: 80px;
+				line-height: 80px;
+				text-align: center;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="crux">
+			<div class="move"></div>
+			<div class="con">123456</div>	
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementsByClassName("box")[0];
+			var cell = document.getElementsByTagName("li");
+			time();
+			function time(){
+				setInterval(function(){
+					var data = new Date;
+					var h = data.getHours();    //时
+					var m = data.getMinutes();  //分
+					var s = data.getSeconds();  //秒
+					var newH = String(num(h));  //转化字符串
+					var newM = String(num(m));
+					var newS = String(num(s));
+					cell[0].innerHTML = newH.charAt(0);
+					cell[1].innerHTML = newH.charAt(1);
+					cell[2].innerHTML = newM.charAt(0);
+					cell[3].innerHTML = newM.charAt(1);
+					cell[4].innerHTML = newS.charAt(0);
+					cell[5].innerHTML = newS.charAt(1);	
+				},1000)
+			}
+			function num(str){ var str = str>=10?str:"0"+str; return str }; //补零 函数；
+		</script>
+	</body>
+</html>

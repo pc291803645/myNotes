@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var font = "[:1]abc123defg[:8]"
+			var arr = ["","表情1","表情2","表情3","表情4","表情5","表情6","表情7","表情8"];
+			
+			var str = font.replace(/\[\:\d+\]/gi,function(e,index){  //e，代表匹配到的那个字符， index代表那个元素的下标，下标从0开始
+				var i = e.match(/\d+/g);
+				return arr[i];  
+			})
+			
+			console.log(str);
+
+            var reg = /\ab+/g;
+            var str2 = "aabababab";
+            console.log(str2.match(reg));
+
+
+//			var reg = /\[\:\d+\]/gi;
+//			var onoff = reg.test("[:39]");
+//			console.log(onoff);
+			
+			
+//			var font = "你这个sb，就是个大SB";
+//			var s = new RegExp("sb", "ig");  //正则表达式： /sb/gi;
+//			var s = font.replace(s,"*");
+//			console.log(s);
+//
+//
+//			var con = "aaa123AAA";
+//			var con = con.replace(/\d/g,"b");
+//			console.log(con);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onbeforeunload="return colse()">
+		<input onclick="return fn()"  type="button" name="" id="" value="按钮" />
+		<input type="text" name="" id="" value="" placeholder="请输入..." />
+		<input onclick="return fm()" disabled="disabled" checked="checked" type="checkbox" name="" id="" value="" />
+		<script type="text/javascript">
+			var btn = document.querySelectorAll("input")[0];
+			var check = document.querySelectorAll("input")[2];
+			btn.setAttribute("disabled","disabled");
+			btn.removeAttribute("disabled");
+			
+			
+			function fn(){
+				alert("点击了按钮");
+			}
+			
+			function fm(){
+				if(check.checked){
+					alert("已勾选")
+				}else{
+					alert("未勾选")
+				}
+			}
+		</script>
+	</body>
+</html>
