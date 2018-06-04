@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$.ajax({
+				type: "get",
+				url: fetch('https://nscg.hoho717.site/MobileApp/Mobile/GetJurisdictionList', {
+					mode: 'no-cors'
+				}),
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(ret) {
+
+				},
+
+			});
+		</script>
+	</body>
+
+</html>

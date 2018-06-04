@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>6位密码</title>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+		<style type="text/css">
+			*{padding:0;margin:0}
+			.pass-item{display: inline-block; vertical-align: middle; width: 25px;height: 25px;line-height: 25px;text-align: center;border: 1px solid #333333;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span class="pass-item"></span>
+			<span class="pass-item"></span>
+			<span class="pass-item"></span>
+			<span class="pass-item"></span>
+			<span class="pass-item"></span>
+			<span class="pass-item"></span>
+		</div>
+		<input class="import" type="password" name="" id="" value="" maxlength="6"/>
+		
+		<script type="text/javascript">
+			var passwords = '';
+			$(".import").on("input",function(){
+				passwords = $(this).val().replace(/[^0-9]/gi,""); //过滤0-9之外的字符；
+				$(this).val(passwords);
+				loop(passwords);
+			})
+			function loop(strings){
+				var strArray = strings.split("");
+				$(".pass-item").html("");
+				for(var i=0;i<strArray.length;i++){
+					$(".pass-item").eq(i).html("●");
+				}
+				console.log(strings);
+			}
+		</script>
+	</body>
+</html>

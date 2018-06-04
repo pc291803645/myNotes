@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 50px;
+				height: 50px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementsByClassName("box")[0];
+				var styleObj = getComputedStyle(box);
+				
+				console.log(box.style.height);  //空白；只能获取行间的样式；
+				console.log(styleObj);          //所有css样式，是一个对象；
+				console.log(styleObj["background"]);
+			}
+		</script>
+	</body>
+</html>

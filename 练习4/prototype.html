@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>prototype</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var functions = function(obj){
+				this.myData = obj;
+			}
+			functions.prototype.getMydata = function(){
+				return this.myData;
+			}
+			
+			var obj = {name: "小黑"}
+			
+			var fn = new functions(obj);
+			console.log(fn.getMydata());
+			
+		</script>
+	</body>
+</html>

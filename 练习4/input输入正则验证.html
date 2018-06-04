@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>input</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<input class="name" type="text" name="username" id="" value="" oninput="test()" placeholder="姓名"/><br/>
+		<input class="phone" type="text" name="phone" id="" value="" oninput="test()" placeholder="联系方式"/><br/>
+		<input class="city" type="text" name="city" id="" value="" oninput="test()" placeholder="地区"/><br/>
+		<input class="submit" type="submit" value="提交"/>
+		
+		<script type="text/javascript">
+			$(".submit").on("click",function(){
+				var jsons = test();
+				console.log(jsons);
+			})
+			
+			test();
+			
+			function test(){
+				var expData = new Object;
+				expData.nameVal = $(".name").val();
+				expData.phoneVal = $(".phone").val();
+				expData.cityVal = $(".city").val();
+				if(!(/^[a-zA-Z\u4e00-\u9fa5]+$/.test(expData.nameVal))){
+					$(".name").css("color","red");
+				}else{
+					$(".name").css("color","green");
+				}
+				if(!(/^1[34578]\d{9}$/.test(expData.phoneVal))){
+					$(".phone").css("color","red");
+				}else{
+					$(".phone").css("color","green");
+				}
+				if(!(/^[\u4e00-\u9fa5]+$/.test(expData.cityVal))){
+					$(".city").css("color","red");
+				}else{
+					$(".city").css("color","green");
+				}
+				if(
+					!(/^[a-zA-Z\u4e00-\u9fa5]+$/.test(expData.nameVal))||
+					!(/^1[34578]\d{9}$/.test(expData.phoneVal))||
+					!(/^[\u4e00-\u9fa5]+$/.test(expData.cityVal))
+				){
+					$(".submit").attr("disabled","disabled");
+				}else{
+					$(".submit").removeAttr("disabled");
+					return expData;
+				}
+			}
+		</script>
+	</body>
+</html>
