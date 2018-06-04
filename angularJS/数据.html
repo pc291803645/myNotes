@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>angular数据</title>
+		<script src="js/angular.min.js" type="text/javascript"></script>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-controller="myController" class="">
+			<img src='{{ item.img }}' ng-repeat = "item in imgArr"/>
+			<img2 ng-repeat="item in imgArr"></img2>
+		</div>
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[
+				'Services', // 服务
+    			'Controller',// 控制器
+    			'Directive',  //自定义指令
+    			'Factory', //公共方法
+    			'Filter'	//过滤控制器
+			]);
+			function fn(){
+				return "添加的内容";
+			}
+			var configVal = fn();
+			app.value("configs",configVal);
+			
+			var myServices = angular.module("Services",[]);
+			var myController = angular.module("Controller",[]);
+			var myDirective = angular.module("Directive",[]);
+			var myFactory = angular.module("Factory",[]);
+			var myFilter = angular.module("Filter",[]);
+			
+			
+			
+			myServices.service("greeter",["$q",function($q){
+				this.index = function(){
+					var deferred = $q.defer();  		 //通过$q服务注册一个延迟对象 deferred；
+					var promise = deferred.promise;		  //通过deferred延迟对象，可以得到一个承诺promise，而promise会返回当前任务的完成结果;
+					$.ajax({
+						url: "http://payapi.meicool.com/index.php/Meiku/CenterApi/indexData",
+						type: "POST",
+						success: function(data) {
+							deferred.resolve(data);     //deferred.resolve是一个函数（方法）；
+						}
+					})
+					return promise;
+				}
+				
+			}])
+			
+			myController.controller("myController",["$scope","greeter","configs",function($scope,greeter,configs){
+				greeter.index().then(function(data){
+					console.log(data);
+					$scope.imgArr = data.data.adArr[0]; //是一个数组；
+					 
+				})
+				console.log(configs);
+			}])
+			myDirective.directive("img2",function(){
+				return {
+					restrict: "EACM",
+					template:"<img src='{{imgArr[$index].img}}'/>", //或者可以写："<img src='{{item.img}}'/>"
+					link:function(scope,element,attr){
+							
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

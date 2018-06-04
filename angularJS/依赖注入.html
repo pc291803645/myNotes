@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>依赖注入</title>
+		<script src="js/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="myController" class="">
+			<button ng-click="fn()">按钮</button>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[
+				'Services', // 服务
+    			'Controller'// 控制器
+			]);
+			var mcServices = angular.module("Services",[]);
+			var mcController = angular.module("Controller",[]);
+			
+			
+			mcServices.service("greeter",function(){
+//				return { greet:function(msg){alert(msg)} }
+				this.index = function(){
+					return "点击";
+				}
+				
+			})
+			mcController.controller("myController",["$scope","greeter",function($scope,greeter){
+//				$scope.fn = function(){
+//					greeter.greet("点击")
+//				}
+				$scope.fn = function(){
+					var con = greeter.index();
+					alert(con);
+				}
+				
+				
+			}])
+			
+			
+		</script>
+	</body>
+</html>

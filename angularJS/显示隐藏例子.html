@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			.box1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background: green;
+			}
+		</style>
+		
+	</head>
+	<body ng-controller="tap">							<!--数值匹配就显示-->
+		<input ng-click="tapselecet = 1" type="button" name="" id="" value="选项一"  ng-init="tapselecet = 1"/>
+		<input ng-click="tapselecet = 2" type="button" name="" id="" value="选项二"  />		
+		<div class="box1" ng-show="tapselecet == 1">这是选项一</div>
+		<div class="box2" ng-show="tapselecet == 2">这是选项二</div>	
+		
+		<button ng-click="xs=!xs">切换显示</button>
+		<div ng-show="xs" style="width: 200px;height:200px;background:green"></div>
+			
+		<form ng-submit="submitData()">
+			<input type="text" name="type" id="" value="" />
+			<input type="submit" value="确定"/>
+		</form>
+		
+		
+		<script type="text/javascript">
+			var app = angular.module("app",[]);
+			app.controller("tap",["$scope",function($scope){
+				$scope.submitData = function(){
+					console.log(123456);
+				}
+				
+			}])
+			
+		</script>
+		
+	</body>
+</html>

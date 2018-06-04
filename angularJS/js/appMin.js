@@ -1,0 +1,1 @@
+document.write('<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>');

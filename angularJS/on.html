@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app ="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-controller="pre">
+			<div ng-controller="myseft">
+				<a ng-click="click()" style="cursor: pointer;">click me</a>
+				<div ng-controller="chi"></div>
+			</div>
+			<div ng-controller="bro"></div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			angular.module("app",[
+				'Services', // 服务；
+    			'Controller',// 控制器
+    			'Directive' , //自定义指令
+    			'Factory', //
+    			'Filter'
+			])
+			var myServices = angular.module("Services",[]);
+			var myController = angular.module("Controller",[]);
+			var myDirective = angular.module("Directive",[]);
+			var myFactory = angular.module("Factory",[]);
+			var myFilter = angular.module("Filter",[]);
+//			
+			myController.controller("pre",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.$on('parent', function(event,data) {
+			        console.log(data);         //父级能得到值
+			    });
+			    $scope.$on('child', function(event,data) {
+			        console.log(data);         //子级得不到值
+			    });
+				
+			}])
+			myController.controller("myseft",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.click = function () {
+			        $scope.$broadcast('child', 'child');
+			        $scope.$emit('parent', 'parent');
+			    }
+			}])
+			myController.controller("chi",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.$on('child', function(event,data) {
+				    console.log(data);         //子级能得到值
+				});
+				$scope.$on('parent', function(event,data) {
+				    console.log(data);         //父级得不到值
+				});
+			}])
+			myController.controller("bro",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.$on('parent', function(event,data) {
+			        console.log(data);        //平级得不到值
+			    });
+			    $scope.$on('child', function(event,data) {
+			        console.log(data);        //平级得不到值
+			    });
+			}])
+		</script>
+	</body>
+</html>

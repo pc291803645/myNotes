@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="lianxi">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-show="show" ng-init="show = true" style="width: 100px; height: 100px; background: red;">
+			
+		</div>
+		<input ng-click="show = false" type="button" name="" id="" value="消失" />
+		<input ng-click="show = true" type="button" name="" id="" value="显示" />
+		<br />
+		<aaa></aaa>
+		
+		
+		<script type="text/javascript">
+			angular.module("lianxi",[
+				'Directive'  //自定义指令
+			])
+			var myDirective = angular.module("Directive",[]);
+			
+			myDirective.directive("aaa",function(){
+				return{
+					restrict: "EACM",
+					template:'<a href="javascript:;">链接</a>',
+					link:function(scope,element,attr){
+						element[0].onclick = function(){
+							console.log(scope)
+						}
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/appMin.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.mo{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,.3);
+				-display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="mo">
+			<object type="application/x-shockwave-flash" id="xiuxiuEditor" name="xiuxiuEditor" data="http://open.web.meitu.com/sources/avatar/avatar.swf?version=201410201414" width="650px" height="500px"><param name="menu" value="false"><param name="scale" value="noScale"><param name="allowFullscreen" value="true"><param name="allowScriptAccess" value="always"><param name="bgcolor" value="#FFFFFF"><param name="wmode" value="window"><param name="base" value="http://open.web.meitu.com/sources/avatar/"><param name="flashvars" value="source=plugin&amp;initFun=xiuxiu._init&amp;changeFlashHeightFun=xiuxiu._setHeight&amp;mouseWheelFun=xiuxiu._mouseWheel&amp;imageLoadedFun=xiuxiu._imageLoaded&amp;uploadFun=xiuxiu._upload&amp;beforeUploadFun=xiuxiu._beforeUpload&amp;uploadResponseFun=xiuxiu._uploadResponse&amp;batchUploadResponseFun=xiuxiu._batchUploadResponseFun&amp;batchUploadCompleteFun=xiuxiu._batchUploadCompleteFun&amp;saveBase64ImageFun=xiuxiu._saveBase64Image&amp;browseFun=xiuxiu._browse&amp;browseCancelFun=xiuxiu._browseCancel&amp;closePhotoEditorFun=xiuxiu._close&amp;debugFun=xiuxiu._debug"></object>
+		</div>-->
+		<div ng-app="">
+			<p>输入名字：<input type="text" ng-model="name" ></p>
+			<h1>你的名字是：{{ name }}</h1>
+		</div>
+	</body>
+</html>

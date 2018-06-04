@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app ="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="" ng-controller="one">
+			<label for="sex1">
+				<input type="radio" name="sex" id="sex1" value="0" ng-checked="sexinfo ==0" ng-model="sexinfo" />男
+			</label>
+			
+			<label for="sex2">
+				<input type="radio" name="sex" id="sex2" value="1" ng-checked="sexinfo ==1"  ng-model="sexinfo" />女
+			</label>
+		</div>
+		
+		
+		<script type="text/javascript">
+			angular.module("app",[
+				'Services', // 服务
+    			'Controller',// 控制器
+    			'Directive' , //自定义指令
+    			'Factory', //公共方法
+    			'Filter'	//过滤控制器
+			])
+			var myServices = angular.module("Services",[]);
+			var myController = angular.module("Controller",[]);
+			var myDirective = angular.module("Directive",[]);
+			var myFactory = angular.module("Factory",[]);
+			var myFilter = angular.module("Filter",[]);
+			
+			
+			myController.controller("one",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.sexinfo =0;
+				
+			}])
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title>单向（双向）绑定</title>
+		<script src="js/angular.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div ng-controller="mycontroller">
+			<p>单向绑定："@"</p>
+			<input type="text" ng-model="string1"/>         <!--父级  "@",单向绑定-->
+			<input-box1 strings="{{string1}}"></input-box1> <!--子级-->
+			<br />
+			<p>双向绑定："="</p>
+			<input type="text" ng-model="string2"/>         <!--父级 "=",单向绑定-->
+			<input-box2 strings="string2"></input-box2>     <!--子级-->
+			<br />
+			<p>执行函数："&"</p>
+			<button-box fun="fn()"></button>                <!--"&",执行函数-->
+		</div>
+			
+		
+		<script type="text/javascript">
+			angular.module("myapp",[
+				'Services', // 服务
+    			'Controller',// 控制器
+    			'Directive' , //自定义指令
+    			'Factory', //公共方法
+    			'Filter'	//过滤控制器
+			])
+			var myServices = angular.module("Services",[]);
+			var myController = angular.module("Controller",[]);
+			var myDirective = angular.module("Directive",[]);
+			var myFactory = angular.module("Factory",[]);
+			var myFilter = angular.module("Filter",[]);
+			
+			myController.controller("mycontroller",["$q","$scope",function($q,$scope){ 
+				$scope.fn = function(){
+					alert("现在的时间是:"+ new Date().toLocaleString());
+				}
+			}])
+			myDirective.directive("inputBox1",function(){
+				return {  
+			        'restrict': 'E',  
+			        scope: {  
+			            strings:"@"  
+			        },  
+			        template: '<input ng-model="strings" />',
+			        link: function(scope,ele,attrs){}
+			    }  
+			})
+			
+			myDirective.directive("inputBox2",function(){
+				return {  
+			        'restrict': 'E',  
+			        scope: {  
+			            strings:"="  
+			        },  
+			        template: '<input ng-model="strings" />',
+			        link: function(scope,ele,attrs){}
+			    }  
+			})
+			
+			myDirective.directive("buttonBox",function(){
+				return {  
+			        'restrict': 'E',  
+			        scope: {  
+			            fun:"&"  
+			        },  
+			        template: '<button ng-click="fun()">查看时间</button>',
+			        link: function(scope,ele,attrs){}
+			    }  
+			})
+		</script>
+	</body>
+</html>

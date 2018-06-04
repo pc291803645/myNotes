@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app ="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" ></script>
+		<style type="text/css">
+			.box{
+				width: 600px;
+				height: 200px;
+				border: 1px solid #333;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ng-include src="'new_file2.html'"></ng-include>
+		</div>
+		
+		<script type="text/javascript">
+			var app = angular.module("app",[]);
+			
+		</script>
+	</body>
+</html>

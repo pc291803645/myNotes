@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app ="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="" ng-controller="one">
+			<input type="text" ng-model="content"/>
+			<br />
+			<span>{{ msg | reverse }}</span>
+			<p>{{content}}</p>
+			<p>{{ ss | uppercase }}</p>
+			
+			<form name="String" ng-submit="fn($event)">
+				<input type="text"  ng-minlength="1" ng-maxlength="7" ng-model="info.userName" name="userName" ng-required='true'/>
+				<span ng-show="String.userName.$error.minlength||String.userName.$error.maxlength">限制字数7个字</span>
+				<span ng-show="String.userName.$error.required">必填</span>
+				<br />
+				<input type="email" name="email" ng-model="info.email" id="" ng-required='true' value="" />
+				<span ng-show="String.email.$error.email">邮箱格式错误</span>
+				<span ng-show="String.email.$error.required">必填</span>
+				<br />
+				<input type="submit" value="提交"/>
+			</form>
+			
+			
+			<label for="sex1">
+				<input type="radio" name="sex" id="sex1" value="0" ng-checked="sexinfo ==0" ng-model="sexinfo" />男
+			</label>
+			
+			<label for="sex2">
+				<input type="radio" name="sex" id="sex2" value="1" ng-checked="sexinfo ==1"  ng-model="sexinfo" />女
+			</label>
+		
+			<select name="colortype" ng-model="colors">
+				<option value="1">红色</option>
+				<option value="2">蓝色</option>
+				<option value="3">绿色</option>
+			</select>
+		
+					
+			<content>123455</content>
+			
+			
+			<div ng-click="fn($event)" id="" style="width: 50px; height: 50px; background: red;"></div>
+				
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			angular.module("app",[
+				'Services', // 服务
+    			'Controller',// 控制器
+    			'Directive' , //自定义指令
+    			'Factory', //公共方法
+    			'Filter'	//过滤控制器
+			])
+			var myServices = angular.module("Services",[]);
+			var myController = angular.module("Controller",[]);
+			var myDirective = angular.module("Directive",[]);
+			var myFactory = angular.module("Factory",[]);
+			var myFilter = angular.module("Filter",[]);
+			
+			
+			myController.controller("one",["$scope","$http","$q",function($scope,$http,$q){
+				$scope.content = "请输入内容";
+				$scope.$watch("content",function(){
+					$scope.msg = $scope.content;
+				})
+				
+//				$scope.$applyAsync(); //刷新视图；异步； 使用两个或两个以上这个方法时，需要异步的，不然会冲突报错；
+//				$scope.$apply();      //刷新视图；同步；
+				
+				
+				$scope.$watch("sexinfo",function(val){
+					console.log(val);
+					if($scope.sexinfo == 0){
+						console.log("男");
+					}
+					if($scope.sexinfo == 1){
+						console.log("女");
+					}
+				})
+				$scope.ss = "aaa";
+				
+				$scope.colors = "2";
+				$scope.$watch("colors",function(){
+					console.log($scope.colors);
+				})
+				
+				
+				$scope.fn = function($event){
+					var thisDom = $event.target;  //相当于javaScripts事件的 this代表自己；
+					console.log(thisDom);
+				}
+				
+			}])
+			myFilter.filter("reverse",function(){
+				return function(text){
+					return text.split('').reverse().join('');
+				}
+			})
+			
+			
+			 myDirective.directive("content",function(){
+				return{
+					replace:true,
+					transclude:true,
+					template:"<div ng-transclude></div>",
+					link:function(scope,ele,attrs){
+						
+					}
+				}
+			})
+			 
+			 
+		</script>
+	</body>
+</html>

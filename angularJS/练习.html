@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app = "app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.box{
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.name{
+				background: green;
+				cursor: pointer;
+			}
+			.text{
+				color: red;
+			}
+			p{
+				height: 20px;
+				background: red;
+			}
+		</style>
+		
+	</head>
+	<body ng-controller = "p">
+		<div class="box" ng-click="s=2" style="left: {{s*100}}px;"></div>
+		<p ng-repeat = "item in texts">{{ item }}</p>
+		<span ng-click="num =100">100元</span>
+		<span ng-click="num =200">200元</span>
+		<!--<lol></lol>-->
+		
+		
+		
+		<script type="text/javascript">
+			var app = angular.module("app",[]);
+			app.controller("p",["$scope",function($scope) {
+				$scope.texts = [
+					"a",
+					"b",
+					"e",
+					"d"
+				]
+				
+				$scope.$watch("num",function(val){
+					console.log(val);
+				})
+				
+				var timer = setInterval(function(){
+					if($("p").length){
+						clearInterval(timer);
+						console.log($("p").length);
+					}
+				},500)
+				
+			}])
+//			app.directive("lol",function(){
+//				return{
+//					restrict:"EACM",
+//			        replace:true,
+//			        template:"<div class='name'><p class='text'>123456</p></div>",
+//					 link:function(scope,element,attrs){
+//					 	console.log($(element).find(".text").html());
+//					},
+//			        transclude:false
+//				}
+//			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app ="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			.box1{
+				background: red;
+			}
+			.box2{
+				background: green;
+			}
+			
+			
+		</style>
+	</head>
+	<body ng-controller = "color">
+		<div class="box1" ng-if="true" ng-click="back = 1" ng-class="{'box2':back ==1}">
+			{{ model }}
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			var app = angular.module("app",[]);
+			app.controller("color",["$scope",function($scope){
+				$scope.model = "什么";
+			}])
+		</script>
+	</body>
+</html>
