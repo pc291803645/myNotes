@@ -200,8 +200,11 @@
 					}
 					//过滤，查找是否存在表情，存在添加表情；
 					var str = val.replace(/\[\:\d+\]/gi,function(e,index){    //找到代表表情的字符；例如是[:1];
-						var sub = e.match(/\d+/g);                //再过滤,匹配数字，返结果是一个数组；
-						return '<img src="'+emoji2[sub[0]]+'"/>';
+//						var i = e.match(/\d+/g);  //再过滤,匹配数字，返结果是一个数组；
+//						return '<img src="'+emoji2[i[0]]+'"/>';	
+
+						var i = e.replace(/[^0-9]/gi,""); //再过滤,提取出数字；
+						return '<img src="'+emoji2[i]+'"/>';
 					})
 					return str;
 				}
