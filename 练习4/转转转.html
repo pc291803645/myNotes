@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>转转转</title>
 		<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 		<style type="text/css">
-			*{margin: 0;padding: 0;}
-			.luck{position: relative;margin: 0 auto;width: 300px;height: 300px;}
-			.luck div{position: absolute;width: 100px;height: 100px;text-align: center; line-height: 100px; background: palegoldenrod;}
-			.luck div.active{background: peru;}
-			.luck-item1{top: 0;left: 0;}
-			.luck-item2{top: 0;left: 100px;}
-			.luck-item3{top: 0;left: 200px;}
-			.luck-item4{top: 100px;left: 200px;}
-			.luck-item5{top: 200px;left: 200px;}
-			.luck-item6{top: 200px;left: 100px;}
-			.luck-item7{top: 200px;left: 0px;}
-			.luck-item8{top: 100px;left: 0px;}
-			.btn{position: absolute;top:100px;left: 100px;width: 100px; height: 100px;}
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.luck {
+				position: relative;
+				margin: 0 auto;
+				width: 300px;
+				height: 300px;
+			}
+			
+			.luck div {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+				background: palegoldenrod;
+			}
+			
+			.luck div.active {
+				background: peru;
+			}
+			
+			.luck-item1 {
+				top: 0;
+				left: 0;
+			}
+			
+			.luck-item2 {
+				top: 0;
+				left: 100px;
+			}
+			
+			.luck-item3 {
+				top: 0;
+				left: 200px;
+			}
+			
+			.luck-item4 {
+				top: 100px;
+				left: 200px;
+			}
+			
+			.luck-item5 {
+				top: 200px;
+				left: 200px;
+			}
+			
+			.luck-item6 {
+				top: 200px;
+				left: 100px;
+			}
+			
+			.luck-item7 {
+				top: 200px;
+				left: 0px;
+			}
+			
+			.luck-item8 {
+				top: 100px;
+				left: 0px;
+			}
+			
+			.btn {
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				width: 100px;
+				height: 100px;
+				cursor: pointer;
+			}
 		</style>
 	</head>
+
 	<body>
 		<div class="luck">
 			<div class="luck-item luck-item1">1</div>
@@ -30,34 +92,81 @@
 			<div class="luck-item luck-item6">6</div>
 			<div class="luck-item luck-item7">7</div>
 			<div class="luck-item luck-item8">8</div>
-			
+
 			<button class="btn">开始</button>
 		</div>
-		
-		
+
 		<script type="text/javascript">
-			$(function(){
-				$(".btn").click(function(){
-					var luckNum = -1;
-					var cir = 0; //圈数；
-					var maxlength = $(".luck-item").length; //长度；
-					var timer = setInterval(function(){
-						luckNum++;
-						if(luckNum>maxlength-1){
-							cir++;
-							luckNum=0;
+			$(function() {
+				var index = 0; //初始位置；旋转到此处，记录一圈；
+				var luckNum = -1; //控制循环转动；
+				var fastCir = 0; //记录快速旋转圈数；
+				var slowCir = 0; //记录减速旋转圈数；
+				var fastCirNum = 4; //快速旋转多少圈，开始减速；
+				var slowCirNum = 1; //慢速旋转多少圈，开始出结果；
+				var speed = 50; //旋转速度；
+				var result = 1; //结果；第几个中奖
+				var rollTimer = ""; //快速旋转定时器；
+				var maxlength = $(".luck-item").length; //长度；
+
+				function roll() {  //快速旋转；
+					rollTimer = setInterval(function() {
+						looprotate();
+						if(luckNum == index) {  //记录旋转一圈；
+							fastCir++;
 						}
-						$(".luck-item").removeClass("active");
-						$(".luck-item").eq(luckNum).addClass("active");
-						console.log(cir);
-						if(cir>=5){ //5圈
-							clearInterval(timer);
-							
+						if(fastCir >= fastCirNum) { //判断，开始减速；
+							clearInterval(rollTimer);
+							setTimeout(slowdown, speed);
 						}
-					},80)
+					}, speed)
+				}
+
+				function slowdown() { //减速旋转；
+					looprotate();
+					speed += 30;
+					if(luckNum == index) {  //记录旋转一圈；
+						slowCir++;
+					}
+					if(slowCir >= slowCirNum) { //减速完之后；
+						if(luckNum + 1 == result) { //判断到那个结果，转盘就停止运动；
+							console.log("恭喜中了第" + result+"个");
+							index = luckNum;
+							click = false;
+							return false;
+						}
+					}
+					setTimeout(slowdown, speed);
+				}
+
+				function looprotate() { //循环旋转；
+					luckNum++;
+					if(luckNum > maxlength - 1) {
+						luckNum = 0;
+					}
+					$(".luck-item").removeClass("active");
+					$(".luck-item").eq(luckNum).addClass("active");
+				}
+
+
+
+				var click = false;
+				$(".btn").click(function() {
+					if(click) {
+						return false;
+					} else {
+						fastCir = 0; //记录快速旋转圈数;
+						slowCir = 0; //记录减速旋转圈数;
+						speed = 50; //旋转速度;
+						result = 1+Math.round(Math.random()*7);//随机结果，[1,8];
+						roll();
+						click = true;
+						return false;
+					}
 				})
-				
+
 			})
 		</script>
 	</body>
+
 </html>
