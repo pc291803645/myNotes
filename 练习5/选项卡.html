@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			ul,li{list-style: none;}
+			a{text-decoration: none;}
+			.container{margin: 20px auto;width: 300px;border: 1px solid #aaa;padding: 5px;}
+			.switch{font-size: 0;border-bottom: 1px solid #aaa;}
+			.switch li{display: inline-block;width: 50%;height: 40px;line-height: 40px;font-size: 14px;color: #333;text-align: center;cursor: pointer;}
+			.content-item{height: 400px;display: none;}
+			.content .content-item:nth-child(1){background: papayawhip;}
+			.content .content-item:nth-child(2) {background: paleturquoise;}
+			.show{display: block;}
+			.switch li.active{color: #f60;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<ul class="switch">
+				<li class="active">扫码登录</li>
+				<li>账号登录</li>
+			</ul>
+			<div class="content">
+				<div class="content-item show">这是扫码登陆</div>
+				<div class="content-item">这是账号登陆</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var switchli = document.getElementsByClassName("switch")[0].getElementsByTagName("li");
+				var contentitem = document.getElementsByClassName("content-item");
+				
+				for(var i=0;i<switchli.length;i++){
+					switchli[i].index = i;
+					switchli[i].onclick = function(){
+						for(var i=0;i<switchli.length;i++){
+							switchli[i].className = "";
+							contentitem[i].className = "content-item";
+						}
+						this.className = "active";
+						contentitem[this.index].className = "content-item show";
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>
