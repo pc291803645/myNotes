@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>clone</title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			@keyframes move{
+				from{transform: rotate(0deg);}
+				to{transform: rotate(360deg);}
+			}
+			.move{
+				animation: move linear infinite 0.3s;
+			}
+			.cloneContainer{display: inline-block; margin: 50px auto; width:200px; height: 200px; border: 1px solid #000; position: relative;}
+			.dom-centent{margin-top: 200px;text-align: center; }
+			.dom-centent>div{display: inline-block;width: 100px;height: 100px;box-sizing: border-box; vertical-align: middle; cursor: pointer;}
+			.num{position: absolute;bottom: 0;left: 0;}
+			.dom-centent>div:nth-child(odd){background: pink;}
+			.dom-centent>div:nth-child(even){background: paleturquoise;}
+			.dom-centent>div.active{
+				border: 5px solid yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cloneContainer">
+			<p>押狗</p>
+			<p class="num">下注金额：<em>0</em></p>
+		</div>
+		<div class="cloneContainer">
+			<p>押猫</p>
+			<p class="num">下注金额：<em>0</em></p>
+		</div>
+		<div class="cloneContainer">
+			<p>押牛</p>
+			<p class="num">下注金额：<em>0</em></p>
+		</div>
+		
+		<div class="dom-centent">
+			<p>选择金额</p>
+			<div data-num = "100">100</div>
+			<div data-num = "500">500</div>
+			<div data-num = "1000">1000</div>
+			<div data-num = "2000">2000</div>
+			<div data-num = "5000">5000</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			$(function(){
+				var isClick; //判断是否选择了金额；
+				
+				$(".dom-centent div").click(function(){
+					if($(this).is(".active")){
+						$(this).removeClass("active");
+						isClick = false;
+					}else{
+						$(".dom-centent div").removeClass("active");
+						$(this).addClass("active");
+						isClick = true;
+					}
+				})
+				$(".cloneContainer").click(function(){
+					if(isClick){
+						var objectDom = $(".dom-centent .active");  //选中数额的关键dom对象；
+						var cloneDom = objectDom.clone();            //克隆关键dom对象；
+						var random_top = 70+Math.ceil(Math.random()*20); //随机top；
+						var random_left = 70+Math.ceil(Math.random()*20); //随机left；
+						
+						var styleJson = {   //赋值样式；
+							width: objectDom.width(),
+							height: objectDom.height(),
+							background: objectDom.css("background"),
+							position: "absolute",
+							top: objectDom.offset().top-$(this).offset().top,
+							left: objectDom.offset().left-$(this).offset().left
+						}
+						cloneDom.css(styleJson); //设置样式；
+						$(this).append(cloneDom.addClass("move"));
+						$(this).find(".num em").html(Number($(this).find(".num em").html())+cloneDom.data("num"));
+						cloneDom.animate({ //动画；
+							width: objectDom.width()/2,
+							height: objectDom.height()/2,
+							top:random_top,
+							left:random_left
+						},function(){
+							cloneDom.removeClass("move");
+						})
+					}else{
+						alert("请选择金额");
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
