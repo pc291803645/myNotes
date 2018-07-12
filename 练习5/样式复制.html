@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<div class="box2">
+			
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementsByClassName("box")[0];
+				var box2 = document.getElementsByClassName("box2")[0];
+				
+				
+//				如果不要求支持IE, 那么只要一行。
+//				dom.style.cssText = window.getComputedStyle(srcDom, null).cssText;  
+				box2.style.cssText = window.getComputedStyle(box,null).cssText;
+				
+				/** 
+				 * IE8不支持window.getComputedStyle 
+				 * IE9~11中，window.getComputedStyle().cssText返回的总为空字符串 
+				 * 默认的window.getComputedStyle || dom.currentStyle, 返回的css键值对中，键是驼峰命名的。 
+				 */  
+//				var oStyle = (window.getComputedStyle && window.getComputedStyle(srcDom, null)) || srcDom.currentStyle,  
+//				    cssText = '';  
+//				for (var key in oStyle) {  
+//				    var v = oStyle[key];  
+//				    if (/^[a-z]/i.test(key) && [null, '', undefined].indexOf(v) === -1) {  
+//				        dom.style[key] = v;  
+//				    }  
+//				}  
+					
+			}
+		</script>
+	</body>
+</html>

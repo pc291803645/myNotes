@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>baidu地图</title>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=YIpjdze7zI39hke0GwE8bpDjU6hQLKmp" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container" style="width: 600px; height: 500px;margin: 0 auto;"></div>
+		
+		<script type="text/javascript">
+			var map = new BMap.Map("container");    
+			var point = new BMap.Point(113.30764968,23.1200491);    
+			map.centerAndZoom(point, 15); 
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+   			map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+   			
+   			/**
+   			 * 烈士陵园：113.29457, 23.132612
+   			 * 农讲所：113.28185, 23.132878
+   			 * 东山口：113.302188, 23.130219
+   			 * 东湖：113.29572, 23.121711
+   			 * 区庄：113.303841, 23.139259
+   			 * 
+   			 */
+			var json_data = [
+				{
+					"name":"烈士陵园",
+					"lng":113.29457,
+					"lat":23.132612
+				},
+				{
+					"name":"农讲所",
+					"lng":113.28185,
+					"lat":23.132878
+				}
+			];
+			var pointArray = new Array();
+			for(var i=0;i<json_data.length;i++){
+				(function(i){
+					var marker =  new BMap.Marker(new BMap.Point(json_data[i].lng, json_data[i].lat)); // 创建点
+					map.addOverlay(marker);    //增加点
+					marker.addEventListener("click",function(e){//增加点的点击事件；
+						var p = e.target;
+						console.log("marker的位置是" + p.getPosition().lng + "," + p.getPosition().lat);    
+						attribute(json_data[i].name);
+					}); 
+					pointArray[i] = new BMap.Point(json_data[i].lng, json_data[i].lat);
+				})(i)
+			}
+			map.setViewport(pointArray);//让所有点在视野范围内；
+			
+			function attribute(name){
+				if(name=="烈士陵园"){
+					if(confirm("是否跳到烈士陵园地区？")){
+						
+					}
+				}else if(name=="农讲所"){
+					if(confirm("是否跳到农讲所地区？")){
+						
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
