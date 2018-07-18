@@ -9,12 +9,17 @@
 			body{font-family: "方正小篆体";}
 			input{width: 200px;}
 			.output{font-family: "方正小篆体";}
+			iframe{
+				border: transparent;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
 		<input class="entry" type="text" name="" id="" value="" placeholder="输入需要转化内容..." />
 		<button class="click">方正小篆体转化</button>
 		<input class="output" type="text" name="" id="" value="" placeholder="输出方正小篆体"/>
+		<iframe src="" width="500" height="500"></iframe>
 		
 		<script type="text/javascript">
 			window.onload= function(){
@@ -25,13 +30,20 @@
 				click.onclick = function(){
 					if(!entry.value){ //内容为空
 						if(confirm("请输入内容哦")){
-							entry.focus();
+							entry.focus(); 
 						}
 					}else{
 						output.value = entry.value;
 					}
 				}
+				console.log(document.documentElement);
 				
+			}
+			document.onclick = function(){
+				if(confirm("确定载入iframe嘛？")){
+					document.getElementsByTagName("iframe")[0].src = "https:www.baidu.com/";
+					document.getElementsByTagName("iframe")[0].style.display = "block";
+				}
 			}
 		</script>
 	</body>
