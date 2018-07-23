@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript">
+			window.onload = window.onresize = function() { /*自适应屏幕函数  1rem=20px*/
+				var html = document.getElementsByTagName('html')[0];
+				html.style.fontSize = window.innerWidth / 16 + 'px';
+			}
+
+			/*** nested：嵌套缩进的css代码，它是默认值。
+
+		　　* expanded：没有缩进的、扩展的css代码。
+		
+		　　* compact：简洁格式的css代码。
+		
+		　　* compressed：压缩后的css代码。
+		
+			sass --style compressed test.sass test.css
+		
+		
+		你也可以让SASS监听某个文件或目录，一旦源文件有变动，就自动生成编译后的版本。
+		
+		    　// watch a file
+		
+		　　sass --watch input.scss:output.css
+		
+		　　// watch a directory
+		
+		　　sass --watch app/sass:public/stylesheets
+		    
+		 *     
+		 */
+		</script>
+	</head>
+
+	<body>
+		<div class="box">
+			<p>2018/2/26</p>
+		</div>
+	</body>
+
+</html>
