@@ -104,7 +104,7 @@ body{
     transform: rotate(-45deg);
 }
 .top h2 {
-    line-height: 0.75rem;
+    line-height: 0.7rem;
     font-size: 0.3rem;
     color: #fff;
     text-align: center;
@@ -230,7 +230,7 @@ body{
      font-size: rem(28px);
     color: #666666;
     text-align: center;
-    line-height: rem(55px);
+    line-height: rem(48px);
     border: 1px solid #afafaf;
     border-radius: 5px;
 }
@@ -301,6 +301,7 @@ body{
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
     box-sizing: border-box;
+    z-index: 10;
 }
 .info-text{
     line-height: rem(50px);

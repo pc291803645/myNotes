@@ -31,7 +31,7 @@ body {
   transform: rotate(-45deg); }
 
 .top h2 {
-  line-height: 0.75rem;
+  line-height: 0.7rem;
   font-size: 0.3rem;
   color: #fff;
   text-align: center; }
@@ -155,7 +155,7 @@ body {
   font-size: 0.28rem;
   color: #666666;
   text-align: center;
-  line-height: 0.55rem;
+  line-height: 0.48rem;
   border: 1px solid #afafaf;
   border-radius: 5px; }
 
@@ -224,7 +224,8 @@ body {
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  z-index: 10; }
 
 .info-text {
   line-height: 0.5rem;
