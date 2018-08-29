@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的优惠卷</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/myredbag.css" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<nav class="nav-bar">
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="home"></span>
+						<!-- 选中状态添加class： home-active-->
+						<span class="">首页</span>
+						<!-- 选中状态添加class：active-->
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="order"></span>
+						<!-- 选中状态添加class： order-active-->
+						<span class="">订单</span>
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="personal personal-active"></span>
+						<!-- 选中状态添加class： personal-active-->
+						<span class="active">我的</span>
+					</a>
+				</div>
+			</nav>
+			<div class="top">
+				<a class="back" href=""><span class="back-arr"></span></a>
+				<h2>优惠卷</h2>
+			</div>
+			<div class="content">
+				<ul class="head-list">
+					<li class="active">未使用(<em>15</em>)</li><!---选中状态添加class： active--->
+					<li class="">使用记录(<em>15</em>)</li>
+					<li class="">已过期(<em>15</em>)</li>
+				</ul>
+				<div class="redbag-container">
+					<div class="container-item">
+						<ul class="list-cont">
+							<li class="list-item"></li>
+							<li class="list-item"></li>
+							<li class="list-item"></li>
+						</ul>
+						<div class="not-more hide">--没有更多优惠卷--</div><!---没有该优惠卷则显示--->
+					</div>
+					<div class="container-item hide">
+						<ul class="list-cont">
+							<li class="list-item"></li>
+							<li class="list-item"></li>
+							<li class="list-item"></li>
+						</ul>
+						<div class="not-more hide">--没有更多优惠卷--</div><!---没有该优惠卷则显示--->
+					</div>
+					<div class="container-item hide">
+						<ul class="list-cont">
+							<li class="list-item overdue"></li>
+							<li class="list-item overdue"></li>
+							<li class="list-item overdue"></li>
+						</ul>
+						<div class="not-more hide">--没有更多优惠卷--</div><!---没有该优惠卷则显示--->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

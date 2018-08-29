@@ -1,0 +1,332 @@
+$rem-baseline: 100px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma" or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+    @each $value in $values {
+        @if type-of($value)=="number" and unit($value)=="rem" and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        }
+        @else if type-of($value)=="number" and unit($value)=="px" and $to=="rem" {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        }
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}
+
+body{
+    background: #ededed;
+}
+.content{
+    padding-top: rem(163px);
+}
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.7rem;
+    background: #327dfb;
+   
+ }
+.top .back {
+    position: absolute;
+    left: 0.15rem;
+    top: 0;
+    width: 0.5rem;
+    height: 0.7rem;
+}
+.top .back-arr {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.22rem 0 0 0.18rem;
+    border: 0.04rem solid #fff;
+    border-width: 0.04rem 0 0 0.04rem;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.top h2 {
+    line-height: 0.75rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+}
+.order-navs{
+    padding-left: rem(10px);
+    position: fixed;
+    top: rem(70px);
+    left: 0;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    height: rem(93px);
+     background: #FFFFFF;
+}
+.order-navs .order-nav-item,.order-navs .order-nav-item a{
+    font-size: rem(28px);
+    color: #C9C9C9;
+}
+.order-nav-item{
+    position: relative;
+    flex: 1;
+    text-align: center;
+    line-height: rem(93px);
+}
+.order-navs li.active::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: rem(70px);
+    height: rem(7px);
+    background: #327dfb;
+    border-radius: rem(4px);
+    -webkit-border-radius: rem(4px);
+    -moz-border-radius: rem(4px);
+    -ms-border-radius: rem(4px);
+    -o-border-radius: rem(4px);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.order-navs li.active a{
+    color: #327dfb;
+}
+
+.order-head{
+    display: flex;
+    display: -webkit-flex;
+    padding: rem(22px) 0;
+    font-size: rem(28px);
+    color: #666666;
+   border-bottom: 1px solid #ededed;
+}
+.order-item{
+    margin-top: rem(7px);
+    background: #FFFFFF;
+}
+.order-state{
+    margin: auto 0 auto rem(30px);
+}
+.order-code{
+    margin-left: rem(10px);
+}
+.order-ad-time{
+    margin: auto rem(30px) auto auto;
+}
+.order-outline{
+    padding: rem(20px) 0;
+   font-size: 0;
+   border-bottom: 1px solid #ededed;
+}
+.order-outline-img{
+    margin-left: rem(30px);
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(232px);
+    height: rem(157px);
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+}
+.order-outline-img>img{
+    width: 100%;
+    height: 100%;
+}
+.order-outline-text{
+    margin-left: rem(12px);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: rem(24px);
+    color: #666666;
+}
+.order-outline-text>p{
+    padding: rem(5px) 0;
+     font-size: rem(28px);
+    color: #666666;
+}
+.order-total{
+    padding-top: rem(5px);
+    padding-right: rem(30px);
+    font-size: rem(28px);
+    color: #666666;
+     text-align: right;
+}
+.order-oper{
+    padding: rem(22px) rem(30px) rem(22px) 0;
+    font-size: 0;
+    text-align: right;
+    
+}
+.order-oper>span{
+    margin-right: rem(24px);
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(134px);
+    height: rem(48px);
+     font-size: rem(28px);
+    color: #666666;
+    text-align: center;
+    line-height: rem(55px);
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+}
+.order-oper>span:nth-last-of-type(1){
+    margin-right: 0;
+}
+.order-container{
+    padding-bottom: rem(113px);
+}
+.unpaid{
+    color: #ff0000;
+}
+.gopay{
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+}
+.determined{
+   color: #0d7c1d; 
+}
+.undetermined{
+    color: #ff8f3e;
+}
+.completed{
+   color: #327dfb; 
+}
+.cancelled{
+    color: #666666;
+}
+
+.order-not{
+    display: flex;
+    display: -webkit-flex;
+    height: rem(400px);
+    background: #FFFFFF;
+}
+.order-not>span{
+    margin: auto;
+    font-size: rem(24px);
+    color: #666666;
+}
+.hide{
+    display: none;
+}
+.bgk-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    z-index: 9;
+}
+.info-frame{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: rem(70px) rem(78px);
+    width: rem(630px);
+    background: white;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    box-sizing: border-box;
+}
+.info-text{
+    line-height: rem(50px);
+    font-size: rem(30px);
+    color: #666666;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.btns{
+    margin-top: rem(36px);
+    font-size: 0px;
+    text-align: center;
+}
+.true,.false{
+    padding: rem(13px) rem(48px);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: rem(28px);
+    color: #327dfb;
+    border: 1px solid #327dfb;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+}
+.btns>span:nth-of-type(2){
+    margin-left: rem(96px);
+}

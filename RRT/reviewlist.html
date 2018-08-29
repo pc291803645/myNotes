@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>全部评论</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="css/reviewlist.css" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<nav class="nav-bar">
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="home"></span>
+						<!-- 选中状态添加class： home-active-->
+						<span class="">首页</span>
+						<!-- 选中状态添加class：active-->
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="order"></span>
+						<!-- 选中状态添加class： order-active-->
+						<span class="">订单</span>
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="personal personal-active"></span>
+						<!-- 选中状态添加class： personal-active-->
+						<span class="active">我的</span>
+					</a>
+				</div>
+			</nav>
+			<div class="top">
+				<a class="back" href=""><span class="back-arr"></span></a>
+				<h2>全部评论</h2>
+			</div>
+			<div class="content">
+				<div class="head">
+					<div class="score">
+						<span class="score-num">3.5<em class="score-des">一般</em></span>
+					</div>
+					<div class="grade-nums">
+						<!--满星class：full；半星class：half-->
+						<span class="full"></span>
+						<span class="full"></span>
+						<span class="full"></span>
+						<span class="half"></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="comment-container">
+					<div class="comment-item">
+						<div class="comment-t">
+							<div class="user-img"><img src="img/banner1.jpg" /></div>
+							<p class="user-name">买菜不用计算器</p>
+						</div>
+						<p class="comment-text">这里可以欣赏海景，深圳本身就是一个海上城市，而且深圳宝安国际机场也是一个海上机场，乘坐游艇在海上观景的感觉真棒，</p>
+						<ul class="comment-imgs">
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+						</ul>
+						<div class="comment-other">
+							<div class="comment-other-t">
+								<span class="publish-time">2018-08-18 10:50</span>
+								<span class="comment-reply">回复</span>
+								<span class="conment-agree">2</span>
+								<!--点赞成功添加样式：agree-success-->
+							</div>
+							<div class="comment-ipt-wrap hide">
+								<!--点击回复按钮显示--->
+								<textarea class="comment-textarea" placeholder="请输入内容" name="" rows="" cols=""></textarea>
+								<div class="comment-oper">
+									<span class="textarea-word-num">0/300</span>
+									<span class="textarea-pull-btn">提交</span>
+								</div>
+							</div>
+							<ul class="everyone-comment hide">
+								<!--有评论显示，没有不显示--->
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="comment-item">
+						<div class="comment-t">
+							<div class="user-img"><img src="img/banner1.jpg" /></div>
+							<p class="user-name">买菜不用计算器</p>
+						</div>
+						<p class="comment-text">这里可以欣赏海景，深圳本身就是一个海上城市，而且深圳宝安国际机场也是一个海上机场，乘坐游艇在海上观景的感觉真棒，</p>
+						<ul class="comment-imgs">
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+						</ul>
+						<div class="comment-other">
+							<div class="comment-other-t">
+								<span class="publish-time">2018-08-18 10:50</span>
+								<span class="comment-reply">回复</span>
+								<span class="conment-agree agree-success">2</span>
+							</div>
+							<div class="comment-ipt-wrap hide">
+								<!--点击回复按钮显示--->
+								<textarea class="comment-textarea" placeholder="请输入内容" name="" rows="" cols=""></textarea>
+								<div class="comment-oper">
+									<span class="textarea-word-num">0/300</span>
+									<span class="textarea-pull-btn">提交</span>
+								</div>
+							</div>
+							<ul class="everyone-comment">
+								<!--有评论显示，没有不显示--->
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="comment-item">
+						<div class="comment-t">
+							<div class="user-img"><img src="img/banner1.jpg" /></div>
+							<p class="user-name">买菜不用计算器</p>
+						</div>
+						<p class="comment-text">这里可以欣赏海景，深圳本身就是一个海上城市，而且深圳宝安国际机场也是一个海上机场，乘坐游艇在海上观景的感觉真棒，</p>
+						<ul class="comment-imgs">
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+							<li class="comment-imgs-item"><img src="img/banner1.jpg" /></li>
+						</ul>
+						<div class="comment-other">
+							<div class="comment-other-t">
+								<span class="publish-time">2018-08-18 10:50</span>
+								<span class="comment-reply">回复</span>
+								<span class="conment-agree">2</span>
+							</div>
+							<div class="comment-ipt-wrap">
+								<textarea class="comment-textarea" placeholder="请输入内容" name="" rows="" cols=""></textarea>
+								<div class="comment-oper">
+									<span class="textarea-word-num">0/300</span>
+									<span class="textarea-pull-btn">提交</span>
+								</div>
+							</div>
+							<ul class="everyone-comment">
+								<!--有评论显示，没有不显示--->
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+								<li class="everyone-comment-item">
+									<div class="everyone-info">
+										<div class="everyone-img">
+											<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1085482503,4263095848&fm=27&gp=0.jpg" />
+										</div>
+										<span class="everyone-name">李大钊</span>
+										<span class="everyone-time">2018-10-10 20:20</span>
+									</div>
+									<p class="everyone-text">哇！哇！真好玩，我也想去玩玩！</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="bottom">
+				<span>没有更多了</span>
+			</div>
+			<!---轮播图--->
+			<div class="owing-wrap hide">
+				<p class="pic-num">1/4</p>
+				<div class="pic-container">
+					<ul class="pic-list">
+						<li class="pic-item"><img src="http://www.rryouting.com/YachtPic/2018/100009.jpg"/></li>
+						<li class="pic-item"><img src="http://www.rryouting.com/YachtPic/2018/100009.jpg"/></li>
+						<li class="pic-item"><img src="http://www.rryouting.com/YachtPic/2018/100009.jpg"/></li>
+					</ul>
+				</div>
+			</div>
+			
+			
+		</div>
+
+	</body>
+
+</html>

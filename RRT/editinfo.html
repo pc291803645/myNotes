@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>编辑资料</title>
+		<link rel="stylesheet" type="text/css" href="style/Mdate.css"/>
+		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/edit.css?v=1234"/>
+		
+		<script type="text/javascript">
+			(function () {
+	            function o() {
+	                document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540?document.documentElement.clientWidth:540)/750 * 100 + 'px';
+	            }
+				var e = null;
+	            window.addEventListener("resize", function () {
+	                clearTimeout(e), e = setTimeout(o, 300)
+	            }, !1), o()
+	        })(window);
+	    </script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<a href="userindex.html" class="back"><span class="back-arr"></span></a>
+			<div class="info-wrap">
+				<div class="info-item">
+					<span class="info-l">头像</span>
+					<div class="head-pic-wrap">
+						<img class="head-pic-img" src="img/banner3.jpg"/>
+					</div>
+				</div>
+				<div class="info-item">
+					<span class="info-l">昵称</span>
+					<input class="ipt-com ipt-type1" type="text" name="" id="" value="kitty" placeholder="输入昵称"/>
+				</div>
+				<div class="info-item">
+					<span class="info-l">性别</span>
+					<div class="sex-wrap">
+						<span class="sex-item active" data-sex="0"><i class="sex-i"></i>男</span>
+						<span class="sex-item" data-sex="1"><i class="sex-i"></i>女</span>
+					</div>
+				</div>
+				<div class="info-item">
+					<span class="info-l">生日</span>
+					<input class="ipt-com" type="text" name="" id="dateSelector" onfocus="this.blur();" value="1998-03-28"/>
+				</div>
+				<div class="info-item">
+					<span class="info-l">城市</span>
+					<input class="ipt-com" type="text" name="" id="citySelector" onfocus="this.blur();" value="广东省,广州市,天河区"/>
+					<input type="hidden" id="cityValue"/>
+				</div>
+				<div class="info-item">
+					<span class="info-l">个性签名</span>
+					<input class="ipt-com" type="text" name="" id="" value="拥有三艘游艇" placeholder="输入个性签名"/>
+				</div>
+				<div class="info-item">
+					<span class="info-l">手机号</span>
+					<input class="ipt-com" type="text" name="" id="" value="15958785655" placeholder="输入手机号"/>
+				</div>
+			</div>
+			
+			<div class="opt-wrap hide">
+				<div class="opt-container">
+					<div class="opt-item">
+						<p>拍摄</p>
+						<input type="file" name="" id="" value="" accept="image/*" capture="camera"/>
+					</div>
+					<div class="opt-item">
+						<p>从手机相册选择</p>
+						<input type="file" name="" id="" value="" accept="image/jpeg,png,jpg" />
+					</div>
+					<div class="opt-item off-opt"><p>取消</p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	<script src="script/iScroll.js" type="text/javascript"></script>
+	<script src="script/Mdate.js" type="text/javascript"></script>
+	
+	<script src="script/LAreaData1.js" type="text/javascript"></script>
+	<script src="script/LAreaData2.js" type="text/javascript"></script>
+	<script src="script/LArea.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		$(".head-pic-wrap").click(function(){
+			$(".opt-wrap").fadeIn();
+		})
+		$(".off-opt").click(function(){
+			$(".opt-wrap").fadeOut();
+		})
+			
+		/*日历插件*/	
+		new Mdate("dateSelector",{
+			beginYear: "1900", //起始年份；不写默认2000年；
+			format: "-"        //时间格式；不写默认年月日；
+		});
+		
+		/*城市选择插件*/
+		var area2 = new LArea();
+	    area2.init({
+	        'trigger': '#citySelector',
+	        'valueTo': '#cityValue',
+	        'keys': {
+	            id: 'value',
+	            name: 'text'
+	        },
+	        'type': 2,
+	        'data': [provs_data, citys_data, dists_data]
+	    });
+		
+	</script>
+</html>

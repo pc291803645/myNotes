@@ -1,0 +1,198 @@
+$rem-baseline: 100px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma" or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+    @each $value in $values {
+        @if type-of($value)=="number" and unit($value)=="rem" and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        }
+        @else if type-of($value)=="number" and unit($value)=="px" and $to=="rem" {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        }
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}
+
+body{
+    background: #ededed;
+}
+.renrenyouting{
+    padding-top: 0.7rem;
+    padding-bottom: 1.28rem;
+}
+
+.content {
+   
+}
+
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.7rem;
+    background: #327dfb;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+.top .back {
+    position: absolute;
+    left: 0.15rem;
+    top: 0;
+    width: 0.5rem;
+    height: 0.7rem;
+}
+.top .back-arr {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.22rem 0 0 0.18rem;
+    border: 0.04rem solid #fff;
+    border-width: 0.04rem 0 0 0.04rem;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.top h2 {
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+}
+.top h2:after {
+    content: '';
+    display: inline-block;
+    vertical-align: -0.08rem;
+    margin-left: 0.18rem;
+    width: 0;
+    height: 0;
+    border: 0.12rem solid #fff;
+    border-color: #fff transparent transparent transparent;
+}
+.head-list{
+    background: #FFFFFF;
+    font-size: 0;
+    li{
+        display: inline-block;
+        vertical-align: middle;
+        width: 33.33%;
+        height: rem(72px);
+        line-height: rem(72px);
+        font-size: rem(28px);
+        color: #333333;
+        text-align: center;
+    }
+    .active{ position: relative;}
+    .active::after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: rem(170px);
+        height: rem(7px);
+        border-radius: rem(4px);
+        transform: translateX(-50%);
+        background: #327dfb;
+        -webkit-border-radius: rem(4px);
+        -moz-border-radius: rem(4px);
+        -ms-border-radius: rem(4px);
+        -o-border-radius: rem(4px);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+}
+.list-cont{
+    padding-top: rem(60px);
+    
+    li,.list-item{
+        position: relative;
+        margin: rem(60px) auto 0 auto;
+        width: rem(690px);
+        height: rem(245px);
+        background: red;
+    }
+}
+.list-cont li:nth-of-type(1),.list-item:nth-of-type(1){
+    margin: 0 auto;
+}
+.overdue{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.overdue::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    
+}
+
+.not-more{
+    margin-top: rem(200px);
+    text-align: center;
+    font-size: rem(26px);
+    color: #999;
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>人人艇-全球游艇共享平台</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		
+		<script type="text/javascript">
+			(function () {
+	            function o() {
+	                document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540?document.documentElement.clientWidth:540)/750 * 100 + 'px';
+	            }
+				var e = null;
+	            window.addEventListener("resize", function () {
+	                clearTimeout(e), e = setTimeout(o, 300)
+	            }, !1), o()
+	        })(window);
+	    </script>
+	</head>
+
+	<body>
+		<div class="renrenting">
+			<nav class="nav-bar">
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="home home-active"></span> <!-- 选中状态添加class： home-active-->
+						<span class="active">首页</span><!-- 选中状态添加class：active-->
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="order"></span> <!-- 选中状态添加class： order-active-->
+						<span class="">订单</span>
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="personal"></span><!-- 选中状态添加class： personal-active-->
+						<span class="">我的</span>
+					</a>
+				</div>
+			</nav>
+			
+			<div class="banner-wrap">
+				<div class="banner-list">
+					<a class="banner-item" href="javascript:;"><img src="img/banner1.jpg"/></a>
+					<a class="banner-item" href="javascript:;"><img src="img/banner2.jpg"/></a>
+					<a class="banner-item" href="javascript:;"><img src="img/banner3.jpg"/></a>
+				</div>
+			</div>
+			
+			<div class="search-wrap">
+				<div class="search-inner">
+					<div class="search-item citys">
+						<span class="search-city">北京</span>
+						<span class="city">使用城市</span>
+					</div>
+					<i class="search-line"></i>
+					<div class="search-item times">
+						<span class="search-time">2018-08-01</span>
+						<span class="time">使用日期</span>
+					</div>
+				</div>
+				<button class="search-btn">即刻启航</button>
+			</div>
+			
+			<div class="rmd-wrap">
+				<h2 class="rmd-title">放慢生活，释放快乐</h2>
+				<ul class="rmd-list">
+					<li class="">
+						<a href="share.html">
+							<div class="rmd-cont">
+								<img src="img/share.png"/>
+								<div class="rmd-b">
+									<p>我要共享</p>
+								</div>
+							</div>
+							<p class="rmd-text">专业托管平台</p>
+						</a>
+					</li>
+					<li class="">
+						<a href="">
+							<div class="rmd-cont">
+								<img src="img/rent.png"/>
+								<div class="rmd-b">
+									<p>一键快租</p>
+								</div>
+							</div>
+							<p class="rmd-text">随时随地出发</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tap-cont">
+				<ul class="tap-haed">
+					<li class="active">热门游艇</li><!-- 选中状态添加class： active-->
+					<li>热门派对</li>
+					<li>热门动态</li>
+				</ul>
+				<div class="tap-container">
+					<!-- 热门游艇-->
+					<ul class="tap-item">
+						<li class="list-item">
+							<p class="yacht-title">
+								<span class="yacht-name">游艇城1号</span>
+								<a href="">
+									<i class="yacht-geo">广州</i>
+								</a>
+								<i class="yacht-hot ishot">660</i>
+							</p>
+							<a href="">
+								<div class="yacht-img">
+									<img src="img/chuan1.png"/>
+								</div>
+							</a>
+						</li>
+						<li class="list-item">
+							<p class="yacht-title">
+								<span class="yacht-name">国奥一号</span>
+								<a href="">
+									<i class="yacht-geo">广州</i>
+								</a>
+								<i class="yacht-hot ishot">575</i>
+							</p>
+							<a href="">
+								<div class="yacht-img">
+									<img src="img/chuan2.png"/>
+								</div>
+							</a>
+						</li>
+						<li class="list-item">
+							<p class="yacht-title">
+								<span class="yacht-name">莱茵1997</span>
+								<a href="">
+									<i class="yacht-geo">广州</i>
+								</a>
+								<i class="yacht-hot ishot">300</i>
+							</p>
+							<a href="">
+								<div class="yacht-img">
+									<img src="img/chuan3.png"/>
+								</div>
+							</a>
+						</li>
+						<li class="list-item">
+							<p class="yacht-title">
+								<span class="yacht-name">国奥一号</span>
+								<a href="">
+									<i class="yacht-geo">广州</i>
+								</a>
+								<i class="yacht-hot ishot">200</i>
+							</p>
+							<a href="">
+								<div class="yacht-img">
+									<img src="img/chuan1.png"/>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- 热门派对-->
+					<ul class="tap-item hide">
+						<li class="list-item">
+							<div class="party-img">
+								<img src="img/party1.png"/>
+							</div>
+							<div class="party-exp">
+								<div class="party-t">
+									<span class="party-name">红酒party狂欢</span>
+									<span class="party-num">人数：7/20</span>
+								</div>
+								<p class="party-c">城市：<span>三亚</span></p>
+								<p class="party-c">上艇位置：<span>三亚</span></p>
+								<p class="party-c">派对时间：<span>2018-08-10</span></p>
+								<a class="part-in" href="javascript:;">我要参与</a>
+							</div>
+						</li>
+						<li class="list-item">
+							<div class="party-img">
+								<img src="img/party2.png"/>
+							</div>
+							<div class="party-exp">
+								<div class="party-t">
+									<span class="party-name">party狂欢</span>
+									<span class="party-num">人数：10/20</span>
+								</div>
+								<p class="party-c">城市：<span>三亚</span></p>
+								<p class="party-c">上艇位置：<span>三亚</span></p>
+								<p class="party-c">派对时间：<span>2018-08-10</span></p>
+								<a class="part-in" href="javascript:;">我要参与</a>
+							</div>
+						</li>
+						<li class="list-item">
+							<div class="party-img">
+								<img src="img/party1.png"/>
+							</div>
+							<div class="party-exp">
+								<div class="party-t">
+									<span class="party-name">红酒party狂欢</span>
+									<span class="party-num">人数：7/20</span>
+								</div>
+								<p class="party-c">城市：<span>三亚</span></p>
+								<p class="party-c">上艇位置：<span>三亚</span></p>
+								<p class="party-c">派对时间：<span>2018-08-10</span></p>
+								<a class="part-in" href="javascript:;">我要参与</a>
+							</div>
+						</li>
+						<li class="list-item">
+							<div class="party-img">
+								<img src="img/party2.png"/>
+							</div>
+							<div class="party-exp">
+								<div class="party-t">
+									<span class="party-name">party狂欢</span>
+									<span class="party-num">人数：10/20</span>
+								</div>
+								<p class="party-c">城市：<span>三亚</span></p>
+								<p class="party-c">上艇位置：<span>三亚</span></p>
+								<p class="party-c">派对时间：<span>2018-08-10</span></p>
+								<a class="part-in" href="javascript:;">我要参与</a>
+							</div>
+						</li>
+					</ul>
+					<!-- 热门动态-->
+					<div class="tap-item hide">
+						<!--<li class="">
+							<img style="width: 100%; margin-top: 0.1rem;" src="img/dongtai1.png"/>
+							<img style="width: 100%;" src="img/dongtai2.png"/>
+							<img style="width: 100%;" src="img/dongtai2.png"/>
+							<img style="width: 100%;" src="img/dongtai2.png"/>
+							<img style="width: 100%;" src="img/dongtai2.png"/>
+							<img style="width: 100%;" src="img/dongtai2.png"/>
+						</li>-->
+						
+							<div class="dynamic">
+								<div class="user-info">
+									<img class="user-img" src="img/login_back.png"/>
+									<span class="user-name">史上第一坑</span>
+								</div>
+								<div class="program">
+									<img class="program-img" src="img/login_back.png"/>
+									<div class="program-exp">
+										<p class="program-des">好漂亮，好喜欢很好玩，一定要去玩啦啦啦啦啦啦啦</p>
+										<p class="program-h">party游艇派对</p>
+									</div>
+									<a class="program-go" href="">我&nbsp;要&nbsp;参&nbsp;与</a>
+								</div>
+								<div class="other">
+									<span class="pro-time">2018-8-10 01:12</span>
+									<span class="reply-btn">回复</span>
+									<span class="laud-btn">89</span>
+								</div>
+								
+							</div>
+						
+							<div class="dynamic">
+								<div class="user-info">
+									<img class="user-img" src="img/login_back.png"/>
+									<span class="user-name">史上第一坑</span>
+								</div>
+								<div class="publish">
+									<p class="publish-text">好漂亮，好喜欢很好玩，一定要去玩啦啦啦啦啦啦啦好漂亮，好喜欢很^^…………</p>
+									<div class="publish-imgs">
+										<img src="img/banner.png"/>
+										<img src="img/banner.png"/>
+										<img src="img/banner.png"/>
+										<img src="img/banner.png"/>
+										<img src="img/banner.png"/>
+										<img src="img/banner.png"/>
+									</div>
+								</div>
+								<div class="other">
+									<span class="pro-time">2018-8-10 01:12</span>
+									<div class="reply-btn">
+										<span class="reply-icon"></span>
+										<span class="">回复</span>
+									</div>
+									<div class="laud-btn">
+										<span class="laud-icon"></span>
+										<span class="">89</span>
+									</div>
+								</div>
+								
+							</div>
+						
+					</div>
+				</div>
+			</div>
+			<p class="record">粤IPC备18027721号</p>
+			
+			<!--半透明背景-->
+			<div class="rgba hide"></div>
+			<!--选择城市-->
+			<div class="city-warp hide">
+				<span class="off-msg"></span>
+				<h2 class="city-title">请选择城市</h2>
+				<div class="city-opt" style="margin-top: 0.1rem;">
+					<span class="city-l">国内:</span>
+					<div class="city-all">
+						<span class="city-item" cityid="">广州</span>
+						<span class="city-item" cityid="">三亚</span>
+						<span class="city-item" cityid="">海口</span>
+						<span class="city-item" cityid="">山东</span>
+						<span class="city-item" cityid="">大连</span>
+						<span class="city-item" cityid="">上海</span>
+						<span class="city-item" cityid="">青岛</span>
+						<span class="city-item" cityid="">惠州</span>
+						<span class="city-item" cityid="">厦门</span>
+						<span class="city-item" cityid="">深圳</span>
+					</div>
+				</div>
+				<div class="city-opt2" style="margin-top: 0.5rem;">
+					<span class="city-l">国外:</span>
+					<div class="city-all">
+						<span class="city-item" cityid="">吉普岛</span>
+						<span class="city-item" cityid="">迈阿密</span>
+						<span class="city-item" cityid="">下龙湾</span>
+						<span class="city-item" cityid="">新加坡</span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".tap-haed li").click(function(){  //三个选项 切换;
+					$(this).addClass("active").siblings("li").removeClass("active");
+					$(".tap-item").eq($(this).index()).removeClass("hide").siblings(".tap-item").addClass("hide");
+				})
+				$(document).click(function(ev){  
+					var ev = ev||window.event;
+					var target = ev.target;
+					if(!$(target).parents(".city-warp").is(".city-warp")){//城市显示和 隐藏;
+						$(".renrenting").css("height","auto");
+						$(".renrenting").css("overflow","auto");
+						$(".rgba").hide();
+						$(".city-warp").hide();
+					}
+					if($(target).is(".citys")||$(target).parents(".citys").is(".citys")){
+						$(".renrenting").css("height",$(window).height());
+						$(".renrenting").css("overflow","hidden");
+						$(".rgba").show();
+						$(".city-warp").show();
+					}
+					if($(target).is(".times")||$(target).parents(".times").is(".times")){//时间显示和 隐藏;
+						$(".renrenting").css("height",$(window).height());
+						$(".renrenting").css("overflow","hidden");
+						$(".rgba").show();
+					}
+					
+				})
+				$(".city-item").click(function(){   //选择地点;
+					$(".renrenting").css("height","auto");
+					$(".renrenting").css("overflow","auto");
+					$(".rgba").hide();
+					$(".city-warp").hide();
+					$(".search-city").html($(this).html());
+				})
+
+				
+			
+			})
+		</script>
+	</body>
+
+</html>

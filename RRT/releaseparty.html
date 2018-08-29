@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>发起活动</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="style/mobiscroll.2.13.2.css" />
+		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
+		<link rel="stylesheet" type="text/css" href="css/releaseparty.css" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<div class="top">
+				<a class="back" href=""><span class="back-arr"></span></a>
+				<h2>发布活动</h2>
+			</div>
+			<div class="content">
+				<div class="fill-container">
+					<ul class="list-content">
+						<li class="list-item">
+							<span class="item-l">活动名称：</span>
+							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="请给你的活动起个名称" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">活动开始时间：</span>
+							<input class="ipt-com ipt-w2 ipt-time demo-test-date demo-test-datetime demo-test-time demo-test-credit" type="text" name="" id="" value="" onfocus="this.blur();" placeholder="" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">活动结束时间：</span>
+							<input class="ipt-com ipt-w2 ipt-time demo-test-date demo-test-datetime demo-test-time demo-test-credit" type="text" name="" id="" value="" onfocus="this.blur();" placeholder="" />
+							<span class="total-time">共12.5小时</span>
+						</li>
+						<li class="list-item">
+							<span class="item-l">活动地点：</span>
+							<span class="party-city">广州</span>
+							<input class="ipt-city" id="citySelector" type="text" name="" id="" value="" onfocus="this.blur();"/>
+							<input type="hidden" id="cityValue"/>
+						</li>
+						<li class="other-item">
+							<span class="item-l">是否有艇：</span>
+							<div class="has-opt">
+								<span class="acive">是</span>
+								<span class="">否</span>
+							</div>
+							<div class="yacht">
+								<div class="yacht-item">
+									<span class="yacht-type">豪华型</span>
+									<span class="yacht-name">飞桥游艇</span>
+								</div>
+							</div>
+						</li>
+						<li class="list-item">
+							<span class="item-l">上艇位置：</span>
+							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="填写上艇位置" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">活动人数：</span>
+							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="请注意游艇限载人数" />
+						</li>
+					</ul>
+
+					<ul class="list-content margin-t1">
+						<li class="list-item">
+							<span class="item-l">性别要求：</span>
+							<div class="sex-opt">
+								<span class="sex-item active">
+									<i class="man"></i>男
+								</span>
+								<span class="sex-item">
+									<i class="woman"></i>女
+								</span>
+								<span class="sex-item">
+									不限
+								</span>
+							</div>
+						</li>
+						<li class="cost-item">
+							<span class="item-l">费用类型：</span>
+							<div class="cost-opt">
+								<span class="active">AA制</span>
+								<span class="">免费</span>
+								<span class="">男A女免</span>
+								<span class="">女A男免</span>
+							</div>
+						</li>
+
+						<li class="list-item">
+							<span class="item-l">参与费用：</span>
+							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="A方人均" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">截取报名时间：</span>
+							<input class="ipt-com ipt-w1 ipt-time demo-test-date demo-test-datetime demo-test-time demo-test-credit" type="text" name="" id="" value="" onfocus="this.blur();" placeholder="" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">实名验证：</span>
+							<div class="need-opt">
+								<span class="active">需要</span>
+								<span class="">不需要</span>
+							</div>
+						</li>
+						<li class="list-item">
+							<span class="item-l">发起人电话：</span>
+							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="" />
+						</li>
+						<li class="list-item">
+							<span class="item-l">验证码：</span>
+							<input class="ipt-com ipt-w2" type="text" name="" id="" value="" placeholder="" />
+							<a class="get-code">获取验证码</a>
+						</li>
+					</ul>
+					<div class="des-container">
+						<textarea class="textarea" placeholder="描述："></textarea>
+					</div>
+
+					<ul class="img-list">
+						<li class="img-item"><img src="img/banner3.jpg" /><i class="delete-img"></i></li>
+						<li class="img-item add-pic">
+							<input type="file" name="img" id="" value="" accept="image/*" multiple="multiple" />
+						</li>
+					</ul>
+
+					<button class="submit">确认</button>
+				</div>
+
+				<div class="gb hide"></div>
+				<!--半透明背景，弹框需要显示-->
+
+				<div class="yacht-container hide">
+					<!--游艇选择-->
+					<span class="off-msg"></span>
+					<h2 class="title">选择游艇</h2>
+					<p class="des"><i class="des-icon"></i>所在地点：<em>广州</em></p>
+					<ul class="yacht-list">
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-type">豪华型</span>
+								<span class="yacht-name">SSSS飞桥游艇</span>
+							</div>
+						</li>
+						<li class="yacht-item">
+							<i class="point"></i>
+							<div class="yacht-exp">
+								<span class="yacht-not">暂不选择</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--日历时间插件必须用到，不可删除--->
+			<div class="settings" style="display:none;">
+				<select name="demo" id="demo">
+					<option value="date">日期</option>
+				</select>
+			</div>
+
+		</div>
+	</body>
+	<!--年月日时分插件--->
+	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	<script src="script/mobiscroll.2.13.2.js" type="text/javascript"></script>
+	<!--城市插件--->
+	<script src="script/LAreaData1.js" type="text/javascript"></script>
+	<script src="script/LAreaData2.js" type="text/javascript"></script>
+	<script src="script/LArea.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+			//时间输入框，默认显示当前时间；
+			var ymd = new Date(); 
+			var y = ymd.getFullYear();
+			var m = ymd.getMonth();
+			var d = ymd.getDate();
+			$(".ipt-time").attr("placeholder",y+"-"+m+"-"+d);
+			
+			//选择游艇弹框，动画，从下往上
+			var iH = $(".yacht-container").innerHeight();
+			var top = 0;//给top变量一个初始值，以便下方赋值并引用。
+			
+			//选择游艇弹框出现；
+			$(".has-opt span:last").click(function(){
+				$(".gb").show();
+				$(".yacht-container").show().css("bottom",-iH).stop().animate({
+					bottom:0
+				},300,"linear");
+				
+				/*弹框出现，禁止body滚动*/
+				top = $(window).scrollTop();//获取页面的scrollTop；
+				$('body').css("top",-top+"px");//给body一个负的top值；
+				$('body').css("position","fixed");//给body设置，position:fixed; 
+			})
+			//选择游艇弹框消失；
+			$(".gb,.off-msg").click(function(){
+				$(".yacht-container").hide();
+				$(".gb").hide();
+				
+				/*弹框消失，恢复body滚动*/
+				$('body').css("position","static");//给body设置，position:static; 
+				$(window).scrollTop(top);//设置页面滚动的高度，如果不设置，关闭弹出层时页面会回到顶部。
+			})
+			
+			
+			
+			/*城市选择插件*/
+			var area2 = new LArea();
+		    area2.init({
+		        'trigger': '#citySelector',
+		        'valueTo': '#cityValue',
+		        'keys': {
+		            id: 'value',
+		            name: 'text'
+		        },
+		        'type': 2,
+		        'data': [provs_data, citys_data, dists_data]
+		    });
+			
+			$("#citySelector").on("input",function(){ //获取选择到的城市，更新到html；
+				var city = $(this).val().split(",")[2];
+				$(".party-city").html(city);
+			})
+			
+			
+			/*日历时间插件。用法*/
+			var curr = new Date().getFullYear();
+			var opt = {};
+			opt.date = {
+				preset: 'date'
+			};
+			opt.datetime = {
+				preset: 'datetime'
+			};
+			opt.time = {
+				preset: 'time'
+			};
+
+			opt.default = {
+				theme: 'android-holo light', //皮肤样式
+				display: 'modal', //显示方式 
+				mode: 'scroller', //日期选择模式
+				dateFormat: 'yyyy-mm-dd',
+				lang: 'zh',
+				showNow: true,
+				nowText: "今天",
+				stepMinute: 15,
+				startYear: curr - 0, //开始年份
+				endYear: curr + 0 //结束年份
+			};
+			$('.settings').bind('change', function() {
+				var demo = 'datetime';
+				if(!demo.match(/select/i)) {
+					$('.demo-test-' + demo).val('');
+				}
+				$('.demo-test-' + demo).scroller('destroy').scroller($.extend(opt['datetime'], opt['default']));
+				$('.demo').hide();
+				$('.demo-' + demo).show();
+			});
+			$('#demo').trigger('change');
+			
+		})
+	</script>
+
+</html>

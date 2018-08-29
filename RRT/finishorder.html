@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>人人艇-订单详情</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/orders.css" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="renrenting">
+			<div class="content">
+				<div class="top">
+					<a class="back" href=""><span class="back-arr"></span></a>
+					<h2>订单详情</h2>
+				</div>
+				<div class="order-state-wrap"><!--订单状态栏-->
+					
+					<div class="state-item"><!--待付款-->
+						<p class="state-des state-t1"><span>未支付订单，请30分钟内完成支付</span></p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item"><!--未支付取消-->
+						<p class="state-des state-t2"><span class="state-icon1">订单已取消</span></p>
+						<p class="state-tale">(未支付订单)</p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item"><!--已取消-->
+						<p class="state-des state-t2"><span class="state-icon1">订单已取消<span></p>
+						<p class="state-tale">(款项将退还至原支付账户)</p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item"><!--确定失败-->
+						<p class="state-des state-t2"><span class="state-icon1">很抱歉，确认失败订单已取消<span></p>
+						<p class="state-tale">(款项将退还至原支付账户)</p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item"><!--确定成功-->
+						<p class="state-des state-t1"><span class="state-icon2">确认成功，请合理安排出行<span></p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item"><!--完成待确认-->
+						<p class="state-des state-t1"><span class="state-icon3">支付完成，待系统确认<span></p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+					<div class="state-item success"><!--已完成订单-->
+						<p class="state-des state-t1"><span>已完成订单<span></p>
+						<p class="order-code-text order-t1">订单号：<span class="code">5666784545</span></p>
+					</div>
+				</div>
+				<div class="read-container">
+					<div class="gory-warp">
+						<div class="yacht-t">
+							<p class="user-info">
+								<span class="username">欧那个娜</span>
+								<span class="userphone">18999668899</span>
+							</p>
+						</div>
+						<div class="yacht-c">
+							<p class="yacht-gory">
+								<span class="yacht-l">46飞桥游艇</span>
+								<span class="yacht-r">豪华型</span>
+							</p>
+							<p class="yacht-deta">
+								<em>上艇时间：<span>12:00</span></em>
+								<em style="margin-left: 0.5rem;">下艇时间：<span>18:00</span></em>
+							</p>
+							<p class="yacht-deta">航行线路：<span>珠江线路</span></p>
+							<p class="yacht-deta">停泊码头：<span>深圳</span></p>
+							<p class="yacht-deta">使用日期：<span>2018-08-20</span></p>
+							<p class="yacht-deta">取消政策：<span>限时取消</span></p>
+						</div>
+						<div class="yacht-b">
+							<p class="yacht-tips"><i class="tips-icon"></i><span>预定0点前72小时内不可取消</span></p>
+							<p class="yacht-tips"><i class="tips-icon"></i><span>船只限载人数：10人</span></p>
+						</div>
+
+						<div class="order-wrap order-wrap-type">
+							<div class="order-content">
+								<div class="order-item">
+	            					<div class="order-t">
+	            						<span class="order-t-icon pack-icon-c5"></span>
+	            						<span class="order-t-name">游艇1号</span>
+	            						<span class="order-t-pmt ">5000.00</span>
+	            					</div>
+	            				</div>
+	            				<div class="order-item">
+	            					<div class="order-t">
+	            						<span class="order-t-icon pack-icon-c1"></span>
+	            						<span class="order-t-name pack-name-type1">主食</span>
+	            					</div>
+	            					<ul class="oder-list">
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            					</ul>
+	            				</div>
+	            				<div class="order-item">
+	            					<div class="order-t">
+	            						<span class="order-t-icon pack-icon-c2"></span>
+	            						<span class="order-t-name pack-name-type2">酒水</span>
+	            					</div>
+	            					<ul class="oder-list">
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            					</ul>
+	            				</div>
+	            				<div class="order-item">
+	            					<div class="order-t">
+	            						<span class="order-t-icon pack-icon-c3"></span>
+	            						<span class="order-t-name pack-name-type3">甜品</span>
+	            					</div>
+	            					<ul class="oder-list">
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">套餐一名称</span>
+	            							<span class="order-t-pmt">x10</span>
+	            							<span class="order-t-pmt">500.00</span>
+	            						</li>
+	            					</ul>
+	            				</div>
+	            				<div class="order-item">
+	            					<div class="order-t">
+	            						<span class="order-t-icon pack-icon-c4"></span>
+	            						<span class="order-t-name pack-name-type4">服务</span>
+	            					</div>
+	            					<ul class="oder-list">
+	            						<li class="oder-list-item">
+	            							<span class="order-t-pmt">生日场景布置</span>
+	            							<span class="order-t-pmt">x1</span>
+	            							<span class="order-t-pmt">5000.00</span>
+	            						</li>
+	            						
+	            					</ul>
+	            				</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="order-other">
+					<div class="invoice">
+						<p class="invoice-item">
+							<span class="invoice-l">订单编号:</span>
+							<span class="invoice-r">44458956</span>
+						</p>
+						<p class="invoice-item">
+							<span class="invoice-l">下单时间:</span>
+							<span class="invoice-r">2018-01-10 10:00:00</span>
+						</p>
+					</div>
+					<div class="invoice">
+						<p class="invoice-item">
+							<span class="invoice-l">支付方式:</span>
+							<span class="invoice-r">微信支付</span>
+						</p>
+						<p class="invoice-item">
+							<span class="invoice-l">支付时间:</span>
+							<span class="invoice-r">2018-01-10 10:00:00</span>
+						</p>
+					</div>
+					<div class="discount">
+						<span class="discount-l">优惠使用</span>
+						<div class="discount-r">
+							<p>红包满100减30</p>
+							<p>7折红包</p>
+						</div>
+					</div>
+					<div class="totality">
+						<p class="totality-item">
+							<span class="totality-l">游艇租赁小计:</span>
+							<span class="totality-r">￥2000</span>
+						</p>
+						<p class="totality-item">
+							<span class="totality-l">服务小计:</span>
+							<span class="totality-r">￥800</span>
+						</p>
+						<p class="totality-item discount-type"> <!--优惠样式class：discount-type--->
+							<span class="totality-l">优惠:</span>
+							<span class="totality-r">-￥1000</span>
+						</p>
+					</div>
+					<div class="oper-wrap">
+		            	<div class="order-bottom trans-t"><!--待付款-->
+					        <div class="order-btm-left">订单总价：<span class="price-total">¥<em>12514.00</em></span> </div>
+					        <span class="submit-btn" id="submitOrder">立即支付</span>
+					    </div>	
+					    <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	 <div class="jump-wrap">
+					        	<a href="" class="jump-item jump-active">再次订购</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item jump-active">联系客服</a>
+					        </div>
+					    </div>
+					     <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	 <div class="jump-wrap">
+					        	<a href="" class="jump-item jump-active">取消订单</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item jump-active">联系客服</a>
+					        </div>
+					    </div>
+					     <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	<div class="jump-wrap">
+					        	<a href="" class="jump-item">取消订单</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item jump-active">联系客服</a>
+					        </div>
+					        
+					    </div>
+					    <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	<div class="jump-wrap">
+					        	<a href="" class="jump-item jump-active">发票申请</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item jump-active">去评论</a>
+					        </div>
+					    </div>
+					    <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	<div class="jump-wrap">
+					        	<a href="" class="jump-item">发票申请</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item jump-active">去评论</a>
+					        </div>
+					    </div>
+					    <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	<div class="jump-wrap">
+					        	<a href="" class="jump-item jump-active">发票申请</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item">去评论</a>
+					        </div>
+					    </div>
+					    <div class="summary">
+					     	<p class="payment">订单总价：<span class="payment-rmb">￥12000</span></p>
+					     	<div class="jump-wrap">
+					        	<a href="" class="jump-item">发票申请</a><!--可点击状态添加class：jump-active-->
+					        	<a href="" class="jump-item">去评论</a>
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="rgba-wrap" style="display: none;"></div><!--弹框的半透明背景，显示js设置display:flex--> 
+			<div class="msg-pro hide">
+				<span class="off-msg"></span>
+				<div class="msg-icon"></div>
+				<p class="msg-text">提示信息，提示信息</p>
+			</div>
+		</div>
+	</body>
+
+</html>
