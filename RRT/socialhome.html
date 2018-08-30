@@ -94,7 +94,7 @@
 				</div>
 				<div class="contact-container">
 					<div class="contact-haed">
-						<div class="head-item acive">我的动态<span class="num">68</span></div>
+						<div class="head-item active">我的动态<span class="num">68</span></div>
 						<div class="head-item">我的派对<span class="num">15</span></div>
 						<i class="line"></i>
 					</div>
@@ -294,6 +294,17 @@
 					$(".left").css("transform","rotate("+(C-180)+"deg)");
 				}
 			}
+			
+			
+			/*我的动态，我的派对，选项切换*/
+			
+			$(".head-item").click(function(){
+				$(".head-item").removeClass("active");
+				$(".content-item").addClass("hide");
+				$(this).addClass("active");
+				$(".content-item").eq($(this).index()).removeClass("hide");
+			})
+			
 			
 		</script>
 	</body>

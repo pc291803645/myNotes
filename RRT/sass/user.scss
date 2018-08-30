@@ -720,10 +720,10 @@ $rem-px-only: false !default;
         -ms-box-shadow: rgba(0, 0, 0, 0.4) -1px -1px;
         -o-box-shadow: rgba(0, 0, 0, 0.4) -1px -1px;
     }
-    .acive{
+    .active{
         opacity: 1;
     }
-    .acive::after{
+    .active::after{
         content: "";
         position: absolute;
         bottom: rem(-20px);

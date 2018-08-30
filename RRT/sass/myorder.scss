@@ -118,7 +118,9 @@ body{
     display: flex;
     display: -webkit-flex;
     height: rem(93px);
-     background: #FFFFFF;
+    background: #FFFFFF;
+    border-bottom: 0.07rem solid #EDEDED;
+    box-sizing: border-box;
 }
 .order-navs .order-nav-item,.order-navs .order-nav-item a{
     font-size: rem(28px);
@@ -134,7 +136,7 @@ body{
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: -0.06rem;
     width: rem(70px);
     height: rem(7px);
     background: #327dfb;
@@ -157,13 +159,16 @@ body{
     display: flex;
     display: -webkit-flex;
     padding: rem(22px) 0;
-    font-size: rem(28px);
+    font-size: rem(26px);
     color: #666666;
    border-bottom: 1px solid #ededed;
 }
 .order-item{
     margin-top: rem(7px);
     background: #FFFFFF;
+}
+.order-list .order-item:nth-of-type(1){
+    margin-top: 0;
 }
 .order-state{
     margin: auto 0 auto rem(30px);
@@ -221,7 +226,7 @@ body{
     text-align: right;
     
 }
-.order-oper>span{
+.order-oper>a{
     margin-right: rem(24px);
     display: inline-block;
     vertical-align: middle;
@@ -234,7 +239,7 @@ body{
     border: 1px solid #afafaf;
     border-radius: 5px;
 }
-.order-oper>span:nth-last-of-type(1){
+.order-oper>a:nth-last-of-type(1){
     margin-right: 0;
 }
 .order-container{
@@ -284,7 +289,7 @@ body{
     z-index: 9;
 }
 .info-frame{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     padding: rem(70px) rem(78px);
