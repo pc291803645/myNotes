@@ -776,13 +776,17 @@ $rem-px-only: false !default;
         height: 100%;
     }
 }
-.user-name{
+.user-name,.sigh{
     margin-left: rem(17px);
     display: inline-block;
     vertical-align: middle;
     font-size: rem(28px);
     color: #FFFFFF;
 }
+.sigh{
+    margin-left: rem(25px);
+}
+
 .comment-text{
    padding-top: rem(10px);
    padding-left: 0.72rem;
@@ -978,7 +982,7 @@ $rem-px-only: false !default;
     margin-left: 0.6rem;
     padding: rem(20px) rem(15px);
     width: 90%;
-    min-height: rem(240px);
+    min-height: rem(250px);
     background: rgba(0,0,0,.3);
     border-radius: 5px;
     box-sizing: border-box;
@@ -1076,6 +1080,9 @@ $rem-px-only: false !default;
         .party-name{
             flex: 1;
             font-size: rem(36px);
+        }
+        .people-num{
+            color: #ffae00;
         }
     }
     .info-item{
