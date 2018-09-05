@@ -576,12 +576,11 @@ body {
   left: 0;
   right: 0; }
 
-.trans-t {
-  transform: translateY(-0.05rem); }
-
 .order-bottom {
-  position: relative;
+  position: fixed;
+  left: 0;
   bottom: 0;
+  width: 100%;
   height: 1.06rem;
   line-height: 1.08rem;
   background: #fff;
@@ -776,6 +775,7 @@ body {
   -o-transform: translateX(-50%); }
 
 .order-other {
+  padding-bottom: 1.06rem;
   margin-top: 0.3rem;
   background: #FFFFFF; }
 
@@ -821,7 +821,7 @@ body {
   padding-top: 0; }
 
 .totality {
-  padding: 0.24rem 0 0.55rem 0; }
+  padding: 0.24rem 0 0.24rem 0; }
 
 .totality-item {
   padding-top: 0.16rem;
@@ -891,6 +891,7 @@ body {
 .payment {
   padding-top: 0.22rem;
   padding-right: 0.3rem;
+  padding-bottom: 0.22rem;
   text-align: right;
   font-size: 0.26rem;
   color: #333333; }
@@ -899,9 +900,15 @@ body {
     color: #ff0000; }
 
 .jump-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   font-size: 0;
   margin-top: 0.4rem;
-  box-shadow: #E1E2E2 0 0 10px; }
+  box-shadow: #E1E2E2 0 0 10px;
+  background: #FFFFFF;
+  z-index: 3; }
   .jump-wrap .jump-item {
     position: relative;
     display: inline-block;

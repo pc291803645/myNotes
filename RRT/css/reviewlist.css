@@ -159,8 +159,8 @@ body {
   background-size: 90% 95%; }
 
 .comment-item {
-  padding: 0.26rem 0.26rem 0.2rem 0.26rem;
-  margin: 0.3rem auto 0 auto;
+  padding: 0.35rem 0.26rem 0rem 0.26rem;
+  margin: 0 auto;
   width: 100%;
   border-bottom: 1px solid #EDEDED;
   box-sizing: border-box; }
@@ -316,7 +316,7 @@ body {
     -ms-border-radius: 2px; }
 
 .everyone-comment {
-  margin-bottom: 0.26rem;
+  margin-bottom: 0.35rem;
   padding: 0.2rem;
   width: 100%;
   background: #f8f8f8;

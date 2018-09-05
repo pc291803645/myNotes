@@ -69,18 +69,27 @@ $rem-px-only: false !default;
         }
     }
 }
-
+html,body{
+    height: 100%;
+    overflow: hidden;
+   
+}
+body{
+    background: linear-gradient(#07143a, #63afef);
+    background: -webkit-linear-gradient(#07143a, #63afef);
+    background: -moz-linear-gradient(#07143a, #63afef);
+    background: -ms-linear-gradient(#07143a, #63afef);
+    background: -o-linear-gradient(#07143a, #63afef);
+}
 .renrenyouting{
     position: relative;
     padding-top: rem(104px);
-    padding-bottom: rem(500px);
-    background: linear-gradient(#07143a, #63afef);
 }
 .back {
     position: absolute;
     z-index: 100;
     top: 0.14rem;
-    left: 0.15rem;
+    left: 0.4rem;
     width: 0.5rem;
     height: 0.5rem;
 }
@@ -143,10 +152,10 @@ $rem-px-only: false !default;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    width: 0.18rem;
-    height: 0.18rem;
-    border: 0.04rem solid #fff;
-    border-width: 0.04rem 0.04rem 0 0;
+    width: 0.17rem;
+    height: 0.17rem;
+    border: 1px solid #fff;
+    border-width: 1px 1px 0 0;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -154,7 +163,7 @@ $rem-px-only: false !default;
 }
 .ipt-com{
     padding-right: rem(34px);
-    width: 70%;
+    width: 60%;
     letter-spacing: 2px;
     margin-left: rem(34px);
     background: transparent;
@@ -162,13 +171,13 @@ $rem-px-only: false !default;
     color: rgba(255,255,255,.5);
     font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
 }
+.ipt-w1{
+    flex: 1;
+}
 .ipt-com::-webkit-input-placeholder{
     color: rgba(255,255,255,.5);
     font-size: rem(30px);
     transform: translateY(1px);
-}
-.ipt-type1{
-    font-size: rem(34px);
 }
 .sex-wrap{
     margin-left: rem(34px);
@@ -211,14 +220,16 @@ $rem-px-only: false !default;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.6);
+    z-index: 100;
 }
 .opt-container{
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background: #c6c6c6;
+    z-index: 100;
 }
 .opt-item{
     position: relative;
@@ -250,11 +261,7 @@ $rem-px-only: false !default;
 .hide{
     display: none;
 }
-.tips{
-    padding: rem(15px) 0 0 rem(30px);
-    color: rgba(255,255,255,.5);
-    font-size: rem(28px);
-}
+
 .jump{
     padding: rem(20px) rem(60px) 0 0;
     text-align: right;
@@ -265,4 +272,40 @@ $rem-px-only: false !default;
         text-decoration: underline;
     }
     
+}
+
+.keep{
+    position: absolute;
+    top: 0.2rem;
+    right: rem(40px);
+    width: rem(100px);
+    height: rem(30px);
+    line-height: rem(32px);
+    font-size: 0.3rem;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-align: right;
+}
+
+.errors{
+    padding-left: rem(50px);;
+    margin-top: rem(20px);
+    font-size: rem(26px);
+    color: #ff1212;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+.errors::before{
+    content: "";
+    margin-right: rem(20px);
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(35px);
+    height: rem(35px);
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAidJREFUeNrklksoBVEYx88gpBARFh6lpMijW0opUpJybbC0kp1sJAuJJK9CWImFpVKKsuB6pTw2lmRDFnK9koU88hj/cc+tz2nOmXO5sTD1m3Oa+/++/8w393xzDNM02W8fIewPjrCA1IYRinMBSAdxwCrTBThipnminccqryOMZYBesA/eTSvsK3fAA5p08ukYtoE3GyMZB6BSldNQ/pEMYwfnYnLlGSyDFXDNX08WqAYuIboLDj365WUsgpeSPoH1xEmKiuSDGSFmRL+8jC2RwGOQo/XufbGNgnGdsylKRQIuQKyNphVsglVQYfO7WzCOl5ti3YJrIs6VPM0O0XRLNBNEM6wypXe4oCjhHNG1KHRerrmh18WOVEPmA0FoPtN8jMFKaJG1wTw+nuCWdoNgus7HN1AqM03h42GQ2qy/NUaCTJlpJB/vnbonbSEK3SOZJ8hM/aJoB9NkMo9X6KLI/Eb2lfGCNJDjYLrIn/AV7Cl0/pI+gWP7NsjYJFkKJdpdSL5k+niuF7q0RFEVMV1SJKsF42D0s+faa6xGc8VzXTm1QS8xLpQkPCWaMYlmimgGnUwriPgWJEp67x7YAuU2v9cLvTdW5yszTwLOgCuA99gsGLp1P21hQlO36ASpCrMiMCvE9H9n57CBc5nQFNaAB5yDcJANqkCuEN0Oh6Hvbcx85XoIYI9k7TjKfrYx8xkngw6wDR5tjC7BImjQyWf8mx3+hwADACeeaRHOW3GgAAAAAElFTkSuQmCC") no-repeat;
+    background-size: 100% 100%;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
 }

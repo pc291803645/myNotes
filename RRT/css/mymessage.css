@@ -123,12 +123,21 @@ body {
   padding-right: 0.37rem;
   text-align: right;
   font-size: 0; }
+  .msg-foot .watch-btn {
+    color: #333333;
+    font-size: 0.28rem; }
   .msg-foot .watch-btn::after {
-    content: "";
     display: inline-block;
-    vertical-align: -0.3rem;
-    border: 0.15rem solid #626262;
-    border-color: #626262 transparent transparent transparent; }
+    vertical-align: -0.06rem;
+    content: '';
+    width: 0.3rem;
+    height: 0.32rem;
+    margin-left: 0.1rem;
+    -webkit-background-size: 0.28rem 0.3rem;
+    -moz-background-size: 0.28rem 0.3rem;
+    background-size: 0.28rem 0.3rem;
+    background-repeat: no-repeat;
+    background-color: red; }
 
 .bottom {
   margin-top: 0.4rem;

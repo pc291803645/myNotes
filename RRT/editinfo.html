@@ -5,10 +5,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>编辑资料</title>
+		<!--年月日插件-->
 		<link rel="stylesheet" type="text/css" href="style/Mdate.css"/>
+		<!--省份三级插件-->
 		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
+		
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
-		<link rel="stylesheet" type="text/css" href="css/edit.css?v=1234"/>
+		<link rel="stylesheet" type="text/css" href="css/edit.css?v=120304"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -26,6 +29,7 @@
 	<body>
 		<div class="renrenyouting">
 			<a href="userindex.html" class="back"><span class="back-arr"></span></a>
+			<span class="keep">保存</span>
 			<div class="info-wrap">
 				<div class="info-item">
 					<span class="info-l">头像</span>
@@ -35,7 +39,7 @@
 				</div>
 				<div class="info-item">
 					<span class="info-l">昵称</span>
-					<input class="ipt-com ipt-type1" type="text" name="" id="" value="kitty" placeholder="输入昵称"/>
+					<input class="ipt-com ipt-w1" type="text" name="" id="" value="kitty" placeholder="输入昵称"/>
 				</div>
 				<div class="info-item">
 					<span class="info-l">性别</span>
@@ -46,52 +50,61 @@
 				</div>
 				<div class="info-item">
 					<span class="info-l">生日</span>
-					<input class="ipt-com" type="text" name="" id="dateSelector" onfocus="this.blur();" value="1998-03-28"/>
+					<input class="ipt-com ipt-w1" type="text" name="" id="dateSelector" onfocus="this.blur();" value="1998-03-28"/>
 				</div>
 				<div class="info-item">
 					<span class="info-l">城市</span>
-					<input class="ipt-com" type="text" name="" id="citySelector" onfocus="this.blur();" value="广东省,广州市,天河区"/>
+					<input class="ipt-com ipt-w1" type="text" name="" id="citySelector" onfocus="this.blur();" value="广东省,广州市,天河区"/>
 					<input type="hidden" id="cityValue"/>
 				</div>
 				<div class="info-item">
 					<span class="info-l">个性签名</span>
-					<input class="ipt-com" type="text" name="" id="" value="拥有三艘游艇" placeholder="输入个性签名"/>
+					<input class="ipt-com ipt-w1" type="text" name="" id="" value="拥有三艘游艇" placeholder="输入个性签名"/>
 				</div>
 				<div class="info-item">
 					<span class="info-l">手机号</span>
-					<input class="ipt-com" type="text" name="" id="" value="15958785655" placeholder="输入手机号"/>
+					<input class="ipt-com ipt-w1" type="text" name="" id="" value="15958785655" placeholder="输入手机号"/>
 				</div>
+			</div>
+			<p class="errors">昵称已存在</p>
+			
+			<div class="opt-wrap hide"></div>  <!--拍摄弹框，半透明背景-->
+			<div class="opt-container hide">
+				<div class="opt-item">
+					<p>拍摄</p>
+					<input type="file" name="" id="" value="" accept="image/*" capture="camera"/>
+				</div>
+				<div class="opt-item">
+					<p>从手机相册选择</p>
+					<input type="file" name="" id="" value="" accept="image/jpeg,png,jpg" />
+				</div>
+			    <div class="opt-item off-opt"><p>取消</p></div>
 			</div>
 			
-			<div class="opt-wrap hide">
-				<div class="opt-container">
-					<div class="opt-item">
-						<p>拍摄</p>
-						<input type="file" name="" id="" value="" accept="image/*" capture="camera"/>
-					</div>
-					<div class="opt-item">
-						<p>从手机相册选择</p>
-						<input type="file" name="" id="" value="" accept="image/jpeg,png,jpg" />
-					</div>
-					<div class="opt-item off-opt"><p>取消</p></div>
-				</div>
-			</div>
 		</div>
 	</body>
 	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	<!--年月日插件-->
 	<script src="script/iScroll.js" type="text/javascript"></script>
 	<script src="script/Mdate.js" type="text/javascript"></script>
-	
+	<!--省份三级插件-->
 	<script src="script/LAreaData1.js" type="text/javascript"></script>
 	<script src="script/LAreaData2.js" type="text/javascript"></script>
 	<script src="script/LArea.js" type="text/javascript"></script>
 	
 	<script type="text/javascript">
+		/*点击头像，选择拍摄，选择相册弹框出现，动画从下往上*/
+		var iH = $(".opt-container").innerHeight();
 		$(".head-pic-wrap").click(function(){
-			$(".opt-wrap").fadeIn();
+			$(".opt-wrap").removeClass("hide");
+			$(".opt-container").removeClass("hide").css("bottom",-iH).stop().animate({
+				bottom:0,
+			},200,"linear");
 		})
-		$(".off-opt").click(function(){
-			$(".opt-wrap").fadeOut();
+		
+		$(".off-opt,.opt-wrap").click(function(){
+			$(".opt-wrap").addClass("hide");
+			$(".opt-container").addClass("hide");
 		})
 			
 		/*日历插件*/	
