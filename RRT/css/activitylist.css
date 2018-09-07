@@ -13,7 +13,9 @@ body {
   height: 0.75rem;
   border-bottom: 1px solid #EDEDED;
   background: #FFFFFF;
-  z-index: 9; }
+  z-index: 9;
+  display: flex;
+  display: -webkit-flex; }
 
 .back {
   position: absolute;
@@ -36,11 +38,9 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  width: 0.2rem;
-  height: 0.2rem;
-  margin: auto auto auto 0.8rem;
   width: 1rem;
   height: 0.28rem;
+  margin: auto auto auto 0.8rem;
   line-height: 0.28rem;
   font-size: 0; }
   .pst .pst-i {
@@ -57,15 +57,8 @@ body {
     color: #333333; }
 
 .sort {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 0.2rem;
-  height: 0.2rem;
+  position: relative;
   margin: auto;
-  width: 1.2rem;
   height: 0.28rem;
   text-align: center;
   line-height: 0.28rem;
@@ -75,8 +68,8 @@ body {
 .sort::after {
   content: "";
   position: absolute;
-  top: 0.12rem;
-  right: -0.25rem;
+  top: 0.14rem;
+  right: -0.26rem;
   border-style: solid;
   border-width: 0.12rem;
   border-color: #333333 transparent transparent transparent;
@@ -88,11 +81,9 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  width: 0.2rem;
-  height: 0.2rem;
-  margin: auto 0.25rem auto auto;
   width: 1rem;
   height: 0.28rem;
+  margin: auto 0.25rem auto auto;
   text-align: right;
   line-height: 0.28rem;
   font-size: 0; }
@@ -179,5 +170,51 @@ body {
 .margin-l-r {
   font-size: 0.24rem;
   margin: 0 0.1rem; }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3; }
+
+.sort-wrap {
+  position: fixed;
+  top: 0.75rem;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  z-index: 5; }
+
+.sort-item {
+  padding: 0 0.56rem;
+  height: 1rem;
+  line-height: 1.1rem;
+  font-size: 0.28rem;
+  color: #666;
+  text-align: left;
+  border-bottom: 1px solid #eee; }
+
+.sort-wrap .sort-item:nth-last-of-type(1) {
+  border: none; }
+
+.sort-item-selected {
+  position: relative;
+  color: #327dfb; }
+
+.sort-item-selected:after {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.33rem;
+  content: '';
+  width: 0.28rem;
+  height: 0.16rem;
+  border: 1px solid #327dfb;
+  border-width: 0 0 1px 1px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
 
 /*# sourceMappingURL=activitylist.css.map */
