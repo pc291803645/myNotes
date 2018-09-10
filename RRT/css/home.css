@@ -483,7 +483,7 @@ body {
     width: 100%;
     height: 100%; }
 
-.user-name, .sigh {
+.user-name {
   margin-left: 0.17rem;
   display: inline-block;
   vertical-align: middle;
@@ -491,7 +491,9 @@ body {
   color: #333; }
 
 .sigh {
-  margin-left: 0.25rem; }
+  padding-left: 0.72rem;
+  font-size: 0.28rem;
+  color: #333; }
 
 .comment-text {
   padding-top: 0.1rem;

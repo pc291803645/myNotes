@@ -120,7 +120,12 @@ body{
         vertical-align: middle;
         width: rem(28px);
         height: rem(28px);
-        background: red;
+        background-repeat: no-repeat;
+        background-size: 120%;
+        background-position: center;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAXCAMAAADJPRQhAAAARVBMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5ODgAAAAAAABMSUkAAABt5phkAAAAFnRSTlMAO5Gnug7yxF7XbXicMCbos4H1Vxyzc4QJ+QAAAKxJREFUKM+lkscSwyAMRJeiQjMuCf//qcFJLgbfrIPEzGMk7QLwKIwTyeUGrMEemkOegA/fQtUNIDJQvDdAeF9JOFA4RjYw+5UIwVnAeqANBNj6JLETCX2CF/GEZeiW155Ue9qHDai+/nrrqMfKr9Y0SeWzFVK4sa0RsLTlxjjbr/PcCyoq0TrlYwBZIqE1vFLjK2nnw9B5WgYPNPhNi9GN20BAya09XKQH3+IDlT4FQ/Z60wsAAAAASUVORK5CYII=");
+        
+        
     }
     .pst-t{
         margin-left: 0.08rem;
@@ -138,6 +143,7 @@ body{
     line-height: rem(28px);
     font-size: rem(28px);
     color: #333;
+    transform: translateY(1px);
 }
 .sort::after{
     content: "";

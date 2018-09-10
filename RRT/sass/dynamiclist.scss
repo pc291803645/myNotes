@@ -72,6 +72,7 @@ $rem-px-only: false !default;
 body{
     font-size: 0.28rem;
     color: #333333;
+    background: #FFFFFF;
 }
 .renrenyouting{
     padding-top: 0.75rem;
@@ -115,7 +116,9 @@ body{
     width: 1rem;
     height: 0.28rem;
     line-height: 0.28rem;
+    font-size: 0.3rem;
     text-align: center;
+    letter-spacing: 1px;
 }
 .haed .jump{
     position: absolute;
@@ -157,15 +160,91 @@ body{
         height: 100%;
     }
 }
-.user-name,.sigh{
+.user-name{
     margin-left: rem(17px);
+    width: 65%;
     display: inline-block;
     vertical-align: middle;
     font-size: rem(28px);
     color: #333;
 }
+.is-overt,.not-overt{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    em{
+       display: inline-block;
+       vertical-align: middle;
+      font-size: rem(28px);
+      color: #619bfc;  
+    }
+}
+.is-overt::before,.not-overt::before{
+    content: "";
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(35px);
+    height: rem(21px);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    
+}
+.is-overt::before{
+    background-color: red;
+}
+.not-overt::before{
+    background-color: red;
+}
+
+.delete{
+    margin-left: rem(28px);
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.28rem;
+    height: 0.28rem;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    i:nth-of-type(1){
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: rem(29px);
+        height: 1px;
+        background: #333333;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o--transform: translate(-50%,-50%);
+    }
+     i:nth-of-type(2){
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: rem(29px);
+        background: #333333;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o--transform: translate(-50%,-50%);
+    }
+}
+
+
+
+
 .sigh{
-    margin-left: rem(25px);
+   padding-left: rem(72px);
+   font-size: rem(28px);
+   color: #333;
 }
 
 .comment-text{
@@ -422,4 +501,55 @@ body{
     background: #fe7d1e;
     text-align: center;
     box-sizing: border-box;
+}
+
+.confirm{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: rem(622px);
+    background: #FFFFFF;
+    font-size: 0;
+    box-sizing: border-box;
+    color: #666666;
+    z-index: 11;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    p{
+        font-size: rem(32px);
+        text-align: center;
+        line-height: rem(146px);
+        height: rem(146px);
+        letter-spacing: rem(80px);
+        text-indent: rem(80px);
+    }
+    p:nth-of-type(1){
+        color: #619bfc;
+    }
+    .line{
+        margin-left: 50%;
+        display: inline-block;
+        width: 90%;
+        height: 1px;
+        background: #EDEDED;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        
+    }
+}
+
+.bg{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
 }

@@ -59,9 +59,11 @@
 				<div class="dynamic-item">
 					<div class="comment-t">
 						<div class="user-img"><img src="img/banner1.jpg" /></div>
-						<p class="user-name">小小欣</p>
-						<p class="sigh">我参与了这活动，你也来吧</p>
+						<span class="user-name">小小欣</span>
+						<span class="is-overt"><em>公开</em></span><!--公开class：.is-overt;私密class：.not-overt -->
+						<span class="delete" title="删除该动态"><i></i><i></i></span>
 					</div>
+					<p class="sigh">我参与了这活动，你也来吧</p>
 					<div class="comment-party">
 						<div class="comment-party-pic">
 							<img src="img/banner2.jpg" />
@@ -105,7 +107,9 @@
 				<div class="dynamic-item">
 					<div class="comment-t">
 						<div class="user-img"><img src="img/banner1.jpg" /></div>
-						<p class="user-name">买菜不用计算器</p>
+						<span class="user-name">买菜不用计算器</span>
+						<span class="not-overt"><em>私密</em></span>
+						<span class="delete" title="删除该动态"><i></i><i></i></span>
 					</div>
 					<p class="comment-text">这里可以欣赏海景，深圳本身就是一个海上城市，而且深圳宝安国际机场也是一个海上机场，乘坐游艇在海上观景的感觉真棒，</p>
 					<ul class="comment-imgs">
@@ -144,8 +148,14 @@
 					</div>
 				</div>
 				
-				
-				
+			</div>
+			
+			
+			<div class="bg"></div><!--弹框半透明背景-->
+			<div class="confirm">
+				<p class="">确认</p>
+				<i class="line"></i>
+				<p class="">取消</p>
 			</div>
 		</div>
 	</body>

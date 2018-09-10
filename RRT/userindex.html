@@ -8,7 +8,7 @@
 		<title>个人中心</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="css/user.css?v=2021"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css?v=202100"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -93,21 +93,23 @@
 								<span class="uservip vip1"></span>
 							</div>
 							<div class="info-item">
-								<div class="age-wrap woman"><!--男class：man；  女claas：woman-->
-									<span class="sex"></span>
-									<span class="age-num">24</span>
+								<div class="age-wrap unknown"><!--男class：man；  女claas：woman；未知性别：unknown；-->
+									<span class="sex" style="background-position-y: -0.5px;"></span>
+									<span class="age-num">0</span><!--未知性别：显示为0；-->
 								</div>
 								<div class="star-wrap">
-									<span class="star-icon baiyang"></span>
-									<span class="star-text">白羊</span>
+									<span class="star-icon baiyang hide"></span>	<!--有星座则显示,去掉class：.hide-->
+									<span class="star-text hide">白羊</span>			<!--有星座则显示,去掉class：.hide-->
+									
+									<span class="star-not">星座未知</span><!--没有星座则显示,去掉class：.hide-->
 								</div>
 								<div class="place-wrap">
 									<span class="place-icon"></span>
-									<span class="place-text">广州</span>
+									<span class="place-text">城市未知</span><!--未选择城市显示：“城市未知”-->
 								</div>
 							</div>
 							<div class="info-item">
-								<p class="sign">个性签名 拥有游艇3艘</p>
+								<p class="sign">本宝宝暂时还没想到个性的签名</p><!--未选择个性签名显示：“本宝宝暂时还没想到个性的签名”-->
 							</div>
 						</div>
 					</div>
