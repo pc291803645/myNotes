@@ -255,6 +255,11 @@ html{
                 letter-spacing: 1px;
             }
         }
+        .yacht-not{
+            text-align: center;
+            font-size: 0.32rem;
+            color: #333333;
+        }
     }
 }
 .has-opt{
@@ -355,7 +360,7 @@ html{
     .cost-opt{
        display: inline-block; 
        margin-left: rem(20px);
-       width: rem(310px);
+       width: rem(330px);
        span{
            margin-top: rem(32px);
            display: inline-block;

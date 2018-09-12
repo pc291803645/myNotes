@@ -8,7 +8,7 @@
 		<title>活动列表</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
-		<link rel="stylesheet" type="text/css" href="css/activitylist.css?v=2018007" />
+		<link rel="stylesheet" type="text/css" href="css/activitylist.css?v=20180087" />
 		<script type="text/javascript">
 			(function() {
 				function o() {
@@ -51,37 +51,38 @@
 			<div class="haed">
 				<a class="back"></a>
 				<div class="pst"><i class="pst-i"></i><span class="pst-t">北京</span></div>
-				<div class="sort active">推荐排序</div>
-				<!-- 选中状态添加class： active-->
+				<div class="sort active">推荐排序</div><!-- 选中状态添加class： active-->
 				<div class="screen active"><span class="screen-text">筛选</span><i class="screen-icon"></i></div>
 			</div>
 
-			<div class="bg"></div>
-			<!--弹框半透明背景-->
+			<div class="bg"></div><!--弹框半透明背景-->
 			
-			
-			<div class="city-wrap">
-				<div class="city-wrap-l">
-					<div class="letter-item active"><!--选中状态添加class：.active-->
-						<div class="letter-text">A-F</div>
+			<div class="city-wrap hide">
+				<div class="city-t">
+					<div class="city-wrap-l">
+						<div class="letter-item active"><!--选中状态添加class：.active-->
+							<div class="letter-text">A-F</div>
+						</div>
+						<div class="letter-item">
+							<div class="letter-text">G-K</div>
+						</div>
+						<div class="letter-item">
+							<div class="letter-text">L-Q</div>
+						</div>
+						<div class="letter-item">
+							<div class="letter-text">R-W</div>
+						</div>
+						<div class="letter-item">
+							<div class="letter-text">X-Z</div>
+						</div>
 					</div>
-					<div class="letter-item">
-						<div class="letter-text">G-K</div>
-					</div>
-					<div class="letter-item">
-						<div class="letter-text">L-Q</div>
-					</div>
-					<div class="letter-item">
-						<div class="letter-text">R-W</div>
-					</div>
-					<div class="letter-item">
-						<div class="letter-text">X-Z</div>
-					</div>
-				</div>
-				<div class="city-wrap-r">
-					<div class="city-container">
-						<span class="city-item">广州</span>
-						<span class="city-item">北京</span>
+					<div class="city-wrap-r">
+						<div class="city-container">
+							<span class="city-item active">广州</span><!--选中状态添加class： .active -->
+							<span class="city-item">北京</span>
+							<span class="city-item">广州</span>
+							<span class="city-item">北京</span>
+						</div>
 					</div>
 				</div>
 				<div class="city-reset">
@@ -89,11 +90,11 @@
 				</div>
 			</div>
 			
-			<div class="sort-wrap hide">
+			<div class="sort-wrap">
 				<!--显示去掉 hide -->
-				<p class="sort-item sort-item-selected">开始时间近远</p>
+				<p class="sort-item sort-item-selected">时间从远到近</p>
 				<!--选中状态添加class： sort-item-selected-->
-				<p class="sort-item">开始时间远近</p>
+				<p class="sort-item">时间从近到远</p>
 				<p class="sort-item">人数从多到少</p>
 				<p class="sort-item">人数从少到多</p>
 				<p class="sort-item">价格从高到低</p>
@@ -252,7 +253,11 @@
 				</div>
 
 			</div>
-
+			<div class="content-not hide"><!--无结果则显示-->
+				<div class="content-not-p"></div>
+				<p class="content-not-t">非常抱歉</p>
+				<p class="content-not-t">查询不到相关信息</p>
+			</div>
 		</div>
 	</body>
 

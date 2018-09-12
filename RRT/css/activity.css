@@ -166,6 +166,10 @@ html {
         font-size: 0.32rem;
         color: #333333;
         letter-spacing: 1px; }
+    .other-item .yacht .yacht-not {
+      text-align: center;
+      font-size: 0.32rem;
+      color: #333333; }
 
 .has-opt {
   display: inline-block;
@@ -251,7 +255,7 @@ html {
   .cost-item .cost-opt {
     display: inline-block;
     margin-left: 0.2rem;
-    width: 3.1rem; }
+    width: 3.3rem; }
     .cost-item .cost-opt span {
       margin-top: 0.32rem;
       display: inline-block;

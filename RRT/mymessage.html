@@ -56,7 +56,7 @@
 			<div class="msg-content">
 				<div class="msg-item">
 					<div class="msg-head">
-						<span class="msg-title msg-new">消息标题</span><!--最新消息添加class： msg-new-->
+						<span class="msg-title msg-new">消息标题</span><!--最新消息红点添加class： msg-new-->
 						<span class="msg-time">2018-08-20 17:30:10</span>
 					</div>
 					<div class="msg-cont">
@@ -107,9 +107,9 @@
 		<script type="text/javascript">
 			$(function(){
 				$(".watch-btn").click(function(){
-					$(this).parents(".msg-item").find(".msg-text").addClass("watch-msg");
+					$(this).parents(".msg-item").find(".msg-text").addClass("watch-msg");    //点击按钮，相应的消息栏，添加显示全部内容class；
 					var ih = $(this).parents(".msg-item").find(".msg-text").innerHeight();  //获取，文字撑开实际高度(height+padding)；
-					$(this).parents(".msg-item").find(".msg-cont").stop().animate({
+					$(this).parents(".msg-item").find(".msg-cont").stop().animate({         //根据撑开的高度，进行下伸动画；
 						height:ih,
 					},100)
 				})
