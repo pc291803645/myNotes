@@ -74,7 +74,7 @@ body{
     background: #ededed;
 }
 .renrenyouting{
-    padding-top: 0.7rem;
+    padding-top: rem(71px);
     padding-bottom: 1.46rem;
 }
 .top {
@@ -111,15 +111,12 @@ body{
     text-align: center;
 }
 .msg-content{
-    padding: rem(15px) rem(12px) 0 rem(12px);
+    padding: 0 rem(12px);
 }
 .msg-item{
-    margin-top: rem(12px);
+    margin-top: 6px;
     padding-bottom: rem(22px);
     background: #FFFFFF;
-}
-.msg-content .msg-item:nth-of-type(1){
-    margin-top: 0;
 }
 .msg-head{
     position: relative;
@@ -161,8 +158,8 @@ body{
     position: absolute;
     top: 50%;
     left: rem(-30px);
-    width: rem(18px);
-    height: rem(18px);
+    width: 8px;
+    height: 8px;
     background: #ff0000;
     border-radius: 50%;
     transform: translateY(-50%);

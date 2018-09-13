@@ -1,0 +1,293 @@
+$rem-baseline: 100px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma" or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+    @each $value in $values {
+        @if type-of($value)=="number" and unit($value)=="rem" and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        }
+        @else if type-of($value)=="number" and unit($value)=="px" and $to=="rem" {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        }
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}
+
+body{
+    background: #ededed;
+}
+.renrenyouting{
+    padding-top: 0.7rem;
+}
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.7rem;
+    background: #327dfb;
+    z-index: 10;
+}
+.top .back {
+    position: absolute;
+    left: 0.15rem;
+    top: 0;
+    width: 0.5rem;
+    height: 0.7rem;
+}
+.top .back-arr {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.22rem 0 0 0.18rem;
+    border: 0.04rem solid #fff;
+    border-width: 0.04rem 0 0 0.04rem;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.top h2 {
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-indent: 1px;
+}
+.activity-container{
+    margin: rem(20px) auto 0 auto;
+    width: 95%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    box-shadow: #999 0px 0px 10px;
+    -webkit-box-shadow: #999 0px 0px 10px;
+    -moz-box-shadow: #999 0px 0px 10px;
+    -o-box-shadow: #999 0px 0px 10px;
+    -ms-box-shadow: #999 0px 0px 10px;
+    overflow: hidden;
+}
+.container-t{
+    padding: rem(17px) rem(11px) 0 rem(11px);
+}
+.img-wrap{
+    position: relative;
+    height: rem(470px);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    overflow: hidden;
+    .img-item{
+       position: absolute; 
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       img{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          width: 100%;
+       }
+    }
+}
+.info-wrap{
+   padding: 0 rem(11px);
+    p{
+        margin-top: rem(20px);
+        font-size: rem(28px);
+        color: #666666;
+    }
+}
+.time-line{
+    margin: 0 0.16rem;
+}
+.info-t{
+    margin-top: 0.27rem !important;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    .aty-name{
+        flex: 1;
+        font-size: 0.4rem;
+        color: #333333;
+    }
+    .aty-num{
+        color: #fb7033;
+    }
+}
+.line-x{
+     display: inline-block;
+     font-size: rem(26px);
+     transform: translateY(-1px);
+      -webkit-transform: translateY(-1px);
+     -moz-transform: translateY(-1px);
+     -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
+.time-wrap{
+    position: relative;
+    .time-total{
+      position: absolute; 
+      top: rem(32px); 
+      right: 0;
+      font-size: rem(26px);
+      opacity: 0.5;
+    }
+}
+.margin-l-r{
+    margin: 0 0.1rem;
+    display: inline-block;
+    font-size: 0.26rem;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
+.container-b{
+    margin-top: rem(25px);
+    padding: rem(25px) rem(22px);
+    border-top: 1px solid #EDEDED;
+    p{
+        font-size: rem(28px);
+        line-height: rem(45px);
+        color: #666666;
+        opacity: 0.5; 
+    }
+}
+.people-num{
+    margin-top: rem(90px);
+    padding: 0 rem(42px);
+    height: rem(92px);
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    background: #FFFFFF;
+    .people-t{
+        font-size: rem(30px);
+        color: #333333;
+        letter-spacing: 2px;
+    }
+}
+
+.people-switch{
+    margin: auto 0 auto auto;
+    font-size: 0;
+    .oper,.nums{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .nums{
+        width: rem(120px);
+        height: rem(35px);
+        text-align: center;
+        font-size: rem(33px);
+        line-height: rem(37px);
+        color: #333333;
+    }
+    .oper{
+       width: rem(40px); 
+       height: rem(35px); 
+       background-repeat: no-repeat;
+       background-size: 100%;
+       background-position: center;
+    }
+    .oper:nth-of-type(1){
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAjCAYAAADmOUiuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAmlJREFUeNpi/P//P8NgBkwMgxywoAswMjISq1cSiF2A2BGIFYGYF0nuBxA/AuIjQLwDiO8RYyC22GREFyTCgSZAXAbESlD+QyB+AMS3gfglEAsCsRrU0cpQNe+AuAeId5HqQLAgMsYDuIB4FhCfAeJNQOwHxPwEPMMOxE5APB+qbw0Qy+FzIIZ7iHSgEdSCU0DsRmZyAoX8bqg5ntR0oBvU0OlUylRVUPOSqeFAfahhrVTOnElQc30pcSAb1JBZNCpByqDmK5LrwEVQA2gJtgHxAXIcqAV1nB2NHSgDtSeMVAeCfLadTpXFFFhMEetAPnxFAQ2AMtQ+XWwOxFZsBELpfXRy4F1o1ZhIbGPBA4ifAfFPOrYJzgOxObEOlAfiG3RutJyAVouEWzPQ8u8Wnvo4F4hVoJ4jpTH5Aoi7gfgjFrn7RDe3oOANDnEFIA6lIKQ2A/FJLOK/SXUgrlYKqEk1BxqCpIQeEzQEL5PacMbmwL9ArIpDPcinM2hUYBPt8qdArEHnTALKwX+IdeB+aFqjZ38F1Fa8RKwDV0JpCzo5ThJaey0k1oGvoIV0Hp0cmAGljxLVD4ACO2j9qENjx/FC7cklpz24BaevqAeWILc5SXWgJFRzDY0cFwk135ySPok71JAkKjvOGWpuJjV6dclQw4qpHHIN1OwX+0ANXUdBIS6G1PHPoHbHnQE6nLETagFoGMOQSIepIfWFQc0qa1JGFsgZm4mARjcjtLwEWXwOOkbzDdquk4bWDkbQQpgBWhBPpsfgEfJwSDg0JAWQ2ocgA/5BHXsFiNcC8UGoGOWjW6MDmCQCgAADACLqOW8/QsQUAAAAAElFTkSuQmCC");
+        opacity: 0.17;
+    }
+    .oper:nth-of-type(2){
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAjCAYAAADmOUiuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAwFJREFUeNrsmF1IFUEUx+/GhT6wq2ldogz6olBEywiJwCCkIOkhI4Kij6cIBFGMfOixh0jC14Koh4iK3iKqhyCiIMwuERGVEWEmFllUD91blt3+E/+Fw3T33jPrbvjQgR9n2Z2d+e/szJkz4+Xz+cRUtmmJKW5J+4bnedp354Em0AgWkzLwDQyBN+AxuMfrklbob3r2TYXAerAPbHDoiIfgPLgTp8BZ4AjYLO49AbfAa/AJ5MB0UAGqwXqwTpQ3vdkLRrQC/9yUBFgDuAYypAfUKHvPCG0HD/huP2gJEviXHoXAjULYWbAi5HifD/pEXbujEFgjKjwW0cTsEHW2TEbgDI6vDMdNKZsJVvK9UtYuRC4KK7CXFVxQ9swBlu9Ulj/O8peLCQwK1Ms59owdUjZYQV+lLG8iQhYstSKDaiXppjczd1TZYI4+qyz/E5zmdZeLQLMarOX1mZhXsktgAszl+FUJ9H/tczAcs8Af4AqvW7UCm+ivOzb2yx/rju/dpa/TClxIP+TY0FfHMejbO/oFqmyGWYmxL9b9SnAQzC7QSxNi6TNDJF3g480iPwZOWR/xudjsTwZMEn98SDMBtU259lYXeX7REjguPkAlMMdVwX72DJwAKYYI20zWsho8BbcL9J7p0ZfgrUJD0YfDnPIp6/44w0KQfafAfiYVWiu3fnXJSTJiTRatVdKnHN9L049qBT6i3+TYkBcyzPhhbVAr8Cb9Gkb4uG0b/Q2twA/gBa/3hGjQpQdbGTWy3Leok4U++p1iELv+am3yauykazaT4VhMKpNVmW6VKcv3MDiPMTYGb/UCEta0yHq7FA02c5VoVJRtE3U3TGZP0iwq6ohoUmwXde6NYle3S1R4VMS7MKcY3aKuw1FtOxNMyf2KzenAfoeAbITtAFeDeq6YQJeThWXcR9SLZMLkjPe5+siThXKuRKvAFjCH77ziej4Q59nMVvbAEoff+57r+Ll/cXjkWy033rVMxar4O02FH7m2DjKzGdAEcJXA/weYjvZbgAEAtCuv1pa00csAAAAASUVORK5CYII=");
+        opacity: 0.17;
+    }
+    .active:nth-of-type(1),
+    .active:nth-of-type(2){
+        opacity: 1;
+    }
+}
+.submit{
+    display: block;
+    margin: rem(77px) auto;
+    width: rem(650px);
+    height: rem(90px);
+    line-height: rem(90px);
+    font-size: rem(32px);
+    color: #FFFFFF;
+    background: #327dfb;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+     -o-border-radius: 6px;
+     letter-spacing: rem(75px);
+     text-indent: rem(75px);
+//   webkit-box-shadow: #999 0px 0px 10px;
+//  -moz-box-shadow: #999 0px 0px 10px;
+//  box-shadow: #999 0px 0px 10px;
+}
