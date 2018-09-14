@@ -139,8 +139,10 @@ html{
     display: flex;
     display: -webkit-flex;
     align-items: center;
-    
+    font-size: 0;
     .item-l{
+        height: rem(28px);
+        line-height: rem(30px);
         margin-left: rem(20px);
         font-size: rem(28px);
         color: #333333;
@@ -151,8 +153,18 @@ html{
     border-bottom: none;
 }
 .ipt-com{
+    height: rem(20px);
+    padding: rem(10px) 0;
     font-size: rem(28px);
     letter-spacing: 1px;
+    outline: none;
+}
+.ipt-com::-webkit-input-placeholder{
+    transform: translateY(1px);
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
     opacity: 0.35;
 }
 .ipt-w1{
@@ -161,7 +173,22 @@ html{
 .ipt-w2{
     width: 40%;
 }
-
+.ipt-num{
+    transform: translateY(1px);
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    font-size: rem(30px);
+}
+.ipt-num::-webkit-input-placeholder{
+    transform: none;
+    font-size: rem(28px);
+}
+.ipt-time::-webkit-input-placeholder{
+   font-size: rem(30px) !important;
+   
+}
 .total-time{
     margin: auto rem(5px) auto auto;
     width: rem(170px);
@@ -169,7 +196,7 @@ html{
     text-align: center;
     font-size: rem(28px);
     color: rgba(0,0,0,0.35);
-    line-height: rem(54px);
+    line-height: rem(55px);
     background: #EEEEEE;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -203,7 +230,7 @@ html{
 }
 
 .other-item{
-    padding-top: rem(50px);
+    padding-top: rem(25px);
     padding-bottom: rem(30px);
     margin: 0 auto;
     width: 95%;
@@ -219,7 +246,7 @@ html{
      .yacht{
         margin-top: rem(22px);
         .yacht-item{
-            padding: rem(10px);
+            padding: 7px;
             margin: 0 auto;
             width: rem(600px);
             background: #eeeeee;
@@ -237,7 +264,7 @@ html{
             .yacht-type{
                 width: rem(108px);
                 height: rem(37px);
-                line-height: rem(39px);
+                line-height: rem(38px);
                 text-align: center;
                 font-size: rem(26px);
                 color: #FFFFFF;
@@ -249,6 +276,8 @@ html{
                 -o-border-radius: 3px;
             }
             .yacht-name{
+                height: rem(32px);
+                line-height: rem(32px);
                 margin-left: rem(10px);
                 font-size: rem(32px);
                 color: #333333;
@@ -433,7 +462,7 @@ html{
 }
 .des-container{
     padding: rem(18px) rem(45px);
-    margin: rem(30px) auto 0 auto;
+    margin: rem(22px) auto 0 auto;
     width: 94%;
     background: #FFFFFF;
     border-radius: 4px;
@@ -449,24 +478,27 @@ html{
         font-size: rem(28px);
         line-height: 0.45rem;
         color: #333333;
-        opacity: 0.35;
         border: transparent;
+    }
+    .textarea::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder{
+        opacity: 0.35;
     }
 }
 
 .img-list{
     padding-top: rem(8px);
     margin: 0 auto;
-    width: 94%;
-    min-height: rem(470px);
+    width: rem(705px);
     font-size: 0;
+    
     .img-item{
         position: relative;
-        margin-top: rem(22px);
-        margin-left: rem(22px);
+        margin-top: rem(50px);
+        margin-left: rem(50px);
         display: inline-block;
-        width: rem(220px);
-        height: rem(220px);
+        width: rem(200px);
+        height: rem(200px);
         background: #FFFFFF;
         border-radius: 8px;
         -webkit-border-radius: 8px;
@@ -484,8 +516,8 @@ html{
             position: absolute;
             top: rem(-17px);
             right: rem(-17px);
-            width: rem(33px);
-            height: rem(34px);
+            width: rem(41px);
+            height: rem(42px);
             background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfCAYAAADwbH0HAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABWBJREFUeNrEV2tIVVkU/s45917vyycUZampEWSUkRg4E00wE0FiE9OUE0NDYVBOM1CECCUJzo9IKaZQ6PGnSITKZkxsYIZhpj+hjYEGU1QGFT56WanXe9V7zz1n1tr3nNtJr4/xjws+9Zyz9157r/Wtb20lXdcxF2b7H2OXEb4ifELIIqQQZMIgoYfQTmgitM1oNT7xNMgj3CAE9JlZK6FounWlKUKdTvie8APBg2AQodZWaM+fQ+vrg97fD13TICclQV60CPLixbCtXQspOdmc30D42YjEBJvMMTv9i5ANWnzs6lUEL1+G+uABoKqREbJshiwCembnjm3b4Ny3D5LHw199hC8Jf8/EcQbhN0KOPjCAQGUlgo2NQFwcJKdz6ryFQtD9ftgKCuA+fhzKMqYF/AY3/pjKcZqxu2yVwhooL0eYQmvsfsamBwKQvF64aH7crl38aoTwOaF1MsfVhDLd58NQYSG0Z8/EArOysTHA4UD89etQcnL4zZ+EjeZn2TI0l1DKOQwcOyZIJJxKEphYfAqRX36OZeGwCLM+MhJ5ptToo6PwHz4M7c0bfvMFoSSW458I3mBTE4JXrkTDy5Nt69bBc+YM5PR0sfgEo41Jbjc8p04hbvdukWsRTnoXvncPoydPmiOrCAlWx9kcBp3CM3bxImAlES3i2LEDji1b4Dl9WjBXnJ5PzuCQKgpcRELB6P37xWm5GpjtUnw8gi0t0J4+5dVSCYVWx18TnGp7O9T79z9iL/89Wl0NtaMDyooViL92Dbb8fOjDw8KpNH8+vPX1cGzdCv3dOwQotGIzZrnRpvTBQah37phLfmN1/Cn/YDJF69Q0ux1heu8vLYXW2wt54UK4a2ogL1gAnULsPnFCbITDPUxjQrduiTnjTX340Pwz0+pYPGgvXsTSVJEr7eVL+A8cQPjRIyhLlsBz/jy8Z8/Cvn49RL1T6XAJSgkJMTqCDdrjxxGhGZfjJOGD2SfLMUnLZFM7OzG8c6cImy03F/bNm0UUholQY5SCyUpPonBr79+b0XRaHctR+ZvCJN7527fQXr/+EJChIWg9PSKXk5aaVVpplNWxT7xhgWc2xjIqK2nePHgvXYKjqAjaq1cIExGV5cvhpfLjBhGz1NgnrcnsNnI/ZnXcLR6IODGNBYRO66mthX3DBnFKPzUCH4Vde/IESnY2PHV1kVKL5ZxCrGRlmRHxWR3/Ix7S0ibmmBSJd+th9ubliRrmxqHevSvKRChTdzdkLqtz5yKNwRAQa5g5Mob1WR03Mqm5LOSMDHHC6BwKsauiIlKnlN/hPXsQJP1l9jKZVFIm3/btgnhc594LF4RGR1PGVeFywbZmjbnkDavjTj61lJiIuOLij8NFEWDxCFM5+A8ehHr79gf2WkotcOiQyHmIvkc1ncBCw5KrrFzJM0h18Mv47sQi/js5lf0lJQi1tYlFTdkUMsiKFEMchBMew9/4t8lw1vCUFHgbGqAsXcojKw29ntAW6wnfcmcaIubybqPyyaGbpMajxmNMDeduRY69JDT2jaIb/kvI5/oY353YaggDnGf30aPixNE2N51TcwyDq4Dg3LvXdMpWYTqd7OrDun2TkMjyGCgrEwwWdcghnPrKKqIkp6bCXVUF+6ZN5pcfCbUzuex9Rmjh/qyT1I1QPw01N0dkz9BePplkiAOHNcpeIpLryBEzpzBuqXUzvWWyFRDKjVui6Fys0czucFeXaIFCkaislMxMUae21auhrFplzu8wLhe/zvZC/x2ha8K1PRTSKY+xLvT9hAqCe7YXeqtx4XLCio3bSrLRZSRDe4cIvYRmA73TLSjN1T9tMubI/hNgAMvTHGNkQR9hAAAAAElFTkSuQmCC");
             background-repeat: no-repeat;
             background-size: 100% 100%;
@@ -511,7 +543,7 @@ html{
 
 .submit{
     display: block;
-    margin: 0.3rem auto 0 auto;
+    margin: 0.7rem auto 0 auto;
     width: 6rem;
     height: 0.9rem;
     line-height: 0.9rem;
@@ -553,7 +585,8 @@ html{
     }
     .des{
         padding-left: rem(40px);
-        margin-top: rem(30px);
+        padding-top: rem(30px);
+        padding-bottom: rem(10px);
         font-size: rem(28px);
         color: #666666;
         vertical-align: middle;
@@ -561,7 +594,7 @@ html{
             margin-right: rem(10px);
             display: inline-block;
             vertical-align: middle;
-            width: rem(33px);
+            width: rem(32px);
             height: rem(33px);
             transform: translateY(-1px);
             -webkit-transform: translateY(-1px);
@@ -570,7 +603,7 @@ html{
             -moz-transform: translateY(-1px);
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 100%;
+            background-size: 100% 100%;
             background-image: url("data:image/png;base64,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");
             
         }
@@ -660,4 +693,59 @@ html{
     width: 100%;
     height: 100%;
     opacity: 0;
+}
+
+.owing-wrap{
+  position: fixed;
+  top: 0;
+  left: 0; 
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  z-index: 999;
+}
+
+.pic-num{
+    position: absolute;
+    top: rem(50px);
+    left: 0;
+    width: 100%;
+    font-size: rem(28px);
+    text-align: center;
+    color: #FFFFFF;
+    z-index: 9;
+}
+.pic-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 7.5rem;
+    height: 100%;
+    overflow: hidden;
+}
+.pic-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 100%;
+    font-size: 0;
+    li,.pic-item{
+        position: relative;
+        width: 7.5rem;
+        height: 100%;
+        display: inline-block;
+        img{
+            position: absolute;
+             top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 7.5rem;
+        }
+    }
 }

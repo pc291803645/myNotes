@@ -547,6 +547,15 @@ body{
     }
     .aty-num{
         color: #fb7033;
+        i{
+            display: inline-block;
+            font-size: rem(26px);
+            transform: translateY(-1px);
+           -webkit-transform: translateY(-1px);
+           -moz-transform: translateY(-1px);
+           -ms-transform: translateY(-1px);
+           -o-transform: translateY(-1px);
+        }
     }
 }
 .time-line{
@@ -560,7 +569,16 @@ body{
         margin-left: 0;
     }
 }
-
+.margin-l-r{
+    margin: 0 0.1rem;
+    display: inline-block;
+    font-size: 0.26rem;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
 
 .dynamic-item{
     padding: rem(26px) rem(42px) 0 rem(42px);
