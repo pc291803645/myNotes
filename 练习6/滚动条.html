@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动条</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			body{background: #F1F1F1;color: #333333;}
+			.wrap{
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 80%;
+				height: 80%;
+				overflow: hidden;
+				border-radius: 10px;
+				background: #999999;
+			}
+			.container{
+				height: 100%;
+				overflow-y: auto;
+			}
+			h6{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding: 0.15rem 0;
+				font-size: 0.36rem;
+				text-align: center;
+				color: #FFFFFF;
+				background: #007AFF;
+			}
+			ul{
+				padding-top: 0.78rem;
+			}
+			ul>li{
+				height: 1rem;
+			}
+			ul>li:nth-of-type(odd){
+				background: green;
+			}
+			ul>li:nth-of-type(even){
+				background: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="container">
+				<h6>标题</h6>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

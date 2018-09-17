@@ -221,21 +221,37 @@ body{
         opacity: 0.5; 
     }
 }
-.people-num{
+
+.other-container{
     margin-top: rem(90px);
+}
+.other-item{
+    margin-top: 1px;
     padding: 0 rem(42px);
     height: rem(92px);
     display: flex;
     display: -webkit-flex;
     align-items: center;
     background: #FFFFFF;
-    .people-t{
+    .other-t{
         font-size: rem(30px);
         color: #333333;
         letter-spacing: 2px;
     }
 }
-
+.ipt-num{
+    width: 55%;
+    padding: rem(25px) rem(20px) rem(20px) rem(10px);
+    height: rem(20px);
+    font-size: rem(32px);
+    letter-spacing: 1px;
+    outline: none;
+}
+.get-code{
+    font-size: rem(28px);
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
 .people-switch{
     margin: auto 0 auto auto;
     font-size: 0;

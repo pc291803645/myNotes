@@ -437,8 +437,7 @@ body {
 .comment-not {
   text-align: center;
   line-height: 1.5rem;
-  height: 1.5rem;
-  border-top: 1px solid #EDEDED; }
+  height: 1.5rem; }
   .comment-not p {
     display: inline-block;
     font-size: 0.26rem;
