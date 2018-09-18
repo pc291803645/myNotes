@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
 		
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
-		<link rel="stylesheet" type="text/css" href="css/edit.css?v=15504"/>
+		<link rel="stylesheet" type="text/css" href="css/edit.css?v=15500704"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -76,11 +76,22 @@
 				</div>
 				<div class="opt-item">
 					<p>从手机相册选择</p>
-					<input type="file" name="" id="" value="" accept="image/jpeg,png,jpg" />
+					<input type="file" name="" id="file" value="" accept="image/*" />
 				</div>
 			    <div class="opt-item off-opt"><p>取消</p></div>
 			</div>
 			
+			<!--图像裁剪--->
+			<div class="clipbg">
+				<div class="clip-area" id="clipArea"></div>
+				<div class="footer">
+					<dl>
+						<dd class="oper-item active" id="clipBtn">确认</dd>
+						<dd class="oper-item" id="cancelBtn">取消</dd>
+					</dl>
+				</div>
+				<div class="loading">正在载入图片...</div>
+			</div>
 		</div>
 	</body>
 	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
@@ -92,7 +103,37 @@
 	<script src="script/LAreaData2.js" type="text/javascript"></script>
 	<script src="script/LArea.js" type="text/javascript"></script>
 	
+	<!--图像裁剪插件--->
+	<script src="script/hammer.min.js" type="text/javascript"></script>
+	<script src="script/lrz.all.bundle.js" type="text/javascript"></script>
+	<script src="script/iscroll-zoom-min.js" type="text/javascript"></script>
+	<script src="script/PhotoClip.js" type="text/javascript"></script>
+	
 	<script type="text/javascript">
+		/*图像裁剪插件*/
+		var clipArea = new  PhotoClip("#clipArea", {
+			size: [300,300],//裁剪框大小
+			outputSize:[0,0],//打开图片大小，[0,0]表示原图大小
+			file: "#file",
+			ok: "#clipBtn",
+			loadStart: function() { //图片开始加载的回调函数。this 指向当前 PhotoClip 的实例对象，并将正在加载的 file 对象作为参数传入。（如果是使用非 file 的方式加载图片，则该参数为图片的 url）
+				$(".loading").show(); //正在载入图片……；
+				$(".clipbg").fadeIn();//裁剪框显示；
+			},
+			loadComplete: function() {//图片加载完成的回调函数。this 指向当前 PhotoClip 的实例对象，并将图片的 <img> 对象作为参数传入。
+				$(".loading").hide(); //载入图片成功，则隐藏……；
+				$(".clipbg").fadeIn(); //裁剪框显示；
+			},
+			done: function(dataURL) { //裁剪完成的回调函数。this 指向当前 PhotoClip 的实例对象，会将裁剪出的图像数据DataURL作为参数传入。			
+				alert(dataURL);//dataURL裁剪后图片地址base64格式提交给后台处理
+				$(".clipbg").fadeOut();
+			}
+		});
+		$("#cancelBtn").click(function(){//取消裁剪，裁剪框隐藏；
+			$(".clipbg").fadeOut();
+			$("#file").val("");//虽然file的value不能设为有字符的值，但是可以设置为空值;
+		}); 
+		
 		/*点击头像，选择拍摄，选择相册弹框出现，动画从下往上*/
 		var iH = $(".opt-container").innerHeight();
 		$(".head-pic-wrap").click(function(){
