@@ -70,7 +70,13 @@ $rem-px-only: false !default;
     }
 }
 body{
-    background: #63afef;
+    background: linear-gradient(#07143a, #63afef);
+    background: -webkit-linear-gradient(#07143a, #63afef);
+    background: -moz-linear-gradient(#07143a, #63afef);
+    background: -ms-linear-gradient(#07143a, #63afef);
+    background: -o-linear-gradient(#07143a, #63afef);
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 .margin-center{
@@ -134,11 +140,11 @@ body{
 .content{
     position: relative;
     padding-bottom: rem(200px);
-    background: linear-gradient(#1d2a5c,#63afef);
-    background: -webkit-linear-gradient(#1d2a5c,#63afef);
-    background: -moz-linear-gradient(#1d2a5c,#63afef);
-    background: -ms-linear-gradient(#1d2a5c,#63afef);
-    background: -o-linear-gradient(#1d2a5c,#63afef);
+//  background: linear-gradient(#1d2a5c,#63afef);
+//  background: -webkit-linear-gradient(#1d2a5c,#63afef);
+//  background: -moz-linear-gradient(#1d2a5c,#63afef);
+//  background: -ms-linear-gradient(#1d2a5c,#63afef);
+//  background: -o-linear-gradient(#1d2a5c,#63afef);
     z-index: 2;
 }
 .login-state{
@@ -592,11 +598,11 @@ body{
     position: relative;
     padding-top: rem(80px);
     padding-bottom: rem(80px);
-    background: linear-gradient(#07143a, #63afef);
-    background: -webkit-linear-gradient(#07143a, #63afef);
-    background: -moz-linear-gradient(#07143a, #63afef);
-    background: -ms-linear-gradient(#07143a, #63afef);
-    background: -o-linear-gradient(#07143a, #63afef);
+//  background: linear-gradient(#07143a, #63afef);
+//  background: -webkit-linear-gradient(#07143a, #63afef);
+//  background: -moz-linear-gradient(#07143a, #63afef);
+//  background: -ms-linear-gradient(#07143a, #63afef);
+//  background: -o-linear-gradient(#07143a, #63afef);
     min-height: rem(500px);
 }
 .home-user-info{

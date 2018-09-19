@@ -1,5 +1,11 @@
 body {
-  background: #63afef; }
+  background: linear-gradient(#07143a, #63afef);
+  background: -webkit-linear-gradient(#07143a, #63afef);
+  background: -moz-linear-gradient(#07143a, #63afef);
+  background: -ms-linear-gradient(#07143a, #63afef);
+  background: -o-linear-gradient(#07143a, #63afef);
+  background-attachment: fixed;
+  height: 100vh; }
 
 .margin-center {
   margin: 0 auto; }
@@ -59,11 +65,6 @@ body {
 .content {
   position: relative;
   padding-bottom: 2rem;
-  background: linear-gradient(#1d2a5c, #63afef);
-  background: -webkit-linear-gradient(#1d2a5c, #63afef);
-  background: -moz-linear-gradient(#1d2a5c, #63afef);
-  background: -ms-linear-gradient(#1d2a5c, #63afef);
-  background: -o-linear-gradient(#1d2a5c, #63afef);
   z-index: 2; }
 
 .login-state {
@@ -459,11 +460,6 @@ body {
   position: relative;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  background: linear-gradient(#07143a, #63afef);
-  background: -webkit-linear-gradient(#07143a, #63afef);
-  background: -moz-linear-gradient(#07143a, #63afef);
-  background: -ms-linear-gradient(#07143a, #63afef);
-  background: -o-linear-gradient(#07143a, #63afef);
   min-height: 5rem; }
 
 .home-user-info {
