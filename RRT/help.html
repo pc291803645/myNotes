@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>帮助中心</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
-	    <link rel="stylesheet" type="text/css" href="css/help.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/help.css?v=8588"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -104,23 +104,39 @@
 					</li>
 				</ul>
 				<div class="footer">
-					<a href="" class="footer-item">
+					<a href="proposal.html" target="_blank" class="footer-item">
 						<i class="icon"></i>
 						<span class="text">投诉建议</span>
 					</a>
-					<a href="" class="footer-item">
+					<a href="javascript:;" class="footer-item on-cont">
 						<i class="icon"></i>
 						<span class="text">联系客服</span>
 					</a>
 				</div>
 			</div>
+			<!--半透明背景-->
+			<div class="bg hide"></div>
+			<!--联系客服弹框-->
+			<div class="contact animation hide">
+				<img class="rwm" src="img/rwm.jpg"/>
+				<div class="tips">
+					<p>请添加客服号</p>
+					<p>小姐姐会为您服务</p>
+				</div>
+				<a href="tel:‭19806475518‬" class="dial">
+					<i class="dial-icon"></i>
+					<span class="dial-text">拨打客服电话</span>
+				</a>
+				<span class="off-cont"></span>
+			</div>
+			
 		</div>	
 	</body>
 	
 	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-			$(".cont-top").click(function(){
+			$(".cont-top").click(function(){  //点击问题，下伸出来答案；
 				if($(this).next(".cont-btm").css("display")=="none"){
 					$(this).next(".cont-btm").slideDown(100);
 					$(this).find(".sign").addClass("active");
@@ -128,6 +144,16 @@
 					$(this).next(".cont-btm").slideUp(100);
 					$(this).find(".sign").removeClass("active");
 				}
+			})
+			
+			$(".on-cont").click(function(){  //点击联系客服，出现弹框；
+				$(".bg").removeClass("hide");
+				$(".contact").removeClass("hide");
+			})
+			
+			$(".bg,.off-cont").click(function(){ //关闭联系客服弹框；
+				$(".bg").addClass("hide");
+				$(".contact").addClass("hide");
 			})
 		})
 	</script>
