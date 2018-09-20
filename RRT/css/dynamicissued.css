@@ -18,7 +18,8 @@ body {
   background: #FFFFFF;
   z-index: 9;
   display: flex;
-  display: -webkit-flex; }
+  display: -webkit-flex;
+  background: #327dfb; }
 
 .haed .back {
   position: absolute;
@@ -29,7 +30,7 @@ body {
   width: 0.23rem;
   height: 0.23rem;
   margin: auto auto auto 0.25rem;
-  border: 0.04rem solid #333;
+  border: 0.04rem solid #FFFFFF;
   border-width: 0.04rem 0 0 0.04rem;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
@@ -48,7 +49,7 @@ body {
   line-height: 0.28rem;
   text-align: right;
   letter-spacing: 2px;
-  color: #00a0fc; }
+  color: #FFFFFF; }
 
 .submit-container {
   margin-top: 0.4rem; }

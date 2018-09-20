@@ -1,0 +1,231 @@
+$rem-baseline: 100px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma" or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+    @each $value in $values {
+        @if type-of($value)=="number" and unit($value)=="rem" and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        }
+        @else if type-of($value)=="number" and unit($value)=="px" and $to=="rem" {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        }
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}
+body{
+   background: #ededed;
+}
+
+.hide{
+    display: none;
+}
+.renrenyouting{
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.7rem;
+    background: #327dfb;
+    z-index: 10;
+}
+.top .back {
+    position: absolute;
+    left: 0.15rem;
+    top: 0;
+    width: 0.5rem;
+    height: 0.7rem;
+}
+.top .back-arr {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.22rem 0 0 0.18rem;
+    border: 0.04rem solid #fff;
+    border-width: 0.04rem 0 0 0.04rem;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.top h2 {
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-indent: 2px;
+}
+.activity-info{
+    background: #FFFFFF;
+    .head{
+        margin: 0 auto;
+        padding: 0 rem(20px);
+        height: rem(74px);
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        font-size: rem(28px);
+        color: #666666;
+        border-bottom: 1px solid #EDEDED;
+        .issue-time{
+            flex: 1;
+        }
+        .stage{
+            margin: auto 0 auto auto;
+        }
+        .stage-ty1{
+            color: #fb3333;
+        }
+    }
+    .content{
+        .container{
+            padding-bottom: 0.22rem;
+            width: 95%;
+            margin: 0.2rem auto 0 auto;
+            border-bottom: 1px solid #EDEDED;
+        }
+        .img-wrap{
+            position: relative;
+            width: 100%;
+            height: 4.97rem;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            overflow: hidden;
+            img{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                width: 100%;
+            }
+        }
+        
+        .info-wrap{
+            margin: 0 auto;
+            width: 98%;
+            p{
+                margin-top: rem(20px);
+                font-size: rem(28px);
+                color: #666666;
+            }
+        }
+        .info-t{
+            margin-top: 0.27rem !important;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            .aty-name{
+                flex: 1;
+                font-size: 0.4rem;
+                color: #333333;
+            }
+            .aty-num{
+                color: #fb7033;
+                i{
+                    display: inline-block;
+                    font-size: rem(26px);
+                    transform: translateY(-1px);
+                   -webkit-transform: translateY(-1px);
+                   -moz-transform: translateY(-1px);
+                   -ms-transform: translateY(-1px);
+                   -o-transform: translateY(-1px);
+                }
+            }
+        }
+        .time-wrap{
+            position: relative;
+            .time-total{
+              position: absolute; 
+              top: rem(32px); 
+              right: 0;
+              font-size: rem(26px);
+              opacity: 0.5;
+            }
+        }
+        .time-line{
+            margin: 0 0.16rem;
+        }
+        .info-side{
+            em{
+                margin-left: 0.3rem;
+            }
+            em:nth-of-type(1){
+                margin-left: 0;
+            }
+        }
+        .margin-l-r{
+            margin: 0 0.1rem;
+            display: inline-block;
+            font-size: 0.26rem;
+            transform: translateY(-1px);
+            -webkit-transform: translateY(-1px);
+            -moz-transform: translateY(-1px);
+            -ms-transform: translateY(-1px);
+            -o-transform: translateY(-1px);
+        }
+    }
+}

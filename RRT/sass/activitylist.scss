@@ -207,9 +207,9 @@ body{
     
 }
 .list-item{
-    padding-bottom: 0.22rem;
+    padding-bottom: 0.28rem;
     width: 95%;
-    margin: 0.25rem auto 0 auto;
+    margin: 0.28rem auto 0 auto;
     border-bottom: 1px solid #EDEDED;
 }
 .img-wrap{
@@ -236,7 +236,7 @@ body{
     margin: 0 auto;
     width: 98%;
     p{
-        margin-top: rem(15px);
+        margin-top: rem(20px);
         font-size: rem(28px);
         color: #666666;
     }
@@ -262,6 +262,16 @@ body{
            -ms-transform: translateY(-1px);
            -o-transform: translateY(-1px);
         }
+    }
+}
+.time-wrap{
+    position: relative;
+    .time-total{
+      position: absolute; 
+      top: rem(32px); 
+      right: 0;
+      font-size: rem(26px);
+      opacity: 0.5;
     }
 }
 .time-line{

@@ -190,3 +190,35 @@ body{
 .not-follow{
     background: #e81642;
 }
+
+.not-content{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    img{
+        margin: 0 auto;
+        display: block;
+        width: rem(315px);
+    }
+    p{
+        text-align: center;
+        letter-spacing: 2px;
+        text-indent: 2px;
+        color: #FFFFFF;
+    }
+    .text1{
+        margin-top: -5px;
+        font-size: rem(36px);
+    }
+    .text2{
+        margin-top: rem(18px);
+        font-size: rem(28px);
+        opacity: 0.8;
+    }
+}

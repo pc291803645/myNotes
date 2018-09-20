@@ -120,9 +120,9 @@ body {
   padding-top: 0.77rem; }
 
 .list-item {
-  padding-bottom: 0.22rem;
+  padding-bottom: 0.28rem;
   width: 95%;
-  margin: 0.25rem auto 0 auto;
+  margin: 0.28rem auto 0 auto;
   border-bottom: 1px solid #EDEDED; }
 
 .img-wrap {
@@ -147,7 +147,7 @@ body {
   margin: 0 auto;
   width: 98%; }
   .info-wrap p {
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
     font-size: 0.28rem;
     color: #666666; }
 
@@ -170,6 +170,15 @@ body {
       -moz-transform: translateY(-1px);
       -ms-transform: translateY(-1px);
       -o-transform: translateY(-1px); }
+
+.time-wrap {
+  position: relative; }
+  .time-wrap .time-total {
+    position: absolute;
+    top: 0.32rem;
+    right: 0;
+    font-size: 0.26rem;
+    opacity: 0.5; }
 
 .time-line {
   margin: 0 0.16rem; }

@@ -113,4 +113,31 @@ body {
 .not-follow {
   background: #e81642; }
 
+.not-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+  .not-content img {
+    margin: 0 auto;
+    display: block;
+    width: 3.15rem; }
+  .not-content p {
+    text-align: center;
+    letter-spacing: 2px;
+    text-indent: 2px;
+    color: #FFFFFF; }
+  .not-content .text1 {
+    margin-top: -5px;
+    font-size: 0.36rem; }
+  .not-content .text2 {
+    margin-top: 0.18rem;
+    font-size: 0.28rem;
+    opacity: 0.8; }
+
 /*# sourceMappingURL=fans.css.map */

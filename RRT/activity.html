@@ -284,6 +284,7 @@
 					console.log(dataURL);//dataURL裁剪后图片地址base64格式提交给后台处理;
 					$(".clipbg").fadeOut();
 					var blob = dataURItoBlob(dataURL); // base64 转化为 二进制 的图像信息；
+					console.log(blob);
 					var fd = new FormData();
 					fd.append("upload_file", blob, 'image.png'); //上面的upload_file为这个文件的key，等效于input中的name，image.png则是文件名，由于base64的图片信息是不带文件名的，所以可以手动指定一个，这个参数是可选的
 					fd.append('pc_token',"1511408478754e97915fe6e7ea5c1b62cc12d96272");
