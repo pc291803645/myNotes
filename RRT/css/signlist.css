@@ -1,0 +1,63 @@
+body {
+  background: #FFFFFF; }
+
+.hide {
+  display: none; }
+
+.renrenyouting {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem; }
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.7rem;
+  background: #327dfb;
+  z-index: 10; }
+
+.top .back {
+  position: absolute;
+  left: 0.15rem;
+  top: 0;
+  width: 0.5rem;
+  height: 0.7rem; }
+
+.top .back-arr {
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  margin: 0.22rem 0 0 0.18rem;
+  border: 0.04rem solid #fff;
+  border-width: 0.04rem 0 0 0.04rem;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+.top h2 {
+  line-height: 0.7rem;
+  font-size: 0.3rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-indent: 2px; }
+
+.sign-list .sign-item {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center; }
+  .sign-list .sign-item .user-pic {
+    width: 0.84rem;
+    height: 0.84rem;
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%; }
+    .sign-list .sign-item .user-pic img {
+      width: 100%;
+      height: 100%; }
+
+/*# sourceMappingURL=signlist.css.map */
