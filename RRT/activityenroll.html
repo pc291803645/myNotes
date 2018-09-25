@@ -86,21 +86,20 @@
 			<div class="sign-container">
 				<p class="title">已报名:</p>
 				<ul class="user-list">
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item"><a href=""><img src="img/TOUXIANG.jpg"/></a></li>
-					<li class="user-item more"><a href="">更多</a></li>
-					
-					
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"/></a></li>
+					<li class="user-item more"><a href="signlist.html">更多</a></li>
 				</ul>
+				<div class="not-user-list hide">还没有人报名哦~</div>
 			</div>
 			
 			<div class="other-container">
@@ -123,13 +122,35 @@
 				</div>
 				
 			</div>
-			
-			
-			
-			
-			
-			
 			<button class="submit">报名</button>
+			<p class="clause"><i class="clause-icon agree"></i>已阅读并同意以下<em>活动条款</em></p>
+			<div class="gb hide"></div><!--半透明背景，弹框需要显示-->
+			<!--活动条款-->
+			<div class="agreement hide">
+				<span class="off-agreement"></span>
+				<h2 class="agreement-h">人人艇活动条款</h2>
+				<div class="agreement-cont">
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+				</div>
+				
+			</div>
 		</div>
 	</body>
 	
@@ -137,13 +158,22 @@
 	<script type="text/javascript">
 		var imgs = $(".img-item");  //获取轮播所有img；
 		var num = 0; //创建变量；每一张img 显示；
+		var timer;  //轮播图片间隔器；
 		init();    //初始化；
-		setInterval(function(){ //每三秒钟轮播一次；
+		
+		timer=setInterval(move,3000)//每三秒钟轮播一次；
+		$(".img-wrap").click(function(){
+			clearInterval(timer);
+			num++;
+			imgs.eq(num%imgs.length).animate({opacity:1},200)
+			imgs.eq(num%imgs.length-1).animate({opacity:0},200)
+			timer=setInterval(move,3000)//每三秒钟轮播一次；
+		})
+		function move(){
 			num++;
 			imgs.eq(num%imgs.length).animate({opacity:1},1000)
 			imgs.eq(num%imgs.length-1).animate({opacity:0},1000)
-		},3000)
-		
+		}
 		function init(){
 			imgs.eq(0).css("opacity","1").siblings(".img-item").css("opacity","0");
 		}

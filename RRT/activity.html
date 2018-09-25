@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css?v=3"/>
 		<link rel="stylesheet" type="text/css" href="style/mobiscroll.2.13.2.css" />
 		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
-		<link rel="stylesheet" type="text/css" href="css/activity.css?v=133005" />
+		<link rel="stylesheet" type="text/css" href="css/activity.css?v=13300005" />
 
 		<script type="text/javascript">
 			(function() {
@@ -59,7 +59,7 @@
 								<span class="">是</span>
 								<span class="acive">否</span>
 							</div>
-							<div class="yacht">
+							<div class="yacht"><!---选择"是"不显示，选择"否"显示-->
 								<div class="yacht-item">
 									<span class="yacht-type">豪华型</span>
 									<span class="yacht-name">飞桥游艇</span>
@@ -123,6 +123,13 @@
 							</div>
 						</li>
 						<li class="list-item">
+							<span class="item-l">审核方式：</span>
+							<div class="need-opt">
+								<span class="active">发起人手动</span>
+								<span class="">系统自动</span>
+							</div>
+						</li>
+						<li class="list-item">
 							<span class="item-l">发起人电话：</span>
 							<input class="ipt-com ipt-w1 ipt-num" type="number" name="" id="" value="" placeholder="" />
 						</li>
@@ -145,14 +152,44 @@
 						</li>
 					</ul>
 
-					<button class="submit">确认</button>
+					<button class="submit">发布</button>
+					<p class="clause"><i class="clause-icon agree"></i>已阅读并同意以下<em>活动条款</em></p>
+					
 				</div>
 
-				<div class="gb hide"></div>
-				<!--半透明背景，弹框需要显示-->
-
+				<div class="gb hide"></div><!--半透明背景，弹框需要显示-->
+				
+				
+				<!--活动条款-->
+				<div class="agreement hide">
+					<span class="off-agreement"></span>
+					<h2 class="agreement-h">人人艇活动条款</h2>
+					<div class="agreement-cont">
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+						<p>条款最终解释权为泛美，本条款最终解释权为泛美，</p>
+					</div>
+				</div>
+				
+				
+				
+				<!--游艇选择-->
 				<div class="yacht-container hide">
-					<!--游艇选择-->
 					<span class="off-msg"></span>
 					<h2 class="title">选择游艇</h2>
 					<p class="des"><i class="des-icon"></i>所在地点：<em>广州</em></p>

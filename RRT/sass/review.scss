@@ -136,6 +136,9 @@ body{
         .stage-ty1{
             color: #fb3333;
         }
+        .stage-ty2{
+            color: #127520;
+        }
     }
     .content{
         .container{
@@ -394,6 +397,18 @@ body{
         }
     }
 }
+.user-list-unll{
+    padding: rem(180px) 0;
+    margin: 0 auto;
+    width: 95%;
+    background: #FFFFFF;
+    p{
+        font-size: 0.3rem;
+        color: #333333;
+        text-align: center;
+        opacity: 0.6;
+    }
+}
 
 .user-photo{
     padding: rem(30px);
@@ -500,11 +515,8 @@ body{
     .result{
         margin: auto 0 auto auto;
     }
-    .result-success{
-        color: #127520;
-    }
     .result-error{
-         color: #ff0000;
+        color: #ff0000;
     }
 }
 

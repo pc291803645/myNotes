@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>发起人活动管理</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
-	    <link rel="stylesheet" type="text/css" href="css/review.css?v=8"/>
+	    <link rel="stylesheet" type="text/css" href="css/review.css?v=80"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -78,7 +78,7 @@
 					</ul>
 				</div>
 				<div class="enroll-container">
-					<div class="enroll-item">
+					<div class="enroll-item"><!--待审核-->
 						<ul class="sign-user-list">
 							<li class="sign-user-item">
 								<div class="user-info">
@@ -90,7 +90,7 @@
 										<p class="user-sex-age">
 											<div class="age-wrap man"><!--男class：man；  女claas：woman；未知性别：unknown；-->
 												<span class="sex" style="background-position-y: -0.5px;"></span>
-												<span class="age-num">0</span><!--未知性别：显示为0；-->
+												<span class="age-num">25</span><!--未知性别：显示为0；-->
 											</div>
 											<div class="star-wrap">
 												<span class="star-icon baiyang"></span>	<!--有星座则显示,去掉class：.hide-->
@@ -128,9 +128,9 @@
 									<div class="user-exp">
 										<p class="user-name">手扶拖拉机斯基</p>
 										<p class="user-sex-age">
-											<div class="age-wrap man"><!--男class：man；  女claas：woman；未知性别：unknown；-->
+											<div class="age-wrap woman"><!--男class：man；  女claas：woman；未知性别：unknown；-->
 												<span class="sex" style="background-position-y: -0.5px;"></span>
-												<span class="age-num">0</span><!--未知性别：显示为0；-->
+												<span class="age-num">25</span><!--未知性别：显示为0；-->
 											</div>
 											<div class="star-wrap">
 												<span class="star-icon baiyang"></span>	<!--有星座则显示,去掉class：.hide-->
@@ -160,6 +160,13 @@
 									</div>
 								</div>
 							</li>
+						</ul>
+						<div class="user-list-unll hide"><!--该项没有内容，则显示-->
+							<p>--该项内容为空--</p>
+						</div>
+					</div>
+					<div class="enroll-item hide"><!--已支付-->
+						<ul class="sign-user-list">
 							<li class="sign-user-item">
 								<div class="user-info">
 									<div class="user-pic">
@@ -200,6 +207,13 @@
 									</div>
 								</div>
 							</li>
+						</ul>
+						<div class="user-list-unll hide"><!--该项没有内容，则显示-->
+							<p>--该项内容为空--</p>
+						</div>
+					</div>
+					<div class="enroll-item hide"><!--审核已通过-->
+						<ul class="sign-user-list">
 							<li class="sign-user-item">
 								<div class="user-info">
 									<div class="user-pic">
@@ -240,6 +254,13 @@
 									</div>
 								</div>
 							</li>
+						</ul>
+						<div class="user-list-unll hide"><!--该项没有内容，则显示-->
+							<p>--该项内容为空--</p>
+						</div>
+					</div>
+					<div class="enroll-item hide"><!--审核未通过-->
+						<ul class="sign-user-list">
 							<li class="sign-user-item">
 								<div class="user-info">
 									<div class="user-pic">
@@ -274,47 +295,13 @@
 								</div>
 								<div class="oper-wrap">
 									<span class="people">报名人数：<em>1人</em></span>
-									<span class="result result-success">不通过</span><!--通过class：result-success； 不通过class：result-error-->
-								</div>
-							</li>
-							<li class="sign-user-item">
-								<div class="user-info">
-									<div class="user-pic">
-										<img src="img/chuan1.png"/>
-									</div>
-									<div class="user-exp">
-										<p class="user-name">手扶拖拉机斯基</p>
-										<p class="user-sex-age">
-											<div class="age-wrap man"><!--男class：man；  女claas：woman；未知性别：unknown；-->
-												<span class="sex" style="background-position-y: -0.5px;"></span>
-												<span class="age-num">0</span><!--未知性别：显示为0；-->
-											</div>
-											<div class="star-wrap">
-												<span class="star-icon baiyang"></span>	<!--有星座则显示,去掉class：.hide-->
-												<span class="star-text">白羊</span>			<!--有星座则显示,去掉class：.hide-->
-												<span class="star-not hide">星座未知</span><!--没有星座则显示,去掉class：.hide-->
-											</div>
-										</p>
-									</div>
-									<div class="city-exp">
-										<em class="city-text">广州</em>
-									</div>
-								</div>
-								<div class="user-photo">
-									<ul class="photo-list">
-										<li class="photo-item"><img class="max-w" src="http://www.renrenyouting.com/SocialPic/10000019/d0f5246edad64792940b03579a44540a_s.jpg"></li>
-										<li class="photo-item"><img class="max-h" src="img/banner1.jpg"/></li>
-										<li class="photo-item"><img class="max-w" src="http://www.renrenyouting.com/SocialPic/10000019/d0f5246edad64792940b03579a44540a_s.jpg"></li>
-										<li class="photo-item"><img class="max-h" src="img/banner1.jpg"/></li>
-									</ul>
-									<p class="not-photo hide">该用户未上传真实近照</p><!--没有近照则显示-->
-								</div>
-								<div class="oper-wrap">
-									<span class="people">报名人数：<em>1人</em></span>
-									<span class="result result-error">不通过</span><!--通过class：result-success； 不通过class：result-error-->
+									<span class="result result-error">不通过</span>
 								</div>
 							</li>
 						</ul>
+						<div class="user-list-unll hide"><!--该项没有内容，则显示-->
+							<p>--该项内容为空--</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -343,5 +330,15 @@
 		</div>	
 	</body>
 	
+	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".state-list li").click(function(){
+				$(this).addClass("active").siblings("li").removeClass("active");
+				$(".enroll-item").eq($(this).index()).removeClass("hide").siblings(".enroll-item").addClass("hide");
+			})
+			
+		})
+	</script>
 	
 </html>

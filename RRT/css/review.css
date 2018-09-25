@@ -61,6 +61,8 @@ body {
       margin: auto 0 auto auto; }
     .activity-info .head .stage-ty1 {
       color: #fb3333; }
+    .activity-info .head .stage-ty2 {
+      color: #127520; }
   .activity-info .content .container {
     padding-bottom: 0.22rem;
     width: 95%;
@@ -268,6 +270,17 @@ body {
       background-size: 100%;
       background-position: center; }
 
+.user-list-unll {
+  padding: 1.8rem 0;
+  margin: 0 auto;
+  width: 95%;
+  background: #FFFFFF; }
+  .user-list-unll p {
+    font-size: 0.3rem;
+    color: #333333;
+    text-align: center;
+    opacity: 0.6; }
+
 .user-photo {
   padding: 0.3rem;
   min-height: 1.2rem;
@@ -358,8 +371,6 @@ body {
       color: #ff0000; }
   .oper-wrap .result {
     margin: auto 0 auto auto; }
-  .oper-wrap .result-success {
-    color: #127520; }
   .oper-wrap .result-error {
     color: #ff0000; }
 
