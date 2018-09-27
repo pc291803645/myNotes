@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css?v=3"/>
 		<link rel="stylesheet" type="text/css" href="style/mobiscroll.2.13.2.css" />
 		<link rel="stylesheet" type="text/css" href="style/LArea.css"/>
-		<link rel="stylesheet" type="text/css" href="css/activity.css?v=13300005" />
+		<link rel="stylesheet" type="text/css" href="css/activity.css?v=13305" />
 
 		<script type="text/javascript">
 			(function() {
@@ -48,30 +48,88 @@
 							<span class="total-time">共12.5小时</span>
 						</li>
 						<li class="list-item">
-							<span class="item-l">活动地点：</span>
+							<span class="item-l">活动城市：</span>
 							<span class="party-city">广州</span>
 							<input class="ipt-city" id="citySelector" type="text" name="" id="" value="" onfocus="this.blur();"/>
 							<input type="hidden" id="cityValue"/>
 						</li>
-						<li class="other-item">
-							<span class="item-l">是否有艇：</span>
-							<div class="has-opt">
-								<span class="">是</span>
-								<span class="acive">否</span>
-							</div>
-							<div class="yacht"><!---选择"是"不显示，选择"否"显示-->
-								<div class="yacht-item">
-									<span class="yacht-type">豪华型</span>
-									<span class="yacht-name">飞桥游艇</span>
-								</div>
-								<div class="yacht-item hide"><!--选择游艇弹框，选择"暂不选择"，则显示这个-->
-									<p class="yacht-not">暂不选择</p>
-								</div>
+						<li class="list-item position">
+							<span class="item-l">上艇位置：</span>
+							<input class="ipt-com ipt-w1 showframe" type="text" name="" id="" value="" placeholder="填写上艇位置" />
+							<!---推荐选择弹框--->
+							<div class="opt-wrap hide">
+								<ul class="opt-list">
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">暂无</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">广州芳村码头</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">广州芳村码头</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">广州芳村码头</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">广州芳村码头</span>
+										</div>
+									</li>
+								</ul>
 							</div>
 						</li>
-						<li class="list-item">
-							<span class="item-l">上艇位置：</span>
-							<input class="ipt-com ipt-w1" type="text" name="" id="" value="" placeholder="填写上艇位置" />
+						<li class="list-item position">
+							<span class="item-l">游艇名称：</span>
+							<input class="ipt-com ipt-w1 showframe" type="text" name="" id="" value="" placeholder="填写游艇名称" />
+							<!---推荐选择弹框--->
+							<div class="opt-wrap hide">
+								<ul class="opt-list">
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">暂无</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">super游艇</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">super游艇</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">super游艇</span>
+										</div>
+									</li>
+									<li class="opt-item">
+										<i class="point"></i>
+										<div class="opt-exp">
+											<span class="opt-cont">super游艇</span>
+										</div>
+									</li>
+								</ul>
+							</div>
 						</li>
 						<li class="list-item">
 							<span class="item-l">活动人数：</span>
@@ -186,73 +244,8 @@
 					</div>
 				</div>
 				
-				
-				
-				<!--游艇选择-->
-				<div class="yacht-container hide">
-					<span class="off-msg"></span>
-					<h2 class="title">选择游艇</h2>
-					<p class="des"><i class="des-icon"></i>所在地点：<em>广州</em></p>
-					<ul class="yacht-list">
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">超级飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-type">豪华型</span>
-								<span class="yacht-name">SSSS飞桥游艇</span>
-							</div>
-						</li>
-						<li class="yacht-item">
-							<i class="point"></i>
-							<div class="yacht-exp">
-								<span class="yacht-not">暂不选择</span>
-							</div>
-						</li>
-					</ul>
-				</div>
 			</div>
-
+			
 			<!---轮播图--->
 			<div class="owing-wrap hide">
 				<p class="pic-num">1/4</p>
@@ -303,6 +296,54 @@
 	
 	<script type="text/javascript">
 		$(function() {
+			/*上艇位置，游艇名字；推荐弹框*/
+			var top = 0;//给top变量一个初始值，以便下方赋值并引用。
+			$(".showframe").on("focus click",function(){ //输入框 聚焦，推荐弹框出现；
+				if($(this).next(".opt-wrap").css("display")=="none"){
+					$(this).next(".opt-wrap").show();  //输入框对应的 推荐弹框 显示；
+					/*弹框出现，禁止body滚动*/
+					top = $(this).offset().top-$(".list-item").height(); 
+					$('body').css("top",-top+"px");//给body一个负的top值；
+					$('body').css("position","fixed");//给body设置，position:fixed; 
+				}
+			})
+			$(".showframe").on("input",function(){ //输入框 失去焦点，推荐弹框消失；
+				$(".opt-wrap").hide();
+				/*弹框消失，恢复body滚动*/
+				$('body').css("position","static");//给body设置，position:static; 
+				$('body').scrollTop(top); //不设置，body 会滚回顶部，
+			})
+			$(document).on("touchstart touchmove",function(ev){  //控制 推荐弹框的 隐藏；
+				var ev = ev || window.event;
+				var target = ev.target;
+				if(!$(target).parents(".opt-wrap").is(".opt-wrap")&&
+				   !$(target).is(".showframe")
+				) {
+					if($(".opt-wrap").eq(0).css("display")=="block"){
+						$(".opt-wrap").eq(0).hide();
+						/*弹框消失，恢复body滚动*/
+						$('body').css("position","static");//给body设置，position:static; 
+						$('body').scrollTop(top); //不设置，body 会滚回顶部，
+					}
+					if($(".opt-wrap").eq(1).css("display")=="block"){
+						$(".opt-wrap").eq(1).hide();
+						/*弹框消失，恢复body滚动*/
+						$('body').css("position","static");//给body设置，position:static; 
+						$('body').scrollTop(top); //不设置，body 会滚回顶部，
+					}
+				}
+			})
+			$(".opt-list").find(".opt-item").click(function(){  //选中推荐框内容，渲染html上
+				var html = $(this).find(".opt-cont").html();
+				$(this).parents(".list-item").find(".showframe").val(html);
+				$(".opt-wrap").hide();
+				/*弹框消失，恢复body滚动*/
+				$('body').css("position","static");//给body设置，position:static; 
+				$('body').scrollTop(top); //不设置，body 会滚回顶部，
+			})
+			
+			
+			
 			/*图像裁剪插件*/
 			var clipArea = new  PhotoClip("#clipArea", {
 				size: [300, 214],//裁剪框大小
@@ -369,33 +410,6 @@
 			//初始化时间；
 			$(".ipt-time").attr("value","2018-09-14 15:30");  //插件缘故，设置有效，可获取到，只是页面input不展示出来；
 			$(".ipt-time").attr("placeholder","2018-09-14 15:30"); //只是为了给用户展示默认的时间，设置placeholder即可，
-			
-			//选择游艇弹框，动画，从下往上
-			var iH = $(".yacht-container").innerHeight();
-			var top = 0;//给top变量一个初始值，以便下方赋值并引用。
-			
-			//选择游艇弹框出现；
-			$(".has-opt span:last").click(function(){
-				$(".gb").show();
-				$(".yacht-container").show().css("bottom",-iH).stop().animate({
-					bottom:0
-				},300,"linear");
-				
-				/*弹框出现，禁止body滚动*/
-				top = $(window).scrollTop();//获取页面的scrollTop；
-				$('body').css("top",-top+"px");//给body一个负的top值；
-				$('body').css("position","fixed");//给body设置，position:fixed; 
-			})
-			//选择游艇弹框消失；
-			$(".gb,.off-msg").click(function(){
-				$(".yacht-container").hide();
-				$(".gb").hide();
-				
-				/*弹框消失，恢复body滚动*/
-				$('body').css("position","static");//给body设置，position:static; 
-				$(window).scrollTop(top);//设置页面滚动的高度，如果不设置，关闭弹出层时页面会回到顶部。
-			})
-			
 			
 			
 			/*城市选择插件*/
