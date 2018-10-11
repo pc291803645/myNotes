@@ -404,7 +404,7 @@ body {
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg); }
 
-.integral {
+.integral, .binding {
   position: absolute;
   top: 0;
   right: 0;
@@ -415,7 +415,8 @@ body {
   height: 0.35rem;
   line-height: 0.35rem;
   text-align: right;
-  opacity: 0.3; }
+  opacity: 0.3;
+  letter-spacing: 1px; }
 
 .order-icon {
   margin: 0 auto;
