@@ -117,10 +117,7 @@ body {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   letter-spacing: 0.02rem;
-  text-indent: 0.02rem;
-  webkit-box-shadow: #999 0px 0px 10px;
-  -moz-box-shadow: #999 0px 0px 10px;
-  box-shadow: #999 0px 0px 10px; }
+  text-indent: 0.02rem; }
 
 .illustrate {
   margin: 0.37rem auto 0 auto;

@@ -180,10 +180,7 @@ body {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   letter-spacing: 0.75rem;
-  text-indent: 0.75rem;
-  webkit-box-shadow: #999 0px 0px 10px;
-  -moz-box-shadow: #999 0px 0px 10px;
-  box-shadow: #999 0px 0px 10px; }
+  text-indent: 0.75rem; }
 
 .owing-wrap {
   position: fixed;
