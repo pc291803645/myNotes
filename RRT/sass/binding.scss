@@ -209,11 +209,11 @@ body{
         display: -webkit-flex;
         margin-top: rem(10px);
         .illustrate-i{
+            padding-top: rem(5px);
             width: rem(33px);
         }
         .illustrate-i::before{
             content: "";
-            padding-top: rem(14px);
             display: inline-block;
             vertical-align: top;
             width: rem(28px);

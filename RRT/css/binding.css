@@ -127,10 +127,10 @@ body {
     display: -webkit-flex;
     margin-top: 0.1rem; }
     .illustrate .illustrate-item .illustrate-i {
+      padding-top: 0.05rem;
       width: 0.33rem; }
     .illustrate .illustrate-item .illustrate-i::before {
       content: "";
-      padding-top: 0.14rem;
       display: inline-block;
       vertical-align: top;
       width: 0.28rem;
