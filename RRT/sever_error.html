@@ -2,20 +2,39 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>服务器错误...</title>
+		<title>服务器异常</title>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
 		<style type="text/css">
 			*{margin: 0;padding: 0;}
-			body{
-				
-			}
+			body{background: #FFFFFF;}
+			.wrap{position: fixed;top: 0;right: 0;bottom: 0;left: 0;margin: auto;display: flex;display: -webkit-flex;}
+			.container{margin: auto;width: 100%; height: auto;}
+			.bg{margin: 0 auto;max-width: 60%;display: block;}
+			.tips p{font-size: 0.33rem;text-align: center;color: #696969;letter-spacing: 3px;text-indent: 3px;line-height: 0.5rem;}
 		</style>
 	</head>
 	<body>
-		<div class="">
-			
+		<div class="wrap">
+			<div class="container">
+				<img class="bg" src="img/server_error.jpg"/>
+				<div class="tips">
+					<p>小章章被你们挤的喘不过气来了</p>
+					<p>等我喘口气再试试看</p>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

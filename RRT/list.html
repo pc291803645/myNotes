@@ -375,7 +375,7 @@
 					var ev = ev || window.event;
 					var offsetX = $(this).position().left; //记录手指摁下X轴定位距离
 					var xW = ev.originalEvent.touches[0].pageX; //记录手指摁下X轴位置；
-					btn_min_left = $(".min-btn").position().left + iW; //限制拖动点最大的left
+					btn_min_left = $(".min-btn").position().left + iW; //限制拖动点最小的left
 					$(document).on("touchmove", function(ev) { //手指滑动
 						var ev = ev || window.event;
 						var left = ev.originalEvent.touches[0].pageX - xW + offsetX;
