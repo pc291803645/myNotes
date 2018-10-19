@@ -899,6 +899,19 @@ body{
 
 
 
+.coming{
+    min-height: rem(400px);
+    display: flex;
+    display: -webkit-flex;
+    p{
+        margin: auto;
+        font-size: 0.28rem;
+        color: #333333;
+        letter-spacing: 2px;
+        text-indent: 2px;
+    }
+}
+
 @keyframes fainde {
     0%{
         opacity: 0.5;

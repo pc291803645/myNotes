@@ -615,6 +615,7 @@ body {
 
 .img-wrap {
   position: relative;
+  min-height: 4.85rem;
   overflow: hidden;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -656,15 +657,14 @@ body {
     font-size: 0;
     padding-left: 0.2rem; }
     .yacht-info .yacht-t .yacht-class {
+      padding: 0 0.12rem;
       display: inline-block;
       vertical-align: middle;
-      width: 1.06rem;
       height: 0.4rem;
       font-size: 0.26rem;
       color: #FFFFFF;
       background: #fb8c32;
       border-radius: 4px;
-      text-align: center;
       line-height: 0.42rem;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
