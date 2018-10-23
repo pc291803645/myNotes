@@ -338,7 +338,7 @@
 			<p class="record">粤ICP备18027721号</p>
 
 			<!--半透明背景-->
-			<div class="rgba hide"></div>
+			<div class="rgba"></div>
 			<!--选择城市-->
 			<div class="city-warp hide animation">
 				<span class="off-msg"></span>
@@ -369,6 +369,15 @@
 				</div>
 			</div>
 
+			<!--活动弹框模块-->
+			<div class="activity-wrap">
+				<div class="activity-float animation">
+					<a href="" class="jump"></a>
+					<span class="off-aty"></span>
+				</div>
+				<div class="on-aty"></div>
+			</div>
+			
 		</div>
 
 		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
@@ -378,35 +387,25 @@
 					$(this).addClass("active").siblings("li").removeClass("active");
 					$(".tap-item").eq($(this).index()).removeClass("hide").siblings(".tap-item").addClass("hide");
 				})
-				$(document).click(function(ev) {
-					var ev = ev || window.event;
-					var target = ev.target;
-					if(!$(target).parents(".city-warp").is(".city-warp")) { //城市显示和 隐藏;
-						$(".renrenting").css("height", "auto");
-						$(".renrenting").css("overflow", "auto");
-						$(".rgba").hide();
-						$(".city-warp").hide();
-					}
-					if($(target).is(".citys") || $(target).parents(".citys").is(".citys")) {
-						$(".renrenting").css("height", $(window).height());
-						$(".renrenting").css("overflow", "hidden");
-						$(".rgba").show();
-						$(".city-warp").show();
-					}
-					if($(target).is(".times") || $(target).parents(".times").is(".times")) { //时间显示和 隐藏;
-						$(".renrenting").css("height", $(window).height());
-						$(".renrenting").css("overflow", "hidden");
-						$(".rgba").show();
-					}
+				
+				$(".citys").click(function(){ //打开城市选择；
+					$(".city-warp,.rgba").removeClass("hide");
+				})
+				$(".off-msg").click(function(){//关闭城市选择；
+					$(".city-warp,.rgba").addClass("hide");
+				})
+				
+				$(".off-aty").click(function(){ //关闭“双11”活动浮层；
+					$(".activity-float,.rgba").addClass("hide");
+				})
+				$(".on-aty").click(function(){ //打开“双11”活动浮层；
+					$(".activity-float,.rgba").removeClass("hide");
+				})
+				
+				$(".rgba").click(function(){ //点击背景；该页面的所有弹框浮层都消失；
+					$(".city-warp,.activity-float,.rgba").addClass("hide");
+				})
 
-				})
-				$(".city-item").click(function() { //选择地点;
-					$(".renrenting").css("height", "auto");
-					$(".renrenting").css("overflow", "auto");
-					$(".rgba").hide();
-					$(".city-warp").hide();
-					$(".search-city").html($(this).html());
-				})
 
 			})
 		</script>
