@@ -88,10 +88,14 @@
 							<p class="yacht-deta">取消政策：<span>限时取消</span></p>
 						</div>
 						<div class="yacht-b">
-							<p class="yacht-tips"><i class="tips-icon"></i><span>预定0点前72小时内不可取消</span></p>
+							<p class="yacht-tips"><i class="tips-icon"></i><span>使用日期7天前可免费取消</span></p>
 							<p class="yacht-tips"><i class="tips-icon"></i><span>船只限载人数：10人</span></p>
 						</div>
-
+						<!---
+	            			取消政策和说明有两种情况如下：
+	            			（1）取消政策：限时取消； 说明：使用日期7天前可免费取消
+	            			（2）取消政策：不可取消； 说明：使用日期前7天内不可取消
+	            		-->
 						<div class="order-wrap order-wrap-type">
 							<div class="order-content">
 								<div class="order-item">
@@ -276,12 +280,26 @@
 			</div>
 			
 			
-			
-			<div class="rgba-wrap" style="display: none;"></div><!--弹框的半透明背景，显示js设置display:flex--> 
+			<!--弹框的半透明背景--> 
+			<div class="rgba-wrap" style="display: none;"></div>
+			<!--有误信息提示，比如 号码为空--> 
 			<div class="msg-pro hide">
 				<span class="off-msg"></span>
 				<div class="msg-icon"></div>
 				<p class="msg-text">提示信息，提示信息</p>
+			</div>
+			<!--联系客服弹框-->
+			<div class="contact animation hide">
+				<img class="rwm" src="img/rwm.jpg">
+				<div class="tips">
+					<p>请添加客服号</p>
+					<p>小姐姐会为您服务</p>
+				</div>
+				<a href="tel:&#8237;19806475518&#8236;" class="dial">
+					<i class="dial-icon"></i>
+					<span class="dial-text">拨打客服电话</span>
+				</a>
+				<span class="off-msg"></span>
 			</div>
 		</div>
 	</body>
