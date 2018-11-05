@@ -1100,7 +1100,7 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%; }
 
-.contact {
+.contact-tk {
   padding: 0.48rem 0;
   position: fixed;
   top: 0;
@@ -1113,23 +1113,23 @@ body {
   box-sizing: border-box;
   background: #FFFFFF;
   z-index: 1000; }
-  .contact .rwm {
+  .contact-tk .rwm {
     margin: 0 auto;
     display: block;
     width: 4.5rem;
     height: 4.5rem; }
-  .contact .tips {
+  .contact-tk .tips {
     padding-bottom: 0.3rem;
     margin: 0 auto;
     width: 4.84rem;
     border-bottom: 1px solid #EDEDED; }
-    .contact .tips p {
+    .contact-tk .tips p {
       line-height: 0.4rem;
       text-align: center;
       font-size: 0.28rem;
       color: #333333;
       opacity: 0.55; }
-  .contact .dial {
+  .contact-tk .dial {
     margin: 0.52rem auto 0 auto;
     width: 4.84rem;
     height: 0.76rem;
@@ -1142,7 +1142,7 @@ body {
     display: flex;
     display: -webkit-flex;
     align-items: center; }
-    .contact .dial .dial-icon {
+    .contact-tk .dial .dial-icon {
       margin-left: 0.28rem;
       width: 0.53rem;
       height: 0.48rem;
@@ -1150,7 +1150,7 @@ body {
       background-size: 100%;
       background-position: center;
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAAwCAYAAACxKzLDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABGlJREFUeNrcmmlIVUEUx11aSKQyKxMrKg0j0FY0ad9pIdooCDOiBMPya1BgRCtRH9qJrA+JRUUfAiso2wRJBCuybA+zTVwKWl6r3v4DRxgOc++dee++56sDP7j3zZmZe+6dmTPnzIu0LCvif5NOIegjF6wFXUAzaAG14BGoAm+87jAyyF8qFTxxKG8Dd8BFcBq8+xeMGgJeaur+AqfAPpcX0eFGCVkAVoPuIA70BUkudfaATaA1XI1SzeMUMBbMIqN7KPSe08uoMO5BGNXB9AR5oNZSyzrTNoP9pfqB+XQtVr4X4BnNH5UUgF0ghv2+DRSGw5dKBM2KN/8BXABrQKyi3gBwQ1Fvq27fwTRqluUuTWA76K6of0ihv7ajjYoB1yw9aQTZijZ2KHTTvZhTy8BEMAg0gEpwHnzWHOFpIB70pOsJYKZYeRW6RbQDkeUoyJPuhYPu7++cGgdqHIZNTgBfcRAoBJ8UbZcp9CuZzk5/hl+G5rBxW247gyiH8nhQpGj3BtPrBVqZToKJUeJBPlr6MlTRRidwkla6d6AcHAALbB5ktaLd40ynwKXc0ag8y0yKFW0sdtB/Sn3wOvMUuguZzluprA300DXqiqFR4mtE+zF8xRDrx+qtYjpfaeTYvfANukbdNTRKjPU+inZmg2OgBNy3qSuccyqrd5rpbJHKugKfVFaha9RtQ6N8NjsDjvAvhxX1P9FCYPfgPva1zrIhGM/7ilKs8o2G+7vH4KuG3gOQD7JYMCj812Xp/ifYK913A0ule1lX+LrxvCOVUabR5xFDfeG8R7KXlwlWSvf7FRuAdqliZSN0nG++wdCrDsABp7G2GhymQbPk77jLOaUz/Go03/hdMDmAsET0c0K6T6CgsV2uS9fxlO8Q8hvUs/DGdfhV07h2khIwRnMuOcl2dr9Iun7IypKl62/SdZyOUd8ow2MnTSDboyCyjlJl7TJKum5hugnSdRe20LgaJaTU4UF8HkfHslEDpN07HwVdpevdLCrW2qX3d1kghngYd51hbUdLC0I5/faenkmul6xw3K5BopMTzvXQqLkum9RJdns8f4LEOczRcV+T5eEQzKB8YGkoMrSvwGCbsnSD5T+kEuVSXuBQVhSupx5uRpUqtiXykFkfjkbpJF7ckvxTwS0PnkX4oe8GCR2/v1T7vNroUH4TTPOzfzFfD9Iph9j6vAblAY8Ag6XSLYe33nApXwH+OLR3TxEZe56hFcmUOhfDroLxGm1N0YwC6liAGJS0c6JNro7LNUoRpypSZMMp96Aru0Nx6pFMK2IvTf23NFe+UBRrGq74aCf+K9iHbgMp3kkJ0Sqd6eBa/Fr9VFJPefFLITKqt9dLup38oAO1zSEwyuhvCV6dJI6mU/UpQTCokUJ2KxRfiucrplJE7PUmd6uJQcE8nV9O50zTA2ynjM6ywuovB8PAEjCDNsAxBnWLQU6wNrReSR+KwdLIFSSRr4ulvEQkJX3E8D1He8qIcDcqbOKpf1L+CjAAbw93BMJM9SUAAAAASUVORK5CYII="); }
-    .contact .dial .dial-text {
+    .contact-tk .dial .dial-text {
       margin-left: 0.38rem;
       font-size: 0.4rem;
       color: #FFFFFF;
