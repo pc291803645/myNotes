@@ -13,7 +13,7 @@
 		<!--省份 插件-->
 		<link rel="stylesheet" type="text/css" href="style/LArea_activity.css" />
 
-		<link rel="stylesheet" type="text/css" href="css/activity_issue.css?v=20181116" />
+		<link rel="stylesheet" type="text/css" href="css/activity_issue.css?v=2018111006" />
 
 		<script type="text/javascript">
 			(function() {
@@ -41,6 +41,7 @@
 					</div>
 					<div class="upload-container">
 						<ul class="img-list">
+							
 							<li class="img-item">
 								<div class="img-ctn">
 									<img src="img/chuan1.png" />
@@ -491,12 +492,15 @@
 			
 			/*上传封面  小图  排列 超出 x轴滚动条 控制 计算*/
 			
-			x(); //没上传 一张 img html渲染一次， 执行该函数一次即可；
+			x(); //每上传 一张 img html渲染一次， 执行该函数一次即可；
 			function x(){
 				var l = $(".img-list .img-item").length;  //获取个数；
 				var iw = $(".img-list .img-item").eq(0).outerWidth(true); //每个小图 占去的宽度（包括margin）
 				var mg = parseInt($(".img-list .img-item").eq(0).css("marginLeft"));//每个小图 的marginLeft 值；
+				var scroll_x = 0; 
 				$(".img-list").css("width", l*iw+mg+"px"); //计算 小图容器 实际 总长度； 大于屏幕宽度则 自动 x轴 出现滚动条
+				scroll_x = (l*iw+mg)>$(".upload-container").width()?(l*iw+mg)-$(".upload-container").width():0;
+				$(".upload-container").scrollLeft(scroll_x);
 			}
 			
 		})
