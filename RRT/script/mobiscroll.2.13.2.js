@@ -230,7 +230,7 @@
             dateOrder: 'Mddyy',
             //mode: 'mixed',
             rows: 5,
-            minWidth: 76,
+            minWidth: 62, //本来是76 ；
             height: 36,
             showLabel: false,
             selectedLineHeight: true,
@@ -286,7 +286,7 @@
         dateOrder: 'MMdyy',
         rows: 5,
         height: 30,
-        minWidth: 60,
+        minWidth: 60,  //原来60
         headerText: false,
         showLabel: false,
         btnWidth: false,
@@ -310,7 +310,7 @@
         dateOrder: 'MMdyy',
         rows: 5,
         height: 34,
-        minWidth: 55,
+        minWidth: 55, //原来55
         headerText: false,
         showLabel: false,
         btnWidth: false,
@@ -433,7 +433,7 @@
 
     var themes = $.mobiscroll.themes,
         theme = {
-            minWidth: 76,
+            minWidth: 76, //原来76，
             height: 76,
             accent: 'none',
             dateOrder: 'mmMMddDDyy',
@@ -2421,7 +2421,7 @@
     classes.Scroller.prototype._class = 'scroller';
     classes.Scroller.prototype._defaults = $.extend({}, classes.Widget.prototype._defaults, {
         // Options
-        minWidth: 80,
+        minWidth: 80, //原来80
         height: 40,
         rows: 3,
         multiline: 1,
