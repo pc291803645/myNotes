@@ -6,12 +6,15 @@
 		<title></title>
 
 		<style type="text/css">
+			body{
+				background: black;
+			}
 			.circle {
 				width: 200px;
 				height: 200px;
 				position: absolute;
 				border-radius: 50%;
-				background: #0cc;
+				background: red;
 			}
 			
 			.pie_left,
@@ -27,12 +30,12 @@
 				display: block;
 				width: 200px;
 				height: 200px;
-				background: #00aacc;
+				background: #FFFFFF;
 				border-radius: 50%;
 				position: absolute;
 				top: 0;
 				left: 0;
-				transform: rotate(30deg);
+				transform: rotate(60deg);
 			}
 			
 			.pie_right,
@@ -51,7 +54,7 @@
 				border-radius: 50%;
 				left: 25px;
 				top: 25px;
-				background: #FFF;
+				background: green;
 				position: absolute;
 				text-align: center;
 				line-height: 150px;
@@ -78,18 +81,18 @@
 		<script src="jquery-1.12.4.js" type="text/javascript"></script>
 		
 		<script type="text/javascript">
-			$(function() {
-			    $('.circle').each(function(index, el) {
-			        var num = $(this).find('span').text() * 3.6;
-			        if (num<=180) {
-			            $(this).find('.right').css('transform', "rotate(" + num + "deg)");
-			        } else {
-			            $(this).find('.right').css('transform', "rotate(180deg)");
-			            $(this).find('.left').css('transform', "rotate(" + (num - 180) + "deg)");
-			        };
-			    });
-			
-			});
+//			$(function() {
+//			    $('.circle').each(function(index, el) {
+//			        var num = $(this).find('span').text() * 3.6;
+//			        if (num<=180) {
+//			            $(this).find('.right').css('transform', "rotate(" + num + "deg)");
+//			        } else {
+//			            $(this).find('.right').css('transform', "rotate(180deg)");
+//			            $(this).find('.left').css('transform', "rotate(" + (num - 180) + "deg)");
+//			        };
+//			    });
+//			
+//			});
 		</script>
 	</body>
 

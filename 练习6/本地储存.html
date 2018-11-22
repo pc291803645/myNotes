@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<script type="text/javascript">
+//			window.locaStorage.setItem(key,value);
+//			window.localStorage是一个对象，包含所有储存的内容；   ****(全部)
+//			window.localStorage.getItem(key)   **********************（单个）
+//			window.localStorage.removeItem(key);(删除某个数据)
+//			window.localStorage.clear();（删除所有数据）
+			 
+			var json = {
+				"pageY":500,
+				"name":"小明",
+				"imgsrc":"data:image/1054523123112123"
+			}
+			window.sessionStorage.setItem("data",JSON.stringify(json));
+			console.log(JSON.parse(window.sessionStorage.getItem("data")));
+			
+			
+		</script>
+	</body>
+</html>
