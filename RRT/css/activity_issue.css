@@ -500,9 +500,11 @@ html {
   margin: auto 0.05rem auto auto;
   font-size: 0.28rem;
   color: #333333;
-  opacity: 0.35;
   text-decoration: underline;
   letter-spacing: 1px; }
+
+.send-active {
+  opacity: 0.35; }
 
 .des-container {
   padding: 0.18rem 0.45rem;

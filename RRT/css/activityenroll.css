@@ -66,7 +66,7 @@ body {
     height: 100%; }
     .banner-list .banner-item img {
       width: 7.5rem;
-      height: auto; }
+      height: 100%; }
 
 .banner-nav {
   position: absolute;
@@ -229,11 +229,11 @@ body {
     font-size: 0.26rem;
     color: #f5a11c; }
 
-.container-b {
+.container-des {
   margin-top: 0.2rem;
   padding: 0.25rem 0.22rem;
   border-top: 1px solid #EDEDED; }
-  .container-b p {
+  .container-des p {
     font-size: 0.28rem;
     line-height: 0.45rem;
     color: #666666;
