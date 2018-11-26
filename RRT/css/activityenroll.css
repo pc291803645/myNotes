@@ -614,7 +614,7 @@ body {
 .msg-container .everyone-comment .everyone-comment-item:nth-of-type(1) {
   margin-top: 0; }
 .msg-container .comment-ipt-wrap {
-  margin: 0 auto;
+  margin: 0.5rem auto 0 auto;
   padding: 0.1rem;
   width: 92%;
   height: 2.05rem;
