@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>20181204</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				color: #333333;
+				font-size: 18px;
+			}
+			ul,li{
+				list-style: none;
+			}
+			.margin-left1{
+				margin: 0 22px 0 30px !important;
+			}
+			.margin-left2{
+				margin: 0 20px 0 28px !important;
+			}
+			.padding-left1{
+				padding-left: 60px;
+			}
+			.wrap{
+				margin: 0 auto;
+				min-width: 950px;
+				min-height: 500px;
+				border: 1px solid #EBEBEB;
+				background: #f8f8f8;
+			}
+			.wrap::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.wrap-left{
+				float: left;
+				width: 75%;
+				border-right: 1px solid #EBEBEB;
+				background: #FFFFFF;
+				box-sizing: border-box;
+			}
+			.wrap-right{
+				float: right;
+				width: 25%;
+				height: 100%;
+			}
+			.wrap-right::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.code-container{
+				margin: 0 auto;
+				width: 800px;
+			}
+			.code-title{
+				text-align: center;
+				font-size: 0;
+			}
+			.code-title>i,
+			.code-title>span{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.code-title>i{
+				width: 200px;
+				height: 2px;
+				background: #EBEBEB;
+			}
+			.code-cont{
+				padding-bottom: 40px;
+			}
+			.code-title>span{
+				width: 160px;
+				font-size: 14px;
+			}
+			.code-items{
+				margin-top: 15px;
+				font-size: 0;
+			}
+			
+			.cont-t,
+			.cont-c{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.cont-t{
+				padding-left: 52px;
+				font-size: 14px;
+			}
+			.cont-c{
+				font-size: 0;
+			}
+			.cont-c span{
+				margin-left: 8px;
+				display: inline-block;
+				vertical-align: middle;
+				width: 23px;
+				height: 23px;
+				line-height: 22px;
+				font-size: 14px;
+				border-radius: 50%;
+				text-align: center;
+				box-sizing: border-box;
+				border: 1px solid #EBEBEB;
+				background: #FAFAFA;
+				cursor: pointer;
+			}
+			.cont-c .active{
+				border-color: #34d273;
+				background: #34d273;
+				color: #FFFFFF;
+			}
+			.text-container{
+				padding: 10px 0;
+				height: 1215px;
+				margin-left: 20%;
+				background: #FFFFFF;
+				border: 1px solid #c3c3c3;
+				box-sizing: border-box;
+				overflow-y: auto;
+			}
+			.text-item{
+				font-size: 13px;
+				color: #c3c3c3;
+			}
+			.text-item span{
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="wrap-left">
+				<div class="code-container">
+					<div class="code-item">
+						<div class="code-title"><i></i><span>11选5任五出号表</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items">
+								<span class="cont-t">最小号码</span>
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+							<div class="code-items">
+								<span class="cont-t">最小号码</span>
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>选胆</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span class="active">02</span>
+									<span class="active">03</span>
+									<span class="active">04</span>
+									<span>05</span>
+									<span>06</span>
+									<span class="active">07</span>
+									<span>08</span>
+									<span class="active">09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span class="active">1</span>
+									<span class="active">2</span>
+									<span class="active">3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span class="active">02</span>
+									<span class="active">03</span>
+									<span>04</span>
+									<span class="active">05</span>
+									<span class="active">06</span>
+									<span class="active">07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span class="active">1</span>
+									<span class="active">2</span>
+									<span class="active">3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>01</span>
+									<span>02</span>
+									<span>03</span>
+									<span>04</span>
+									<span>05</span>
+									<span>06</span>
+									<span>07</span>
+									<span>08</span>
+									<span>09</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left2">清</span>
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>跨度</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>4</span>
+									<span>5</span>
+									<span>6</span>
+									<span>7</span>
+									<span>8</span>
+									<span>9</span>
+									<span>10</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>和值</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>15</span>
+									<span>16</span>
+									<span>17</span>
+									<span>18</span>
+									<span>19</span>
+									<span>20</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>21</span>
+									<span>22</span>
+									<span>23</span>
+									<span>24</span>
+									<span>25</span>
+									<span>26</span>
+									<span>27</span>
+									<span>28</span>
+									<span>29</span>
+									<span>30</span>
+								</div>
+							</div>
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>31</span>
+									<span>32</span>
+									<span>33</span>
+									<span>34</span>
+									<span>35</span>
+									<span>36</span>
+									<span>37</span>
+									<span>38</span>
+									<span>39</span>
+									<span>40</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>和尾</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+									<span>6</span>
+									<span>7</span>
+									<span>8</span>
+									<span>9</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>杀码</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>11</span>
+									<span>12</span>
+									<span>13</span>
+									<span>14</span>
+									<span>15</span>
+									<span>16</span>
+									<span>17</span>
+									<span>18</span>
+									<span>19</span>
+									<span>10</span>
+									<span>11</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>大数个数</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>0</span>
+									<span>1</span>
+									<span class="active">2</span>
+									<span class="active">3</span>
+									<span class="active">4</span>
+									<span>5</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>奇数个数</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>0</span>
+									<span>1</span>
+									<span class="active">2</span>
+									<span class="active">3</span>
+									<span class="active">4</span>
+									<span>5</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-item">
+						<div class="code-title"><i></i><span>质数个数</span><i></i></div>
+						<div class="code-cont">
+							<div class="code-items padding-left1">
+								<div class="cont-c">
+									<span>0</span>
+									<span>1</span>
+									<span>2</span>
+									<span>3</span>
+									<span>4</span>
+									<span>5</span>
+									<span class="margin-left1">清</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap-right">
+				<ul class="text-container">
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					<li class="text-item">
+						<span>01</span><span>02</span><span>03</span><span>06</span><span>08</span>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

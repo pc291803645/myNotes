@@ -6,44 +6,27 @@
 		<script src="jquery-1.12.4.js" type="text/javascript"></script>
 		<style type="text/css">
 			*{margin: 0; padding: 0;}
-			.demo{margin: 50px auto;width: 300px;height: 300px;border-radius: 50%;line-height: 300px;text-align: center;font-size: 50px;color: white; background: linear-gradient(red,black,green,pink);}
+			.demo{margin: 50px auto;width: 300px;height: 300px;border-radius: 50%;line-height: 300px;text-align: center;font-size: 50px;color: white; background: black;}
 		</style>
 	</head>
 	<body>
-		<a href="#demo">demo</a>
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 		<div id="demo" class="demo">HTML</div>
 		
-		
 		<script type="text/javascript">
-			var num=0;
-			var speed=1; //旋转速度；
-			var initTimer; //快速旋转间隔器；
-			var fastTime=0; //记录快速旋转秒数；
-			var fastTimer; //记录快速旋转秒数间隔器；
+			(function(win,$){
+				
+				
+				
+				
+			})(window,$)
 			
-			
-			fastTimer=setInterval(function(){
-				fastTime++;
-			},1000)
-			initTimer=setInterval(function(){
-				rotate();
-				if(fastTime>=3){
-					clearInterval(fastTimer);
-					clearInterval(initTimer);
-				}
-			},speed)
-			function rotate(){ //旋转起来
-				num+=5;
-				var deg = num%360;
-				$(".demo").css("transform","rotate("+deg+"deg)");
+			document.onclick= function(){
+				$(".demo").css({
+		            transform: 'rotate(' + (360*10+360) + 'deg)',
+		            transition: 'all 5s'
+		        })
 			}
+			
 		</script>
 	</body>
 </html>

@@ -5,48 +5,12 @@
 		<title></title>
 		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
-			*{
-				margin: 0;
-				padding: 0;
-			}
-			
-			.box{
-				width: 800px;
-				height: 600px;
-				background: url(img/shu.jpg);
-				background-size: 100% 100%;
-				border: 2px solid peachpuff;
-				margin: 0 auto;
-				position: relative;
-				cursor: pointer;
-			}
-			.niao{
-				position: absolute;
-				top: 40%;
-				left: 30%;
-				width: 100px;
-				height: 100px;
-				background: url(img/xiangsuniao.png) no-repeat;
-				background-size: 100% 100%;
-				cursor: pointer;
-				z-index: 2;
-			}
-			.niaoyu{
-				font-size: 11px;
-				font-weight: bold;
-				display: none;
-				text-align: center;
-				color: red;
-			}
-			.niao:hover{
-				-transform: scale(2);
-			}
-			.active{
-				width: 40px;
-				height: 30px;
-				background: url(img/cz.png) no-repeat;
-				background-size: 100% 100%;
-			}
+			*{margin: 0;padding: 0;}
+			.box{width: 800px;height: 600px;background: url(img/shu.jpg);background-size: 100% 100%;border: 2px solid peachpuff;margin: 0 auto;position: relative;cursor: pointer;}
+			.niao{position: absolute;top: 40%;left: 30%;width: 100px;height: 100px;background: url(img/xiangsuniao.png) no-repeat;background-size: 100% 100%;cursor: pointer;z-index: 2;}
+			.niaoyu{font-size: 11px;font-weight: bold;display: none;text-align: center;color: red;}
+			.active{width: 40px;height: 30px;background: url(img/cz.png) no-repeat;background-size: 100% 100%;}
+			.niao:hover{-transform: scale(2);}
 		</style>
 	</head>
 	<body>
@@ -71,19 +35,6 @@
 						niaoyu.innerHTML = "再顶就爆啦！";
 					}
 					niao.style.top = iH + "px";
-					
-					if(arr.length>0){
-						for(var i =0;i<arr.length;i++){
-							(function(index){
-								if(coll(niao,arr[index])){
-									i++;
-								}
-							})(i)
-						}
-						console.log(i);
-					}
-					
-					
 					
 					setTimeout(function(){
 						clearInterval(timer);
@@ -114,18 +65,13 @@
 				}
 				
 				
-				
-				
-				
-				
-				var arr = [];
 				setInterval(function(){
 					var t  = parseInt(Math.random()*500+50);  //随机数50~550； 
-					var l = parseInt(Math.random()*400+350);  //随机数350~750；
-					var i = parseInt(Math.random()*5+5);  //随机数5~10秒；
+					var l = 900;
+					var i = parseInt(Math.random()*5+10);  //随机数5~15毫秒； 决定小虫的移动速度
 					var newDom = document.createElement("div");  //创建元素；
 					var timer = null;
-					arr.push(newDom);
+					
 					newDom.style.position = "absolute";
 					newDom.style.top = t + "px";
 					newDom.style.left = l + "px";
@@ -139,7 +85,11 @@
 						if(x<=-50){
 							clearInterval(timer);
 							box.removeChild(newDom);
-							arr.pop();
+						}
+						if(coll(niao,newDom)){
+							console.log("吃掉啦");
+							clearInterval(timer);
+							box.removeChild(newDom);
 						}
 					},i)
 					
