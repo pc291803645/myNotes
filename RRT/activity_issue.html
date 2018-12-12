@@ -67,7 +67,7 @@
 							</li>
 							<li class="list-item">
 								<span class="item-l"><i class="icon-t1"></i><em>开始时间：</em></span>
-								<input class="ipt-com ipt-w2 ipt-time ipt-num demo-test-date demo-test-datetime demo-test-time demo-test-credit" type="text" name="" id="" value="" onfocus="this.blur();" placeholder="" />
+								<input class="sss ipt-com ipt-w2 ipt-time ipt-num demo-test-date demo-test-datetime demo-test-time demo-test-credit" type="text" name="" id="" value="" onfocus="this.blur();" placeholder="" />
 							</li>
 							<li class="list-item">
 								<span class="item-l"><i class="icon-t1"></i><em>结束时间：</em></span>
@@ -432,10 +432,8 @@
 				});
 			}
 
-			//初始化时间；
-			$(".ipt-time").attr("value", "2018-09-14 15:30"); //插件缘故，设置有效，可获取到，只是页面input不展示出来；
-			$(".ipt-time").attr("placeholder", "2018-09-14 15:30"); //只是为了给用户展示默认的时间，设置placeholder即可，
-
+			
+			
 			/*城市选择插件*/
 			var area2 = new LArea();
 			area2.init({
@@ -502,7 +500,16 @@
 				$('.demo-' + demo).show();
 			});
 			$('#demo').trigger('change');
+			
+			
+			//初始化时间；
+			$(".ipt-time").val("2018-12-20 12:00"); 
+			setTimeout(function(){
+				console.log($(".ipt-time").eq(0).val());
 				
+				
+			},5000)
+			
 			
 			
 			
@@ -532,6 +539,8 @@
 			$(".cost_rmb").on("input",function(){
 				$(this).val($(this).val().replace(/[^0-9|\.]/gi,""));
 			})
+			
+			
 		})
 	</script>
 
