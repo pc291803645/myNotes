@@ -139,7 +139,7 @@
 
 				<div class="footer-container">
 					<!--待审核-->
-					<div class="other-wrap">
+					<div class="other-wrap hide">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -202,7 +202,7 @@
 						</div>
 					</div>
 					<!--待支付-->
-					<div class="other-wrap">
+					<div class="other-wrap hide">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -257,7 +257,7 @@
 						</div>
 					</div>
 					<!--待成团-->
-					<div class="other-wrap">
+					<div class="other-wrap hide">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -360,9 +360,13 @@
 							</div>
 							<p class="total">合计：<span>￥<em>12000.00</em></span></p>
 						</div>
+						
+						<div class="button-wrap button-bg">
+							<div class="btn-sign"><a  href="javascripts:;">签&nbsp;&nbsp;&nbsp;&nbsp;到</a></div>
+						</div>
 					</div>
 					<!--已完成-->
-					<div class="other-wrap">
+					<div class="other-wrap hide">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -412,7 +416,7 @@
 						</div>
 					</div>
 					<!--已取消-->
-					<div class="other-wrap">
+					<div class="other-wrap hide">
 						<div class="take padding-b">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -434,6 +438,20 @@
 					</div>
 				</div>
 			</div>
+			
+			<!---弹框，半透明背景-->
+			<div class="bg"></div>
+			
+			<div class="info-frame">
+				<div class="info-text">
+					确认现在签到吗？
+				</div>
+				<div class="btns">
+					<span class="true">确定</span>
+					<span class="false">取消</span>
+				</div>
+			</div>
+			
 		</div>
 	</body>
 

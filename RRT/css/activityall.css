@@ -239,6 +239,9 @@ body {
     .enroll-bottom .bottom-r .pay-type {
       color: #ff0000;
       border: 1px solid #ff0000; }
+    .enroll-bottom .bottom-r .sign {
+      color: #327dfb;
+      border: 1px solid #327dfb; }
 
 .issue-list-item {
   margin-top: 0.14rem;
@@ -379,5 +382,62 @@ body {
     text-align: center;
     color: #333333;
     opacity: 0.6; }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100; }
+
+.info-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 0.7rem 0.78rem;
+  width: 6.3rem;
+  background: white;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  box-sizing: border-box;
+  z-index: 101; }
+
+.info-text {
+  line-height: 0.5rem;
+  font-size: 0.3rem;
+  color: #666666;
+  letter-spacing: 2px;
+  text-align: center; }
+
+.btns {
+  margin-top: 0.36rem;
+  font-size: 0px;
+  text-align: center; }
+
+.true, .false {
+  padding: 0.13rem 0.48rem;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.28rem;
+  color: #327dfb;
+  border: 1px solid #327dfb;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px; }
+
+.btns > span:nth-of-type(2) {
+  margin-left: 0.96rem; }
 
 /*# sourceMappingURL=activityall.css.map */
