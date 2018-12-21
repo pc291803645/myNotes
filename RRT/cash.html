@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请提现</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/cash.css?v=123"/>
+		
+		<script type="text/javascript">
+			(function () {
+	            function o() {
+	                document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540?document.documentElement.clientWidth:540)/750 * 100 + 'px';
+	            }
+				var e = null;
+	            window.addEventListener("resize", function () {
+	                clearTimeout(e), e = setTimeout(o, 300)
+	            }, !1), o()
+	        })(window);
+	    </script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<!--申请提取板块-->
+			<div class="container-one hide">
+				<div class="top">
+					<a class="back" href="userindex.html"><span class="back-arr"></span></a>
+					<h2>申请提现</h2>
+					<span class="record-en"></span>
+				</div>
+				<div class="card-wrap">
+					<div class="card-cont">
+						<p class="card-type">招商银行</p>
+						<p class="card-uname">**明</p>
+						<p class="card-code">9686&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;5689</p>
+						<a class="card-change" href="">修改银行卡</a>
+					</div>
+					<!--未绑定银行卡显示-->
+					<div class="card-cont hide">
+						<a class="card-add" href="">添加银行卡</a>
+					</div>
+				</div>
+				<div class="apply-wrap">
+					<ul class="switch">
+						<li class="active">可提款项</li>
+						<li>暂不可提款项</li>
+					</ul>
+					<div class="apply-container">
+						<div class="apply-cont-item">
+							<ul class="apply-list">
+								<li class="list-item">
+									<div class="apy-top">
+										<span class="apy-lx color3">活动款项</span>
+										<p class="apy-bh">活动编号：<a href="javascripts:;">12345678901234</a></p>
+									</div>
+									<div class="apy-bot">
+										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<div class="apy-btn">申请提现</div>
+									</div>
+								</li>
+								<li class="list-item">
+									<div class="apy-top">
+										<span class="apy-lx color4">推广佣金</span>
+										<p class="apy-bh">推广编号：<a href="javascripts:;">12345678901234</a></p>
+									</div>
+									<div class="apy-bot">
+										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<div class="apy-btn">申请提现</div>
+									</div>
+								</li>
+							</ul>
+							<div class="not-cont hide">
+								<p>--该项内容为空--</p>
+							</div>
+						</div>
+						<div class="apply-cont-item hide">
+							<ul class="apply-list">
+								<li class="list-item">
+									<div class="apy-top">
+										<span class="apy-lx color3">活动款项</span>
+										<p class="apy-bh">活动编号：<a href="javascripts:;">12345678901234</a></p>
+									</div>
+									<div class="apy-bot">
+										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<p class="cause">活动尚未完成</p>
+									</div>
+								</li>
+								<li class="list-item">
+									<div class="apy-top">
+										<span class="apy-lx color4">推广佣金</span>
+										<p class="apy-bh">推广编号：<a href="javascripts:;">12345678901234</a></p>
+									</div>
+									<div class="apy-bot">
+										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<p class="cause">订单尚未完成</p>
+									</div>
+								</li>
+							</ul>
+							<div class="not-cont hide">
+								<p>--该项内容为空--</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--提取记录板块-->
+			<div class="container-two">
+				<div class="top">
+					<a class="back"><span class="back-arr"></span></a>
+					<h2>申请提现</h2>
+				</div>
+				<div class="record-wrap">
+					<div class="record-top">
+						<p class="addup">累积提现金额：<span><i>￥</i>50000.00</span></p>
+					</div>
+					<div class="record-cont">
+						<ul class="record-list">
+							<li class="list-item">
+								<div class="rcd-top">
+									<span class="sums">活动款项</span>
+									<p class="code">活动编号：<a href="javascripts:;">12345678901234</a></p>
+									<div class="result">提现成功</div>
+								</div>
+								<div class="rcd-ctr">
+									<p class="bank">
+										<span class="bank-name">招商银行</span>
+										<em class="bank-code">****&nbsp;&nbsp;5689</em>
+									</p>
+									<p class="rmb color1">￥<span>20000.00</span></p>
+								</div>
+								<div class="rcd-bot">
+									<p class="time">2018-12-20 12:30</p>
+								</div>
+							</li>
+							<li class="list-item">
+								<div class="rcd-top">
+									<span class="sums">活动款项</span>
+									<p class="code">活动编号：<a href="javascripts:;">12345678901234</a></p>
+									<div class="result">提现中</div>
+								</div>
+								<div class="rcd-ctr">
+									<p class="bank">
+										<span class="bank-name">招商银行</span>
+										<em class="bank-code">****&nbsp;&nbsp;5689</em>
+									</p>
+									<p class="rmb color2">￥<span>20000.00</span></p>
+								</div>
+								<div class="rcd-bot">
+									<p class="time">2018-12-20 12:30</p>
+								</div>
+							</li>
+						</ul>
+						<div class="not-cont hide">
+							<p>--内容为空--</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--弹框半透明背景-->
+			<div class="bg hide"></div> 
+			<!--申请成功弹框-->
+			<div class="apy-succes animation hide">
+				<span class="off"></span>
+				<div class="icon"></div>
+				<p class="tips1">已成功提交提现申请</p>
+			    <p class="tips2">款项将在2-3个工作日内</p>
+			    <p class="tips2">提现到您的银行卡</p>
+			</div>
+		</div>	
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//tap 切换
+				$(".switch li").click(function(){
+					$(this).addClass("active").siblings("li").removeClass("active");
+					$(".apply-cont-item").eq($(this).index()).removeClass("hide").siblings(".apply-cont-item").addClass("hide");
+				})
+				
+				
+				
+			})
+		</script>
+	</body>
+</html>
