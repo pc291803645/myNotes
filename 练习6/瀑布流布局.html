@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>瀑布流布局</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			ul,li{
+				list-style: none;
+			}
+			ul{
+				/*多栏布局*/
+				-webkit-column-width: 140px;
+				-moz-column-width: 140px;
+				column-width: 140px; /*列宽*/
+				/*两列*/ 
+				column-count: 2;   
+				column-rule: 2px solid red;
+				/*设置或检索对象的列与列之间的间隙*/ 
+				column-gap:10px;
+				
+				padding: 10px;
+			}
+			li{
+				padding: 10px;
+				height: 200px;
+				border-radius: 4px;
+				border: 1px solid #333333;
+				margin-bottom: 10px;
+			}
+			li>div{
+				
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li ></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	
+	
+</html>

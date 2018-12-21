@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jquery-1.12.4.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var defaultObj = {
+					"name":"小明",
+					"age":20,
+				}
+				var newObj = {
+					"age":30,
+					"sex":"男",
+				}
+				
+				var newObj2 = {
+					"hobby":"篮球",
+				} 
+				
+				var thisObj = $.extend(true, {}, defaultObj, newObj, newObj2);
+				 /**
+				  * 参数1：默认false；是否深度合并；
+				  * 参数2：一般选择{}，不写的话，默认对象会被改变；
+				  * 参数3：默认对象；
+				  * 参数4、5、6、7…… 其他合并的的对象
+				  */
+				  
+				console.log(defaultObj);
+				console.log(newObj);
+				console.log(newObj2);
+				console.log(thisObj);
+			})
+		</script>
+	</body>
+</html>

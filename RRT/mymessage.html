@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的消息</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mymessage.css?v=74004"/>
+		
+		<script type="text/javascript">
+			(function () {
+	            function o() {
+	                document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540?document.documentElement.clientWidth:540)/750 * 100 + 'px';
+	            }
+				var e = null;
+	            window.addEventListener("resize", function () {
+	                clearTimeout(e), e = setTimeout(o, 300)
+	            }, !1), o()
+	        })(window);
+	    </script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<nav class="nav-bar">
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="home"></span>
+						<!-- 选中状态添加class： home-active-->
+						<span class="">首页</span>
+						<!-- 选中状态添加class：active-->
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="order"></span>
+						<!-- 选中状态添加class： order-active-->
+						<span class="">订单</span>
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="personal personal-active"></span>
+						<!-- 选中状态添加class： personal-active-->
+						<span class="active">我的</span>
+					</a>
+				</div>
+			</nav>
+			<div class="top">
+				<a class="back" href="userindex.html"><span class="back-arr"></span></a>
+				<h2>消息</h2>
+			</div>
+			
+			<div class="msg-content">
+				<div class="msg-item">
+					<div class="msg-head">
+						<span class="msg-title msg-new">消息标题</span><!--最新消息红点添加class： msg-new-->
+						<span class="msg-time">2018-08-20 17:30:10</span>
+					</div>
+					<div class="msg-cont">
+						<p class="msg-text"><!--显示完整信息添加class： watch-msg-->
+							333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+						</p>
+					</div>
+					<div class="msg-foot">
+						<span class="watch-btn">查看</span>
+					</div>
+				</div>
+				<div class="msg-item">
+					<div class="msg-head">
+						<span class="msg-title msg-new">消息标题</span><!--最新消息红点添加class： msg-new-->
+						<span class="msg-time">2018-08-20 17:30:10</span>
+					</div>
+					<div class="msg-cont">
+						<p class="msg-text"><!--显示完整信息添加class： watch-msg-->
+							333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+						</p>
+					</div>
+					<div class="msg-foot">
+						<span class="watch-btn">查看</span>
+					</div>
+				</div>
+				<div class="msg-item">
+					<div class="msg-head">
+						<span class="msg-title">消息标题</span>
+						<span class="msg-time">2018-08-20 17:30:10</span>
+					</div>
+					<div class="msg-cont">
+						<p class="msg-text"><!--显示完整信息添加class： watch-msg-->
+							333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+						</p>
+					</div>
+					<div class="msg-foot">
+						<span class="watch-btn">查看</span>
+					</div>
+				</div>
+				<div class="msg-item">
+					<div class="msg-head">
+						<span class="msg-title">消息标题</span>
+						<span class="msg-time">2018-08-20 17:30:10</span>
+					</div>
+					<div class="msg-cont">
+						<p class="msg-text"><!--显示完整信息添加class： watch-msg-->
+							333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+						</p>
+					</div>
+					<div class="msg-foot">
+						<span class="watch-btn">查看</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="bottom">
+				<span>没有更多了</span>
+			</div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".watch-btn").click(function(){
+					$(this).parents(".msg-item").find(".msg-text").addClass("watch-msg");    //点击按钮，相应的消息栏，添加显示全部内容class；
+					var ih = $(this).parents(".msg-item").find(".msg-text").innerHeight();  //获取，文字撑开实际高度(height+padding)；
+					$(this).parents(".msg-item").find(".msg-cont").stop().animate({         //根据撑开的高度，进行下伸动画；
+						height:ih,
+					},120)
+				})
+			})
+		</script>
+	</body>
+
+</html>

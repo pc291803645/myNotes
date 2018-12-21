@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{width: 800px;height: 600px;background: url(img/shu.jpg);background-size: 100% 100%;border: 2px solid peachpuff;margin: 0 auto;position: relative;cursor: pointer;}
+			.niao{position: absolute;top: 40%;left: 30%;width: 100px;height: 100px;background: url(img/xiangsuniao.png) no-repeat;background-size: 100% 100%;cursor: pointer;z-index: 2;}
+			.niaoyu{font-size: 11px;font-weight: bold;display: none;text-align: center;color: red;}
+			.active{width: 40px;height: 30px;background: url(img/cz.png) no-repeat;background-size: 100% 100%;}
+			.niao:hover{-transform: scale(2);}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(function(){
+				var niao = document.getElementsByClassName("niao")[0];
+				var niaoyu = document.getElementsByClassName("niaoyu")[0];
+				var box = document.getElementsByClassName("box")[0];
+				var timer = null;  //定义一个下落定时器；
+				var iH = 0;        //小鸟的高度
+				var i = 0;        //吃了几条小虫；
+				box.onmousedown = function(ev){
+					var ev = event||ev;
+					ev.preventDefault();   // 消除浏览器默认行为；
+					clearInterval(timer);	//关闭自动下落间隔器；
+					niaoyu.style.display = "none";
+					iH = niao.offsetTop;   //记录高度；
+					iH -=40;
+					if(iH<=0){
+						iH =0;
+						niaoyu.style.display = "block";
+						niaoyu.innerHTML = "再顶就爆啦！";
+					}
+					niao.style.top = iH + "px";
+					
+					setTimeout(function(){
+						clearInterval(timer);
+						go();
+					},100);
+				}
+				
+				box.onmouseup = function(){
+					clearInterval(timer);
+					go();
+				}
+				
+				go();
+				function go(){
+					timer = setInterval(function(){
+						niaoyu.style.display = "none";
+						var iH = niao.offsetTop;     //记录高度；
+						iH +=2;
+						niao.style.top = iH + "px";
+						if(iH >=500){
+							setTimeout(function(){
+								niaoyu.style.display = "block";
+								niaoyu.innerHTML = "快把人家顶起来！";
+							},1000)
+							clearInterval(timer);
+						}
+					},10)
+				}
+				
+				
+				setInterval(function(){
+					var t  = parseInt(Math.random()*500+50);  //随机数50~550； 
+					var l = 900;
+					var i = parseInt(Math.random()*5+10);  //随机数5~15毫秒； 决定小虫的移动速度
+					var newDom = document.createElement("div");  //创建元素；
+					var timer = null;
+					
+					newDom.style.position = "absolute";
+					newDom.style.top = t + "px";
+					newDom.style.left = l + "px";
+					newDom.className = "active";
+					box.appendChild(newDom);
+					
+					timer = setInterval(function(){
+						var x = newDom.offsetLeft;
+						x-=1;
+						newDom.style.left = x + "px";
+						if(x<=-50){
+							clearInterval(timer);
+							box.removeChild(newDom);
+						}
+						if(coll(niao,newDom)){
+							console.log("吃掉啦");
+							clearInterval(timer);
+							box.removeChild(newDom);
+						}
+					},i)
+					
+				},4000)
+				
+				
+				backgroundGo(); //背景动起来；
+				function backgroundGo(){
+					var i = 0;
+					setInterval(function(){
+						box.style.backgroundPositionX = -i+"px";
+						i+=1;
+					},15)
+				}
+				
+				function coll(obj1, obj2) { //碰撞函数；
+					var div1All = obj1.getBoundingClientRect();
+					var top1 = div1All.top;
+					var bottom1 = div1All.bottom;
+					var left1 = div1All.left;
+					var right1 = div1All.right;
+	
+					var div2All = obj2.getBoundingClientRect();
+					var top2 = div2All.top;
+					var bottom2 = div2All.bottom;
+					var left2 = div2All.left;
+					var right2 = div2All.right;
+	
+					if(right1 >= left2 && bottom1 > top2 && left1 < right2 && top1 < bottom2) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+				
+				
+				
+			})
+			
+		</script>
+		
+		
+		<div class="box">
+			<div class="niao">
+				<span class="niaoyu">快把人家顶起来！</span>
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -132,6 +132,7 @@
 					imgView(viewArray); //渲染出页面；
 				}
 				uploadArray.push(upload_file);  //数组保存起来；
+				$(this).val("");  //避免选择同样的文件 不触发 change 事件；
 			})
 			
 			function imgView(Array){   //img打印出来；

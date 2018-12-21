@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			.wrap{margin: 0 auto; width: 500px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<canvas class="canvas" id="" width="500" height="500" style="background: #ededed;"></canvas>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		window.onload = function(){
+			var canvas = document.querySelector('.canvas');
+			var cxt = canvas.getContext('2d');
+			
+			//全局的画笔
+			cxt.textAlign = 'center';  		//文字水平居中
+			cxt.textBaseline = 'middle';	//文字垂直居中
+			
+			cxt.clearRect(250, 150, 350, 280); //在给定的矩形内清除指定的像素
+			
+			
+			//大圆
+			cxt.beginPath(); //方法开始一条路径，或重置当前的路径。
+			cxt.arc(250, 150, 30, 0, Math.PI * 2); //圆中心的X轴坐标，圆中心的Y轴坐标，圆的半径，起始角，结束角
+			cxt.fillStyle = '#000'; //设置背景“黑色”
+		    cxt.fill();  //填充当前的图像（路径）。默认颜色是黑色。
+		    cxt.closePath(); //创建从当前点回到起始点的路径。
+		    //字体
+		    cxt.fillStyle = '#fff'; //设置字体“白色”
+    		cxt.font = '20px 微软雅黑';
+		    cxt.fillText("test", 250, 150);
+		    
+		    cxt.save(); //保存当前环境的状态。
+		    
+		    cxt.translate(250, 150); //重新映射画布上的 (0,0) 位置。
+		    
+		    cxt.save(); //保存当前环境的状态。
+		    
+			cxt.rotate(Math.PI / 180 * 90); //旋转当前的绘图。
+            
+            //绘制线条和小球
+	        cxt.beginPath(); //起始一条路径，或重置当前路径。
+	        cxt.moveTo(0, -30);
+	        cxt.lineTo(0, -100);
+	        cxt.closePath();//创建从当前点到开始点的路径。
+	        cxt.stroke();
+		    
+		    cxt.beginPath(); //起始一条路径，或重置当前路径。
+		    cxt.arc(0, -100, 10, 0, Math.PI * 2); //圆中心的X轴坐标，圆中心的Y轴坐标，圆的半径，起始角，结束角
+		    cxt.fillStyle = '#000'; //设置背景“黑色”
+		    cxt.fill();  //填充当前的图像（路径）。默认颜色是黑色。
+		    cxt.closePath(); //创建从当前点回到起始点的路径。
+		    
+		    cxt.restore();
+		}
+	</script>
+</html>

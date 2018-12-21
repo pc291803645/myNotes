@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>左边div固定右边自适应</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.wrap{
+				position: relative;
+			}
+			.left{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 500px;
+				height: 400px;
+				background: red;
+			}
+			.center{
+				margin: 0 510px 0 510px;
+				height: 400px;
+				background: yellow;
+			}
+			.right{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 500px;
+				height: 400px;
+				background: green;
+			}
+			/*方法2:position*/
+			/*.left{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 500px;
+				height: 800px;
+				background: red;
+			}
+			.right{
+				margin-left: 510px;
+				height: 800px;
+				background: green;
+			}*/
+			
+			/*方法3: calc*/
+			/*.wrap{
+				font-size: 0;
+			}
+			.left{
+				display: inline-block;
+				width: 500px;
+				height: 800px;
+				background: red;
+			}
+			.right{
+				display: inline-block;
+				width: calc(100% - 500px);
+				height: 800px;
+				background: green;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="left">左边</div>
+			<div class="center">中间</div>
+			<div class="right">右边</div>
+		</div>
+	</body>
+</html>

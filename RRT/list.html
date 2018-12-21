@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>人人艇-列表</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/list.css?v=9002" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body>
+		<div class="renrenting">
+			<div class="bak-rgba hide"></div><!--半透明背景,弹框要显示--->
+			
+
+			<nav class="nav-bar">
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="home home-active"></span>
+						<!-- 选中状态添加class： home-active-->
+						<span class="active">首页</span>
+						<!-- 选中状态添加class：active-->
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="order"></span>
+						<!-- 选中状态添加class： order-active-->
+						<span class="">订单</span>
+					</a>
+				</div>
+				<div class="nav-bar-item">
+					<a href="">
+						<span class="personal"></span>
+						<!-- 选中状态添加class： personal-active-->
+						<span class="">我的</span>
+					</a>
+				</div>
+			</nav>
+
+			<div class="list-top">
+				<a href=""><span class="back"></span></a>
+				<div class="search-warp">
+					<span class="search-time">2018-10-10</span>
+					<input class="search-key ipt-w4" type="text" name="" id="" value="" placeholder="搜索关键字..." />
+					<span class="clear-key"></span>
+				</div>
+				<span class="search-pst">广州</span>
+			</div>
+			<div class="tap-cont-t">
+				<span class="tap-cont-item"><span class="">推荐排序</span></span><!--选中状态添加class： active-->
+				<span class="tap-cont-item"><span class="">平台优选</span></span>
+				<span class="tap-cont-item"><span class="active select-active">筛选</span></span><!--选中状态添加class： select-active-->
+			</div>
+			
+			<!--搜索弹框-->
+			<div class="search-pro-warp hide"><!--显示去掉 hide -->
+				<div class="search-pro-t">
+					<div class="search-inenr">
+						<span class="search-icon"></span>
+						<input class="search-key-imp" type="text" name="" id="" value="" placeholder="关键字" />
+						<span class="clear-key-imp"></span>
+					</div>
+					<span class="search-go">搜索</span>
+				</div>
+				<div class="search-other">
+					<div class="other-item">
+						<p class="other-t">搜索历史</p>
+						<div class="other-cont">
+							<span>单体帆船</span>
+							<span>豪华</span>
+						</div>
+					</div>
+					<div class="other-item">
+						<p class="other-t">猜你喜欢</p>
+						<div class="other-cont">
+							<span>单体帆船</span>
+							<span>豪华</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+
+			<div class="sort-wrap hide"><!--显示去掉 hide -->
+				<p class="sort-item sort-item-selected">推荐排序</p><!--选中状态添加class： sort-item-selected-->
+				<p class="sort-item">价格从高到低</p>
+				<p class="sort-item">价格从低到高</p>
+				<p class="sort-item">好评优先</p>
+			</div>
+			<div class="screen-wrap hide"><!--显示去掉 hide -->
+				<div class="screen-item">
+					<p class="screen-t">游艇类型</p>
+					<div class="screen-type-radio">
+						<span class="active">客运型</span><!--选中状态添加class： active-->
+						<span>舒适型</span>
+						<span>豪华型</span>
+						<span>奢华型</span>
+						<span>单体帆船</span>
+						<span>双体帆船</span>
+						<span>运动快艇</span>
+						<span>大型艇</span>
+					</div>
+				</div>
+				<div class="screen-item">
+					<p class="screen-t">卧室间数</p>
+					<div class="screen-type-radio">
+						<span class="active">0间</span><!--选中状态添加class： active-->
+						<span>1间</span>
+						<span>2间</span>
+						<span>3间以上</span>
+					</div>
+				</div>
+				<div class="screen-item">
+					<p class="screen-t">价格区间</p>
+					<div class="screen-type-price">
+						<div class="price-wrap">
+							<p class="price-text">
+								￥(&nbsp;<span class="min-pri">2000</span>&nbsp;~&nbsp;<span class="max-pri">4000</span>&nbsp;)
+							</p>
+							<div class="pro-bar">
+								<div class="min-btn"><i></i></div>
+								<div class="max-btn"><i></i></div>
+								<div class="por-l"></div>
+							</div>
+							<div class="rmb_bar">
+								<span>￥0</span>
+								<span>￥2000</span>
+								<span>￥4000</span>
+								<span>￥6000</span>
+								<span>￥8000</span>
+								<span>不限</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="screen-item">
+					<p class="screen-t">娱乐设施</p>
+					<div class="screen-type-multi">
+						<div class="multi-item multi-item-selected"> <!--选中模式添加class：multi-item-selected-->
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAmCAYAAABDClKtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABHNJREFUeNrMmAlIFVEUhp+5tWerbbSRoWmmpdmilhoZFNFCYSFSEC22EFQULZRkO5RBGxKVUUSgFdlebgRlRQuWhdFOkaZlm5Fp2X/gn5jGmXmLT14XPu68mXHmn3PP/e+5utXV1Vn+t+bR0AckpVQ5+qepYLXm3Psj61r4ergwIBPBK3CYv5PBVzlo4iJBnUEgyAJ9wEzQHuS7UtRo9rngFnhNLS4VFQt+Ucwo0I7nXSpKhNwB1aA76AeeIcnfmM4+zKqW6PxAD+ALOgJP0Iz9F95aQcrAc/CGUTBrT0Ac8OJQflKiVE8UhAxDNx9I39fggT9BDWhhcP0HeAhOgp38rW07QDzfI5FyB3n1REGQiNnNaXkVHAIl4CUolWggvNWaj5Dh78CZ040zqT+IAJvAJA7Vd42oQexvgEQe5ygX3cTR8XB56FvwAIzByyudYJ6LwS6whL26XQSDQScK88E7/ZWLSqKHAW8Jqz2CrLQ9QBRH66wikaAAtOK789U3KKIC2Bc5cYZJsj8G/przYczHfAp2NxIVyIc8cfLUf8zp7qmxA8WT1Mf1FmT5mqcYuhobciiMuXDFhvsf8R1+PLbQCsRCiimqBM8pNYrUIxsErUF3G5wDl/DbywZRFtUQyv0jmE+tQag2SmpRbTntzQTJ+G8Al1lyxID1VkQpk6Y5+yE0XxESxffnGom6Bybjxb0MBPmgy6BrJyLc4kHZYAVnkl6Tly8DUkVe1+TTNdVxnlGRt4ARKIGAu1yT1K0nEMETIKic5+byY86C+zofG0BjXcXlRxFVwVkui3Kx6nn/RgoXxMAGgr3gm+YeN9Y/X1iUKe07DbcNo6K1g/Nc1zar8mk480nSJUQvn/46ug0JPpguLA8eT+vIpivL8pRugz1EctgWcdE+BaYiIJlGOWXa8Id3GO4qfukLfmmSjYKM/KlA70ab6ykIk3UxGGzkYh2Oc8fsrKHKVP4kfXmDdzMQIUm61gFnV/LpDPMpmPlrcShSyKcI4GnlthCT+krrT9GcPDkOiYKYIHSFYJvJbVG0hmSTe+JU+RRL7yowutnq7IOwbM44McrtGMI61bUQzsrftJRyg8fkc2Huyqq0ltGVlHAop6aD02ArSICQLHqZDMk0mmG8iaCmYCjIZJ0fqFP02ZdT+BIRMJbOHMrtdhqYwTo8mBWr2azzZg7pliqO+lQti30ZuoNSMvPSTZMIqSMtDn8BjONQFzRYFIVVs2gL58ouG4qFqgpAr8lGIoHu/1nWTkap0imi2MQsB7BsWQ56gxOstbVNzh1luSveNoseZXUFsPe/LvvBUrCPtfZKsIURTKd91DDPFrDinM8hTuXMy7L2ErsihSH8iG4ON6piBQfoO1I9pEg1yqFN46ZVrOQ4nbw1y51ap4qiMPnSebSEInrPSJY3UTRKGdYgljeFzMNkVbFn2twc/fci/CqGe7sADk8Ok7+aQiN57R2YzfpK7yOdJ0q1bZet+RRuCLpwO/UB3GXNlKGzbW88UY3V/ggwACpeVvQOopHeAAAAAElFTkSuQmCC"/></span>
+							<span class="multi-text">浮潜</span>
+						</div>
+						<div class="multi-item">
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAxCAYAAACVtYpYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABRJJREFUeNrsmn1oVWUcx8+26zY1S5vZcr0xdZlL6dWoEWaotSLpjyArQlZihah/CGEi/dGLkVSkVEJSQykm2j/VKoLC0lY2BAuyLLVScyZjLl9K5+52+/7oc+3xeF/Obfeee5H7wJffPec+59zn+zy/d25JLBbzzqZR6p1lo0ioSKhIqEjotBEZ6Auq1o02caOwXLiZd2YrFpQgjwufCo8KB9wJXbM6sktIY5bQIvQJm4QTQlmWCMXAEGGGYKu/Qvg5Jyek06mCzBbhphA06nehTbggVzY0G3lXSCZivzNSWCgMygWhy5F/hkRol9AvvCKcFBZlm9AfITuxsax5uvC68KLU/r1sEnob+XxIhDYI3Xi8eajgTJFqPuUWB5pt62XzJVZirO8LvXg5c7mHcbkXs3mdXF/o82QHhRHCuUJU2M/1MN53vtDEc1cKO5znnxSWCePkwndlg5CJGkjV4zn7cePjmfYdC7ue65+cGGPkxwh/C9shMR67tHmVkDRX/QSe7rQ4pDUYidX6PDeSwcKnEgsqfIHTFv6b8KWwx0fI4selQjNGXM1pfew8Pwj12cwJ22k8I3zPvXKIrU6xvB3Y1X8qpwWvkFgg/Co8KLZfc99+cKPQwMO9SQJnlF2OsfuGLuGIMNq5tucv8ancXk4mrnKdbMYQnrM5FwmLhRcSnJCpe70+D4+w6DclHhbWCpOFr3SvUhN69PlbYYIwTdefJVG5MIbZ0FtsyMu+7wZjm6cyBSPzjhY8m0XajnRL7kGf6/Tdzjznnc3EvZeEV1Hh+LAN/8Tvtg9Bxtj+hV6azv+SBzJVJLoNyLiKrkA2OBpyL3a93E+oEml6O1QkrpW8HyMOe1wntIIPhCXcL0ceRV5FbNqs9bb5k9Mo0o6yR8xX4fMPhETCjP8GYTgO4lnumcfc5hDqQ8UahaeFH4Rbk2bbYnoUG3rMtxthFJuWeYzj+phD1DL6zzEF2/g1fLdS612YqHywOuZxEbGdmIr6jSViH9f9dj04OceEbOfr0szpwl7Myz0Xt/tEhBoJdm9w/YgI7MbozADbOLU1pDP1WaxK3WF5Wo+TRZQ4pjAMMjZWJSJzRi6nRZtX6xKZXl+sqSZfauLWdiJ8WD2JfjbQfrNWmIJWnVGCZ5TLiZh5nEa9JJKHwOrhcffRw2hPRCjTHbaMokwkmvIUXD/ktLYmdZWZZtsi00JjpB13Gg3QFOmgHKiiiWIe7DxsZC+fq1GrqLPZ+7CVCfQs6nBam5J1ff5X+SBSlsYvxVAzNfoynjsJoXJI/IiNjHI2qBfv10kQ3Uqs8rJKyCFWEsDblbKoJVS2lqo8JUzi+y8o5e9L854HLN9kM44lIzQgL6WXxQJ6KM9xuVYGTBSsF/Au6lQb4D3xGmpaut3L9YirzxGn/okv7A7WMMLJ01Kpq2UKM/NNqA95m1NdmkMZKpyDo7AS/OoA77IE9PZUEyJeOMNK7NfosHZDcj0bWuqoYhC3PYN1R/N1Qh49tIeoa6y+uUy4R7jbsYmJGdjRLflUObeHV0PMqcFmKugjtAXwcjZ2crp3FgKhdLYxJuDcbV6KXnqhENpCo2NUgLnrKTwrCpnQN8hrAsxtRdYWMqEO4lM6QrU4GM/fQS00Qh69C79tWNd1jvdvR9UKy90kqVOStQYiBURoKY3EtWy0BdCRzmm00AH6KFX+WEiEmsm2lxE0W8n3NnI6wVpHxT8vFQkVCQ1o/CPAALyJfs4Yvru4AAAAAElFTkSuQmCC"/></span>
+							<span class="multi-text">水枪</span>
+						</div>
+						<div class="multi-item">
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4xJREFUeNrEl1tIVFEUhp3RSnOCJOxilGRBD4GN0hVihl6kkO5T2J0uD9GFAiuCoIeg3gItCoKwgm46ZFkv5UQ0mGgPgk5FZBEFNQYFpWmNqTP9q/4jh+2cyzgxbvjc4z777LX22mutvY4jFouljXTLkD/f7rnL0Z0EY1Mo+yc4nrOytcLJgdMpViCN8k4NWgJtNPtWEEyBAl7g1jaeoTwMwjyHElkNRzkcJSqoxN/mtBCQBbKT3LW8n2XpmIrgAnT7wTownWPP0J0Ffliqz4bg8WAL2AmKOPYW3AY31ckOCVEI0eK0A0wE6SAMmvl7GRjDsQvgMpQJK8chz5eCbWAt/+8Ej2jxQjCTc7uBS35gHYeqhLQ2cAzUY0KUgiah2wf2gFwg819yd/1gKphLR5Nnj0EVqAUR3drzwGGwQQxgpIQflGnC4xyV7M4H1oBFFC7tO2gBD0EN+GBxXOfBXk0J1SfCRgrwhV5014ko5aSp+xN01j5Tx9QtLqabzaEGKPA+jlJRzI2aCJsFFvP3C+ahmFV0uLDoEZ5/vm48hvE6iW8IDtrIhBJZu4FHefYO3AJTzKJDa184uYmKbmKESAuBSyCgc8xpYD5YQQXGgd/gPrjDOcX0pwLFmkMc8wc4AS7i4S/liORoDoDtWngZtDZGxg3wVU0JYBU4oykTT4lKq7QtWRTdcrCEFhhFy4UYHe020/ZBo+iwbLRQLRnu3ZFmJzoWMuvNoQkl61VBgc4E1p7Mo/PQJ57TP1qs0vYTkMlEJE3Cb4Am75F0Dc5BmXaDW1TmlYId7NOpgFN3Wb5iFi0yS9uSSK5RYBMX3sgzLGScN4IHjI4BZs4F9JUczqnnGnWcI2l9PdgFJphFh5jKFy8xcddepttSXtFqCzFtXwUfDY7Jxdu0xMgxnxopwBckUQWhTCaLknwlOjps+Eo3j6TE1DF1Oxdh6RDeoygT4TXfbCM6snkckUSKmhlM2z4tdWNMBFaKGRMoajazqCnm2Gtwl/6WVFHziUXNFZOiZivDO5NlfYCWcOtStmVR08BSPKAranJZ0Ah59H65Fd9QQB6FaM7ayMio4VWgNblfyq2KmmoMlpn4iDjhau7UQ+HaztqYtqttpG7TouazRcruY/Xl19UdolhvMkWNM5mcz+Pq/d93hxe7q0jRF9gQJSL0Zrf+yyhFH8WDx3EUdKX4g7iLkfIvT4x0+yPAACnrdYRuwdhEAAAAAElFTkSuQmCC"/></span>
+							<span class="multi-text">漂浮毯</span>
+						</div>
+						<div class="multi-item">
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAqCAYAAACk2+sZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABFVJREFUeNrsmG1ollUYx/eoKE5zK51KuumWrvk2Jj3DNJUaOvVD+JZSwZYGKiIMRQz96gZN/WA4mozIzEKD0s2G6CJdaK6VQpE2pjZUFMS3VPKNWM7fNf73ODubbs/jkyvohh/nfv7nnOu6zn2fc51zP6Gmpqa4rri6RdvxhdNXzhlP3XGXjfg/6zgU6eTivcZTJEO1pNfgQkP6wLsxdYyjHhQzYC5MhRHWz2tmRn6Hw1AOVQTSGJVjHPakWAbvwVDJZ+EYNMA1BdDfmkMY0tTuImyEMgL4q9OOcTqe4jMYA9c1ouMYmeW02Wwl2ipH20+RrZ8W0G+QR5ufO5xcdF5AUQMZsAGGwxaNoqPL2mxVH+s7ymzJ5qNHTIM5FLvhD7DGKVBJxDecx/82fIV225lsC+ELtPvSEihmwyXTIRHmU1/RZsQ0HknxOfwJOXALPtWkCq5J8AnkOtp0aZMcbY763tCsv2O25aPNoy6FPpBPZCf0XsbKQJze53cUmZq5wfW1tGpHswFk0t7mxa/cL5bt0laPmkhe5v4HGbHH8yodMpynsdMKtAmOVknRCy3X0Y5Yf7SFjnaColZr35blROpre6g+X+VGzcYGby5YQAM8rbydyWnv86an7ZC9W3Kc3xyIjTjt1OU6eABj7Le0BNgCIxwtCUog2dGGSBvoaKnqm+BoWdBkvux3EPFIJYOwE+lgWALjHG0YLIV0R3tR2nBHy1Tf5z0t8BUXRGORVOg+EVJ0H1LZ30bmaYNgsKfZ6JM8LQWe1X2F+XJHbGsyzEToS/kR/KRZHCzyXXDI0+y9V3raQdjpaT+aTdkOy1dcMLkswWeBLZf34WNvgqyDfp62qp3NYrnygHvZUuqr5TYEfnEdH5Pjl+BL2EOEz1GugDVEX+MkGVvXyx0tS+vzHbRqaZZMNsGHME+EHF8t63i+pUE4APHa/oLrPByFM6pbI46rPiwnxl1Nnlc0EYPrsOpmwhsEuDtw3BvhqiV5Sxz8TlWuzdGTSI7wgHFBj9TmxV5snsVmvbbXJH7fa9kkqLAJ9KaNlooj3o6VqE5DlUjsFT2janunjdqfLyr4m17/KRq1bSRvue/YrhI5LoBWjmXIOBnlEavA8dHutvi9dpmxOKuLxaEOm6MVcA02Jz/qIFCk2VcYwwNloWwWtT6lKZc6OXWfMtl0vy5SzIZs7fPr2jtXrwQ7oJUp20T7iK1vmWyt7PDMxXuw9boeUt2NO4qrVDbWy2anviSKNf3ziHx1FKO1PnmyURzpuXqQ0pslj8VEvb2TThfpDGZJJJt+lyP+ksBIhta0JY21dkJxdh2/bUiH/2Ilkym0rX+STxhz/o1GXmXJAIOnvTbpOnvP0EhzH+e00x9tGLYRb4PX4W/4Vof+4Mg7Dbprf34Xp9di+rVIALO0NHKcdNuozeADHO7/xz5TFUBvbZPNZyjbbZ7Kh7kc2Ugbo3H6/38g/+7/QGJ1PRRgABjAhwwrp9UVAAAAAElFTkSuQmCC"/></span>
+							<span class="multi-text">海钓</span>
+						</div>
+						<div class="multi-item">
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAnCAYAAABnlOo2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA05JREFUeNrsmGlIFVEYhq/apqYRRQhCSRS0QRskQUm2USllkUtEe4RFC5Hlr+pPUlQQRBuF0PKjBQltgYiCMGkjCiqSpGhBKMwES9ss7PngvTAN1/XOqEEHHs6ZO+fceefMOd/7zUQ0NjYGulKJDHSx0uUEdQv3D+oXfQn1cxKshzkwGLrDe7gJJ6As2DH2bJyvMxQB2+EFbIHh0FPXSYSlcBsuQB9fZshVDsNatRvgMtyH7zAKFkA/yIQhMAU++yVolUPMQ8iBV64+eXAAVsJYOAqL/5ricLe91lAMvIX+8BQm2qlmhhVKlJVxrKPHXq+hDIkJaDHXt9B/E3xSO9ePRT1NdQWUtqJ/HZxzjfVUUJLqR20YE+w70A9BPVT/asOYH6qjvBY0HyapnQ0zWzlupOoPnglih42mOuP4ySJyMUxthUNkq13qiSDEDKAqsegP32CNglw0XIGUZobnyVKsnApbEGJszRTBIP20Qh41T+KiFaWTQwy3bV6gdhkx6JoXkdosYrLau+C82rcgXTMUD9dhNdTI14IR2kqVvC0QVqRmdjZQHdRhsfzJ/Sez4JLWVKhSrmBaEZbbI2a6vMjKE1gSQkxARhpq9s1WNsIYBdH2uz1ihiptsLjx0dYLd1fnyoeiNHvrdGw50HI9nkqo9iRB46LxegR9lVYsRMwbV7dY2UG6jp9BGrzzNGNEjN31WRgWNE/EuP0qAa6ac+v4homGWj9y6t1KRa0cQsxx1/kRcM8h5qRmprY92zeyhdmxRbtVh5YPb3adT6W644hHOxWTfnqe5HOxZAU7Ky8hi9n55RJbqK3doIzxjC+vQVwsUTHGEnTbRnMRU+M4b4n8aYmpVdwJW0zIGeJi0fKoBMWYXmBbvlyWcUyPJaAdNBue+/leZrYwXu186G2+hZhsJfEzHAlWmjt98ENQ0F8e8Jj2adYsX77o6GNelcP5+iZeFD0VdFcJ1wQuli+DzHCcP2LhHzG/O+pVOlO7yiLvHtih1xxbT9sQsr+jPzYsA7v71zqO0Ztnlt9imhKUqwCXIjuwwJeKmKLO+vph274aAZUOo+zUzzG2mwpY0F/1YaAKcSWdKcgS8DilErZ29ipQdkiJ+P+N8V8T9EeAAQBALOqFLcOycAAAAABJRU5ErkJggg=="/></span>
+							<span class="multi-text">KTV</span>
+						</div>
+						<div class="multi-item multi-item-selected">
+							<span class="multi-pic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABEBJREFUeNrMmXtollUcx50Tu1gGsqBSN52Xks0looVCyBJT0ixREx3TnHOmmJRQf+SFkAkK/aES6RJFnN021HmB2srb1mAj7yUKm3kP0YRyWuJlr58ffF94Wu19z3N5xQc+nOe873PO+b6/5/zO+f3OmxaLxTo8zFensB1cfSUnfjsSZsIb8Bi0QBVshPr22j9ddyJh/x0j+qGL4EeYCOXwMeyCIvgJTsLoIB1HIXAZlMI8WW4+fArvQBrMgL/he7gAS6Gza+dpYeYgr9emyB1YDe8nefwlWAMvq273C3nF91Ip0F7rUHjKR7NcmCNL2/UdLEdofaQCEZdNcRrehbKA02sFfKj6rzZNEFoX1RwsV1kWsH0rfIQgm6dj4S7U8sMboXMoC9JBhhVyjLVhPMy7zNDvaDlTM/Tnu1hQC+6Fa3SwtkOEF/1VUzwLfWFVoFesuTfQPDAVOwciL1N8DguCzsF16mhzCnc4c55bvgVivSyKUTA9xVvwDbgUxII1cBvrladYYA/o4ytYwHrPmWdpkU31ZavDPb8WXK+598UDEGiL/1ZnC2K9ARSvwwQfg6RrG3s+bg3P5mCL8i/wAZxtM1aubrf5seAOWa/Kh0DbAS5rwv/l4Q956Fvwm5Yt7zVX5W4nC9JBJkU/KAiwlSXy9i4SfwB6ej434U0Y46arBc16MRp8FfE8MwGb5LFxYzxJYc642ClYoIEtK4Nsz+a+MgXO8E+b+mH4E2NUJBWIoAotyi9AIUzis9KIBT5qAS/9PgGrtQdPTBpu8XADxWRVS/hFWyhfs9yD776NUOB5pQUt2ntfZay97Qpk8HSoUlg+QkvLQj5bScMf1Mnb1FdFJDBdjmqZXyZj7EuWdh6CF00cD9dKdD7FPsocPhtHedHWKMrHqZeEFJih5WtWwqyOwcwJ9kjcmLg4Nd5vVrOol2fWU9+uOTmb+qaQAm+5pp1f2vuX5ar/J0YzDzZLFiNqi+ZksVLKshACO7o+MFX5QW2CQDJuyQJEbqC+gftp5kQQNDa0wOOci8AWDZYs2q3UflyEyDXUv9Yg9spXOlpsqPIYy6cfkSMmzosZzDb0U3CGQbMdtr9Rig13aGsao8BgJ7zZ5vHBMEXW7+WZe/bjljDeJafEnUFtxzhiIpVR3U0i0vZmm4ufwXs2RWRFO5dpkFVt0e2qJr/DN1Cp750Oj/6VdjKoJUPH7QyFhpkOlhyuk6saHQ6Nj0c+XNehQmtco4IH36db/8mLvZZ0fN2FcpJPYJxiPVvQf/abFzu5OQ2Oaj3szeCnHU8YpkjgMzDMVVzgdQiRxxXFZCOyOUkfQ8DSgFpFz5FeCY8+EJdHcUxheR+Et7ZzgHQtvm2FOfrwvZLLknlaHs7ZlugRly9xB71B5wO1oEeMzUmbm1cgS4KawlguEgt6Ojmm85huUK2ExoKL7qnOP9Me9r8h7gswAIi4jLn5iYgiAAAAAElFTkSuQmCC"/></span>
+							<span class="multi-text">水上拳击</span>
+						</div>
+					</div>
+					<span class="cfm-ftr-btn">确定查看</span>
+				</div>
+			</div>
+
+			<div class="list-container">
+				<ul class="list-content">
+					<li class="list-item">
+						<div class="img-wrap">
+							<a href="">
+								<img class="yacht-img" src="http://www.rryouting.com/YachtPic/2018/b881631d2cac4872ae0e1e0201ab339e.png" />
+								<p class="yacht-specs">￥<em>80,000</em><i>/</i><span>10人5.0小时</span></p>
+							</a>
+						</div>
+						<div class="yacht-info">
+							<p class="yacht-t">
+								<span class="yacht-class">豪华型</span>
+								<span class="yacht-name">超级游艇name</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">游艇长度：14.9尺</span>
+								<span class="yacht-exp-item">卧室：2间</span>
+								<span class="yacht-exp-item">限载人数：10人</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">停泊码头：三亚半山半岛帆船港</span>
+							</p>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="img-wrap">
+							<a href="">
+								<img class="yacht-img" src="http://www.rryouting.com/YachtPic/2018/100005.jpg" />
+								<p class="yacht-specs">￥<em>80,000</em><i>/</i><span>10人4.5小时</span></p>
+							</a>
+						</div>
+						<div class="yacht-info">
+							<p class="yacht-t">
+								<span class="yacht-class">豪华型</span>
+								<span class="yacht-name">超级游艇name</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">游艇长度：14.9尺</span>
+								<span class="yacht-exp-item">卧室：2间</span>
+								<span class="yacht-exp-item">限载人数：10人</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">停泊码头：三亚半山半岛帆船港</span>
+							</p>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="img-wrap">
+							<a href="">
+								<img class="yacht-img" src="http://www.rryouting.com/YachtPic/2018/100005.jpg" />
+								<p class="yacht-specs"><em>当日订完</em></p>
+							</a>
+						</div>
+						<div class="yacht-info">
+							<p class="yacht-t">
+								<span class="yacht-class">豪华型</span>
+								<span class="yacht-name">超级游艇name</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">游艇长度：14.9尺</span>
+								<span class="yacht-exp-item">卧室：2间</span>
+								<span class="yacht-exp-item">限载人数：10人</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">停泊码头：三亚半山半岛帆船港</span>
+							</p>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="img-wrap">
+							<a href="">
+								<img class="yacht-img" src="http://www.rryouting.com/YachtPic/2018/100005.jpg" />
+								<p class="yacht-specs"><em>售完</em></p>
+							</a>
+						</div>
+						<div class="yacht-info">
+							<p class="yacht-t">
+								<span class="yacht-class">豪华型</span>
+								<span class="yacht-name">超级游艇name</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">游艇长度：14.9尺</span>
+								<span class="yacht-exp-item">卧室：2间</span>
+								<span class="yacht-exp-item">限载人数：10人</span>
+							</p>
+							<p class="yacht-exp-p">
+								<span class="yacht-exp-item">停泊码头：三亚半山半岛帆船港</span>
+							</p>
+						</div>
+					</li>
+					
+				</ul>
+				<div class="content-not hide"><!--搜索无结果则显示-->
+					<div class="content-not-p"></div>
+					<p class="content-not-t">非常抱歉</p>
+					<p class="content-not-t">查询不到相关信息</p>
+					<p class="content-not-t">请重新输入或者返回</p>
+					<a class="back-last-page" href="javascripts:;">返回上一页</a>
+				</div>
+			</div>
+
+			<!--选择城市-->
+			<div class="city-warp hide animation" style="top: 1.8rem;">
+				<span class="off-msg"></span>
+				<h2 class="city-title">请选择城市</h2>
+				<div class="city-opt" style="margin-top: 0.1rem;">
+					<span class="city-l">国内:</span>
+					<div class="city-all">
+						<span class="city-item" cityid="">广州</span>
+						<span class="city-item" cityid="">三亚</span>
+						<span class="city-item" cityid="">海口</span>
+						<span class="city-item" cityid="">山东</span>
+						<span class="city-item" cityid="">大连</span>
+						<span class="city-item" cityid="">上海</span>
+						<span class="city-item" cityid="">青岛</span>
+						<span class="city-item" cityid="">惠州</span>
+						<span class="city-item" cityid="">厦门</span>
+						<span class="city-item" cityid="">深圳</span>
+					</div>
+				</div>
+				<div class="city-opt2" style="margin-top: 0.5rem;">
+					<span class="city-l">国外:</span>
+					<div class="city-all">
+						<span class="city-item" cityid="">吉普岛</span>
+						<span class="city-item" cityid="">迈阿密</span>
+						<span class="city-item" cityid="">下龙湾</span>
+						<span class="city-item" cityid="">新加坡</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				init(); //初始化位置；
+				var cell_rmb = 2000; //每个区间代表2000rmb；
+				var iW = ($(".pro-bar").width() / 5); //每个区间的长度；
+				var tW = ($(".min-btn").width() / 2);
+				var min_left = -($(".min-btn").width() / 2); //限制的最小left；
+				var max_left = ($(".pro-bar").width() - $(".max-btn").width() / 2); //限制最大的left；
+				var btn_min_left = ""; //限制拖动点最小的left
+				var btn_max_left = ""; //限制拖动点最大的left
+
+				$(".min-btn").on("touchstart", function(ev) { //手指摁下
+					var ev = ev || window.event;
+					var offsetX = $(this).position().left; //记录手指摁下X轴定位距离
+					var xW = ev.originalEvent.touches[0].pageX; //记录手指摁下X轴位置；
+					btn_max_left = $(".max-btn").position().left - iW; //限制拖动点最大的left
+					$(document).on("touchmove", function(ev) { //手指滑动
+						var ev = ev || window.event;
+						var left = ev.originalEvent.touches[0].pageX - xW + offsetX;
+						left = left > min_left ? left : min_left; //限制最小拖拽距离；
+						left = left < btn_max_left ? left : btn_max_left; //限制最大拖拽距离;
+						var pW = $(".max-btn").position().left - left;
+						var num = Math.round((left + tW) / iW);
+
+						$(".min-pri").html(num * cell_rmb);
+						$(".por-l").css({
+							transition: "none",
+							left: left,
+							width: pW
+						})
+						$(".min-btn").css({
+							transition: "none",
+							left: left
+						})
+					})
+					$(document).on("touchend", function() { //手指抬起
+						var num = Math.round(($(".min-btn").position().left + tW) / iW);
+						var left = num * iW - tW;
+						var pW = $(".max-btn").position().left - left;
+						$(".por-l").css({
+							transition: "0s",
+							left: left,
+							width: pW
+						})
+						$(".min-btn").css({
+							transition: "0s",
+							left: left
+						})
+						$(".min-pri").html(num * cell_rmb);
+						$(document).off("touchstart"); /*解绑事件*/
+						$(document).off("touchmove"); /*解绑事件*/
+					})
+					return false;
+				})
+
+				$(".max-btn").on("touchstart", function(ev) { //手指摁下
+					var ev = ev || window.event;
+					var offsetX = $(this).position().left; //记录手指摁下X轴定位距离
+					var xW = ev.originalEvent.touches[0].pageX; //记录手指摁下X轴位置；
+					btn_min_left = $(".min-btn").position().left + iW; //限制拖动点最小的left
+					$(document).on("touchmove", function(ev) { //手指滑动
+						var ev = ev || window.event;
+						var left = ev.originalEvent.touches[0].pageX - xW + offsetX;
+						left = left < max_left ? left : max_left; //限制最大拖拽距离；
+						left = left > btn_min_left ? left : btn_min_left; //限制最小拖拽距离;
+						var pW = left - $(".min-btn").position().left;
+						var num = Math.round((left + tW) / iW);
+						var pri_str = num < 5 ? num * cell_rmb : "不限";
+						$(".max-pri").html(pri_str);
+						$(".por-l").css({
+							transition: "none",
+							width: pW
+						})
+						$(".max-btn").css({
+							transition: "none",
+							left: left
+						})
+					})
+					$(document).on("touchend", function() { //手指抬起
+						var num = Math.round(($(".max-btn").position().left + tW) / iW);
+						var left = num * iW - tW;
+						var pW = left - $(".min-btn").position().left;
+						$(".por-l").css({
+							transition: "0s",
+							width: pW
+						})
+						$(".max-btn").css({
+							transition: "0s",
+							left: left
+						})
+						var pri_str = num < 5 ? num * cell_rmb : "不限";
+						$(".max-pri").html(pri_str);
+						$(document).off("touchstart"); /*解绑事件*/
+						$(document).off("touchmove"); /*解绑事件*/
+					})
+					return false;
+				})
+
+				function init() { //初始化位置；
+					$(".min-btn").css("left", (-$(".min-btn").width() / 2) + "px");
+					$(".max-btn").css("left", $(".pro-bar").width() - $(".max-btn").width() / 2 + "px");
+					$(".min-pri").html("0");
+					$(".max-pri").html("不限");
+				}
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,143 @@
+body {
+  background: linear-gradient(#07143a, #63afef);
+  background: -webkit-linear-gradient(#07143a, #63afef);
+  background: -moz-linear-gradient(#07143a, #63afef);
+  background: -ms-linear-gradient(#07143a, #63afef);
+  background: -o-linear-gradient(#07143a, #63afef);
+  background-attachment: fixed;
+  height: 100vh; }
+
+.hide {
+  display: none; }
+
+.renrenyouting {
+  padding-top: 0.92rem;
+  padding-bottom: 0.92rem; }
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.92rem;
+  z-index: 10;
+  background: #0b1941;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.top .back {
+  position: absolute;
+  left: 0.15rem;
+  top: 0;
+  width: 0.5rem;
+  height: 0.92rem; }
+
+.top .back-arr {
+  display: block;
+  width: 0.21rem;
+  height: 0.21rem;
+  margin: 0.35rem 0 0 0.18rem;
+  border: 0.04rem solid #fff;
+  border-width: 0.04rem 0 0 0.04rem;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+.top h2 {
+  line-height: 0.92rem;
+  font-size: 0.3rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-indent: 2px; }
+
+.fans-list {
+  padding: 0 0.26rem; }
+  .fans-list .fans-item {
+    margin-top: 0.53rem;
+    height: 0.86rem;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center; }
+
+.fans-pic {
+  width: 0.86rem;
+  height: 0.86rem;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%; }
+  .fans-pic img {
+    width: 100%;
+    height: 100%; }
+
+.fans-info {
+  flex: 1;
+  margin-left: 0.13rem;
+  color: #FFFFFF;
+  letter-spacing: 1px; }
+  .fans-info .name {
+    font-size: 0.32rem;
+    height: 0.32rem;
+    line-height: 0.34rem; }
+  .fans-info .sign {
+    height: 0.26rem;
+    line-height: 0.28rem;
+    margin-top: 0.2rem;
+    font-size: 0.26rem;
+    max-width: 4.45rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+.follow-state {
+  margin: auto 0 0.05rem auto;
+  width: 1.17rem;
+  height: 0.49rem;
+  text-align: center;
+  line-height: 0.52rem;
+  font-size: 0.26rem;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px; }
+
+.is-follow {
+  background: #717171; }
+
+.not-follow {
+  background: #e81642; }
+
+.not-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+  .not-content img {
+    margin: 0 auto;
+    display: block;
+    width: 3.15rem; }
+  .not-content p {
+    text-align: center;
+    letter-spacing: 2px;
+    text-indent: 2px;
+    color: #FFFFFF; }
+  .not-content .text1 {
+    margin-top: -5px;
+    font-size: 0.36rem; }
+  .not-content .text2 {
+    margin-top: 0.18rem;
+    font-size: 0.28rem;
+    opacity: 0.8; }
+
+/*# sourceMappingURL=fans.css.map */
