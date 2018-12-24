@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>九宫格抽奖</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;user-select: none;}
+			.gz-wrap{position: fixed;top: 0;left: 0;right: 0;bottom: 0;margin: auto;width: 500px;height: 500px;cursor: pointer;}
+			.gz-table{width: 100%;height: 100%;}
+			.gz-table tr td{width: 20%;height: 20%;text-align: center;}
+			.cell,.start-btn{margin: 0 auto;width: 90px;height: 90px;line-height: 90px;background: #ededed;font-size: 18px;font-weight: bold;}
+			.start-btn{color: #ffffff;background: #f80;}
+			.active{background: peru; color: #FFFFFF;}
+			.tips{position: absolute;top: -25px;left: 0px;width: 100%;padding-left: 8px;font-size: 18px;}
+			.tips>em{margin: 0 5px;color: #ff0000;font-style: normal;}
+		</style>
+	</head>
+	<body>
+		<div class="gz-wrap">
+			<table class="gz-table">
+				<tr>
+					<td><div tarid="10" class="cell cell-item1">1</div></td>
+					<td><div tarid="11" class="cell cell-item2">2</div></td>
+					<td><div tarid="12" class="cell cell-item3">3</div></td>
+					<td><div tarid="10" class="cell cell-item4">4</div></td>
+					<td><div tarid="11" class="cell cell-item5">5</div></td>
+				</tr>
+				<tr>
+					<td><div tarid="22" class="cell cell-item16">16</div></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><div tarid="12" class="cell cell-item6">6</div></td>
+				</tr>
+				<tr>
+					<td><div tarid="21" class="cell cell-item15">15</div></td>
+					<td></td>
+					<td><div class="start-btn">开始</div></td>
+					<td></td>
+					<td><div tarid="13" class="cell cell-item7">7</div></td>
+				</tr>
+				<tr>
+					<td><div tarid="20" class="cell cell-item14">14</div></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><div tarid="14" class="cell cell-item8">8</div></td>
+				</tr>
+				<tr>
+					<td><div tarid="19" class="cell cell-item13">13</div></td>
+					<td><div tarid="18" class="cell cell-item12">12</div></td>
+					<td><div tarid="17" class="cell cell-item11">11</div></td>
+					<td><div tarid="16" class="cell cell-item10">10</div></td>
+					<td><div tarid="15" class="cell cell-item9">9</div></td>
+				</tr>
+			</table>
+			<p class="tips">剩余<em>0</em>次机会</p>
+		</div>
+	</body>
+	
+	<script src="scripts/jquery-1.12.4.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			var cell_l = $(".cell").length;  //总格子数量（长度）；
+			var num = 0; //变量；控制格子循环旋转；
+			var index = cell_l;//初始位置；旋转到此处记录 选装1圈；
+			var speed = 50; //旋转速度；（数值越小，选装越快）；
+			var fastTimer;  //快速旋转定时器；
+			var fastCir = 0; //记录快速旋转圈数；
+			var fastCirNum = 2; //预设 快速2圈；
+			var slowCir = 0; //记录慢速旋转圈数；
+			var slowCirNum = cell_l*0.5;  //预设 慢速半圈；
+			var tarid = "15";  //预设中奖 id；
+			
+			
+			var onoff = true; //预防多次点击"开始"；
+			var jh = 3; //预设3次抽奖机会；
+			
+			$(".tips em").text(jh);
+			$(".start-btn").click(function(){
+				if(onoff){
+					onoff = false;
+					if(jh>0){
+						jh--;
+						$(".tips em").text(jh);
+						speed = 30; //定义速度；
+						fastCir = 0;//重置快速旋转圈数；
+						slowCir = 0;//重置慢速旋转圈数；
+//						tarid = "14"; //设定中奖id：14 ([10,22])；
+						tarid = Math.ceil(Math.random()*12)+10;//设定中奖id  ([10,22]) 中随机一个；
+						roll();
+					}else{
+						onoff = true;
+						if(confirm("您的次数已经用完，是否去完成任务领取更多的抽奖次数？")){
+							location.reload();
+						}
+					}
+				}
+			})
+			
+			function roll(){ //开始快速旋转；
+				fastTimer=setInterval(function(){
+					r();
+					if(num==index){ //记录旋转圈数；
+						fastCir++;
+					}
+					if(fastCir==fastCirNum){ //快速旋转的圈数达到设定的圈数
+						clearInterval(fastTimer);
+						setTimeout(slowness,speed);
+					}
+				},speed);
+			}
+			
+			function slowness(){ //开始减速旋转；
+				r();
+				speed+=30;
+				slowCir++;
+				if(slowCir>=slowCirNum){ //慢速旋转的圈数达到设定的圈数
+					var at_cell = $(".cell-item"+num); //此时旋转到的格子；
+					if(at_cell.attr("tarid")==tarid){  //旋转到中奖位置；终止旋转；
+						index = num; //重置记录圈数 的位置；
+						onoff = true;
+						console.log("恭喜您，中了"+tarid);
+						return false;
+					}
+				}
+				setTimeout(slowness,speed);
+			}
+			
+			function r(){  //旋转；
+				num++;
+				num = num>cell_l?1:num;
+				$(".cell").removeClass("active");
+				$(".cell-item"+num).addClass("active");
+			}
+			
+		})
+	</script>
+	
+</html>

@@ -1,0 +1,313 @@
+$rem-baseline: 100px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+@function rem-separator($list, $separator: false) {
+    @if $separator=="comma" or $separator=="space" {
+        @return append($list, null, $separator);
+    }
+    @if function-exists("list-separator")==true {
+        @return list-separator($list);
+    }
+    // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+    $test-list: ();
+    @each $item in $list {
+        $test-list: append($test-list, $item, space);
+    }
+    @return if($test-list==$list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+    font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+    $result: ();
+    $separator: rem-separator($values);
+    @each $value in $values {
+        @if type-of($value)=="number" and unit($value)=="rem" and $to=="px" {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        }
+        @else if type-of($value)=="number" and unit($value)=="px" and $to=="rem" {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        }
+        @else if type-of($value)=="list" {
+            $value-separator: rem-separator($value);
+            $value: rem-convert($to, $value...);
+            $value: rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        }
+        @else {
+            $result: append($result, $value, $separator);
+        }
+    }
+    @return if(length($result)==1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+    @if $rem-px-only {
+        @return rem-convert(px, $values...);
+    }
+    @else {
+        @return rem-convert(rem, $values...);
+    }
+}
+
+@mixin rem($properties, $values...) {
+    @if type-of($properties)=="map" {
+        @each $property in map-keys($properties) {
+            @include rem($property, map-get($properties, $property));
+        }
+    }
+    @else {
+        @each $property in $properties {
+            @if $rem-fallback or $rem-px-only {
+                #{$property}: rem-convert(px, $values...);
+            }
+            @if not $rem-px-only {
+                #{$property}: rem-convert(rem, $values...);
+            }
+        }
+    }
+}
+body{
+   width: 100%;
+   background: #EDEDED;
+   font-size: rem(28px);
+   color: #333333;
+}
+
+.hide{
+    display: none;
+}
+.renrenyouting{
+    padding-top: 0.7rem;
+}
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.7rem;
+    background: #327dfb;
+    z-index: 10;
+}
+.top .back {
+    position: absolute;
+    left: 0.15rem;
+    top: 0;
+    width: 0.5rem;
+    height: 0.7rem;
+}
+.top .back-arr {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: 0.22rem 0 0 0.18rem;
+    border: 0.04rem solid #fff;
+    border-width: 0.04rem 0 0 0.04rem;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.top h2 {
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-indent: 2px;
+}
+.title-h{
+    padding: rem(22px) 0 rem(22px) rem(30px);
+    font-size: rem(28px);
+    color: #333333;
+    opacity: 0.55;
+    letter-spacing: 2px;
+}
+.entry-wrap{
+    .entry-item{
+        margin-top: 1px;
+        padding: 0 rem(30px);
+        height: rem(75px);
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        background: #FFFFFF;
+        .entry-t{
+            font-size: rem(28px);
+            color: #333333;
+            letter-spacing: 2px;
+        }
+        .en-ipt{
+            margin-left: rem(30px);
+            width: 70%;
+            font-size: rem(28px);
+            letter-spacing: 1px;
+            outline: none;
+        }
+        .key-i{
+            margin: auto 0 auto auto;
+            width: rem(41px);
+            height: rem(41px);
+            background: red;
+        }
+    }
+    .entry-item:nth-of-type(1){
+        margin-top: 0;
+    }
+}
+
+.agreement-wrap{
+    padding-left: rem(30px);
+    font-size: 0;
+    .ag-i{
+        display: inline-block;
+        vertical-align: middle;
+        width: rem(30px);
+        height: rem(30px);
+        border-radius: 2px;
+        background: #FFFFFF;
+        
+    }
+    .active{
+        background-repeat: no-repeat;
+        background-size: 145%;
+        background-position: center;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAMAAACqEUSYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBQTFRF/5MT/5QY/////7Vr/7p4//fv/7Vs/7Rq/8aP/7Zv/8eS/8OI/5sx/7l2/7Bi/7p3/6hR/8KI/8SL/9Cj/7Vu/9iz//v4/9u4/7t6/7t5/9Wu/82e/9ix/6JC/8mW/6RI/7l0/6A7/9Oo/8SK/+nW/8OJ/8eQ/86f/9Ss/7Rp/6tZ/+HD//r0/7Fj/5MW//v3//37/69f/9Oq/8uZ/6VJ/9Wt/+3c/8qX/6dN/+HF/76A/9Ck//38/8iT/6xa////vPpRfAAAAEB0Uk5T////////////////////////////////////////////////////////////////////////////////////AMJ7sUQAAAC4SURBVHjatNLFDgJBFETR6hqDgcHd3d2d//8rCCE9jBE23GWf9Koe7t/Cv7VUiKt28eL5U5dwt8lJHeAmnCVwlRr2fIWISW14MJUdSlUhnBhiWgnUFkMiUI+MIEijO3bh1My4+caDxiRceuJ89MIpmYJbRZvUn48WWYNXYZI9JMk9/BRlskOm4a/YklwhSFGZ5OGjls8Kxo8b9ZFwYRURqYs6Zs71EdXsy7msdUOxM3RT+/M9PwQYAOJlZl/ubBU1AAAAAElFTkSuQmCC");
+    
+    }
+   
+    .ag-t{
+       margin-left: rem(12px);
+       display: inline-block;
+       vertical-align: middle; 
+       font-size: rem(24px);
+       letter-spacing: 2px;
+       height: rem(30px);
+       line-height: rem(30px);
+       em{
+           color: #327dfb;
+       }
+    }
+}
+
+.go-btn{
+    display: block;
+    margin: 0 auto;
+    width: rem(660px);
+    height: rem(90px);
+    line-height: rem(92px);
+    font-size: rem(32px);
+    color: #FFFFFF;
+    background: #327dfb;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+     -o-border-radius: 6px;
+     letter-spacing: rem(4px);
+     text-indent: rem(4px);
+}
+.code {
+    margin: auto 0 auto auto;
+    width: rem(200px);
+    height: rem(50px);
+    line-height: rem(52px);
+    font-size: rem(28px);
+    color: #999999;
+    background: #e0e0e0;
+    text-align: center;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.margin-top1{
+    margin-top: rem(55px);
+}
+.margin-top2{
+    margin-top: rem(46px);
+}
+.margin-top3{
+    margin-top: rem(145px);
+}
+.ipt-w1{
+    width: 40% !important;
+}
+.relative{
+    position: relative;
+}
+
+.opt-wrap{
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    padding-top: rem(20px);
+    padding-bottom: rem(20px);
+    padding-right: rem(10px);
+    width: 94%;
+    height: rem(420px);
+    box-sizing: border-box;
+    background: #dae8ff;
+    border-radius: rem(10px);
+    z-index: 9;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    box-shadow: 5px 0 10px -2px #adadad,0 5px 10px -2px #adadad, -5px 0 10px -2px #adadad;
+}
+.opt-list{
+    height: 100%;
+    padding-right: rem(20px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling : touch;
+    
+    .opt-item{
+        height: rem(80px);
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-overflow-scrolling : touch;
+        .point{
+            margin-left: rem(50px);
+            width: rem(15px);
+            height: rem(15px);
+            border: 1.5px solid #333;
+            border-width: 0 1.5px 1.5px 0;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+        }
+        .opt-exp{
+            margin-left: rem(30px);
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            flex: 1;
+            height: 100%;
+            .opt-cont{
+                font-size: 0.28rem;
+                color: #333;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    
+}
+.opt-list::-webkit-scrollbar-track-piece{
+    background: #a5b0c2;
+    border-radius: 2px;
+}
+.opt-list::-webkit-scrollbar{
+    width: 4px;
+}
+.opt-list::-webkit-scrollbar-thumb{
+    max-height: 50px;
+    background: #a5b0c2;
+    border-radius: 2px;
+}

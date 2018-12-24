@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加银行卡</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" type="text/css" href="css/card.css" />
+
+		<script type="text/javascript">
+			(function() {
+				function o() {
+					document.documentElement.style.fontSize = (document.documentElement.clientWidth < 540 ? document.documentElement.clientWidth : 540) / 750 * 100 + 'px';
+				}
+				var e = null;
+				window.addEventListener("resize", function() {
+					clearTimeout(e), e = setTimeout(o, 300)
+				}, !1), o()
+			})(window);
+		</script>
+	</head>
+
+	<body>
+		<div class="renrenyouting">
+			<!--填写银行卡信息板块-->
+			<div class="container-one">
+				<div class="top">
+					<a class="back" href="userindex.html"><span class="back-arr"></span></a>
+					<h2>添加银行卡</h2>
+				</div>
+				<h2 class="title-h">请绑定持卡人本人的银行卡</h2>
+				<ul class="entry-wrap">
+					<li class="entry-item">
+						<span class="entry-t">持卡人</span>
+						<input class="en-ipt" type="text" name="" id="" value="" />
+						<i class="key-i"></i>
+					</li>
+					<li class="entry-item">
+						<span class="entry-t">卡号</span>
+						<input class="en-ipt" type="text" name="" id="" value="" />
+					</li>
+				</ul>
+				<ul class="entry-wrap margin-top1">
+					<li class="entry-item relative">
+						<span class="entry-t">银行</span>
+						<input class="en-ipt showframe" type="text" name="" id="" value="" />
+						
+						<!--自定义银行选择下拉框-->
+						<div class="opt-wrap hide">
+							<ul class="opt-list">
+								<li class="opt-item">
+									<i class="point"></i>
+									<div class="opt-exp">
+										<span class="opt-cont">中国银行</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="entry-item">
+						<span class="entry-t">开户网点</span>
+						<input class="en-ipt" type="text" name="" id="" value="" />
+					</li>
+				</ul>
+
+				<div class="agreement-wrap margin-top2">
+					<i class="ag-i active"></i>
+					<p class="ag-t">同意<em>《用户协议》</em></p>
+				</div>
+
+				<button class="go-btn margin-top3">下一步</button>
+			</div>
+
+			<!--填写手机验证码板块-->
+			<div class="container-two hide">
+				<div class="top">
+					<a class="back"><span class="back-arr"></span></a>
+					<h2>添加银行卡</h2>
+				</div>
+				<ul class="entry-wrap">
+					<li class="entry-item">
+						<span class="entry-t">已往绑定的手机号 &nbsp;&nbsp;****0987&nbsp;&nbsp; 发送验证码</span>
+					</li>
+					<li class="entry-item">
+						<span class="entry-t">验证码</span>
+						<input class="en-ipt ipt-w1" type="text" name="" id="" value="" maxlength="4" />
+						<span class="code">正在发送(30)</span>
+					</li>
+				</ul>
+				<button class="go-btn margin-top3">确&nbsp;&nbsp;定</button>
+			</div>
+
+		</div>
+		
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//银行选择下拉框
+				
+				var bankArr = [  //定义银行
+					"招商银行",
+					"中国银行",
+					"交通银行",
+					"兴业银行",
+					"中国工商银行",
+					"中国农业银行",
+					"中国建设银行",
+					"中国储蓄邮政银行",
+					"中国农村信用社",
+					"其他银行"
+				];
+				
+				$(".opt-list").html("");
+				for (var i=0;i<bankArr.length;i++) {
+					var html = '<li class="opt-item">'+
+									'<i class="point"></i>'+
+									'<div class="opt-exp">'+
+										'<span class="opt-cont">'+bankArr[i]+'</span>'+
+									'</div>'+
+								'</li>'
+					$(".opt-list").append(html);
+				}
+				
+			
+				var top = 0; //给top变量一个初始值，以便下方赋值并引用。
+				$(".showframe").on("focus click", function() { //输入框 聚焦，推荐弹框出现；
+					if($(this).next(".opt-wrap").css("display") == "none") {
+						$(this).next(".opt-wrap").show(); //输入框对应的 推荐弹框 显示；
+						/*弹框出现，禁止body滚动*/
+						top = $(this).parents(".entry-item").offset().top - $(".top").height();
+						$('body').css("top", -top + "px"); //给body一个负的top值；
+						$('body').css("position", "fixed"); //给body设置，position:fixed; 
+					}
+				})
+				$(".showframe").on("input", function() { //输入框 输入状态，推荐弹框消失；
+					$(".opt-wrap").hide();
+					/*弹框消失，恢复body滚动*/
+					$('body').css("position", "static"); //给body设置，position:static; 
+					$('body').scrollTop(top); //不设置，body 会滚回顶部，
+				})
+				$(document).on("touchstart touchmove", function(ev) { //控制 推荐弹框的 隐藏；
+					var ev = ev || window.event;
+					var target = ev.target;
+					if(!$(target).parents(".opt-wrap").is(".opt-wrap") &&
+						!$(target).is(".showframe")
+					) {
+						if($(".opt-wrap").eq(0).css("display") == "block") {
+							$(".opt-wrap").eq(0).hide();
+							/*弹框消失，恢复body滚动*/
+							$('body').css("position", "static"); //给body设置，position:static; 
+							$('body').scrollTop(top); //不设置，body 会滚回顶部，
+						}
+					}
+				})
+				$(".opt-list").find(".opt-item").click(function() { //选中下拉框内容，渲染html上
+					var html = $(this).find(".opt-cont").html();
+					$(this).parents(".entry-item").find(".showframe").val(html);
+					$(".opt-wrap").hide();
+					/*弹框消失，恢复body滚动*/
+					$('body').css("position", "static"); //给body设置，position:static; 
+					$('body').scrollTop(top); //不设置，body 会滚回顶部，
+				})
+				
+				
+			})
+		</script>
+		
+	</body>
+
+</html>

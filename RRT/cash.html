@@ -24,7 +24,7 @@
 	<body>
 		<div class="renrenyouting">
 			<!--申请提取板块-->
-			<div class="container-one hide">
+			<div class="container-one">
 				<div class="top">
 					<a class="back" href="userindex.html"><span class="back-arr"></span></a>
 					<h2>申请提现</h2>
@@ -66,7 +66,7 @@
 										<p class="apy-bh">推广编号：<a href="javascripts:;">12345678901234</a></p>
 									</div>
 									<div class="apy-bot">
-										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<p class="apy-rmb">￥<span>20.00</span></p>
 										<div class="apy-btn">申请提现</div>
 									</div>
 								</li>
@@ -93,7 +93,7 @@
 										<p class="apy-bh">推广编号：<a href="javascripts:;">12345678901234</a></p>
 									</div>
 									<div class="apy-bot">
-										<p class="apy-rmb">￥<span>20000.00</span></p>
+										<p class="apy-rmb">￥<span>20.00</span></p>
 										<p class="cause">订单尚未完成</p>
 									</div>
 								</li>
@@ -107,9 +107,9 @@
 			</div>
 			
 			<!--提取记录板块-->
-			<div class="container-two">
+			<div class="container-two hide">
 				<div class="top">
-					<a class="back"><span class="back-arr"></span></a>
+					<a class="back record-out"><span class="back-arr"></span></a>
 					<h2>申请提现</h2>
 				</div>
 				<div class="record-wrap">
@@ -175,13 +175,21 @@
 		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
-				//tap 切换
+				//记录板块切换
+				$(".record-en").click(function(){
+					$(".container-one").addClass("hide");
+					$(".container-two").removeClass("hide");
+				})
+				$(".record-out").click(function(){
+					$(".container-one").removeClass("hide");
+					$(".container-two").addClass("hide");
+				})
+				
+				//可 提款 和 暂不可提款 tap 切换
 				$(".switch li").click(function(){
 					$(this).addClass("active").siblings("li").removeClass("active");
 					$(".apply-cont-item").eq($(this).index()).removeClass("hide").siblings(".apply-cont-item").addClass("hide");
 				})
-				
-				
 				
 			})
 		</script>
