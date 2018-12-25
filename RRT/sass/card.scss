@@ -145,6 +145,9 @@ body{
             letter-spacing: 1px;
             outline: none;
         }
+        .en-ipt::-webkit-input-placeholder{
+            transform: translateY(1px);
+        }
         .key-i{
             margin: auto 0 auto auto;
             width: rem(41px);
@@ -163,13 +166,14 @@ body{
     .ag-i{
         display: inline-block;
         vertical-align: middle;
-        width: rem(30px);
-        height: rem(30px);
+        width: rem(28px);
+        height: rem(28px);
         border-radius: 2px;
         background: #FFFFFF;
         
     }
     .active{
+        background-color: transparent;
         background-repeat: no-repeat;
         background-size: 145%;
         background-position: center;

@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>添加银行卡</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css" />
-		<link rel="stylesheet" type="text/css" href="css/card.css" />
+		<link rel="stylesheet" type="text/css" href="css/card.css?v=123" />
 
 		<script type="text/javascript">
 			(function() {
@@ -27,7 +27,7 @@
 			<!--填写银行卡信息板块-->
 			<div class="container-one">
 				<div class="top">
-					<a class="back" href="userindex.html"><span class="back-arr"></span></a>
+					<a class="back" href="cash.html"><span class="back-arr"></span></a>
 					<h2>添加银行卡</h2>
 				</div>
 				<h2 class="title-h">请绑定持卡人本人的银行卡</h2>
@@ -139,7 +139,7 @@
 					$(".opt-wrap").hide();
 					/*弹框消失，恢复body滚动*/
 					$('body').css("position", "static"); //给body设置，position:static; 
-					$('body').scrollTop(top); //不设置，body 会滚回顶部，
+					$('body').scrollTop(0); //不设置，body 会滚回顶部，
 				})
 				$(document).on("touchstart touchmove", function(ev) { //控制 推荐弹框的 隐藏；
 					var ev = ev || window.event;
@@ -151,7 +151,7 @@
 							$(".opt-wrap").eq(0).hide();
 							/*弹框消失，恢复body滚动*/
 							$('body').css("position", "static"); //给body设置，position:static; 
-							$('body').scrollTop(top); //不设置，body 会滚回顶部，
+							$('body').scrollTop(0); //不设置，body 会滚回顶部，
 						}
 					}
 				})
@@ -161,7 +161,7 @@
 					$(".opt-wrap").hide();
 					/*弹框消失，恢复body滚动*/
 					$('body').css("position", "static"); //给body设置，position:static; 
-					$('body').scrollTop(top); //不设置，body 会滚回顶部，
+					$('body').scrollTop(0); //不设置，body 会滚回顶部，
 				})
 				
 				
