@@ -46,18 +46,10 @@
 							<p class="state-des">报名编号：<em>12345678912345</em> </p>
 						</div>
 					</div>
-					<!--待成团-->
+					<!--已支付-->
 					<div class="state-wrap">
 						<div class="">
-							<p class="state-text state-style3">待成团</p>
-							<p class="state-des">此活动已满足成团条件，请等待发起人成团</p>
-							<p class="state-des">报名编号：<em>12345678912345</em> </p>
-						</div>
-					</div>
-					<!--待出行-->
-					<div class="state-wrap">
-						<div class="">
-							<p class="state-text state-style4">待出行</p>
+							<p class="state-text state-style4">已支付</p>
 							<p class="state-des state-style4">2018-03-21  08:30 周二 活动即将开始</p>
 							<p class="state-des">报名编号：<em>12345678912345</em> </p>
 						</div>
@@ -82,6 +74,15 @@
 				
 				<div class="activity-container">
 					<div class="container-t">
+						
+						<div class="group is-group">
+							<span>已成团</span>
+						</div>
+						<div class="group no-group hide">
+							<span>未成团</span>
+						</div>
+						
+						
 						<p class="activity-name">这是活动名称噢</p>
 						<div class="info-wrap-top">
 							<span class="info-item"><i class="info-i icon-t2"></i><em class="info-t">三亚</em></span>
@@ -139,7 +140,7 @@
 
 				<div class="footer-container">
 					<!--待审核-->
-					<div class="other-wrap hide">
+					<div class="other-wrap">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -256,63 +257,8 @@
 							<div class="btn-item payoff"><a  href="javascripts:;">立即支付</a></div>
 						</div>
 					</div>
-					<!--待成团-->
+					<!--已支付-->
 					<div class="other-wrap hide">
-						<div class="take">
-							<p class="take-title">已报名：</p>
-							<ul class="take-list">
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item"><a href="javascripts:;"><img src="img/TOUXIANG.jpg"></a></li>
-								<li class="take-item more"><a href="javascripts:;">更多</a></li>
-							</ul>
-							<div class="not-take-list hide">列表空空如也~</div>
-						</div>
-						<div class="advise-wrap">
-							<div class="is-upload">
-								<div class="img-ctn">
-									<img src="img/banner3.jpg"/>
-								</div>
-							</div>
-						</div>
-						
-						<div class="number-wrap">
-							<div class="iden-cont">
-								<div class="iden-item">
-									<p>报名编号：<em>12345678912345</em></p>
-									<p>报名时间：<em>2018-11-26 12:30</em></p>
-								</div>
-								<div class="iden-item">
-									<p>支付方式：<em>微信支付</em></p>
-									<p>支付时间：<em>2018-11-26 12:30</em></p>
-								</div>
-								<div class="iden-item">
-									<p>报名人电话：<em>15988996688</em></p>
-									<p>报名人数：<em>10人</em></p>
-								</div>
-								<div class="iden-item">
-									<p class="flex">报名费用：<em class="flex-r fontSize28">￥800.00</em></p>
-									<p class="flex fontColorB">优惠：<em class="flex-r fontSize28">-￥1000.00</em></p>
-								</div>
-							</div>
-							<p class="total">合计：<span>￥<em>12000.00</em></span></p>
-						</div>
-						
-						<div class="button-wrap">
-							<div class="btn-item"><a  href="javascripts:;">申请退款</a></div>
-							<div class="btn-item"><a  href="javascripts:;">联系发起人</a></div>
-						</div>
-					</div>
-					<!--待出行-->
-					<div class="other-wrap">
 						<div class="take">
 							<p class="take-title">已报名：</p>
 							<ul class="take-list">
@@ -440,9 +386,9 @@
 			</div>
 			
 			<!---弹框，半透明背景-->
-			<div class="bg"></div>
+			<div class="bg hide"></div>
 			
-			<div class="info-frame">
+			<div class="info-frame hide">
 				<div class="info-text">
 					确认现在签到吗？
 				</div>

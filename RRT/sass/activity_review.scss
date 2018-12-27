@@ -128,15 +128,15 @@ body{
         .issue-time{
             flex: 1;
         }
-        .stage{
+        .state{
             margin: auto 0 auto auto;
         }
-        .stage-ty1{color: #0d7c1d;}
-        .stage-ty2{ color: #ff0600;}
-        .stage-ty3{ color: #fb7b44;}
-        .stage-ty4{ color: #c92ee0;}
-        .stage-ty5{ color: #327dfb;}
-        .stage-ty6{ color: #7e7e7e;}
+        .state-style1{ color: #0d7c1d;}
+        .state-style2{color: #ff0600;}
+        .state-style3{color: #fb7b44;}
+        .state-style4{color: #c92ee0;}
+        .state-style5{color: #327dfb;}
+        .state-style6{color: #7e7e7e;}
     }
     
 }
@@ -656,10 +656,8 @@ body{
         }
     }
     .oper-c{
-       margin-right: rem(40px);
        font-size: rem(26px);
        color: #ff0000;
-       
     }
     .oper-r{
         .oper-btn{
@@ -725,6 +723,7 @@ body{
     height: rem(90px);
     background: #FFFFFF;
     box-shadow: #999 0 0 10px;
+    z-index: 9;
     .footer-item{
         float: left;
         width: 50%;

@@ -148,13 +148,13 @@ body{
 }
 .add-width{
     width: rem(840px);
-    height: rem(87px);
     .subpage-item{
         width: rem(120px) !important;
     }
 }
 .subpage-wrap{
     margin: 0 auto;
+    height: rem(87px);
     font-size: 0;
     text-align: center;
     .subpage-item{
@@ -332,8 +332,6 @@ body{
     align-items: center;
     padding: rem(20px);
     border-top: 1px solid #EDEDED;
-    
-    
     .bottom-l{
         .number{
             margin-left: rem(10px);

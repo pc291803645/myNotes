@@ -69,13 +69,13 @@ body {
   overflow-x: auto; }
 
 .add-width {
-  width: 8.4rem;
-  height: 0.87rem; }
+  width: 8.4rem; }
   .add-width .subpage-item {
     width: 1.2rem !important; }
 
 .subpage-wrap {
   margin: 0 auto;
+  height: 0.87rem;
   font-size: 0;
   text-align: center; }
   .subpage-wrap .subpage-item {
