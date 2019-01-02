@@ -567,23 +567,13 @@ body{
            letter-spacing: 1px;
            text-indent: 1px; 
         }
+        
     }
     .btn-item:nth-last-of-type(1) a{
         border-left: 1px solid #666;
     }
-    .btn-sign{
-        padding: rem(25px) 0;
-        height: 100%;
-        box-sizing: border-box;
-        a{
-           display: block;
-           line-height: rem(60px);
-           font-size: rem(40px);
-           text-align: center;
-           color: #FFFFFF;
-           letter-spacing: 1px;
-           text-indent: 1px; 
-        }
+    .not-oper{
+        opacity: 0.6;
     }
     .payoff{
         background: #FF0000;
@@ -593,10 +583,14 @@ body{
             color: #FFFFFF;
         }
     }
-}
-
-.button-bg{
-    background: #327dfb;
+    .signoff{
+        background: #327dfb;
+        a{
+            border-left: none !important;
+            font-size: rem(40px);
+            color: #FFFFFF;
+        }
+    }
 }
 
 .padding-b{

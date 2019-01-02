@@ -434,27 +434,20 @@ body {
       text-indent: 1px; }
   .button-wrap .btn-item:nth-last-of-type(1) a {
     border-left: 1px solid #666; }
-  .button-wrap .btn-sign {
-    padding: 0.25rem 0;
-    height: 100%;
-    box-sizing: border-box; }
-    .button-wrap .btn-sign a {
-      display: block;
-      line-height: 0.6rem;
-      font-size: 0.4rem;
-      text-align: center;
-      color: #FFFFFF;
-      letter-spacing: 1px;
-      text-indent: 1px; }
+  .button-wrap .not-oper {
+    opacity: 0.6; }
   .button-wrap .payoff {
     background: #FF0000; }
     .button-wrap .payoff a {
       border-left: none !important;
       font-size: 0.4rem;
       color: #FFFFFF; }
-
-.button-bg {
-  background: #327dfb; }
+  .button-wrap .signoff {
+    background: #327dfb; }
+    .button-wrap .signoff a {
+      border-left: none !important;
+      font-size: 0.4rem;
+      color: #FFFFFF; }
 
 .padding-b {
   padding-bottom: 0.45rem; }
