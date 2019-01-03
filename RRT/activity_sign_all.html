@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>已报名活动</title>
 		<link rel="stylesheet" type="text/css" href="css/init.css"/>
-	    <link rel="stylesheet" type="text/css" href="css/activityall.css?v=780"/>
+	    <link rel="stylesheet" type="text/css" href="css/activityall.css?v=78000"/>
 		
 		<script type="text/javascript">
 			(function () {
@@ -29,6 +29,14 @@
 					<div class="page-item active"><a href="activity_sign_all.html">已报名活动</a></div>
 					<div class="page-item"><a href="activity_orga_all.html">已发布活动</a></div>
 				</div>
+				
+				<div class="release">
+					<a href="activity_issue.html">
+						<div class="release-icon"></div>
+						<span class="release-text">发布</span>
+					</a>
+				</div>
+				
 				<div class="nav-wrap">
 					<ul class="subpage-wrap"><!--需要x轴 滚动条  添加class: add-width-->
 						<li class="subpage-item active"><a href="javascripts:;">全部</a></li>
@@ -267,7 +275,15 @@
 						</li>
 						
 					</ul>
-					<div class="not-cont hide"><p>--该项内容为空--</p></div><!--该项没有内容则显示--->
+					
+					<!--该项没有内容则显示--->
+					<div class="not-cont hide">
+						<div class="not-wrap">
+							<div class="default-i"></div>
+							<p class="default-t">您还没报名任何活动</p>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 			
