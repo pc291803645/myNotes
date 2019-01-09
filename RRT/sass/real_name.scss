@@ -135,10 +135,11 @@ body{
         align-items: center;
         .ipt-title{
             margin-left: rem(10px);
-            width: rem(175px);
+            width: rem(190px);
             font-size: rem(30px);
             color: #333333;
             letter-spacing: 2px;
+            white-space: nowrap;
         }
         .ipt-com{
             width: rem(68%);

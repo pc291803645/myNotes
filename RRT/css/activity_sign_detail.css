@@ -252,7 +252,7 @@ body {
   .take .take-list .take-item {
     margin-top: 0.15rem;
     margin-left: 0.35rem;
-    display: inline-block;
+    float: left;
     width: 0.82rem;
     height: 0.82rem;
     overflow: hidden;
@@ -275,6 +275,10 @@ body {
     text-indent: 2px; }
     .take .take-list .more a {
       color: #333333; }
+.take .take-list::after {
+  content: "";
+  display: block;
+  clear: both; }
 .take .not-take-list {
   margin: 0 auto;
   width: 6.7rem;
@@ -375,17 +379,19 @@ body {
 
 .iden-item {
   border-bottom: 1px solid #EDEDED;
-  padding-bottom: 0.15rem; }
+  padding-bottom: 0.17rem;
+  padding-top: 0.17rem; }
   .iden-item p {
     height: 0.28rem;
     line-height: 0.28rem;
     padding-left: 0.5rem;
-    padding-top: 0.15rem;
     font-size: 0.28rem;
     color: #333333; }
     .iden-item p em {
       font-size: 0.28rem;
       color: #B1B1B1; }
+  .iden-item p:nth-of-type(2) {
+    margin-top: 0.15rem; }
 
 .iden-item:nth-last-of-type(1) {
   border-bottom: none; }

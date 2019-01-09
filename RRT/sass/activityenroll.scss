@@ -729,7 +729,7 @@ body{
        .user-item{
             margin-top: rem(15px);
             margin-left: rem(39px);
-            display: inline-block;
+            float: left;
             width: rem(82px);
             height: rem(82px);
             overflow: hidden;
@@ -757,6 +757,11 @@ body{
                 color: #333333;
             }
         }
+    }
+    .user-list::after{
+        content: "";
+        display: block;
+        clear: both;
     }
     .not-user-list{
         margin: 0 auto;
@@ -896,23 +901,25 @@ body{
     align-items: center;
     background: #FFFFFF;
     .other-t{
+        width: rem(180px);
         font-size: rem(30px);
         color: #333333;
         letter-spacing: 2px;
+        white-space: nowrap;
     }
 }
 .other-item:nth-of-type(1){
     margin: 0;
 }
 .ipt-num{
-    width: 55%;
+    width: 42%;
     padding: rem(25px) rem(20px) rem(20px) rem(10px);
-    height: rem(20px);
-    font-size: rem(32px);
+    font-size: rem(30px);
     letter-spacing: 1px;
     outline: none;
 }
 .get-code{
+    margin: auto 0 auto auto;
     font-size: rem(28px);
     letter-spacing: 1px;
     text-decoration: underline;

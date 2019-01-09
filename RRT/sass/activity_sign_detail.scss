@@ -353,7 +353,7 @@ body{
         .take-item {
             margin-top: rem(15px);
             margin-left: rem(35px);
-            display: inline-block;
+            float: left;
             width: rem(82px);
             height: rem(82px);
             overflow: hidden;
@@ -381,6 +381,11 @@ body{
                 color: #333333;
             }
         }
+    }
+    .take-list::after{
+        content: "";
+        display: block;
+        clear: both;
     }
     .not-take-list{
         margin: 0 auto;
@@ -498,12 +503,12 @@ body{
 }
 .iden-item{
     border-bottom: 1px solid #EDEDED;
-    padding-bottom: rem(15px);
+    padding-bottom: rem(17px);
+    padding-top: rem(17px);
     p{
         height: rem(28px);
         line-height: rem(28px);
         padding-left: rem(50px);
-        padding-top: rem(15px);
         font-size: rem(28px);
         color: #333333;
         em{
@@ -511,6 +516,9 @@ body{
            color: #B1B1B1;
         }
     
+    }
+    p:nth-of-type(2){
+        margin-top: rem(15px);
     }
     
 }

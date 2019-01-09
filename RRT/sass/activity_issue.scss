@@ -310,11 +310,13 @@ html{
             margin-left: rem(10px);
             display: inline-block;
             vertical-align: middle;
+            width: rem(160px);
             height: rem(28px);
             line-height: rem(30px);
             font-size: rem(28px);
             color: #333333;
             letter-spacing: 1px;
+//          text-align-last: justify;
         }
         
     }
