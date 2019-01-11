@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>dom元素触发input</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+		</style>
+	</head>
+	<body>
+		<input class="dom-ipt" type="file" name="" id="" value="" />
+		<div onclick="trigger();" class="dome-dom" style="width: 100px; height: 100px; background: black;"></div>
+		
+		<script type="text/javascript">
+			function trigger(){
+				return document.getElementsByClassName("dom-ipt")[0].click();
+			}
+		</script>
+	</body>
+</html>
