@@ -407,16 +407,23 @@ body{
 
 
 .enroll-info{
-    padding-top: rem(50px);
     padding-bottom: rem(170px);
     margin-top: rem(30px);
     background: #FFFFFF;
+    .head{
+        padding-top: rem(50px);
+        overflow-x: auto;
+        overflow-y: hidden;
+        border-bottom: 1px solid #ededed;
+    }
 }
+
+
 .state-list{
+    width: rem(980px);
     padding-left: rem(35px);
     font-size: 0;
     color: #333333;
-    border-bottom: 1px solid #ededed;
     .active{
         color: #327dfb;
     }
@@ -427,7 +434,7 @@ body{
         bottom: -1px;
         transform: translateX(-50%);
         width: 100%;
-        height: rem(4px);
+        height: rem(5px);
         background: #327dfb;
     }
     li{
