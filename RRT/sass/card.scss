@@ -134,12 +134,13 @@ body{
         align-items: center;
         background: #FFFFFF;
         .entry-t{
+            width: rem(160px);
             font-size: rem(28px);
             color: #333333;
             letter-spacing: 2px;
         }
         .en-ipt{
-            margin-left: rem(30px);
+            margin-left: rem(10px);
             width: 70%;
             font-size: rem(28px);
             letter-spacing: 1px;

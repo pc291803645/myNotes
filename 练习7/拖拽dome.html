@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽</title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			body{background: #EDEDED;}
+			.dome{position: fixed; top: 40%; left: 40%; width: 200px; height: 200px; background: red; cursor: pointer;}
+		</style>
+	</head>
+	<body>
+		<div class="dome"></div>
+		
+		
+		<!--
+        	作者：庞成
+        	时间：2019-01-14
+        	描述：练习dom的拖拽运动
+        -->
+		<script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var dome = $(".dome");
+				var win_w = $(window).outerWidth();  //屏幕可视区宽度；
+				var win_h = $(window).outerHeight(); //屏幕可视区高度；
+				var dome_w = dome.width();   //dome自身宽度；
+				var dome_h = dome.height();  //dome自身高度；
+				var m_min_t = 0;		         //移动最小的 top值；
+				var m_max_t = win_h-dome_h;      //移动最大的 top值；
+				var m_min_l = 0;		         //移动最小的 left值；
+				var m_max_l= win_w-dome_w;       //移动最大的 left值； 
+				var T;
+				var L;
+				dome.on("mousedown",function(ev){
+					var ev = ev || window.event;
+					var offsetX = $(this).position().left;
+					var offsetY = $(this).position().top;
+					var pageX_a = ev.pageX;
+					var pageY_a = ev.pageY;
+					$(document).on("mousemove",function(ev){
+						var ev = ev || window.event;
+						var pageX_b = ev.pageX;
+					    var pageY_b = ev.pageY;
+					    L = pageX_b-pageX_a+offsetX;
+					    T = pageY_b-pageY_a+offsetY;
+					    L = L<=m_min_l?m_min_l:L;
+					    L = L>=m_max_l?m_max_l:L;
+					    T = T<=m_min_t?m_min_t:T;
+					    T = T>=m_max_t?m_max_t:T;
+					    dome.css({top: T,left: L,})
+					})
+					$(document).on("mouseup",function(ev){
+						$(document).off("mousemove");
+						$(document).off("mouseup");
+					})
+					return false;
+				})
+			})
+		</script>
+	</body>
+</html>
