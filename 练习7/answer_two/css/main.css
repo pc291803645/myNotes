@@ -1,0 +1,173 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body,html{
+	background: #EEEEEE;
+}
+.bright .active{
+	background: #00A0E9;
+	color: #FFFFFF;
+	border: 1px solid #00A0E9;
+}
+.wrap{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 510px;
+	box-sizing: border-box;
+	font-size: 16px;
+	background: #EEEEEE;
+}
+.btn{
+	margin: 36px auto 0 auto;
+	background: #00A0E9;
+	border-radius: 25px;
+	font-size: 18px;
+	width: 225px;
+	height: 40px;
+	line-height: 40px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.answer{
+	margin: 0 auto;
+	position: relative;
+	width: 320px;
+	height: 435px;
+	overflow: hidden;
+}
+.subject-width{
+	transition: 0.5s;
+	position: absolute;
+	left: 0;
+	width: 3000%;
+}
+.subject-width:after{
+	content:"";
+    display:block; 
+    clear:both;
+}
+.subject-width>div{
+	padding-right: 25px;
+	padding-left: 25px;
+	width: 275px;
+	height: 435px;
+	border-radius: 25px;
+	float: left;
+}
+.title{
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+	height: 100px;
+	font-size: 18px;
+	color: #FFFFFF;
+	background: #54C4F6;
+	box-sizing: border-box;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	display: flex;
+}
+.title span{
+	margin: auto auto auto auto;
+}
+.list,.bright{
+	background: #FFFFFF;
+}
+.list{
+	width: 100%;
+	height: 233px;
+	padding: 22px 22px;
+	box-sizing: border-box;
+}
+.list li{
+	margin-top: 15px;
+	font-size: 18px;
+	color: #666666;
+}
+.list li:nth-of-type(1){
+	margin-top: 0;
+}
+.bright{
+	width: 100%;
+	height: 93px;
+	border-top: 1px solid #EEEEEE;
+	font-size: 0;
+	padding: 0 10px;
+	outline: none;
+	box-sizing: border-box;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	display: flex;
+}
+.bright span{
+	margin: auto auto auto auto;
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 18px;
+	color: #666666;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 50%;
+}
+/*弹窗*/
+.show-window{
+	width:100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	font-size: 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.show-window>div{
+	width: 75%;
+	height: 130px;
+	background: #FFFFFF;
+	padding: 25px 20px 15px 20px;
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+}
+.show-btn{
+	font-size: 16px;
+	position: absolute;
+	bottom: 20px;
+	right: 25px;
+	color: #09b126;
+}
+
+/*动画*/
+@keyframes flash {
+	to {
+		color: white;
+		background: green;
+		opacity: 0.5;
+	}
+	form {
+		color: #666666;
+		background: transparent;
+		opacity: 0.2;
+	}
+}
+
+.flash {
+	animation: flash linear .3s both infinite;
+}
