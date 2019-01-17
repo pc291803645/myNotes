@@ -570,10 +570,21 @@ body{
 
 
 .not-cont{
-    margin-top: rem(20px);
-    padding: rem(50px) 0;
+    margin-top: rem(187px);
     background: #FFFFFF;
-    .not-wrap{
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+   .not-wrap{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 30% auto auto auto;
         .default-i{
             margin: 0 auto;
             width: rem(460px);
