@@ -84,7 +84,7 @@
 				
 				
 				contaienr.ontouchstart = function(ev){
-					var ev = event||ev;
+					var ev = ev||window.event;
 					ev.preventDefault();   // 消除浏览器默认行为；
 					clearInterval(maxobjTimer);	//关闭小鸟自由落体；
 					iH = maxobj.offsetTop;   //记录高度；
