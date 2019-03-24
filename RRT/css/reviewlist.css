@@ -115,17 +115,18 @@ body {
   font-size: 0; }
 
 .user-img {
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   width: 0.55rem;
   height: 0.55rem;
-  overflow: hidden;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%; }
+  overflow: inherit; }
   .user-img img {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%; }
 
 .user-name {
   margin-left: 0.17rem;

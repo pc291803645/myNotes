@@ -60,10 +60,12 @@
 			<div class="list-container">
 				<div class="dynamic-item">
 					<div class="comment-t">
-						<div class="user-img"><img src="img/banner1.jpg" /></div>
+						<div class="user-img">
+							<img src="img/banner1.jpg" />
+							<span class="real-name"></span>
+						</div>
 						<span class="user-name">小小欣</span>
-						<span class="is-overt"><em>公开</em></span><!--公开class：.is-overt;私密class：.not-overt -->
-						<span class="delete" title="删除该动态"><i></i><i></i></span>
+						<span class="is-overt"></span><!--公开class：.is-overt;私密class：.not-overt -->
 					</div>
 					<p class="sigh">我参与了这活动，你也来吧</p>
 					<div class="comment-party">
@@ -79,6 +81,7 @@
 					<div class="comment-other">
 						<div class="comment-other-t">
 							<span class="publish-time">2018-08-18 10:50</span>
+							<span class="delete" title="删除该动态">删除</span>
 							<span class="comment-reply">回复</span>
 							<span class="conment-agree">2</span>
 							<!--点赞之后添加class： agree-success-->
@@ -108,10 +111,12 @@
 				</div>
 				<div class="dynamic-item">
 					<div class="comment-t">
-						<div class="user-img"><img src="img/banner1.jpg" /></div>
+						<div class="user-img">
+							<img src="img/banner1.jpg" />
+							<span class="real-name hide"></span>
+						</div>
 						<span class="user-name">买菜不用计算器</span>
 						<span class="not-overt"><em>私密</em></span>
-						<span class="delete" title="删除该动态"><i></i><i></i></span>
 					</div>
 					<p class="comment-text">这里可以欣赏海景，深圳本身就是一个海上城市，而且深圳宝安国际机场也是一个海上机场，乘坐游艇在海上观景的感觉真棒，</p>
 					<ul class="comment-imgs">
@@ -173,10 +178,15 @@
 			</div>
 			
 			<div class="bg hide"></div><!--弹框半透明背景-->
-			<div class="confirm hide">
+			<div class="confirm hide"><!--是否删除弹框-->
 				<p class="">确认</p>
 				<i class="line"></i>
 				<p class="">取消</p>
+			</div>
+			
+			<!--信息提示框-->
+			<div class="msg-tips">
+				<p>该动态已设置为私密</p>
 			</div>
 		</div>
 	</body>

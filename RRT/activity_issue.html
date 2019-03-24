@@ -37,7 +37,14 @@
 			<div class="content">
 				<div class="act_cover">
 					<div class="cover-container">
-						<img class="cover-img hide" src="img/chuan2.png" />
+						<div class="banner-wrap">
+							<div class="banner-list">
+								<div class="banner-item"><img src="img/chuan1.png"/></div>
+								<div class="banner-item"><img src="img/chuan1.png"/></div>
+								<div class="banner-item"><img src="img/chuan1.png"/></div>
+							</div>
+							<p class="banner-nav"><span class="active"></span><span></span><span></span></p>
+						</div>
 					</div>
 					<div class="upload-container">
 						<ul class="img-list">
@@ -242,12 +249,12 @@
 								<em>活动发布条款</em>
 							</p>
 						</div>
-						<div class="foot-r">发布</div>
+						<div class="foot-r">发布</div> <!--不可点击灰色样式  class：gray-sty -->
 					</div>
 					
 				</div>
 
-				<div class="gb hide"></div>
+				<div class="gb"></div>
 				<!--半透明背景，弹框需要显示-->
 
 				<!--活动条款-->
@@ -309,7 +316,19 @@
 				</div>
 				<div class="loading">正在载入图片...</div>
 			</div>
-
+			
+			
+			<!--活动发布成功提示 （有关闭叉叉）--->
+			<div class="issue-success-wrap hide">
+				<span class="off-tips"></span>
+				<p class="scs-tips">发布成功!</p>
+			</div>
+			
+			<!--活动发布成功提示 （没有关闭叉叉）--->
+			<div class="issue-success-wrap">
+				<p class="scs-tips">发布成功!</p>
+			</div>
+			
 		</div>
 	</body>
 	
@@ -474,7 +493,7 @@
 				
 			};
 			
-			var defaultValue = new Date(2018,11,20,12,0);
+			var defaultValue = new Date(2019,4,1,12,0);
 			
 			opt.default = {
 				defaultValue: defaultValue, //初始化时间
