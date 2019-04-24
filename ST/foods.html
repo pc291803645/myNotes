@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>取餐</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="style/init.css"/>
+		<link rel="stylesheet" type="text/css" href="style/foods.css"/>
+	</head>
+
+	<body>
+		<div class="food-container">
+			<h2 class="mod-title"><span>王小四</span>&nbsp;您有待取餐</h2>
+			<div class="order-content">
+				<div class="order-img">
+					<img src="img/food.png"/>
+				</div>
+				<div class="order-key">
+					<div class="key-item">
+						<span class="meals-time">2019-04-27</span>
+						<span class="meals-type">午餐</span>
+					</div>
+					<div class="key-item">
+						<span class="meals-name">营养午餐 x1份</span>
+					</div>
+					<div class="key-item">
+						<span class="meals-name">南区食堂2楼</span>
+					</div>
+					<div class="key-item">
+						<span class="meals-other">下单时间：2019-04-10 12:30</span>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		
+		
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var btnArray = ["取消","去订餐"];
+			mui.confirm("您当前没有可取餐单，马上去订餐？", "抱歉", btnArray, function(e) {
+				if (e.index == 1) {
+						console.log("跳转订餐页面");
+				} else {
+					console.log("取消");
+				}
+			})
+		</script>
+		
+	</body>
+
+</html>
