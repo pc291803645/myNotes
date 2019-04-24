@@ -1,0 +1,25 @@
+.ded-list {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .ded-list .ded-item {
+    margin-top: 10px; }
+    .ded-list .ded-item .ded-t, .ded-list .ded-item .ded-b {
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+      padding: 0 15px; }
+      .ded-list .ded-item .ded-t span:nth-of-type(2), .ded-list .ded-item .ded-b span:nth-of-type(2) {
+        margin: auto 0 auto auto; }
+      .ded-list .ded-item .ded-t .refund, .ded-list .ded-item .ded-b .refund {
+        color: #009999; }
+    .ded-list .ded-item .ded-t {
+      font-size: 14px;
+      color: #444444; }
+    .ded-list .ded-item .ded-b {
+      font-size: 12px;
+      color: #777777;
+      margin-top: 5px; }
+  .ded-list .ded-item:nth-of-type {
+    margin-top: 0; }
+
+/*# sourceMappingURL=detailed.css.map */

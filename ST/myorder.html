@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="style/init.css"/>
+		<link rel="stylesheet" type="text/css" href="style/order.css"/>
+	</head>
+
+	<body>
+
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1mobile">未完成订单</a>
+					<a class="mui-control-item" href="#item2mobile">已完成订单</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="order-wrap">
+								<ul class="history-list">
+									<li>
+										<div class="hoy-title">
+											<span class="week">周五</span>
+											<span class="time">2019-04-22</span>
+											<span class="cate">早餐</span>
+											<span class="bool">未取餐</span>
+										</div>
+										<div class="hoy-main">
+											<div class="meal-img">
+												<img src="img/food.png"/>
+											</div>
+											<div class="meal-info">
+												<p class="font-deepen">豉油鸡+炖汤</p>
+												<p>就餐地点：骏源食堂</p>
+												<p>小计：¥16.5</p>
+												<p class="font-deepen mui-text-right">下单时间：2019-04-15 12:30</p>
+											</div>
+										</div>
+										<p class="hoy-time"></p>
+									</li>
+									<li>
+										<div class="hoy-title">
+											<span class="week">周五</span>
+											<span class="time">2019-04-22</span>
+											<span class="cate">午餐</span>
+											<span class="bool">未取餐</span>
+										</div>
+										<div class="hoy-main">
+											<div class="meal-img">
+												<img src="img/food.png"/>
+											</div>
+											<div class="meal-info">
+												<p class="font-deepen">豉油鸡+炖汤</p>
+												<p>就餐地点：骏源食堂</p>
+												<p>小计：¥16.5</p>
+												<p class="font-deepen mui-text-right">下单时间：2019-04-15 12:30</p>
+											</div>
+										</div>
+										<p class="hoy-time"></p>
+									</li>
+								</ul>
+								
+								<div class="default hide" style="margin-top: 50px;">
+									<div class="dfl-icon order-icon"></div>
+									<p class="dfl-text">还没有该订单内容哦~</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="order-wrap">
+								<ul class="history-list">
+									<li class="finish">
+										<div class="hoy-title">
+											<span class="week">周五</span>
+											<span class="time">2019-04-22</span>
+											<span class="cate">早餐</span>
+											<span class="bool">已取餐</span>
+										</div>
+										<div class="hoy-main">
+											<div class="meal-img">
+												<img src="img/food.png"/>
+											</div>
+											<div class="meal-info">
+												<p class="font-deepen">豉油鸡+炖汤</p>
+												<p>就餐地点：骏源食堂</p>
+												<p>小计：¥16.5</p>
+												<p class="font-deepen mui-text-right">下单时间：2019-04-15 12:30</p>
+											</div>
+										</div>
+										<p class="hoy-time"></p>
+									</li>
+									<li class="finish">
+										<div class="hoy-title">
+											<span class="week">周五</span>
+											<span class="time">2019-04-22</span>
+											<span class="cate">午餐</span>
+											<span class="bool">已取餐</span>
+										</div>
+										<div class="hoy-main">
+											<div class="meal-img">
+												<img src="img/food.png"/>
+											</div>
+											<div class="meal-info">
+												<p class="font-deepen">豉油鸡+炖汤</p>
+												<p>就餐地点：骏源食堂</p>
+												<p>小计：¥16.5</p>
+												<p class="font-deepen mui-text-right">下单时间：2019-04-15 12:30</p>
+											</div>
+										</div>
+										<p class="hoy-time"></p>
+									</li>
+									
+								</ul>
+								<div class="default hide" style="margin-top: 50px;">
+									<div class="dfl-icon order-icon"></div>
+									<p class="dfl-text">还没有该订单内容哦~</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="loading"></div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			
+			
+			document.getElementById('slider').addEventListener('slide', function(e) {
+				if (e.detail.slideNumber === 0) {
+					console.log("请求已完成订单");
+				} else if (e.detail.slideNumber === 1) {
+					console.log("请求未完成订单");
+				}
+			});
+			
+			
+		</script>
+		
+	</body>
+
+</html>

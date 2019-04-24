@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="style/forms.common.css" rel="stylesheet"/>
+		<script src="js/mui.min.js"></script>
+		
+	</head>
+
+	<body>
+		<div class="yysxt-content">
+			
+			<div class="logo"></div>
+			
+			<ul class="ipt-wrap">
+				
+				<li class="ipt-item">
+					<div class="ipt-l">
+						<i class="ipt-icon ipt-icon2"></i>
+					</div>
+					<div class="ipt-r relative">
+						<input id="phonenumber" class="ipt ipt-w1" type="text" name="" id="" value="" placeholder="手机号码" data-input-clear="2"/>
+						<span class="mui-icon icon-clear hide"></span>
+					</div>
+				</li>
+				<li class="ipt-item">
+					<div class="ipt-l">
+						<i class="ipt-icon ipt-icon3"></i>
+					</div>
+					<div class="ipt-r">
+						<input id="verificode" class="ipt ipt-w2" type="text" name="" id="" value="" placeholder="验证码" />
+						<button class="code">发送验证码</button>
+					</div>
+				</li>
+				<li class="ipt-item">
+					<div class="ipt-l">
+						<i class="ipt-icon ipt-icon4"></i>
+					</div>
+					<div class="ipt-r relative">
+						<input id="recomcode" class="ipt ipt-w1" type="text" name="" id="" value="" placeholder="内部推荐码" data-input-clear="3"/>
+						<span class="mui-icon icon-clear hide"></span>
+					</div>
+				</li>
+				
+			</ul>
+			<button class="sbt-btn" data-inter="binding">绑&nbsp;定</button>
+			
+		</div>
+		<script type="text/javascript">
+			
+			mui.init();
+			
+			(function($,win,sendcodefn,registerfn,bindingfn){
+				var phonereg = /^1[34578]\d{9}$/;  //手机号码正则表达式；
+				var username = $("#username");
+				var phonenumber = $("#phonenumber");
+				var verificode = $("#verificode");
+				var recomcode = $("#recomcode");
+				var mechanism = $("#mechanism");
+				var inputs = $("input[data-input-clear]");
+				var clear_ipt = $(".icon-clear");
+				$(".code")[0].addEventListener("tap",function(){
+					if(!phonenumber[0].value){
+						mui.toast("请输入手机号码");
+						return false;
+					}else if(!phonereg.test(phonenumber[0].value)){
+						mui.toast("手机号码格式错误");
+						return false;
+					}else{
+						sendcodefn();    //发送验证码；
+					} 
+				})
+				$(".sbt-btn")[0].addEventListener("tap",function(){
+					if (Boolean(username.length)&&!username[0].value) {
+						mui.toast("请输入姓名");
+						return false;
+					}else if(Boolean(phonenumber.length)&&!phonenumber[0].value){
+						mui.toast("请输入手机号码");
+						return false;
+					}else if(Boolean(phonenumber.length)&&!phonereg.test(phonenumber[0].value)){
+						mui.toast("手机号码格式错误");
+						return false;
+					}else if(Boolean(verificode.length)&&!verificode[0].value){
+						mui.toast("请输入验证码");
+						return false;
+					}else if(Boolean(recomcode.length)&&!recomcode[0].value){
+						mui.toast("请输入邀请码");
+						return false;
+					}else if(Boolean(mechanism.length)&&!mechanism[0].value){
+						mui.toast("请选择所属机构");
+						return false;
+					}else{
+						if(this.getAttribute("data-inter")=="register"){
+							registerfn();  //注册
+						}else if(this.getAttribute("data-inter")=="binding"){
+							bindingfn();   //绑定
+						}
+					}
+				})
+				inputs.each(function(index,ele){
+					ele.addEventListener("input",function(){
+						if(this.value){
+							this.nextElementSibling.classList.remove("hide");
+						}else{
+							this.nextElementSibling.classList.add("hide");
+						}
+					})
+					clear_ipt[index].addEventListener("tap",function(){
+						this.previousElementSibling.value="";
+						this.classList.add("hide");
+					})
+					
+				})
+			})(mui,window,sendcodefn,registerfn,bindingfn)
+			
+			function sendcodefn(){
+				console.log("发送验证码");
+			}
+			function registerfn(){
+				console.log("ajax注册交互");
+			}
+			function bindingfn(){
+				console.log("ajax绑定交互");
+			}
+		</script>
+	</body>
+
+</html>

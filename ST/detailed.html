@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>消费明细</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="style/init.css"/>
+		<link rel="stylesheet" type="text/css" href="style/detailed.css"/>
+		
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron ded-list">
+					<li class="ded-item">
+						<div class="ded-t">
+							<span>消费</span>
+							<span>-7.50</span>
+						</div>
+						<div class="ded-b">
+							<span>2019-04-23 11:30</span>
+							<span>余额:¥95.50</span>
+						</div>
+					</li>
+					<li class="ded-item">
+						<div class="ded-t">
+							<span>消费</span>
+							<span>-7.50</span>
+						</div>
+						<div class="ded-b">
+							<span>2019-04-23 11:30</span>
+							<span>余额:¥95.50</span>
+						</div>
+					</li>
+					<li class="ded-item">
+						<div class="ded-t">
+							<span>消费</span>
+							<span>-7.50</span>
+						</div>
+						<div class="ded-b">
+							<span>2019-04-23 11:30</span>
+							<span>余额:¥95.50</span>
+						</div>
+					</li>
+					<li class="ded-item">
+						<div class="ded-t">
+							<span>退款</span>
+							<span class="refund">+15.00</span>
+						</div>
+						<div class="ded-b">
+							<span>2019-04-23 11:30</span>
+							<span>余额:¥110.50</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<div class="default hide" style="margin-top: 100px;">
+			<div class="dfl-icon order-icon"></div>
+			<p class="dfl-text">您还没有记录~~</p>
+		</div>
+		
+		
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						style:'circle',
+						callback: pulldownRefresh    
+					},
+					up: {
+						auto:true,                           //true,  页面一加载就会执行；
+						contentrefresh: '加载中...',
+						callback: pullupRefresh               
+					}
+				}
+			});
+			
+			
+			function pullupRefresh() {     //加载更多；
+				console.log("加载数据中...");
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(); //关闭正在加载icon；传入参数true；表示没有更多数据了；
+					console.log("加载成功");
+				}, 1500);
+			}
+
+		
+			function pulldownRefresh() {  //刷新
+				console.log("刷新中");
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();  //关闭刷新icon；
+					console.log("刷新成功");
+				}, 1500);
+			}
+
+		</script>
+	</body>
+
+</html>

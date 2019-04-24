@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>您的预定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="style/init.css"/>
+		<link rel="stylesheet" type="text/css" href="style/order.css"/>
+	</head>
+
+	<body>
+		<div class="canteen-content">
+			<div class="order-container">
+				<p class="title">您的预定</p>
+				<ul class="order-list">
+					<li class="order-item">
+						<span class="od-time">2019-04-22</span>
+						<span class="od-type">早餐</span>
+						<span class="od-name">豆浆+面包</span>
+						<span class="od-price">¥3.00</span>
+					</li>
+					<li class="order-item">
+						<span class="od-time">2019-04-22</span>
+						<span class="od-type">午餐</span>
+						<span class="od-name">烧鸭饭+炖汤</span>
+						<span class="od-price">¥16.50</span>
+					</li>
+					<li class="order-item">
+					
+				</ul>
+			</div>
+			<div class="settlement">
+				<div class="settl-l">
+					订单总价:&nbsp;<span class="total">¥<em>25.00</em></span>
+				</div>
+				<div class="settl-r" id="payment">立即支付</div>
+			</div>
+			
+			<!---loading-->
+			<div class="loading"></div>
+		</div>
+		
+		
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			$("#payment").on("touchstart",function(){
+				var btnArray = ["取消","去充值"];
+				mui.confirm("您的钱包余额不足，是否去充值？", "抱歉", btnArray, function(e) {
+					if (e.index == 1) {
+						console.log("跳转充值页面");
+					} else {
+						console.log("取消充值");
+					}
+				})
+			})
+		</script>
+		
+	</body>
+	
+</html>
