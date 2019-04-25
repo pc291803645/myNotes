@@ -99,6 +99,10 @@ em, i {
 .mui-pull {
   /*修改刷新和加载字体字体样式*/ }
 
+.mui-pull-top-pocket {
+  /*修改下拉刷新 显示块的 位置 */
+  top: 40px; }
+
 .default .dfl-icon {
   margin: 0 auto;
   width: 70px;

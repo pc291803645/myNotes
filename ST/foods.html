@@ -14,7 +14,7 @@
 
 	<body>
 		<div class="food-container">
-			<h2 class="mod-title"><span>王小四</span>&nbsp;您有待取餐</h2>
+			<h2 class="mod-title"><span>王小小</span>&nbsp;您有待取餐</h2>
 			<div class="order-content">
 				<div class="order-img">
 					<img src="img/food.png"/>
@@ -37,18 +37,18 @@
 			</div>
 		
 		</div>
-		
+		<div class="food-bg"></div>
 		
 		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var btnArray = ["取消","去订餐"];
-			mui.confirm("您当前没有可取餐单，马上去订餐？", "抱歉", btnArray, function(e) {
-				if (e.index == 1) {
-						console.log("跳转订餐页面");
-				} else {
-					console.log("取消");
-				}
-			})
+//			mui.confirm("您当前没有可取餐单，马上去订餐？", "抱歉", btnArray, function(e) {
+//				if (e.index == 1) {
+//						console.log("跳转订餐页面");
+//				} else {
+//					console.log("取消");
+//				}
+//			})
 		</script>
 		
 	</body>
