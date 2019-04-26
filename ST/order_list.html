@@ -3,11 +3,11 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>您的预定</title>
+		<title>点餐系统</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="style/init.css"/>
-		<link rel="stylesheet" type="text/css" href="style/order.css"/>
+		<link rel="stylesheet" type="text/css" href="style/order.css?v=2019"/>
 	</head>
 
 	<body>
@@ -52,6 +52,7 @@
 				mui.confirm("您的钱包余额不足，是否去充值？", "抱歉", btnArray, function(e) {
 					if (e.index == 1) {
 						console.log("跳转充值页面");
+						location.href = "moneybag.html"
 					} else {
 						console.log("取消充值");
 					}

@@ -172,6 +172,10 @@ body{
         text-indent: 2px;
         background-color: #20C6C6;
         transition-duration: .2s;
+        a{
+            display: block;
+            color: #FFFFFF;
+        }
     }
     .settl-r:active{
         background-color: #009999;
@@ -195,7 +199,7 @@ body{
         width: 3px;
         height: 14px;
         transform: translateY(-50%);
-        background: #009999;
+        background-color: #009999;
     }
     .order-list{
         margin-top: 15px;

@@ -228,7 +228,7 @@
 				<div class="settl-l">
 					需支付:&nbsp;<span class="total">¥<em>25.00</em></span>
 				</div>
-				<div class="settl-r">去结算</div>
+				<div class="settl-r"><a href="order_list.html">去结算</a></div>
 			</div>
 			
 			<!---loading-->
@@ -248,7 +248,7 @@
 			mui('.mui-scroll-wrapper').scroll(); //弹框设置超出可滚动
 			
 			//食堂切换
-			$(".opt-list li").on("touchstart", function() {
+			$(".opt-list li").on("click", function() {
 				$(this).addClass("active").siblings("li").removeClass("active");
 				$(".ctn-name").text($(this).text());
 				setTimeout(function() {
@@ -256,7 +256,7 @@
 				}, 100)
 			})
 			//菜式预定选择
-			$(".menu-items").on("touchstart", function() {
+			$(".menu-items").on("click", function() {
 				if(!$(this).hasClass("menu-select-not")) {
 					$(this).toggleClass("menu-select");
 				} else {
