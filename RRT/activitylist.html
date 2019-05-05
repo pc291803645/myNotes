@@ -63,29 +63,21 @@
 			
 			<div class="city-wrap hide">
 				<div class="city-t">
-					<div class="city-wrap-l">
-						<div class="letter-item active"><!--选中状态添加class：.active-->
-							<div class="letter-text">A-F</div>
-						</div>
-						<div class="letter-item">
-							<div class="letter-text">G-K</div>
-						</div>
-						<div class="letter-item">
-							<div class="letter-text">L-Q</div>
-						</div>
-						<div class="letter-item">
-							<div class="letter-text">R-W</div>
-						</div>
-						<div class="letter-item">
-							<div class="letter-text">X-Z</div>
-						</div>
-					</div>
 					<div class="city-wrap-r">
-						<div class="city-container">
-							<span class="city-item active">广州</span><!--选中状态添加class： .active -->
+						<div class="city-containe hide">
+							<span class="city-item active">全部城市</span><!--选中状态添加class： .active -->
 							<span class="city-item">北京</span>
-							<span class="city-item">广州</span>
-							<span class="city-item">北京</span>
+							<span class="city-item">苏州</span>
+							<span class="city-item">北海</span>
+							<span class="city-item">苏州</span>
+							<span class="city-item">北海</span>
+							<span class="city-item">杭州</span>
+							<span class="city-item">齐齐哈尔</span>
+							<span class="city-item">乌鲁木齐</span>
+							<span class="city-item">深圳</span>
+						</div>
+						<div class="city-default">
+							<p>暂时木有内容呀～～</p>
 						</div>
 					</div>
 				</div>
@@ -144,10 +136,10 @@
 							</div>
 							<div class="rmb_bar">
 								<span>￥0</span>
-								<span>￥2000</span>
-								<span>￥4000</span>
-								<span>￥6000</span>
-								<span>￥8000</span>
+								<span>￥450</span>
+								<span>￥900</span>
+								<span>￥1350</span>
+								<span>￥1800</span>
 								<span>不限</span>
 							</div>
 						</div>
@@ -253,15 +245,52 @@
 	<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function() {
-			init(); //初始化位置；
-			var cell_rmb = 2000; //每个区间代表2000rmb；
-			var iW = ($(".pro-bar").width() / 5); //每个区间的长度；
-			var tW = ($(".min-btn").width() / 2);
-			var min_left = -($(".min-btn").width() / 2); //限制的最小left；
-			var max_left = ($(".pro-bar").width() - $(".max-btn").width() / 2); //限制最大的left；
-			var btn_min_left = ""; //限制拖动点最小的left
-			var btn_max_left = ""; //限制拖动点最大的left
-
+			
+			
+			$(".pst").click(function(){  //城市框显示or隐藏
+				var cityisShow = $(".city-wrap").hasClass("hide")?true:false;
+				if(cityisShow){
+					$(".bg,.city-wrap").removeClass("hide");
+				}else{
+					$(".bg,.city-wrap").addClass("hide");
+				}
+			})
+			
+			
+			$(".screen").click(function(){  //筛选框显示or隐藏
+				var screenisShow = $(".screen-wrap").hasClass("hide")?true:false;
+				if(screenisShow){
+					$(".bg,.screen-wrap").removeClass("hide");
+					init(); //初始化价格区间；
+				}else{
+					$(".bg,.screen-wrap").addClass("hide");
+				}
+			})
+			
+			
+			
+			var cell_rmb = 450; //每个区间代表2000rmb；
+			var iW; //每个区间的长度；
+			var tW;
+			var min_left; //限制的最小left；
+			var max_left; //限制最大的left；
+			var btn_min_left; //限制拖动点最小的left
+			var btn_max_left; //限制拖动点最大的left
+			
+			
+			
+			function init() { //初始化位置；
+				$(".min-btn").css("left", (-$(".min-btn").width() / 2) + "px");
+				$(".max-btn").css("left", $(".pro-bar").width() - $(".max-btn").width() / 2 + "px");
+				$(".min-pri").html("0");
+				$(".max-pri").html("不限");
+				iW = $(".pro-bar").width() / 5;
+				tW = $(".min-btn").width() / 2;
+				min_left = -($(".min-btn").width() / 2);
+				max_left = ($(".pro-bar").width() - $(".max-btn").width() / 2);
+				$(".por-l").css("width","100%");
+			}
+			
 			$(".min-btn").on("touchstart", function(ev) { //手指摁下
 				var ev = ev || window.event;
 				var offsetX = $(this).position().left; //记录手指摁下X轴定位距离
@@ -349,12 +378,7 @@
 				return false;
 			})
 
-			function init() { //初始化位置；
-				$(".min-btn").css("left", (-$(".min-btn").width() / 2) + "px");
-				$(".max-btn").css("left", $(".pro-bar").width() - $(".max-btn").width() / 2 + "px");
-				$(".min-pri").html("0");
-				$(".max-pri").html("不限");
-			}
+			
 		})
 	</script>
 
