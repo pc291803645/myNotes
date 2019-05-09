@@ -65,6 +65,11 @@ table {
 em, i {
   font-style: normal; }
 
+.mui-toast-container {
+  bottom: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important; }
+
 .mui-popup-button {
   color: #009999; }
 

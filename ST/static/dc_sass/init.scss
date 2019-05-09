@@ -69,7 +69,12 @@ em ,i{
     font-style: normal;
 }
 
-
+//mui 自动消失消息弹框位置重定义
+.mui-toast-container{
+    bottom: 50% !important;
+    transform: translate(-50%,-50%) !important;
+    -webkit-transform: translate(-50%,-50%) !important;
+}
 
 //MUI 弹框按钮样式覆盖；
 .mui-popup-button{
